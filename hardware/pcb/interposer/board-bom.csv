@@ -1,0 +1,34 @@
+reference,value,manufacturer_reference,footprint,documentation_url,status
+J1,POWER IN + / -,1776508,PicoPower:Power_GF_2,https://www.phoenixcontact.com/en-us/products/pcb-header-mstb-25-2-gf-508-1776508,draft; footprint review required
+F1,6.3 A candidate / 5x20 holder,0031.8201,PicoPower:Fuse_OGN_P22.5,https://at.schurter.com/en/datasheet/typ_OGN.pdf,draft; footprint review required
+Q1,NMOS input,BSC010N04LS6ATMA1,PicoPower:SuperSO8_Draft,https://www.infineon.com/part/BSC010N04LS6,draft; footprint review required
+Q2,NMOS output,BSC010N04LS6ATMA1,PicoPower:SuperSO8_Draft,https://www.infineon.com/part/BSC010N04LS6,draft; footprint review required
+U1,LTC4367 protection switch,LTC4367IMS8#PBF,PicoPower:MSOP8_P0.65,https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4367.pdf,draft; footprint review required
+RSH1,5 mOhm / 0.5% / 1 W,WSK25125L000DEA,PicoPower:WSK2512_5m_Kelvin,https://www.vishay.com/docs/30108/wsk2512.pdf,draft; footprint review required
+J2,40-pin stacking socket,SSQ-120-03-G-D,PicoPower:Stack_2x20_P2.54,https://www.samtec.com/products/ssq-120-03-g-d,draft; footprint review required
+J3,S+ / S- / VBUS / GND,B4B-XH-A(LF)(SN),PicoPower:XH4_P2.5,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,draft; footprint review required
+J4,GND / PiTX / PiRX / MARK / Pico3V3,B5B-XH-A(LF)(SN),PicoPower:XH5_P2.5,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,draft; footprint review required
+U2,UART power-off buffer,SN74AXC4T245PWR,PicoPower:TSSOP16_P0.65,https://www.ti.com/lit/ds/symlink/sn74axc4t245.pdf,draft; footprint review required
+D1,GREEN POWER,APT2012LZGCK,PicoPower:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,draft; footprint review required
+R2,10.0k 0.1%,,PicoPower:R_0805,,draft; footprint review required
+R3,1.50k 0.1%,,PicoPower:R_0805,,draft; footprint review required
+R4,95.3k 0.1%,,PicoPower:R_0805,,draft; footprint review required
+R5,510k 1%,,PicoPower:R_0805,,draft; footprint review required
+R6,10R,,PicoPower:R_0805,,draft; footprint review required
+R7,10R,,PicoPower:R_0805,,draft; footprint review required
+R8,5.1k,,PicoPower:R_0805,,draft; footprint review required
+R9,2.7k 1% 0.125W,,PicoPower:R_0805,,draft; footprint review required
+R10,100k 1%,,PicoPower:R_0805,,draft; footprint review required
+R11,100k 1%,,PicoPower:R_0805,,draft; footprint review required
+R12,100k 1%,,PicoPower:R_0805,,draft; footprint review required
+R13,100k 1%,,PicoPower:R_0805,,draft; footprint review required
+R14,100k 1%,,PicoPower:R_0805,,draft; footprint review required
+R15,100k 1%,,PicoPower:R_0805,,draft; footprint review required
+C1,12nF C0G 50V,,PicoPower:R_0805,,draft; footprint review required
+C2,100nF X7R 63V,,PicoPower:R_0805,,draft; footprint review required
+C3,100nF X7R 16V,,PicoPower:C_0805,,draft; footprint review required
+C4,100nF X7R 16V,,PicoPower:C_0805,,draft; footprint review required
+TP1,PI_5V,,PicoPower:TestPoint_Pad_2mm,,draft; footprint review required
+TP2,GND,,PicoPower:TestPoint_Pad_2mm,,draft; footprint review required
+TP3,PROTECTED,,PicoPower:TestPoint_Pad_2mm,,draft; footprint review required
+TP4,VIN_FUSED,,PicoPower:TestPoint_Pad_2mm,,draft; footprint review required

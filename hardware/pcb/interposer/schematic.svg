@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760"><rect width="1100" height="760" fill="#f8fafc"/><g font-family="sans-serif" fill="#172536">
+<text x="35" y="40" font-size="25">PicoPower — power and measurement boundary</text>
+<text x="35" y="68" font-size="16" fill="#b45309">Review diagram; editable electrical schematic is interposer.kicad_sch</text>
+<rect x="40" y="150" width="180" height="100" rx="7" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="130" y="185" text-anchor="middle" font-size="17">J1 / Korad</text>
+<text x="130" y="215" text-anchor="middle" font-size="14">5.1 V input</text>
+<path d="M220 200 H240" stroke="#dc2626" stroke-width="3"/>
+<rect x="240" y="150" width="180" height="100" rx="7" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="330" y="185" text-anchor="middle" font-size="17">F1</text>
+<text x="330" y="215" text-anchor="middle" font-size="14">replaceable fuse</text>
+<path d="M420 200 H440" stroke="#dc2626" stroke-width="3"/>
+<rect x="440" y="150" width="180" height="100" rx="7" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="530" y="185" text-anchor="middle" font-size="17">U1 + Q1/Q2</text>
+<text x="530" y="215" text-anchor="middle" font-size="14">protection switch</text>
+<path d="M620 200 H640" stroke="#dc2626" stroke-width="3"/>
+<rect x="650" y="150" width="180" height="100" rx="7" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="740" y="185" text-anchor="middle" font-size="17">RSH1</text>
+<text x="740" y="215" text-anchor="middle" font-size="14">5 mΩ Kelvin shunt</text>
+<path d="M830 200 H850" stroke="#dc2626" stroke-width="3"/>
+<rect x="860" y="150" width="180" height="100" rx="7" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="950" y="185" text-anchor="middle" font-size="17">J2 / Pi + HAT</text>
+<text x="950" y="215" text-anchor="middle" font-size="14">measured load</text>
+<path d="M705 250 V350 H520 M770 250 V380 H520 M950 250 V410 H520" fill="none" stroke="#2563eb" stroke-width="2"/>
+<rect x="300" y="320" width="220" height="140" rx="7" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="410" y="350" text-anchor="middle" font-size="19">INA229EVM</text>
+<text x="410" y="380" text-anchor="middle" font-size="15">SENSE+ / SENSE− / VBUS</text>
+<text x="410" y="415" text-anchor="middle" font-size="15">Powered from Pico 3.3 V</text>
+<rect x="40" y="320" width="180" height="140" rx="7" fill="#fff" stroke="#334155" stroke-width="2"/>
+<text x="130" y="365" text-anchor="middle" font-size="20">Pico 2 W</text>
+<text x="130" y="400" text-anchor="middle" font-size="15">Separate USB power</text>
+<path d="M220 390 H300" stroke="#334155" stroke-width="2"/>
+<text x="260" y="380" text-anchor="middle" font-size="14">SPI</text>
+<text x="45" y="530" font-size="17">Protection supply currents and capacitor are before the shunt.</text>
+<text x="45" y="565" font-size="17">Energy = integral of header-bus voltage × shunt current.</text>
+<text x="45" y="600" font-size="17">Header-contact / return-path losses require characterization.</text>
+<text x="45" y="635" font-size="17">No converter or LED load on measured rail; Pi-side UART buffer overhead IS included.</text>
+</g></svg>

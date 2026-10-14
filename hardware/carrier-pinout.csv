@@ -1,0 +1,20 @@
+interface,pin,signal,pico_gpio,pico_physical_pin,direction,notes
+J_UART,1,GND,,3,ground,Same numbered pin on interposer J4; straight-through cable
+J_UART,2,PICO_RX,GP1,2,input,Same numbered pin on interposer J4; straight-through cable
+J_UART,3,PICO_TX,GP0,1,output,Same numbered pin on interposer J4; straight-through cable
+J_UART,4,PICO_MARK,GP2,4,input,Same numbered pin on interposer J4; straight-through cable
+J_UART,5,PICO_3V3,,36,supply output,Same numbered pin on interposer J4; straight-through cable
+LED1,,LED1,GP4,6,output,Active-high; 1k series resistor; 100k GPIO pull-down; cathode to GND
+LED2,,LED2,GP5,7,output,Active-high; 1k series resistor; 100k GPIO pull-down; cathode to GND
+LED3,,LED3,GP6,9,output,Active-high; 1k series resistor; 100k GPIO pull-down; cathode to GND
+LED4,,LED4,GP7,10,output,Active-high; 1k series resistor; 100k GPIO pull-down; cathode to GND
+LED5,,LED5,GP8,11,output,Active-high; 1k series resistor; 100k GPIO pull-down; cathode to GND
+J_SD,1,SD_DAT2,,,pull-up only,10k to SD_3V3; no host GPIO
+J_SD,2,SD_CS,GP13,17,output,SPI1 software chip select; 10k pull-up
+J_SD,3,SD_MOSI,GP15,20,output,SPI1 TX / CMD; 10k pull-up
+J_SD,4,SD_3V3,,,supply output,Dedicated LDO from Pico USB VBUS pin 40
+J_SD,5,SD_SCLK,GP14,19,output,SPI1 clock; no pull-up
+J_SD,6,GND,,3,ground,Instrument ground
+J_SD,7,SD_MISO,GP12,16,input,SPI1 RX / DAT0; 10k pull-up
+J_SD,8,SD_DAT1,,,pull-up only,10k to SD_3V3; no host GPIO
+J_SD,9,GND,,3,ground,All four socket shell solder pads

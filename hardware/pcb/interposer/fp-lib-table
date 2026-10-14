@@ -1,0 +1,1 @@
+(fp_lib_table (lib (name "PicoPower") (type "KiCad") (uri "${KIPRJMOD}/PicoPower.pretty") (options "") (descr "Review-stage footprints")))

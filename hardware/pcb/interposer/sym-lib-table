@@ -1,0 +1,1 @@
+(sym_lib_table (lib (name "PicoPower") (type "KiCad") (uri "${KIPRJMOD}/PicoPower.kicad_sym") (options "") (descr "Self-contained review symbols")))

@@ -1,0 +1,915 @@
+{
+  "revision": "A-draft",
+  "release_status": "not-for-manufacture",
+  "protection_default": "electronic-switch-before-shunt",
+  "board": {
+    "width_mm": 67.13,
+    "height_mm": 46,
+    "thickness_mm": 1.6,
+    "copper_um": 70,
+    "layers": 2,
+    "clearance_mm": 0.2,
+    "header_band_y_mm": 36.5,
+    "routing_status": "routed; DRC and bench review required",
+    "outline_mm": [
+      [
+        0,
+        0
+      ],
+      [
+        66,
+        0
+      ],
+      [
+        66,
+        37
+      ],
+      [
+        67.13,
+        37
+      ],
+      [
+        67.13,
+        46
+      ],
+      [
+        0,
+        46
+      ]
+    ],
+    "mounting_holes": [
+      {
+        "ref": "H1",
+        "position_mm": [
+          5.13,
+          41.27
+        ]
+      },
+      {
+        "ref": "H2",
+        "position_mm": [
+          63.13,
+          41.27
+        ]
+      }
+    ],
+    "mounting_drill_mm": 2.7,
+    "mounting_keepout_diameter_mm": 6,
+    "mounting_status": "provisional; verify on physical Pi 5"
+  },
+  "shunt": {
+    "ohms": 0.005,
+    "tolerance": 0.005,
+    "rated_watts": 1
+  },
+  "load": {
+    "nominal_volts": 5.1,
+    "max_amperes": 5
+  },
+  "protection": {
+    "bottom_ohms": 10000,
+    "middle_ohms": 1500,
+    "top_ohms": 95300,
+    "resistor_tolerance": 0.001,
+    "threshold_min_volts": 0.4925,
+    "threshold_max_volts": 0.5075,
+    "hysteresis_min_volts": 0.02,
+    "hysteresis_max_volts": 0.032,
+    "pin_leakage_amperes": 1e-08,
+    "intended_fault_range_volts": [
+      -30,
+      30
+    ]
+  },
+  "interface": {
+    "buffer": "SN74AXC4T245PWR",
+    "uart_baud": 115200,
+    "pi_side_overhead": "included in DUT current; characterize static and switching load",
+    "isolation_below_volts": 0.1,
+    "physical_validation": "not performed"
+  },
+  "sources": {
+    "shunt_footprint": "https://raw.githubusercontent.com/KiCad/kicad-footprints/master/Resistor_SMD.pretty/R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm.kicad_mod"
+  },
+  "parts": [
+    {
+      "ref": "J1",
+      "value": "POWER IN + / -",
+      "mpn": "1776508",
+      "footprint": "Power_GF_2",
+      "pins": {
+        "1": "VIN_RAW",
+        "2": "GND"
+      },
+      "position_mm": [
+        14.08,
+        12
+      ],
+      "body_mm": [
+        20.32,
+        12
+      ],
+      "documentation_url": "https://www.phoenixcontact.com/en-us/products/pcb-header-mstb-25-2-gf-508-1776508",
+      "kind": "passive",
+      "footprint_source": "Connector_Phoenix_MSTB:PhoenixContact_MSTB_2,5_2-GF-5,08_1x02_P5.08mm_Horizontal_ThreadedFlange"
+    },
+    {
+      "ref": "F1",
+      "value": "6.3 A candidate / 5x20 holder",
+      "mpn": "0031.8201",
+      "footprint": "Fuse_OGN_P22.5",
+      "pins": {
+        "1": "VIN_RAW",
+        "2": "VIN_FUSED"
+      },
+      "position_mm": [
+        6,
+        22
+      ],
+      "body_mm": [
+        28,
+        10
+      ],
+      "documentation_url": "https://at.schurter.com/en/datasheet/typ_OGN.pdf",
+      "kind": "passive",
+      "footprint_source": "Fuse:Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open"
+    },
+    {
+      "ref": "Q1",
+      "value": "NMOS input",
+      "mpn": "BSC010N04LS6ATMA1",
+      "footprint": "SuperSO8_Draft",
+      "pins": {
+        "1": "COMMON_SOURCE",
+        "2": "COMMON_SOURCE",
+        "3": "COMMON_SOURCE",
+        "4": "GATE_Q1",
+        "5": "VIN_FUSED"
+      },
+      "position_mm": [
+        35,
+        21
+      ],
+      "body_mm": [
+        6,
+        5
+      ],
+      "documentation_url": "https://www.infineon.com/part/BSC010N04LS6",
+      "kind": "mosfet",
+      "footprint_source": "Package_TO_SOT_SMD:TDSON-8-1"
+    },
+    {
+      "ref": "Q2",
+      "value": "NMOS output",
+      "mpn": "BSC010N04LS6ATMA1",
+      "footprint": "SuperSO8_Draft",
+      "pins": {
+        "1": "COMMON_SOURCE",
+        "2": "COMMON_SOURCE",
+        "3": "COMMON_SOURCE",
+        "4": "GATE_Q2",
+        "5": "PROTECTED"
+      },
+      "position_mm": [
+        45,
+        21
+      ],
+      "body_mm": [
+        6,
+        5
+      ],
+      "documentation_url": "https://www.infineon.com/part/BSC010N04LS6",
+      "kind": "mosfet",
+      "footprint_source": "Package_TO_SOT_SMD:TDSON-8-1"
+    },
+    {
+      "ref": "U1",
+      "value": "LTC4367 protection switch",
+      "mpn": "LTC4367IMS8#PBF",
+      "footprint": "MSOP8_P0.65",
+      "pins": {
+        "1": "VIN_FUSED",
+        "2": "UV",
+        "3": "OV",
+        "4": "GND",
+        "5": "SHDN",
+        "6": null,
+        "7": "PROTECTED",
+        "8": "GATE_DRV"
+      },
+      "position_mm": [
+        39,
+        9
+      ],
+      "body_mm": [
+        3,
+        3
+      ],
+      "documentation_url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4367.pdf",
+      "kind": "ic",
+      "footprint_source": "Package_SO:MSOP-8_3x3mm_P0.65mm"
+    },
+    {
+      "ref": "RSH1",
+      "value": "5 mOhm / 0.5% / 1 W",
+      "mpn": "WSK25125L000DEA",
+      "footprint": "WSK2512_5m_Kelvin",
+      "pins": {
+        "1": "PROTECTED",
+        "2": "SENSE_PLUS",
+        "3": "SENSE_MINUS",
+        "4": "PI_5V"
+      },
+      "position_mm": [
+        55,
+        30
+      ],
+      "body_mm": [
+        6.35,
+        3.18
+      ],
+      "documentation_url": "https://www.vishay.com/docs/30108/wsk2512.pdf",
+      "kind": "shunt",
+      "footprint_source": "Resistor_SMD:R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm"
+    },
+    {
+      "ref": "J2",
+      "value": "40-pin stacking socket",
+      "mpn": "SSQ-120-03-G-D",
+      "footprint": "Stack_2x20_P2.54",
+      "pins": {
+        "1": "PI_3V3",
+        "2": "PI_5V",
+        "3": "GPIO2",
+        "4": "PI_5V",
+        "5": "GPIO3",
+        "6": "GND",
+        "7": "GPIO4",
+        "8": "GPIO14",
+        "9": "GND",
+        "10": "GPIO15",
+        "11": "GPIO17",
+        "12": "GPIO18",
+        "13": "GPIO27",
+        "14": "GND",
+        "15": "GPIO22",
+        "16": "GPIO23",
+        "17": "PI_3V3",
+        "18": "GPIO24",
+        "19": "GPIO10",
+        "20": "GND",
+        "21": "GPIO9",
+        "22": "GPIO25",
+        "23": "GPIO11",
+        "24": "GPIO8",
+        "25": "GND",
+        "26": "GPIO7",
+        "27": "ID_SD",
+        "28": "ID_SC",
+        "29": "GPIO5",
+        "30": "GND",
+        "31": "GPIO6",
+        "32": "GPIO12",
+        "33": "GPIO13",
+        "34": "GND",
+        "35": "GPIO19",
+        "36": "GPIO16",
+        "37": "GPIO26",
+        "38": "GPIO20",
+        "39": "GND",
+        "40": "GPIO21"
+      },
+      "position_mm": [
+        10,
+        42.54
+      ],
+      "body_mm": [
+        51,
+        5.1
+      ],
+      "documentation_url": "https://www.samtec.com/products/ssq-120-03-g-d",
+      "kind": "header"
+    },
+    {
+      "ref": "J3",
+      "value": "S+ / S- / VBUS / GND",
+      "mpn": "B4B-XH-A(LF)(SN)",
+      "footprint": "XH4_P2.5",
+      "pins": {
+        "1": "SENSE_PLUS",
+        "2": "SENSE_MINUS",
+        "3": "PI_5V",
+        "4": "GND"
+      },
+      "position_mm": [
+        54,
+        8
+      ],
+      "body_mm": [
+        12.4,
+        5.8
+      ],
+      "documentation_url": "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf",
+      "kind": "passive",
+      "footprint_source": "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical"
+    },
+    {
+      "ref": "J4",
+      "value": "GND / PiTX / PiRX / MARK / Pico3V3",
+      "mpn": "B5B-XH-A(LF)(SN)",
+      "footprint": "XH5_P2.5",
+      "pins": {
+        "1": "GND",
+        "2": "PICO_RX",
+        "3": "PICO_TX",
+        "4": "PICO_MARK",
+        "5": "PICO_3V3"
+      },
+      "position_mm": [
+        6,
+        32
+      ],
+      "body_mm": [
+        14.9,
+        5.8
+      ],
+      "documentation_url": "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf",
+      "kind": "passive",
+      "footprint_source": "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical"
+    },
+    {
+      "ref": "U2",
+      "value": "UART power-off buffer",
+      "mpn": "SN74AXC4T245PWR",
+      "footprint": "TSSOP16_P0.65",
+      "pins": {
+        "1": "PICO_3V3",
+        "2": "GND",
+        "3": "PICO_3V3",
+        "4": "PICO_RX",
+        "5": "PICO_MARK",
+        "6": "PICO_TX",
+        "7": "GND",
+        "8": "GND",
+        "9": "GND",
+        "10": null,
+        "11": "GPIO15",
+        "12": "GPIO17",
+        "13": "GPIO14",
+        "14": "GND",
+        "15": "GND",
+        "16": "PI_3V3"
+      },
+      "position_mm": [
+        35,
+        29
+      ],
+      "body_mm": [
+        4.4,
+        5
+      ],
+      "documentation_url": "https://www.ti.com/lit/ds/symlink/sn74axc4t245.pdf",
+      "kind": "buffer",
+      "footprint_source": "Package_SO:TSSOP-16_4.4x5mm_P0.65mm"
+    },
+    {
+      "ref": "D1",
+      "value": "GREEN POWER",
+      "mpn": "APT2012LZGCK",
+      "footprint": "LED_0805",
+      "pins": {
+        "1": "GND",
+        "2": "LED_A"
+      },
+      "position_mm": [
+        54,
+        17
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
+      "kind": "led",
+      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+    },
+    {
+      "ref": "R2",
+      "value": "10.0k 0.1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "OV",
+        "2": "GND"
+      },
+      "position_mm": [
+        31,
+        7
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R3",
+      "value": "1.50k 0.1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "UV",
+        "2": "OV"
+      },
+      "position_mm": [
+        31,
+        11
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R4",
+      "value": "95.3k 0.1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "VIN_FUSED",
+        "2": "UV"
+      },
+      "position_mm": [
+        31,
+        15
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R5",
+      "value": "510k 1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "VIN_FUSED",
+        "2": "SHDN"
+      },
+      "position_mm": [
+        40,
+        15
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R6",
+      "value": "10R",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "GATE_DRV",
+        "2": "GATE_Q1"
+      },
+      "position_mm": [
+        35,
+        16
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R7",
+      "value": "10R",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "GATE_DRV",
+        "2": "GATE_Q2"
+      },
+      "position_mm": [
+        46,
+        16
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R8",
+      "value": "5.1k",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "GATE_DRV",
+        "2": "GATE_RC"
+      },
+      "position_mm": [
+        46,
+        10
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R9",
+      "value": "2.7k 1% 0.125W",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "PROTECTED",
+        "2": "LED_A"
+      },
+      "position_mm": [
+        58,
+        17
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R10",
+      "value": "100k 1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "PI_3V3",
+        "2": "GPIO14"
+      },
+      "position_mm": [
+        21,
+        29
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R11",
+      "value": "100k 1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "PI_3V3",
+        "2": "GPIO15"
+      },
+      "position_mm": [
+        25,
+        29
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R12",
+      "value": "100k 1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "PICO_3V3",
+        "2": "PICO_TX"
+      },
+      "position_mm": [
+        29,
+        34
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R13",
+      "value": "100k 1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "PICO_3V3",
+        "2": "PICO_RX"
+      },
+      "position_mm": [
+        33,
+        34
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R14",
+      "value": "100k 1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "GPIO17",
+        "2": "GND"
+      },
+      "position_mm": [
+        22,
+        32
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R15",
+      "value": "100k 1%",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "PICO_MARK",
+        "2": "GND"
+      },
+      "position_mm": [
+        37,
+        34
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "C1",
+      "value": "12nF C0G 50V",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "GATE_RC",
+        "2": "GND"
+      },
+      "position_mm": [
+        46,
+        6
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "C2",
+      "value": "100nF X7R 63V",
+      "mpn": "",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "VIN_FUSED",
+        "2": "GND"
+      },
+      "position_mm": [
+        24,
+        13
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "C3",
+      "value": "100nF X7R 16V",
+      "mpn": "",
+      "footprint": "C_0805",
+      "pins": {
+        "1": "PICO_3V3",
+        "2": "GND"
+      },
+      "position_mm": [
+        34,
+        25
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+    },
+    {
+      "ref": "C4",
+      "value": "100nF X7R 16V",
+      "mpn": "",
+      "footprint": "C_0805",
+      "pins": {
+        "1": "PI_3V3",
+        "2": "GND"
+      },
+      "position_mm": [
+        40,
+        25
+      ],
+      "body_mm": [
+        2,
+        1.25
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+    },
+    {
+      "ref": "TP1",
+      "value": "PI_5V",
+      "mpn": "",
+      "footprint": "TestPoint_Pad_2mm",
+      "pins": {
+        "1": "PI_5V"
+      },
+      "position_mm": [
+        22.5,
+        35
+      ],
+      "body_mm": [
+        2,
+        2
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "TestPoint:TestPoint_Pad_D2.0mm"
+    },
+    {
+      "ref": "TP2",
+      "value": "GND",
+      "mpn": "",
+      "footprint": "TestPoint_Pad_2mm",
+      "pins": {
+        "1": "GND"
+      },
+      "position_mm": [
+        48,
+        33.7
+      ],
+      "body_mm": [
+        2,
+        2
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "TestPoint:TestPoint_Pad_D2.0mm"
+    },
+    {
+      "ref": "TP3",
+      "value": "PROTECTED",
+      "mpn": "",
+      "footprint": "TestPoint_Pad_2mm",
+      "pins": {
+        "1": "PROTECTED"
+      },
+      "position_mm": [
+        46,
+        30
+      ],
+      "body_mm": [
+        2,
+        2
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "TestPoint:TestPoint_Pad_D2.0mm"
+    },
+    {
+      "ref": "TP4",
+      "value": "VIN_FUSED",
+      "mpn": "",
+      "footprint": "TestPoint_Pad_2mm",
+      "pins": {
+        "1": "VIN_FUSED"
+      },
+      "position_mm": [
+        24,
+        6
+      ],
+      "body_mm": [
+        2,
+        2
+      ],
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "TestPoint:TestPoint_Pad_D2.0mm"
+    },
+    {
+      "ref": "J5",
+      "value": "Logical HAT side of J2",
+      "mpn": "",
+      "footprint": "Stack_2x20_P2.54",
+      "pins": {
+        "1": "PI_3V3",
+        "2": "PI_5V",
+        "3": "GPIO2",
+        "4": "PI_5V",
+        "5": "GPIO3",
+        "6": "GND",
+        "7": "GPIO4",
+        "8": "GPIO14",
+        "9": "GND",
+        "10": "GPIO15",
+        "11": "GPIO17",
+        "12": "GPIO18",
+        "13": "GPIO27",
+        "14": "GND",
+        "15": "GPIO22",
+        "16": "GPIO23",
+        "17": "PI_3V3",
+        "18": "GPIO24",
+        "19": "GPIO10",
+        "20": "GND",
+        "21": "GPIO9",
+        "22": "GPIO25",
+        "23": "GPIO11",
+        "24": "GPIO8",
+        "25": "GND",
+        "26": "GPIO7",
+        "27": "ID_SD",
+        "28": "ID_SC",
+        "29": "GPIO5",
+        "30": "GND",
+        "31": "GPIO6",
+        "32": "GPIO12",
+        "33": "GPIO13",
+        "34": "GND",
+        "35": "GPIO19",
+        "36": "GPIO16",
+        "37": "GPIO26",
+        "38": "GPIO20",
+        "39": "GND",
+        "40": "GPIO21"
+      },
+      "position_mm": [
+        10,
+        42.54
+      ],
+      "body_mm": [
+        51,
+        5.1
+      ],
+      "documentation_url": "",
+      "kind": "header",
+      "on_board": false,
+      "in_bom": false
+    }
+  ]
+}

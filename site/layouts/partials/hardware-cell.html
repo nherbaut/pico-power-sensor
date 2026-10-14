@@ -1,0 +1,20 @@
+{{- $field := .field -}}
+{{- $value := .value -}}
+{{- $row := .row -}}
+{{- $component := index hugo.Data.components $row.component_id -}}
+{{- $url := "" -}}
+{{- $purpose := "" -}}
+{{- if and $component (in (slice "manufacturer" "manufacturer_reference") $field) -}}
+  {{- $url = $component.documentation_url -}}
+  {{- $purpose = "Documentation" -}}
+{{- else if and $component (in (slice "supplier" "supplier_reference") $field) -}}
+  {{- if and (eq $row.supplier $component.supplier) (eq $row.supplier_reference $component.supplier_reference) -}}
+    {{- $url = $component.product_url -}}
+    {{- $purpose = "Purchase" -}}
+  {{- end -}}
+{{- end -}}
+{{- if and $value (hasPrefix $url "https://") -}}
+<a href="{{ $url }}" title="{{ $purpose }} : {{ $component.model }}">{{ $value }} <span aria-hidden="true">↗</span></a>
+{{- else -}}
+{{ $value }}
+{{- end -}}

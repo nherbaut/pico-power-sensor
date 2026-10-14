@@ -1,0 +1,288 @@
+(footprint "WSK2512_5m_Kelvin"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Shunt Resistor SMD 2512 (6332 Metric), 2.6mm thick, Vishay WKS2512, Terminal length (T) 1.19mm, 5 to 200 milli Ohm (http://http://www.vishay.com/docs/30108/wsk.pdf)")
+	(tags "resistor shunt WSK2512")
+	(property "Reference" "REF**"
+		(at 0 -2.65 0)
+		(layer "F.SilkS")
+		(uuid "68e6b123-8799-4e4d-ae89-dddadc060388")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "5 mOhm / 0.5% / 1 W"
+		(at 0 2.65 0)
+		(layer "F.Fab")
+		(uuid "017ad969-d787-49cb-8694-209f79820c01")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b2ba2a7e-8f21-4892-8f4d-0ec5e2e07872")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a72e7433-077d-40d1-a43d-042447b1afea")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.5 1.7)
+		(end 1.67 1.7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6cb60fd1-ebb0-4ae5-a8b0-f133a0972ac2")
+	)
+	(fp_line
+		(start -1.67 -1.7)
+		(end 2.53 -1.7)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "46512401-fdf6-41a2-a112-e68aa0b7173c")
+	)
+	(fp_line
+		(start -4.38 -1.9)
+		(end 4.38 -1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "2902d003-e7cb-48b7-9823-ab6a11966e0f")
+	)
+	(fp_line
+		(start -4.38 1.9)
+		(end -4.38 -1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "e89f0ad9-ace7-4fc7-8def-b0b7884fa41a")
+	)
+	(fp_line
+		(start 4.38 -1.9)
+		(end 4.38 1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "5bb54b43-b768-48fc-8e92-e49f595c4b5c")
+	)
+	(fp_line
+		(start 4.38 1.9)
+		(end -4.38 1.9)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "34f52074-d2a9-4e43-9a86-bf1860768790")
+	)
+	(fp_line
+		(start -3.175 -1.59)
+		(end 3.175 -1.59)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "4d43ed06-9c1b-465d-ad14-d201ab8ee18c")
+	)
+	(fp_line
+		(start -3.175 0.32)
+		(end -3.175 -1.59)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "19b68e7a-65c0-484b-84f3-7538b336ec3a")
+	)
+	(fp_line
+		(start -3.175 0.32)
+		(end -2.795 0.32)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "7f5563b4-20e9-48b4-b5ac-2dd9a76cb694")
+	)
+	(fp_line
+		(start -3.175 0.94)
+		(end -3.175 1.59)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "199c8db3-288f-4985-a94a-2564b88a25a7")
+	)
+	(fp_line
+		(start -3.175 0.94)
+		(end -2.795 0.94)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "5fec1cfc-deef-4a24-950c-a24854b90e57")
+	)
+	(fp_line
+		(start -2.795 0.94)
+		(end -2.795 0.32)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "82b99e03-ba62-4855-863f-854cc43a18db")
+	)
+	(fp_line
+		(start 2.79 -0.94)
+		(end 3.17 -0.94)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "f4752e1d-a231-45e2-9ae8-30901b5a2a64")
+	)
+	(fp_line
+		(start 2.79 -0.32)
+		(end 2.79 -0.94)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e6750a1a-578f-43f3-ba3e-75ec77bc489e")
+	)
+	(fp_line
+		(start 2.79 -0.32)
+		(end 3.17 -0.32)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d7fa2a2e-4da5-4b47-963a-560b8b65eecd")
+	)
+	(fp_line
+		(start 3.175 -0.94)
+		(end 3.175 -1.59)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "99fb58b7-25de-4b75-9e56-7c650bcf155d")
+	)
+	(fp_line
+		(start 3.175 -0.32)
+		(end 3.175 1.59)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "057b4df4-afad-4108-92a1-a4635f4d32c8")
+	)
+	(fp_line
+		(start 3.175 1.59)
+		(end -3.175 1.59)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "e79ed68a-bf37-43a6-bd64-d2ab4102c484")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "e81cb0e6-4703-41bf-b9a7-318c44d3c109")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -2.985 -0.635)
+		(size 2.29 2.03)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.12)
+		(uuid "53a65db5-a64b-4711-aa62-8bdbdc2e51e9")
+	)
+	(pad "2" smd roundrect
+		(at -3.43 1.27)
+		(size 1.4 0.76)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.12)
+		(uuid "503c5787-5a1e-438f-9ff8-96edc050b1cf")
+	)
+	(pad "3" smd roundrect
+		(at 3.43 -1.27)
+		(size 1.4 0.76)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.25)
+		(uuid "175afc29-9b02-47ed-a978-27da4072f643")
+	)
+	(pad "4" smd roundrect
+		(at 2.985 0.635)
+		(size 2.29 2.03)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.12)
+		(uuid "0a6a1418-51f1-4ca7-9e99-db68da4cdef1")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Resistor_SMD.3dshapes/R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

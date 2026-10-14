@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
+  <meta name="description" content="{{ .Site.Params.description }}">
+  <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header>
+    <a class="brand" href="{{ "" | relURL }}">PicoPower<span>Raspberry Pi energy experiments</span></a>
+    <nav aria-label="Main navigation">
+      {{ range slice (dict "path" "hardware/bom/" "label" "Hardware") (dict "path" "docs/" "label" "Documentation") (dict "path" "nodes/" "label" "Instruments") (dict "path" "tests/" "label" "Tests") }}
+      <a href="{{ .path | relURL }}">{{ .label }}</a>
+      {{ end }}
+      {{ with .Site.Params.githubRepository }}<a href="{{ . }}/issues">Issues</a>{{ end }}
+    </nav>
+  </header>
+  <main id="content">
+    {{ if not .IsHome }}<a class="back" href="{{ "" | relURL }}">← Overview</a>{{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.source }}<p class="source">Source: {{ . }}</p>{{ end }}
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer>
+    PicoPower · Project documentation
+    {{ with .Site.Params.githubRepository }}
+      {{ $title := printf "Documentation : %s" $.Title }}
+      {{ $body := printf "Affected page: %s\n\nProblem description:\n" $.Permalink }}
+      · <a href="{{ . }}/issues/new?title={{ $title | urlquery }}&amp;body={{ $body | urlquery }}">Report a problem with this page</a>
+    {{ end }}
+  </footer>
+</body>
+</html>

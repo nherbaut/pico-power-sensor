@@ -1,0 +1,721 @@
+{
+  "revision": "A-draft",
+  "release_status": "not-for-manufacture",
+  "physical_validation": "not performed",
+  "board": {
+    "width_mm": 66,
+    "height_mm": 54,
+    "thickness_mm": 1.6,
+    "copper_um": 35,
+    "layers": 2,
+    "routing_status": "routed; native DRC required",
+    "mounting_drill_mm": 2.7,
+    "mounting_keepout_diameter_mm": 6,
+    "mounting_holes": [
+      {
+        "ref": "H1",
+        "position_mm": [
+          4,
+          4
+        ]
+      },
+      {
+        "ref": "H2",
+        "position_mm": [
+          62,
+          4
+        ]
+      },
+      {
+        "ref": "H3",
+        "position_mm": [
+          4,
+          50
+        ]
+      },
+      {
+        "ref": "H4",
+        "position_mm": [
+          62,
+          50
+        ]
+      }
+    ],
+    "antenna_keepout_mm": [
+      33.79,
+      44.13,
+      48,
+      54
+    ]
+  },
+  "gpio": {
+    "uart_rx": 1,
+    "uart_tx": 0,
+    "marker": 2,
+    "alert": 3,
+    "sclk": 18,
+    "mosi": 19,
+    "miso": 16,
+    "cs": 17,
+    "leds": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "sd_spi": 1,
+    "sd_miso": 12,
+    "sd_cs": 13,
+    "sd_sclk": 14,
+    "sd_mosi": 15
+  },
+  "storage": {
+    "interface": "SPI1",
+    "voltage": 3.3,
+    "regulator": "TLV75533PDBVR",
+    "supply": "USB_5V",
+    "card_detect": false,
+    "firmware_status": "not implemented",
+    "logging": "buffered acquisition; SD stalls must not block sampling"
+  },
+  "parts": [
+    {
+      "ref": "J_PICO",
+      "value": "Pico 2 W / socketed",
+      "footprint": "Pico_Socketed",
+      "pins": {
+        "1": "PICO_TX",
+        "2": "PICO_RX",
+        "3": "GND",
+        "4": "PICO_MARK",
+        "5": "ALERT",
+        "6": "LED1_GPIO",
+        "7": "LED2_GPIO",
+        "8": "GND",
+        "9": "LED3_GPIO",
+        "10": "LED4_GPIO",
+        "11": "LED5_GPIO",
+        "12": null,
+        "13": "GND",
+        "14": null,
+        "15": null,
+        "16": "SD_MISO",
+        "17": "SD_CS",
+        "18": "GND",
+        "19": "SD_SCLK",
+        "20": "SD_MOSI",
+        "21": "MISO",
+        "22": "CS",
+        "23": "GND",
+        "24": "SCLK",
+        "25": "MOSI",
+        "26": null,
+        "27": null,
+        "28": "GND",
+        "29": null,
+        "30": null,
+        "31": null,
+        "32": null,
+        "33": "GND",
+        "34": null,
+        "35": null,
+        "36": "PICO_3V3",
+        "37": null,
+        "38": "GND",
+        "39": null,
+        "40": "USB_5V"
+      },
+      "position_mm": [
+        32,
+        3
+      ],
+      "mpn": "Pico 2 W",
+      "documentation_url": "https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf",
+      "kind": "passive",
+      "footprint_source": "Module:RaspberryPi_Pico_Common_THT"
+    },
+    {
+      "ref": "J_UART",
+      "value": "INTERPOSER / JST-XH-5",
+      "footprint": "XH5",
+      "pins": {
+        "1": "GND",
+        "2": "PICO_RX",
+        "3": "PICO_TX",
+        "4": "PICO_MARK",
+        "5": "PICO_3V3"
+      },
+      "position_mm": [
+        15,
+        10
+      ],
+      "mpn": "B5B-XH-A(LF)(SN)",
+      "documentation_url": "https://www.jst-mfg.com/product/pdf/eng/eXH.pdf",
+      "kind": "passive",
+      "footprint_source": "Connector_JST:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical"
+    },
+    {
+      "ref": "J_EVM",
+      "value": "INA229EVM / direct plug",
+      "footprint": "NPPN062FJFN",
+      "pins": {
+        "1": "CS",
+        "2": null,
+        "3": "SCLK",
+        "4": "GND",
+        "5": "MOSI",
+        "6": "PICO_3V3",
+        "7": "MISO",
+        "8": "ALERT",
+        "9": null,
+        "10": null,
+        "11": null,
+        "12": null
+      },
+      "position_mm": [
+        11,
+        23
+      ],
+      "mpn": "NPPN062FJFN-RC",
+      "documentation_url": "https://drawings-pdf.s3.amazonaws.com/10461.pdf",
+      "kind": "header",
+      "footprint_source": "Sullins drawing 10461-H; local mating-number convention"
+    },
+    {
+      "ref": "D1",
+      "value": "LED1 GREEN",
+      "footprint": "LED_0805",
+      "pins": {
+        "1": "GND",
+        "2": "LED1_A"
+      },
+      "position_mm": [
+        60,
+        13
+      ],
+      "mpn": "APT2012LZGCK",
+      "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
+      "kind": "led",
+      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+    },
+    {
+      "ref": "R_LED1",
+      "value": "1k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED1_GPIO",
+        "2": "LED1_A"
+      },
+      "position_mm": [
+        60,
+        15.3
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_PD1",
+      "value": "100k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED1_GPIO",
+        "2": "GND"
+      },
+      "position_mm": [
+        60,
+        17.6
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "D2",
+      "value": "LED2 GREEN",
+      "footprint": "LED_0805",
+      "pins": {
+        "1": "GND",
+        "2": "LED2_A"
+      },
+      "position_mm": [
+        60,
+        20
+      ],
+      "mpn": "APT2012LZGCK",
+      "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
+      "kind": "led",
+      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+    },
+    {
+      "ref": "R_LED2",
+      "value": "1k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED2_GPIO",
+        "2": "LED2_A"
+      },
+      "position_mm": [
+        60,
+        22.3
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_PD2",
+      "value": "100k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED2_GPIO",
+        "2": "GND"
+      },
+      "position_mm": [
+        60,
+        24.6
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "D3",
+      "value": "LED3 GREEN",
+      "footprint": "LED_0805",
+      "pins": {
+        "1": "GND",
+        "2": "LED3_A"
+      },
+      "position_mm": [
+        60,
+        27
+      ],
+      "mpn": "APT2012LZGCK",
+      "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
+      "kind": "led",
+      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+    },
+    {
+      "ref": "R_LED3",
+      "value": "1k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED3_GPIO",
+        "2": "LED3_A"
+      },
+      "position_mm": [
+        60,
+        29.3
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_PD3",
+      "value": "100k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED3_GPIO",
+        "2": "GND"
+      },
+      "position_mm": [
+        60,
+        31.6
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "D4",
+      "value": "LED4 GREEN",
+      "footprint": "LED_0805",
+      "pins": {
+        "1": "GND",
+        "2": "LED4_A"
+      },
+      "position_mm": [
+        60,
+        34
+      ],
+      "mpn": "APT2012LZGCK",
+      "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
+      "kind": "led",
+      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+    },
+    {
+      "ref": "R_LED4",
+      "value": "1k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED4_GPIO",
+        "2": "LED4_A"
+      },
+      "position_mm": [
+        60,
+        36.3
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_PD4",
+      "value": "100k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED4_GPIO",
+        "2": "GND"
+      },
+      "position_mm": [
+        60,
+        38.6
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "D5",
+      "value": "LED5 GREEN",
+      "footprint": "LED_0805",
+      "pins": {
+        "1": "GND",
+        "2": "LED5_A"
+      },
+      "position_mm": [
+        60,
+        41
+      ],
+      "mpn": "APT2012LZGCK",
+      "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
+      "kind": "led",
+      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+    },
+    {
+      "ref": "R_LED5",
+      "value": "1k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED5_GPIO",
+        "2": "LED5_A"
+      },
+      "position_mm": [
+        60,
+        43.3
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_PD5",
+      "value": "100k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "LED5_GPIO",
+        "2": "GND"
+      },
+      "position_mm": [
+        60,
+        45.6
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_CS",
+      "value": "100k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "PICO_3V3",
+        "2": "CS"
+      },
+      "position_mm": [
+        19,
+        23
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "C1",
+      "value": "100nF X7R 16V",
+      "footprint": "C_0805",
+      "pins": {
+        "1": "PICO_3V3",
+        "2": "GND"
+      },
+      "position_mm": [
+        19,
+        27
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+    },
+    {
+      "ref": "C2",
+      "value": "1uF X7R 16V",
+      "footprint": "C_0805",
+      "pins": {
+        "1": "PICO_3V3",
+        "2": "GND"
+      },
+      "position_mm": [
+        19,
+        31
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+    },
+    {
+      "ref": "TP1",
+      "value": "PICO 3V3",
+      "footprint": "TestPoint",
+      "pins": {
+        "1": "PICO_3V3"
+      },
+      "position_mm": [
+        24,
+        35
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "TestPoint:TestPoint_Pad_D2.0mm"
+    },
+    {
+      "ref": "TP2",
+      "value": "GND",
+      "footprint": "TestPoint",
+      "pins": {
+        "1": "GND"
+      },
+      "position_mm": [
+        18,
+        35
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "TestPoint:TestPoint_Pad_D2.0mm"
+    },
+    {
+      "ref": "J_SD",
+      "value": "microSD / hinge",
+      "footprint": "microSD_Wuerth",
+      "pins": {
+        "1": "SD_DAT2",
+        "2": "SD_CS",
+        "3": "SD_MOSI",
+        "4": "SD_3V3",
+        "5": "SD_SCLK",
+        "6": "GND",
+        "7": "SD_MISO",
+        "8": "SD_DAT1",
+        "9": "GND"
+      },
+      "position_mm": [
+        20,
+        45
+      ],
+      "mpn": "693072010801",
+      "documentation_url": "https://www.we-online.com/components/products/datasheet/693072010801.pdf",
+      "kind": "passive",
+      "footprint_source": "Connector_Card:microSD_HC_Wuerth_693072010801"
+    },
+    {
+      "ref": "U_SD",
+      "value": "3.3V / dedicated SD LDO",
+      "footprint": "SOT23_5",
+      "pins": {
+        "1": "USB_5V",
+        "2": "GND",
+        "3": "PICO_3V3",
+        "4": null,
+        "5": "SD_3V3"
+      },
+      "position_mm": [
+        25,
+        20
+      ],
+      "mpn": "TLV75533PDBVR",
+      "documentation_url": "https://www.ti.com/lit/gpn/TLV755P",
+      "kind": "passive",
+      "footprint_source": "Package_TO_SOT_SMD:SOT-23-5"
+    },
+    {
+      "ref": "R_SDP1",
+      "value": "10k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "SD_DAT2"
+      },
+      "position_mm": [
+        15,
+        16
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_SDP2",
+      "value": "10k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "SD_CS"
+      },
+      "position_mm": [
+        15,
+        20
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_SDP3",
+      "value": "10k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "SD_MOSI"
+      },
+      "position_mm": [
+        15,
+        24
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_SDP4",
+      "value": "10k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "SD_MISO"
+      },
+      "position_mm": [
+        15,
+        28
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "R_SDP5",
+      "value": "10k 1%",
+      "footprint": "R_0805",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "SD_DAT1"
+      },
+      "position_mm": [
+        15,
+        32
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+    },
+    {
+      "ref": "C_SDIN",
+      "value": "4.7uF X7R 16V",
+      "footprint": "C_0805",
+      "pins": {
+        "1": "USB_5V",
+        "2": "GND"
+      },
+      "position_mm": [
+        25,
+        16
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+    },
+    {
+      "ref": "C_SDOUT",
+      "value": "4.7uF X7R 16V",
+      "footprint": "C_0805",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "GND"
+      },
+      "position_mm": [
+        25,
+        24
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+    },
+    {
+      "ref": "C_SDBULK",
+      "value": "22uF X7R 16V",
+      "footprint": "C_1206",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "GND"
+      },
+      "position_mm": [
+        9,
+        39
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_1206_3216Metric"
+    },
+    {
+      "ref": "C_SDSOCKET",
+      "value": "100nF X7R 16V",
+      "footprint": "C_0805",
+      "pins": {
+        "1": "SD_3V3",
+        "2": "GND"
+      },
+      "position_mm": [
+        10,
+        43
+      ],
+      "mpn": "",
+      "documentation_url": "",
+      "kind": "passive",
+      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+    }
+  ]
+}

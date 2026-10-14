@@ -1,0 +1,25 @@
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+config/local/
+**/secrets.*
+
+# Sorties de compilation et outils
+build/
+.build/
+public/
+site/resources/
+site/.hugo_build.lock
+__pycache__/
+*.pyc
+.DS_Store
+*~
+
+# KiCad local state
+*-backups/
+fp-info-cache
+*.kicad_prl
+*.lck
+*.bak
+core

@@ -1,0 +1,1 @@
+purchase_id,component_id,supplier,supplier_reference,quantity_ordered,unit_price,currency,price_date,order_date,expected_delivery_date,quantity_received,receipt_date,status,issue,notes

@@ -1,0 +1,27 @@
+{
+  "cad_sha256": {
+    "carrier.kicad_sch": "bbfe3f3ab0bd7969e36d15f2f69a486c47502db677c5fc03537872c85048608b",
+    "carrier.kicad_pcb": "e0e84e60eb6e726a629949ffd580ea855fcbccf1351fd2480c6b5cc5495d82f8",
+    "circuit.json": "750a625923575ba35381d23098a0468f65a5ae88cb13fcb8b08e1ce9a665f1ab"
+  },
+  "png_sha256": {
+    "schematic.png": "c101a66252bf7abbba65e50fe1bac70071d60d119ccbc8ccbe26a1f2d4cddd50",
+    "schematic-preview.png": "5717e6bdcc5039c632d5b7414d1ea143719c7f9d11278127c805155f00b8bfd6",
+    "layout-front.png": "a6f079e4aee8a7add38f93b08a93e12f652a5f4ce89240e1ed9e7520138e8448"
+  },
+  "dimensions_px": {
+    "schematic.png": [
+      8000,
+      5657
+    ],
+    "schematic-preview.png": [
+      2200,
+      1556
+    ],
+    "layout-front.png": [
+      1800,
+      1481
+    ]
+  },
+  "status": "CAD export; physical validation not performed"
+}

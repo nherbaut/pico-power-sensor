@@ -1,0 +1,8 @@
+{{ define "main" }}
+  <article class="prose">{{ .Content }}</article>
+  {{ with .Pages }}
+  <section class="pages" aria-label="Pages in this section">
+    {{ range .ByTitle }}<a href="{{ .RelPermalink }}">{{ .Title }} <span>→</span></a>{{ end }}
+  </section>
+  {{ end }}
+{{ end }}

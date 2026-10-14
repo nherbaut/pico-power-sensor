@@ -1,0 +1,11 @@
+{{- $url := .Destination -}}
+{{- if hasPrefix $url "/" -}}
+  {{- $url = strings.TrimPrefix "/" $url | relURL -}}
+{{- end -}}
+{{- $full := replaceRE "schematic-preview\\.png$" "schematic.png" $url -}}
+<figure class="hardware-image">
+  <a href="{{ $full | safeURL }}" aria-label="Open full-size image: {{ .PlainText }}">
+    <img src="{{ $url | safeURL }}" alt="{{ .PlainText }}" loading="lazy" decoding="async">
+  </a>
+  {{ with .Title }}<figcaption>{{ . }}</figcaption>{{ end }}
+</figure>
