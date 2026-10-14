@@ -13,7 +13,7 @@ for key, name in [('XDG_CONFIG_HOME','config'),('XDG_CACHE_HOME','cache'),('XDG_
     path=ROOT/'.build/kicad'/name;path.mkdir(parents=True,exist_ok=True)
     os.environ[key]=str(path)
 import pcbnew
-from footprint_corrections import led, shunt, selected_passive, part_fields
+from footprint_corrections import led, shunt, mosfet, selected_passive, part_fields
 
 OUT=ROOT/'hardware/pcb/interposer'
 LIB=Path('/usr/share/kicad/footprints')
@@ -56,6 +56,7 @@ def main():
         if not fp:raise SystemExit(f'Footprint missing: {lib}:{name}')
         if ref=='D1':led(fp)
         if ref=='RSH1':shunt(fp)
+        if ref in ('Q1','Q2'):mosfet(fp)
         selected_passive(fp, p['footprint'])
         fp.SetFPID(pcbnew.LIB_ID('PicoPower',p['footprint']))
         fp.SetReference(ref);fp.SetValue(p['value']);fp.SetPath(old.GetPath())
@@ -72,6 +73,7 @@ def main():
         library_fp=pcbnew.FootprintLoad(str(LIB/(lib+'.pretty')),name)
         if ref=='D1':led(library_fp)
         if ref=='RSH1':shunt(library_fp)
+        if ref in ('Q1','Q2'):mosfet(library_fp)
         selected_passive(library_fp, p['footprint'])
         library_fp.SetFPID(pcbnew.LIB_ID('PicoPower',p['footprint']))
         library_fp.SetValue(p['value'])

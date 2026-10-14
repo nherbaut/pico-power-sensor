@@ -97,6 +97,55 @@ def shunt(fp):
         shape.SetStart(global_point(fp,-2,y));shape.SetEnd(global_point(fp,2,y));fp.Add(shape)
 
 
+def mosfet(fp):
+    """Infineon BSC010N04LS6 PG-TDSON-8-FL boardpads (datasheet rev 2.3, page 11, figure 2).
+
+    Applied to the KiCad TDSON-8-1 stock footprint. Copper follows Infineon: drain
+    4.455 x 4.41 mm, lead pads 1.055 mm long, and one 3.19 mm source pad under the three
+    source leads (pads 1-3 stay as separate numbers on the same net; pads 2 and 3 lie inside
+    pad 1). Solder paste keeps the earlier 0.85 x 0.5 mm aperture per lead until the
+    Infineon stencil apertures are agreed with the assembler. Safe to apply twice.
+    """
+    lead_x = -(2.27 + 3.325) / 2
+    copper_mask = pcbnew.LSET()
+    copper_mask.AddLayer(pcbnew.F_Cu)
+    copper_mask.AddLayer(pcbnew.F_Mask)
+    for pad in list(fp.Pads()):
+        number = pad.GetNumber()
+        position = pad.GetFPRelativePosition()
+        # Remove paste helpers from an earlier application.
+        if not number and abs(pcbnew.ToMM(position.x) + 2.9) < .05 and pad.GetLayerSet().Contains(pcbnew.F_Paste) \
+                and not pad.GetLayerSet().Contains(pcbnew.F_Cu):
+            fp.Remove(pad)
+    for pad in list(fp.Pads()):
+        number = pad.GetNumber()
+        if number == '5':
+            pad.SetSize(point(4.455, 4.41))
+            pad.SetFPRelativePosition(point((-1.13 + 3.325) / 2, 0))
+        elif number in ('1', '2', '3', '4'):
+            y = {'1': -1.905, '2': -.635, '3': .635, '4': 1.905}[number]
+            if number == '1':
+                pad.SetSize(point(1.055, 3.19))
+                pad.SetFPRelativePosition(point(lead_x, -.635))
+            else:
+                pad.SetSize(point(1.055, .5))
+                pad.SetFPRelativePosition(point(lead_x, y))
+            pad.SetShape(pcbnew.PAD_SHAPE_RECT)
+            pad.SetLayerSet(copper_mask)
+    for y in (-1.905, -.635, .635, 1.905):
+        paste = pcbnew.PAD(fp)
+        paste.SetAttribute(pcbnew.PAD_ATTRIB_SMD)
+        paste.SetShape(pcbnew.PAD_SHAPE_ROUNDRECT)
+        paste.SetRoundRectRadiusRatio(.25)
+        paste.SetSize(point(.85, .5))
+        layers = pcbnew.LSET()
+        layers.AddLayer(pcbnew.F_Paste)
+        paste.SetLayerSet(layers)
+        fp.Add(paste)
+        paste.SetOrientation(fp.GetOrientation())  # pad angles follow the footprint
+        paste.SetFPRelativePosition(point(-2.9, y))
+
+
 def socket(fp):
     # 10461-H: 4.85 mm projected depth, 7.20 mm height. Keep provisional body offset.
     for graphic in fp.GraphicalItems():

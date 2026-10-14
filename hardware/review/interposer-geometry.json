@@ -1,6 +1,6 @@
 {
   "board": "interposer",
-  "design_sha256": "5db7d82ba4ec134328ad4042e880e92f119f9fefabd677b1fd0beff74b837dac",
+  "design_sha256": "af9866c4be83a6a44c9fb96282d87086d14e3e1e8228865198b800a3ca925c8f",
   "evidence_type": "automated CAD geometry extraction; not footprint approval or physical measurement",
   "footprints": [
     {
@@ -1625,6 +1625,94 @@
         {
           "number": "",
           "local_position_mm": [
+            -2.9,
+            -1.905
+          ],
+          "board_position_mm": [
+            37.9,
+            22.905
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
+            -2.9,
+            -0.635
+          ],
+          "board_position_mm": [
+            37.9,
+            21.635
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
+            -2.9,
+            0.635
+          ],
+          "board_position_mm": [
+            37.9,
+            20.365
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
+            -2.9,
+            1.905
+          ],
+          "board_position_mm": [
+            37.9,
+            19.095
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
             -0.2,
             -0.85
           ],
@@ -1823,104 +1911,104 @@
         {
           "number": "1",
           "local_position_mm": [
-            -2.9,
-            -1.905
+            -2.7975,
+            -0.635
           ],
           "board_position_mm": [
-            37.9,
-            22.905
+            37.7975,
+            21.635
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
-            0.5
+            1.055,
+            3.19
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/COMMON_SOURCE"
         },
         {
           "number": "2",
           "local_position_mm": [
-            -2.9,
+            -2.7975,
             -0.635
           ],
           "board_position_mm": [
-            37.9,
+            37.7975,
             21.635
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
+            1.055,
             0.5
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/COMMON_SOURCE"
         },
         {
           "number": "3",
           "local_position_mm": [
-            -2.9,
+            -2.7975,
             0.635
           ],
           "board_position_mm": [
-            37.9,
+            37.7975,
             20.365
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
+            1.055,
             0.5
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/COMMON_SOURCE"
         },
         {
           "number": "4",
           "local_position_mm": [
-            -2.9,
+            -2.7975,
             1.905
           ],
           "board_position_mm": [
-            37.9,
+            37.7975,
             19.095
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
+            1.055,
             0.5
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/GATE_Q1"
         },
         {
           "number": "5",
           "local_position_mm": [
-            1.05,
+            1.0975,
             0.0
           ],
           "board_position_mm": [
-            33.95,
+            33.9025,
             21.0
           ],
           "attribute": 1,
           "size_mm": [
-            4.55,
+            4.455,
             4.41
           ],
           "drill_mm": [
@@ -1943,6 +2031,94 @@
       "proposed_mpn_in_cad": "BSC010N04LS6ATMA1",
       "library_source": "Package_TO_SOT_SMD:TDSON-8-1",
       "pads": [
+        {
+          "number": "",
+          "local_position_mm": [
+            -2.9,
+            -1.905
+          ],
+          "board_position_mm": [
+            42.1,
+            19.095
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
+            -2.9,
+            -0.635
+          ],
+          "board_position_mm": [
+            42.1,
+            20.365
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
+            -2.9,
+            0.635
+          ],
+          "board_position_mm": [
+            42.1,
+            21.635
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
+            -2.9,
+            1.905
+          ],
+          "board_position_mm": [
+            42.1,
+            22.905
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.85,
+            0.5
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": ""
+        },
         {
           "number": "",
           "local_position_mm": [
@@ -2144,104 +2320,104 @@
         {
           "number": "1",
           "local_position_mm": [
-            -2.9,
-            -1.905
+            -2.7975,
+            -0.635
           ],
           "board_position_mm": [
-            42.1,
-            19.095
+            42.2025,
+            20.365
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
-            0.5
+            1.055,
+            3.19
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/COMMON_SOURCE"
         },
         {
           "number": "2",
           "local_position_mm": [
-            -2.9,
+            -2.7975,
             -0.635
           ],
           "board_position_mm": [
-            42.1,
+            42.2025,
             20.365
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
+            1.055,
             0.5
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/COMMON_SOURCE"
         },
         {
           "number": "3",
           "local_position_mm": [
-            -2.9,
+            -2.7975,
             0.635
           ],
           "board_position_mm": [
-            42.1,
+            42.2025,
             21.635
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
+            1.055,
             0.5
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/COMMON_SOURCE"
         },
         {
           "number": "4",
           "local_position_mm": [
-            -2.9,
+            -2.7975,
             1.905
           ],
           "board_position_mm": [
-            42.1,
+            42.2025,
             22.905
           ],
           "attribute": 1,
           "size_mm": [
-            0.85,
+            1.055,
             0.5
           ],
           "drill_mm": [
             0.0,
             0.0
           ],
-          "shape": 4,
+          "shape": 1,
           "net": "/GATE_Q2"
         },
         {
           "number": "5",
           "local_position_mm": [
-            1.05,
+            1.0975,
             0.0
           ],
           "board_position_mm": [
-            46.05,
+            46.0975,
             21.0
           ],
           "attribute": 1,
           "size_mm": [
-            4.55,
+            4.455,
             4.41
           ],
           "drill_mm": [

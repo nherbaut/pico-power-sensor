@@ -34,6 +34,18 @@ for name,library in [('interposer','PicoPower.pretty'),('carrier','Carrier.prett
                 assert abs(pcbnew.ToMM(pad.GetSize().y)-1.10)<1e-6
                 assert abs(abs(pcbnew.ToMM(pad.GetFPRelativePosition().x))-1.175)<1e-6
                 if pad.GetNumber()=='1':assert pad.GetNetname()=='/GND'
+        if ref in ('Q1','Q2'):
+            # Infineon BSC010N04LS6 rev 2.3 page 11 figure 2: merged source pad, 1.055 mm lead pads.
+            pads={x.GetNumber():x for x in fp.Pads() if x.GetNumber()}
+            def dims(pad):return round(pcbnew.ToMM(pad.GetSize().x),3),round(pcbnew.ToMM(pad.GetSize().y),3)
+            assert dims(pads['1'])==(1.055,3.19),(ref,dims(pads['1']))
+            assert dims(pads['2'])==dims(pads['3'])==dims(pads['4'])==(1.055,.5)
+            assert dims(pads['5'])==(4.455,4.41)
+            assert abs(pcbnew.ToMM(pads['1'].GetFPRelativePosition().x)+2.7975)<1e-6
+            assert pads['4'].GetNetname() in ('/GATE_Q1','/GATE_Q2')
+            assert not pads['1'].IsOnLayer(pcbnew.F_Paste)
+            paste=[x for x in fp.Pads() if not x.GetNumber() and abs(pcbnew.ToMM(x.GetFPRelativePosition().x)+2.9)<.05]
+            assert len(paste)==4 and all(not x.IsOnLayer(pcbnew.F_Cu) for x in paste),(ref,len(paste))
         if ref=='RSH1':
             for pad in fp.Pads():
                 if pad.GetNumber() in ('2','3'):
