@@ -11,6 +11,7 @@ Decisions record what is selected, why, and what still needs evidence. A draft d
 | Preserve AI HAT+ / AI HAT+ 2 and Active Cooler use | Required; fit pending |
 | No voltage converter in measured supply path | Selected |
 | Upstream LTC4367 protection switch | Recommended draft default; preference can still be revised |
+| Keep the cartridge fuse for the first prototype; electronic protection deferred to a possible rev B | Selected 2026-10-15; drop criterion proposed, bench confirmation pending |
 | Separate INA229EVM and Pico for first revision | Superseded 2026-10-14 by the on-carrier INA229 |
 | INA229 soldered on the carrier; no evaluation board | Selected 2026-10-14; carrier grows to 78 x 54 mm; layout and footprint review pending |
 | Generic commands, software matrix, short connected runs | Planned software milestone |

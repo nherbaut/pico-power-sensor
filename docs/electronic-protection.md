@@ -1,5 +1,7 @@
 # Electronic protection study
 
+**Status, 2026-10-15:** deferred. The first prototype keeps the cartridge fuse; this study and the [control design](electronic-protection-design.md) are retained for a possible second revision. The INA300 is an unselected candidate from this study, not a choice made by the project owner.
+
 The preferred direction to investigate is **a current detector controlling the existing power switches**. It avoids adding another resistance in the Pi supply path and retains the 5 mΩ measurement shunt. The user agreed to study an electronic replacement for the removable fuse. This study does not change the authoritative interposer or select parts for ordering.
 
 ![Proposed electronic protection architecture](../hardware/review/electronic-protection.png "Architecture study, not an electrical wiring diagram or an approved circuit.")

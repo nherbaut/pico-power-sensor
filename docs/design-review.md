@@ -25,6 +25,8 @@ Two **Samtec SSW-120-01-G-S** female strips are selected for Pico mechanical rev
 
 ## Power path: target not yet demonstrated
 
+**Decision update, 2026-10-15:** the cartridge fuse is kept for the first prototype (option A). The 100 mV loop-drop figure below was a design preference, not a Pi requirement, and is replaced by a measured criterion: at least 4.8 V at the header with 5 A load and the Korad at 5.10 V, with the actual drop recorded. This does not raise the supply voltage. The criterion is proposed and must be confirmed on the bench. The electronic-protection study is deferred to a possible second revision, decided with measured drop and current peaks. The analysis below is kept as the record that led to this decision.
+
 At 5 A, the 100 mV input-to-header loop target permits only 20 mΩ. The reference subtotal including the input contacts is **19.325 mΩ / 96.625 mV**, leaving **0.675 mΩ** for the holder, Pi header, copper, solder and additional temperature effects. These mixed nominal/room-temperature numbers are not a worst-case bound. The complete budget remains open.
 
 The retained Littelfuse 021706.3MXP has nominal cold resistance 9.5 mΩ. The same-current 215-series alternative has 10.8 mΩ, so changing to that time-delay fuse worsens the cold reference and changes its fault behavior. It is rejected as a drop improvement. The reviewed 215 table specifies 1000 A at 72 VDC for 4–6.3 A, but that interruption rating does not reduce operating resistance. [Littelfuse 215, p. 2](https://www.littelfuse.com/assetdocs/littelfuse-fuse-215-datasheet?assetguid=990f7193-d9a2-48e4-b760-2b43514249cf).

@@ -53,6 +53,10 @@ The INA229EVM was removed. The carrier now carries an INA229AIDGSR (U_PM, VSSOP-
 
 Both schematics now use class-specific symbols (resistor, capacitor, LED with polarity, fuse, NMOS, shunt, test point) from `scripts/generate-interposer.py`, guarded by `tests/test_schematic_symbols.py`; ICs and connectors remain named-pin boxes. `scripts/refresh-schematics.py` regenerates only the schematic and symbol files, so it is safe on the routed boards. The `schematic-review` checklist rows are `partial`: pin names of several ICs and the netlist export still need independent verification.
 
+## Protection decision (2026-10-15)
+
+Option A was chosen: keep the cartridge fuse, LTC4367 and two MOSFETs for the first prototype, and defer the electronic-protection design to a possible rev B. The 100 mV loop-drop figure is replaced by a measured criterion (header at least 4.8 V at 5 A with the Korad at 5.10 V, drop recorded), proposed and to be confirmed on the bench. Do not integrate the INA300 design; the protection study and control design remain as reference.
+
 ## Continue here
 
 The next design task is to turn the electronic-protection study into a complete, reviewable circuit **before routing it**:
