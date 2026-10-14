@@ -1,0 +1,21 @@
+{
+  "source_checks": "passed",
+  "physical_validation": "not performed",
+  "routing_status": "routed; native DRC required",
+  "led_current_estimate_mA": {
+    "reference_per_led_at_assumed_Vf_2_65V": 0.65,
+    "reference_five_leds_plus_pulldowns": 3.415,
+    "resistor_only_per_gpio_upper_bound_at_3_3V_1percent": 3.333333333333333,
+    "basis": "Kingbright specifies typical Vf 2.65V at 2mA; using it at another current is a reference calculation, not an operating-point prediction"
+  },
+  "release_status": "not-for-manufacture",
+  "pending": [
+    "EVM revision / mating orientation and height",
+    "LED polarity / brightness",
+    "USB and antenna clearance",
+    "3V3 stability during Wi-Fi and all LEDs on",
+    "SPI identification / UART / marker bench tests",
+    "SD regulator transient and thermal behavior; card write/read verification",
+    "SD write stalls / buffer sizing / error handling in future firmware"
+  ]
+}

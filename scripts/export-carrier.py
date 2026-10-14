@@ -79,12 +79,16 @@ def main():
         cli('pcb','export','svg','--mode-single','--exclude-drawing-sheet','--fit-page-to-board',
             '--layers',layers,'-o',OUT/f'layout-{side}.svg',OUT/'carrier.kicad_pcb')
         crop_copper_preview(OUT/f'layout-{side}.svg')
+        svg=OUT/f'layout-{side}.svg'
+        svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
     mounting_drawing()
     render_board_images('carrier')
     archive=OUT/'carrier-review.zip'
     with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
         for p in sorted(OUT.rglob('*')):
-            if p.is_file() and p!=archive and p.suffix not in ['.kicad_prl','.lck','.bak'] and 'backups' not in p.parts:
+            if (p.is_file() and p!=archive and p.suffix not in ['.kicad_prl','.lck','.bak']
+                    and not p.name.startswith('_autosave-') and p.name!='fp-info-cache'
+                    and not any(part.endswith('-backups') or part=='backups' for part in p.relative_to(OUT).parts)):
                 z.write(p,Path('carrier')/p.relative_to(OUT))
     print('Exported carrier review archive, schematic PDF/SVG and copper views. No Gerbers generated.')
 

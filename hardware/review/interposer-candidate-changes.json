@@ -1,0 +1,16 @@
+{
+  "board": "interposer",
+  "status": "isolated review candidate; not fabrication-ready",
+  "baseline_pcb_sha256": "716a0dca2bbc84d637e0722f8c8d2e91a3ff6637285cdeca1e2e1d0eac24031e",
+  "candidate_pcb_sha256": "64e222340e68488e6b2cb8a3cc264b07959667edd2ea305377c6f833b674a90f",
+  "changes": [
+    "RSH1: sense pad length 1.40 -> 1.70 mm, outer edge and .51 mm vertical gap retained",
+    "D1: Kingbright 1.25 x 1.10 mm pads, 1.10 mm gap; cathode pad 1 retained"
+  ],
+  "unmerged_autosave_present": true,
+  "limitations": [
+    "Circuit, BOM and routing otherwise unchanged.",
+    "Physical fit and remaining footprint reviews are not complete.",
+    "Do not replace a saved project or autosave automatically."
+  ]
+}

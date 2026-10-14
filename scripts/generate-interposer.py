@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 from uuid import NAMESPACE_URL, uuid5
 from xml.sax.saxutils import escape
+from component_selections import apply_selections, constraints
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'hardware/pcb/interposer'
@@ -126,7 +127,9 @@ def circuit():
     upper['on_board'] = False
     upper['in_bom'] = False
     parts.append(upper)
+    apply_selections('interposer', parts)
     return dict(revision='A-draft', release_status='not-for-manufacture',
+                design_constraints=constraints(),
                 protection_default='electronic-switch-before-shunt',
                 board=dict(width_mm=67.13, height_mm=46, thickness_mm=1.6,
                            copper_um=70, layers=2, clearance_mm=0.2,
@@ -154,19 +157,25 @@ def circuit():
 def pads_for(name):
     """Return draft pads: number, x, y, width, height, drill (mm).
 
-    Only WSK and header pitch are sourced exactly. Remaining outlines are
+    LED and WSK pad dimensions and header pitch are sourced. Remaining outlines are
     explicitly marked draft and need matching to manufacturer drawings.
     """
+    if name == 'R_0805_TNPW':
+        return [('1',-.95,0,.9,1.45,0),('2',.95,0,.9,1.45,0)]
+    if name == 'C_0805_Murata':
+        return [('1',-.9,0,.6,1.25,0),('2',.9,0,.6,1.25,0)]
+    if name == 'C_0805_KEMET':
+        return [('1',-.9,0,1.15,1.45,0),('2',.9,0,1.15,1.45,0)]
     if name == 'LED_0805':
-        return [('1',-.9375,0,.975,1.4,0),('2',.9375,0,.975,1.4,0)]
+        return [('1',-1.175,0,1.25,1.1,0),('2',1.175,0,1.25,1.1,0)]
     if name == 'Stack_2x20_P2.54':
         return [(str(n), ((n - 1) // 2) * 2.54, 0 if n % 2 else -2.54,
                  1.8, 1.8, 1.0) for n in range(1, 41)]
     if name == 'WSK2512_5m_Kelvin':
         return [('1', -2.985, -0.635, 2.29, 2.03, 0),
                 ('4', 2.985, 0.635, 2.29, 2.03, 0),
-                ('2', -3.43, 1.27, 1.4, 0.76, 0),
-                ('3', 3.43, -1.27, 1.4, 0.76, 0)]
+                ('2', -3.28, 1.27, 1.7, 0.76, 0),
+                ('3', 3.28, -1.27, 1.7, 0.76, 0)]
     if name == 'TSSOP16_P0.65':
         return [(str(n),-3.1 if n<=8 else 3.1,
                  (n-4.5)*.65 if n<=8 else (12.5-n)*.65, 1.5,.45,0) for n in range(1,17)]
@@ -202,6 +211,9 @@ def footprint(part, nets, standalone=False):
     lines += [f'  (descr "PicoPower review footprint; verify manufacturer drawing before routing/release")',
               f'  (property "Reference" {q("REF**" if standalone else ref)} (at 0 -4) (layer "F.SilkS") (effects (font (size 1 1) (thickness 0.15))))',
               f'  (property "Value" {q(part["value"])} (at 0 4) (layer "F.Fab") (effects (font (size .8 .8) (thickness .12))))']
+    if not standalone:
+        lines += [f'  (property {q(key)} {q(value)} (at 0 0) (layer "F.Fab") hide (effects (font (size 1 1) (thickness .15))))'
+                  for key, value in [('MPN', part['mpn']), ('Datasheet', part['documentation_url'])]]
     pads = pads_for(name)
     w, h = part['body_mm']
     if name == 'Stack_2x20_P2.54':
@@ -322,6 +334,8 @@ def schematic(data):
                   f'    (property "Reference" {q(ref)} (at {x} {y-h-3} 0) (effects (font (size 1.27 1.27))))',
                   f'    (property "Value" {q(p["value"])} (at {x} {y+h+3} 0) (effects (font (size 1 1))))',
                   f'    (property "Footprint" {q("PicoPower:" + p["footprint"])} (at {x} {y} 0) (effects (font (size 1 1)) hide))']
+        lines += [f'    (property "MPN" {q(p["mpn"])} (at {x} {y} 0) (effects (font (size 1 1)) hide))',
+                  f'    (property "Datasheet" {q(p["documentation_url"])} (at {x} {y} 0) (effects (font (size 1 1)) hide))']
         lines += [f'    (pin {q(n)} (uuid "{uid("pin/" + ref + "/" + n)}"))' for n in p['pins']]
         lines += [f'    (instances (project "interposer" (path "/{uid("sheet")}" (reference {q(ref)}) (unit 1))))', '  )']
         for n, px, py, angle in coords:

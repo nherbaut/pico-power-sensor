@@ -22,6 +22,13 @@ class InterposerSafetyInvariants(unittest.TestCase):
         self.assertAlmostEqual(report['shunt_at_max_current']['power_W'],.125)
         self.assertAlmostEqual(report['shunt_at_max_current']['voltage_drop_V'],.025)
 
+    def test_normal_input_window_does_not_imply_ov_recovery(self):
+        report=checker.check_circuit(self.design)
+        protection=report['protection_input_thresholds_V']
+        self.assertLess(self.design['load']['nominal_volts'], protection['ov_trip_resistor_comparator_range'][0])
+        self.assertFalse(protection['ov_recovery_at_nominal_guaranteed'])
+        self.assertLess(protection['ov_restart_range'][0], self.design['load']['nominal_volts'])
+
     def test_controller_cannot_draw_measured_load_current(self):
         self.part('U1')['pins']['7']='PI_5V'
         with self.assertRaisesRegex(ValueError,'upstream'):checker.check_circuit(self.design)

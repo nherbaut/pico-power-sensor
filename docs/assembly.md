@@ -2,7 +2,7 @@
 
 ## Before ordering
 
-Complete the [release checks](../hardware/pcb/interposer/README.md), including full routing, reviewed footprints, KiCad ERC/DRC and the physical mock-up. Draft placement previews are not fabrication data. Do not populate an unreviewed protection circuit and assume it protects a Pi.
+Complete the `fabrication` gate in the [release checklist](../hardware/release-checklist.csv), including circuit/routing/footprint review, KiCad ERC/DRC and the physical mock-up. The [release procedure](release.md) separates these checks from tests that require an assembled prototype. Draft placement previews are not fabrication data. Do not populate an unreviewed protection circuit and assume it protects a Pi.
 
 Use 1.6 mm FR4 and the reviewed copper stack-up, initially targeting two layers with 70 um copper. Verify fabrication clearances, plated-hole sizes and connector pad soldering. Measure the assembled shunt rather than relying only on its nominal value.
 
@@ -16,6 +16,9 @@ Use 1.6 mm FR4 and the reviewed copper stack-up, initially targeting two layers 
 6. Test with a dummy load first. Sweep through the input protection thresholds, reversed input and startup behavior without a Pi. Test at nominal voltage up to 5 A with an appropriately rated electronic load.
 7. Record supply voltage, header-bus voltage, current, contact/fuse/shunt/MOSFET temperatures and settling behavior. Do not raise supply voltage to hide excessive harness drop.
 8. Connect instrument sensing only after the power path passes. Calibrate against reference measurements and check sensor range and conversion coherence.
+
+Complete the applicable `connection` gates and record their evidence before the following Pi connection step. The preceding dummy-load and interface tests require no Pi.
+
 9. Power off and fit the Pi/Active Cooler/HAT. Verify clearance, mating depth, support and PCIe cable routing. Start with the Pi alone before fitting the AI HAT, always while unpowered.
 10. Run idle and sustained workload tests; reject undervoltage, supply current limiting or thermal faults. Save results in the instrument record.
 

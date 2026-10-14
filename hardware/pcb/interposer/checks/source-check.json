@@ -29,10 +29,13 @@
     "ov_restart_range": [
       4.909233626373627,
       5.215947447447446
-    ]
+    ],
+    "ov_recovery_at_nominal_guaranteed": false
   },
   "limitations": [
     "Threshold ranges exclude leakage and transient response.",
+    "Normal-window check does not guarantee OV recovery at nominal input; inspect ov_recovery_at_nominal_guaranteed.",
+    "Resistor temperature drift is excluded unless included in resistor_tolerance; hysteresis uses datasheet test conditions.",
     "OV cutoff does not establish a Pi-safe output maximum.",
     "ERC/DRC do not validate footprints, mechanics, transient behavior or load temperature."
   ]

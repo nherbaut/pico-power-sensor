@@ -5,6 +5,8 @@ PORT ?= 1313
 GH ?= gh
 GITHUB_REPO ?= nherbaut/pico-power-sensor
 DEPLOY_REF ?= master
+BOARD ?= interposer
+GATE ?= fabrication
 
 .PHONY: help site-prepare site-build site-serve site-check site-deploy
 
@@ -22,6 +24,32 @@ help:
 	@echo "make carrier-build                     Generate and route carrier (overwrites carrier hand edits)"
 	@echo "make carrier-check / carrier-export     Check carrier / export portable review artifacts"
 	@echo "make hardware-images                   Refresh schematic/PCB PNGs from current CAD; no regeneration"
+	@echo "make hardware-review                   Export pad inventory and 1:1 mock-up PDFs; no CAD changes"
+	@echo "make footprint-candidates              Prepare isolated corrections and native checks; saved CAD unchanged"
+	@echo "make release-check BOARD=carrier       Report outstanding fabrication checks (fails until complete)"
+	@echo "make release-check GATE=connection     Check fabrication and bench evidence before Pi connection"
+
+.PHONY: hardware-review release-check footprint-candidates component-sync assembly-review
+
+.PHONY: copper-screen
+copper-screen:
+	$(PYTHON) scripts/screen-interposer-copper.py
+
+component-sync:
+	/usr/bin/python3 scripts/sync-component-selections.py
+
+assembly-review:
+	/usr/bin/python3 scripts/export-assembly-review.py
+
+footprint-candidates:
+	/usr/bin/python3 scripts/prepare-footprint-candidates.py
+
+hardware-review:
+	/usr/bin/python3 scripts/export-hardware-review.py
+	/usr/bin/python3 scripts/export-assembly-review.py
+
+release-check:
+	$(PYTHON) scripts/check-release.py --board "$(BOARD)" --gate "$(GATE)"
 
 site-prepare:
 	$(PYTHON) scripts/prepare-site.py

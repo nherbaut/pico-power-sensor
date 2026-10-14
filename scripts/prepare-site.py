@@ -16,6 +16,9 @@ DATASETS = {
     'optional-bom': 'Optional components',
     'procurement': 'Purchases and receipts',
     'inventory': 'Hardware inventory',
+    'release-checklist': 'Hardware release checklist',
+    'passive-proposals': 'Prototype passive component selections',
+    'assembly-review': 'Prototype assembly planning list',
 }
 
 

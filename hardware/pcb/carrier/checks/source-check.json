@@ -3,8 +3,10 @@
   "physical_validation": "not performed",
   "routing_status": "routed; native DRC required",
   "led_current_estimate_mA": {
-    "per_led": 1.5,
-    "five_leds_plus_pulldowns": 7.665
+    "reference_per_led_at_assumed_Vf_2_65V": 0.65,
+    "reference_five_leds_plus_pulldowns": 3.415,
+    "resistor_only_per_gpio_upper_bound_at_3_3V_1percent": 3.333333333333333,
+    "basis": "Kingbright specifies typical Vf 2.65V at 2mA; using it at another current is a reference calculation, not an operating-point prediction"
   },
   "release_status": "not-for-manufacture",
   "pending": [

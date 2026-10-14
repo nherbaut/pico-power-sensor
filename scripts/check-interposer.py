@@ -98,8 +98,11 @@ def check_circuit(data):
                       uv_trip_resistor_comparator_range=[min(uv_trips),max(uv_trips)],
                       ov_trip_resistor_comparator_range=[min(ov_trips),max(ov_trips)],
                       uv_restart_range=[min(uv_restarts),max(uv_restarts)],
-                      ov_restart_range=[min(ov_restarts),max(ov_restarts)]),
+                      ov_restart_range=[min(ov_restarts),max(ov_restarts)],
+                      ov_recovery_at_nominal_guaranteed=data['load']['nominal_volts'] < min(ov_restarts)),
                   limitations=['Threshold ranges exclude leakage and transient response.',
+                               'Normal-window check does not guarantee OV recovery at nominal input; inspect ov_recovery_at_nominal_guaranteed.',
+                               'Resistor temperature drift is excluded unless included in resistor_tolerance; hysteresis uses datasheet test conditions.',
                                'OV cutoff does not establish a Pi-safe output maximum.',
                                'ERC/DRC do not validate footprints, mechanics, transient behavior or load temperature.'])
     return report
@@ -127,9 +130,9 @@ def kicad_check(mode):
         raise SystemExit('KiCad CLI is unavailable. Install KiCad 9; this check has NOT passed.')
     out=ROOT/'.build/hardware';out.mkdir(parents=True,exist_ok=True)
     if mode=='erc':
-        cmd=[cli,'sch','erc','--exit-code-violations','-o',str(out/'erc.rpt'),str(DESIGN/'interposer.kicad_sch')]
+        cmd=[cli,'sch','erc','--severity-all','--exit-code-violations','-o',str(out/'erc.rpt'),str(DESIGN/'interposer.kicad_sch')]
     else:
-        cmd=[cli,'pcb','drc','--schematic-parity','--exit-code-violations','-o',str(out/'drc.rpt'),str(DESIGN/'interposer.kicad_pcb')]
+        cmd=[cli,'pcb','drc','--severity-all','--schematic-parity','--exit-code-violations','-o',str(out/'drc.rpt'),str(DESIGN/'interposer.kicad_pcb')]
     env=os.environ.copy()
     for key,subdir in [('XDG_CONFIG_HOME','config'),('XDG_CACHE_HOME','cache'),('XDG_DATA_HOME','data')]:
         target=ROOT/'.build/kicad'/subdir;target.mkdir(parents=True,exist_ok=True)

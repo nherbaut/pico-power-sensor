@@ -74,7 +74,11 @@ def check_circuit(data):
     require(len(data['board']['mounting_holes'])==4,'Four mounting holes required')
     return {'source_checks':'passed','physical_validation':'not performed',
             'routing_status':data['board']['routing_status'],
-            'led_current_estimate_mA':{'per_led':1.5,'five_leds_plus_pulldowns':7.665},
+            'led_current_estimate_mA':{
+                'reference_per_led_at_assumed_Vf_2_65V':.65,
+                'reference_five_leds_plus_pulldowns':3.415,
+                'resistor_only_per_gpio_upper_bound_at_3_3V_1percent':3.3/.99,
+                'basis':'Kingbright specifies typical Vf 2.65V at 2mA; using it at another current is a reference calculation, not an operating-point prediction'},
             'release_status':'not-for-manufacture',
             'pending':['EVM revision / mating orientation and height','LED polarity / brightness',
                        'USB and antenna clearance','3V3 stability during Wi-Fi and all LEDs on',
@@ -119,7 +123,7 @@ def main():
     if args.kicad:
         command=['kicad-cli','sch','erc'] if args.kicad=='erc' else ['kicad-cli','pcb','drc','--schematic-parity']
         suffix='sch' if args.kicad=='erc' else 'pcb'
-        command+=['--exit-code-violations','-o',str(reports/(args.kicad+'.rpt')),str(OUT/('carrier.kicad_'+suffix))]
+        command+=['--severity-all','--exit-code-violations','-o',str(reports/(args.kicad+'.rpt')),str(OUT/('carrier.kicad_'+suffix))]
         raise SystemExit(subprocess.run(command,env=env(),check=False).returncode)
     data=json.loads((OUT/'circuit.json').read_text());report=check_circuit(data);check_board(data)
     (reports/'source-check.json').write_text(json.dumps(report,indent=2)+'\n')

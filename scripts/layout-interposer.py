@@ -13,6 +13,7 @@ for key, name in [('XDG_CONFIG_HOME','config'),('XDG_CACHE_HOME','cache'),('XDG_
     path=ROOT/'.build/kicad'/name;path.mkdir(parents=True,exist_ok=True)
     os.environ[key]=str(path)
 import pcbnew
+from footprint_corrections import led, shunt, selected_passive, part_fields
 
 OUT=ROOT/'hardware/pcb/interposer'
 LIB=Path('/usr/share/kicad/footprints')
@@ -44,7 +45,7 @@ def main():
         ref=p['ref'];old=oldparts[ref]
         if ref in LIBRARY_PARTS:
             lib,name=LIBRARY_PARTS[ref]
-        elif ref.startswith('C') and p['footprint']=='C_0805':
+        elif ref.startswith('C') and p['footprint'] in ('C_0805','C_0805_Murata','C_0805_KEMET'):
             lib,name='Capacitor_SMD','C_0805_2012Metric'
         elif ref.startswith(('R','C')):
             lib,name='Resistor_SMD','R_0805_2012Metric'
@@ -53,8 +54,12 @@ def main():
         else:continue
         fp=pcbnew.FootprintLoad(str(LIB/(lib+'.pretty')),name)
         if not fp:raise SystemExit(f'Footprint missing: {lib}:{name}')
+        if ref=='D1':led(fp)
+        if ref=='RSH1':shunt(fp)
+        selected_passive(fp, p['footprint'])
         fp.SetFPID(pcbnew.LIB_ID('PicoPower',p['footprint']))
         fp.SetReference(ref);fp.SetValue(p['value']);fp.SetPath(old.GetPath())
+        part_fields(fp, p)
         fp.SetPosition(point(*p['position_mm']))
         if ref in ['Q1','J1']:fp.SetOrientationDegrees(180)
         for pad in fp.Pads():
@@ -65,10 +70,16 @@ def main():
         board.Remove(old);board.Add(fp)
         # Keep a local library snapshot so the project is portable.
         library_fp=pcbnew.FootprintLoad(str(LIB/(lib+'.pretty')),name)
+        if ref=='D1':led(library_fp)
+        if ref=='RSH1':shunt(library_fp)
+        selected_passive(library_fp, p['footprint'])
         library_fp.SetFPID(pcbnew.LIB_ID('PicoPower',p['footprint']))
         library_fp.SetValue(p['value'])
         pcbnew.FootprintSave(str(OUT/'PicoPower.pretty'),library_fp)
-        p['footprint_source']=f'{lib}:{name}'
+        if p['footprint'] not in ('R_0805_TNPW','C_0805_Murata','C_0805_KEMET'):
+            p['footprint_source']=f'{lib}:{name}'
+        if ref=='D1':p['footprint_source']+='; pads corrected to Kingbright APT2012LZGCK datasheet page 1'
+        if ref=='RSH1':p['footprint_source']+='; sense pads corrected to Vishay 30108 page 2'
     for fp in board.GetFootprints():
         # Native reference placement is retained; values are hidden in silk.
         fp.Value().SetVisible(False)

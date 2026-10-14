@@ -1,0 +1,6 @@
+current_mA,nominal_ldo_dissipation_W,assumed_ambient_C,junction_reference_EVM_100_8_CperW,junction_reference_JEDEC_231_1_CperW,basis
+50,0.085,40,48.57,59.64,TI reference-board thermal parameters; not measured carrier performance or a current approval
+100,0.17,40,57.14,79.29,TI reference-board thermal parameters; not measured carrier performance or a current approval
+200,0.34,40,74.27,118.57,TI reference-board thermal parameters; not measured carrier performance or a current approval
+300,0.51,40,91.41,157.86,TI reference-board thermal parameters; not measured carrier performance or a current approval
+500,0.85,40,125.68,236.44,TI reference-board thermal parameters; not measured carrier performance or a current approval

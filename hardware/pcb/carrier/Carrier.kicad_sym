@@ -262,7 +262,7 @@
     (symbol "C1" (pin_names (offset .508)) (in_bom yes) (on_board yes)
       (property "Reference" "C1" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
       (property "Value" "100nF X7R 16V" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Footprint" "Carrier:C_0805" (at 0 0 0) (effects (font (size 1 1)) hide))
+      (property "Footprint" "Carrier:C_0805_Murata" (at 0 0 0) (effects (font (size 1 1)) hide))
       (symbol "C1_0_1"
         (rectangle (start -7.62 5.08) (end 7.62 -5.08) (stroke (width .254) (type default)) (fill (type background))))
       (symbol "C1_1_1"
@@ -273,7 +273,7 @@
     (symbol "C2" (pin_names (offset .508)) (in_bom yes) (on_board yes)
       (property "Reference" "C2" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
       (property "Value" "1uF X7R 16V" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Footprint" "Carrier:C_0805" (at 0 0 0) (effects (font (size 1 1)) hide))
+      (property "Footprint" "Carrier:C_0805_Murata" (at 0 0 0) (effects (font (size 1 1)) hide))
       (symbol "C2_0_1"
         (rectangle (start -7.62 5.08) (end 7.62 -5.08) (stroke (width .254) (type default)) (fill (type background))))
       (symbol "C2_1_1"
@@ -391,7 +391,7 @@
     (symbol "C_SDIN" (pin_names (offset .508)) (in_bom yes) (on_board yes)
       (property "Reference" "C_SDIN" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
       (property "Value" "4.7uF X7R 16V" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Footprint" "Carrier:C_0805" (at 0 0 0) (effects (font (size 1 1)) hide))
+      (property "Footprint" "Carrier:C_0805_Murata" (at 0 0 0) (effects (font (size 1 1)) hide))
       (symbol "C_SDIN_0_1"
         (rectangle (start -7.62 5.08) (end 7.62 -5.08) (stroke (width .254) (type default)) (fill (type background))))
       (symbol "C_SDIN_1_1"
@@ -402,7 +402,7 @@
     (symbol "C_SDOUT" (pin_names (offset .508)) (in_bom yes) (on_board yes)
       (property "Reference" "C_SDOUT" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
       (property "Value" "4.7uF X7R 16V" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Footprint" "Carrier:C_0805" (at 0 0 0) (effects (font (size 1 1)) hide))
+      (property "Footprint" "Carrier:C_0805_Murata" (at 0 0 0) (effects (font (size 1 1)) hide))
       (symbol "C_SDOUT_0_1"
         (rectangle (start -7.62 5.08) (end 7.62 -5.08) (stroke (width .254) (type default)) (fill (type background))))
       (symbol "C_SDOUT_1_1"
@@ -412,7 +412,7 @@
     )
     (symbol "C_SDBULK" (pin_names (offset .508)) (in_bom yes) (on_board yes)
       (property "Reference" "C_SDBULK" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Value" "22uF X7R 16V" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
+      (property "Value" "22uF X5R 16V" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
       (property "Footprint" "Carrier:C_1206" (at 0 0 0) (effects (font (size 1 1)) hide))
       (symbol "C_SDBULK_0_1"
         (rectangle (start -7.62 5.08) (end 7.62 -5.08) (stroke (width .254) (type default)) (fill (type background))))
@@ -424,7 +424,7 @@
     (symbol "C_SDSOCKET" (pin_names (offset .508)) (in_bom yes) (on_board yes)
       (property "Reference" "C_SDSOCKET" (at 0 7.62 0) (effects (font (size 1.27 1.27))))
       (property "Value" "100nF X7R 16V" (at 0 -7.62 0) (effects (font (size 1.27 1.27))))
-      (property "Footprint" "Carrier:C_0805" (at 0 0 0) (effects (font (size 1 1)) hide))
+      (property "Footprint" "Carrier:C_0805_Murata" (at 0 0 0) (effects (font (size 1 1)) hide))
       (symbol "C_SDSOCKET_0_1"
         (rectangle (start -7.62 5.08) (end 7.62 -5.08) (stroke (width .254) (type default)) (fill (type background))))
       (symbol "C_SDSOCKET_1_1"

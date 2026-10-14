@@ -1,0 +1,159 @@
+{
+  "design_sha256": "96732f0d7cf7cd179dc8c90efd7dbf775ae926caff559851731ee4e029105d0b",
+  "evidence_type": "design arithmetic and datasheet reference conditions; not physical measurements",
+  "initial_tolerance_protection": {
+    "uv_nominal": 4.643478260869565,
+    "ov_nominal": 5.34,
+    "uv_trip_resistor_comparator_range": [
+      4.565671589280285,
+      4.721550115332723
+    ],
+    "ov_trip_resistor_comparator_range": [
+      5.2503747252747255,
+      5.429935035035034
+    ],
+    "uv_restart_range": [
+      4.751079572601312,
+      5.0192636201418805
+    ],
+    "ov_restart_range": [
+      4.909233626373627,
+      5.215947447447446
+    ],
+    "ov_recovery_at_nominal_guaranteed": false
+  },
+  "proposed_25ppm_resistors_minus40_to85C": {
+    "uv_nominal": 4.643478260869565,
+    "ov_nominal": 5.34,
+    "uv_trip_resistor_comparator_range": [
+      4.55244202859252,
+      4.735281846315445
+    ],
+    "ov_trip_resistor_comparator_range": [
+      5.234921265717936,
+      5.445975080082218
+    ],
+    "uv_restart_range": [
+      4.737312770870388,
+      5.033861194260459
+    ],
+    "ov_restart_range": [
+      4.894784249468243,
+      5.231355372492771
+    ],
+    "ov_recovery_at_nominal_guaranteed": false
+  },
+  "assumed_combined_resistor_tolerance": 0.0026266249999997715,
+  "power_path": {
+    "target_drop_V": 0.1,
+    "current_A": 5,
+    "total_budget_ohm": 0.02,
+    "shunt_initial_tolerance_max_ohm": 0.005025,
+    "two_mosfets_room_temperature_reference_ohm": 0.0028,
+    "remaining_before_connectors_fuse_copper_hot_effects_ohm": 0.012175,
+    "fuse_nominal_cold_ohm": 0.0095,
+    "reference_drop_with_fuse_before_holder_contacts_copper_V": 0.08662500000000001,
+    "remaining_reference_budget_after_fuse_ohm": 0.0026750000000000003,
+    "complete_budget": false
+  },
+  "protection_gain_constraints": {
+    "min_gain_for_5_10V_ov_recovery_under_stated_corners": 11.074918566775244,
+    "max_gain_for_5_25V_trip_ceiling_under_stated_corners": 10.344827586206897,
+    "simultaneous_constraints_feasible": false
+  },
+  "limitations": [
+    "Comparator hysteresis figures use the datasheet conditions; verify at 5.1 V.",
+    "Leakage, ageing, resistor correlation and transients are not covered by these intervals.",
+    "MOSFET resistance reference is not a hot assembled-board bound.",
+    "Fuse reference is nominal cold resistance, not a guaranteed hot resistance.",
+    "No reset/recovery procedure or Pi-safe transient ceiling has been validated."
+  ],
+  "prototype_review": {
+    "evidence_type": "design calculation; not measured or a complete safety bound",
+    "ambient_C": [
+      10,
+      40
+    ],
+    "assumed_component_temperature_C": [
+      10,
+      70
+    ],
+    "component_temperature_requires_validation": true,
+    "threshold_corners_with_independent_tolerance_drift_leakage_V": {
+      "uv_trip": [
+        4.554730180788579,
+        4.73283741389807
+      ],
+      "uv_restart": [
+        4.73976604224373,
+        5.031150047916637
+      ],
+      "ov_trip": [
+        5.237753917373626,
+        5.442959196174764
+      ],
+      "ov_restart": [
+        4.897308299792306,
+        5.228534206543684
+      ]
+    },
+    "threshold_limitations": "10 nA leakage specified at VIN=60V; hysteresis at 12V; verify application at 5.1V; ageing and dynamic overshoot excluded",
+    "inrush": {
+      "gate_current_reference_A": [
+        2e-05,
+        3.5e-05,
+        6e-05
+      ],
+      "gate_current_test_condition": "VIN=VOUT=12 V, GATE=15 V; verify at 5.1 V",
+      "external_gate_capacitance_min_F": 1.138461e-08,
+      "simplified_upper_reference_slew_V_per_ms": 5.270272762966847,
+      "loads": [
+        {
+          "capacitance_uF": 100,
+          "charging_current_reference_A": 0.5270272762966847,
+          "stored_energy_at_5_1V_J": 0.0013004999999999998
+        },
+        {
+          "capacitance_uF": 330,
+          "charging_current_reference_A": 1.7391900117790595,
+          "stored_energy_at_5_1V_J": 0.004291649999999999
+        },
+        {
+          "capacitance_uF": 470,
+          "charging_current_reference_A": 2.477028198594418,
+          "stored_energy_at_5_1V_J": 0.006112349999999999
+        },
+        {
+          "capacitance_uF": 1000,
+          "charging_current_reference_A": 5.270272762966847,
+          "stored_energy_at_5_1V_J": 0.013005
+        }
+      ],
+      "soa_verified": false,
+      "limitations": "Source-follower approximation excludes load current, intrinsic capacitance, MOSFET SOA and supply limiting; actual Pi/HAT capacitance unknown"
+    },
+    "sd_ldo": {
+      "input_max_assumption_V": 5.25,
+      "output_min_reference_V": 3.267,
+      "average_current_design_screen_A": 0.15,
+      "reference_dissipation_W": 0.29745,
+      "reference_junction_C": 108.740695,
+      "basis": "DBV JEDEC thetaJA=231.1 C/W; 1% output reference, excludes IQ and actual PCB thermal resistance; not a rating",
+      "continuous_500mA_approved": false,
+      "actual_card_peak_average_and_transients_required": true
+    },
+    "drop_screen": {
+      "reference_known_subtotal_mV": 96.625,
+      "remaining_before_holder_header_copper_hot_effects_mohm": 0.675,
+      "basis": "5.025 mOhm shunt + 2.8 mOhm MOSFETs + 9.5 mOhm cold fuse + 2 mOhm input contact reference",
+      "complete": false
+    },
+    "fault_policy": {
+      "operator_abort": true,
+      "hardware_latch": false,
+      "automatic_reconnection_possible": true,
+      "fault_pin_connected": false,
+      "manual_power_cycle_validated": false
+    }
+  }
+}

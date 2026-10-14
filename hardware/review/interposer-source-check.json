@@ -1,0 +1,42 @@
+{
+  "source_checks": "passed",
+  "physical_validation": "not performed",
+  "routing_status": "routed; DRC and bench review required",
+  "interface": {
+    "pi_side_overhead": "included; physical characterization pending",
+    "power_off_validation": "not performed",
+    "uart_baud": 115200
+  },
+  "shunt_at_max_current": {
+    "voltage_drop_V": 0.025,
+    "power_W": 0.125
+  },
+  "protection_input_thresholds_V": {
+    "uv_nominal": 4.643478260869565,
+    "ov_nominal": 5.34,
+    "uv_trip_resistor_comparator_range": [
+      4.565671589280285,
+      4.721550115332723
+    ],
+    "ov_trip_resistor_comparator_range": [
+      5.2503747252747255,
+      5.429935035035034
+    ],
+    "uv_restart_range": [
+      4.751079572601312,
+      5.0192636201418805
+    ],
+    "ov_restart_range": [
+      4.909233626373627,
+      5.215947447447446
+    ],
+    "ov_recovery_at_nominal_guaranteed": false
+  },
+  "limitations": [
+    "Threshold ranges exclude leakage and transient response.",
+    "Normal-window check does not guarantee OV recovery at nominal input; inspect ov_recovery_at_nominal_guaranteed.",
+    "Resistor temperature drift is excluded unless included in resistor_tolerance; hysteresis uses datasheet test conditions.",
+    "OV cutoff does not establish a Pi-safe output maximum.",
+    "ERC/DRC do not validate footprints, mechanics, transient behavior or load temperature."
+  ]
+}

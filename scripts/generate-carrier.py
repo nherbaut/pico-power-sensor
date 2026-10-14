@@ -15,6 +15,8 @@ for key, name in [('XDG_CONFIG_HOME', 'config'), ('XDG_CACHE_HOME', 'cache'), ('
     target.mkdir(parents=True, exist_ok=True)
     os.environ[key] = str(target)
 import pcbnew
+from footprint_corrections import led, selected_passive, part_fields
+from component_selections import apply_selections, constraints
 
 
 def uid(name):
@@ -73,7 +75,9 @@ def circuit():
     add('C_SDOUT','4.7uF X7R 16V','C_0805',{1:'SD_3V3',2:'GND'},[25,24])
     add('C_SDBULK','22uF X7R 16V','C_1206',{1:'SD_3V3',2:'GND'},[9,39])
     add('C_SDSOCKET','100nF X7R 16V','C_0805',{1:'SD_3V3',2:'GND'},[10,43])
+    apply_selections('carrier', parts)
     return dict(revision='A-draft',release_status='not-for-manufacture',
+                design_constraints=constraints(),
                 physical_validation='not performed',
                 board=dict(width_mm=66,height_mm=54,thickness_mm=1.6,copper_um=35,layers=2,
                            routing_status='unrouted', mounting_drill_mm=2.7,
@@ -123,6 +127,7 @@ def schematic(data):
                   f'(property "Value" {json.dumps(p["value"])} (at {x} {y+height+3} 0) (effects (font (size 1 1))))',
                   f'(property "Footprint" "Carrier:{p["footprint"]}" (at {x} {y} 0) (effects (font (size 1 1)) hide))',
                   f'(property "Datasheet" {json.dumps(p["documentation_url"])} (at {x} {y} 0) (effects (font (size 1 1)) hide))',
+                  f'(property "MPN" {json.dumps(p["mpn"])} (at {x} {y} 0) (effects (font (size 1 1)) hide))',
                   *[f'(pin "{n}" (uuid "{uid("pin/"+ref+"/"+n)}"))' for n in p['pins']],
                   f'(instances (project "carrier" (path "/{uid("sheet")}" (reference "{ref}") (unit 1))))',')']
         for n,px,py,angle in coords:
@@ -151,8 +156,9 @@ def evm_footprint():
     for n in range(1,13):
         x=0 if n%2 else -2; y=((n-1)//2)*2
         lines.append(f'(pad "{n}" thru_hole {"rect" if n==1 else "circle"} (at {x} {y}) (size 1.4 1.4) (drill .8) (layers "*.Cu" "*.Mask"))')
-    for layer,xa,ya,xb,yb,width in [('F.Fab',-10.65,-1.25,-3.45,11.25,.1),
-                                  ('F.SilkS',-10.65,-1.25,-3.45,11.25,.12),
+    # 4.85 mm is projected depth; 7.20 mm is height. Body offset remains provisional.
+    for layer,xa,ya,xb,yb,width in [('F.Fab',-8.30,-1.25,-3.45,11.25,.1),
+                                  ('F.SilkS',-8.30,-1.25,-3.45,11.25,.12),
                                   ('F.CrtYd',-10.9,-1.5,.95,11.5,.05)]:
         lines.append(f'(fp_rect (start {xa} {ya}) (end {xb} {yb}) (stroke (width {width}) (type solid)) (fill none) (layer "{layer}"))')
     lines += ['(fp_text user "1" (at 0 -1.7) (layer "F.SilkS") (effects (font (size .8 .8) (thickness .12))))',')']
@@ -178,6 +184,7 @@ def board(data):
              'XH5':('Connector_JST','JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical'),
              'R_0805':('Resistor_SMD','R_0805_2012Metric'),
              'C_0805':('Capacitor_SMD','C_0805_2012Metric'),
+             'C_0805_Murata':('Capacitor_SMD','C_0805_2012Metric'),
              'C_1206':('Capacitor_SMD','C_1206_3216Metric'),
              'microSD_Wuerth':('Connector_Card','microSD_HC_Wuerth_693072010801'),
              'SOT23_5':('Package_TO_SOT_SMD','SOT-23-5'),
@@ -195,14 +202,18 @@ def board(data):
         if name in sources:
             lib,original=sources[name]
             fp=pcbnew.FootprintLoad(str(LIB/(lib+'.pretty')),original)
+            if name=='LED_0805':led(fp)
+            selected_passive(fp, name)
             fp.SetFPID(pcbnew.LIB_ID('Carrier',name))
             snap=fp.Duplicate();snap.SetValue(p['value']);pcbnew.FootprintSave(str(library),snap)
-            p['footprint_source']=lib+':'+original
+            if name != 'C_0805_Murata':p['footprint_source']=lib+':'+original
+            if name=='LED_0805':p['footprint_source']+='; pads corrected to Kingbright APT2012LZGCK datasheet page 1'
         else:
             fp=pcbnew.FootprintLoad(str(library),name)
             fp.SetFPID(pcbnew.LIB_ID('Carrier',name))
             p['footprint_source']='Sullins drawing 10461-H; local mating-number convention'
         fp.SetReference(p['ref']);fp.SetValue(p['value'])
+        part_fields(fp, p)
         fp.SetPosition(point(*p['position_mm']))
         fp.SetPath(pcbnew.KIID_PATH('/'+uid('sheet')+'/'+uid('symbol/'+p['ref'])))
         fp.Value().SetVisible(False)
@@ -276,7 +287,6 @@ def main():
         writer=csv.writer(f);writer.writerow(['reference','value','manufacturer_reference','footprint','documentation_url','status'])
         for p in data['parts']:
             writer.writerow([p['ref'],p['value'],p['mpn'],'Carrier:'+p['footprint'],p['documentation_url'],'CAD draft; footprint and bench review pending'])
-        writer.writerow(['Pico socket strips','2 x 1x20 female 2.54mm','','Pico_Socketed','','Select socket/header pair; validate height'])
     write('Carrier.pretty/LICENSE.md','Native footprint snapshots: KiCad libraries, CC-BY-SA 4.0 with footprint exception.\nLocal socket footprint: PicoPower draft derived from Sullins drawing 10461-H; dimensional and mating review pending.\n')
     print('Generated independent carrier schematic, UNROUTED PCB, BOM and local libraries.')
 

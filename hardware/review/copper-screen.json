@@ -1,0 +1,44 @@
+{
+  "evidence_type": "DC raster calculation, not a physical measurement or complete loss bound",
+  "tool": "kicad-design/scripts/copper_guards.py",
+  "tool_sha256": "adabaa2bdf901e34e30ea4b116d920da484a87ca0756cac4ccfcda1136dc1aa2",
+  "source_board_sha256": "d36a7e9330eaf497e2f1a4ccefcc0c66f4de86e019921b04746e08c5efeb60f9",
+  "scratch_board_sha256": "d36a7e9330eaf497e2f1a4ccefcc0c66f4de86e019921b04746e08c5efeb60f9",
+  "native_parser_counts": {
+    "pads": 154,
+    "tracks": 1980,
+    "vias": 138
+  },
+  "calibration": {
+    "rectangle_mm": [
+      20,
+      2
+    ],
+    "copper_um": 70,
+    "analytical_mohm": 2.4630000000000005,
+    "model_mohm": 2.464000000013982,
+    "disconnected_fixture_rejected": true
+  },
+  "results": [
+    {
+      "grid_mm": 0.1,
+      "copper_resistance_mohm": 4.334747575290777,
+      "drop_at_5A_mV": 21.673737876453885,
+      "nodes": 20474
+    },
+    {
+      "grid_mm": 0.05,
+      "copper_resistance_mohm": 4.2381674077573175,
+      "drop_at_5A_mV": 21.190837038786587,
+      "nodes": 83064
+    }
+  ],
+  "assumptions": [
+    "70 um copper per side; room-temperature resistivity 1.7241e-8 ohm m",
+    "Both Pi 5V contacts ideally tied; header/contact resistance excluded",
+    "KiCad 9 numeric net IDs expanded on analysis-only text; live CAD unchanged",
+    "Native pad coordinates/nets and track/via counts cross-checked",
+    "Pad shapes approximated by solver; fixed 0.2 mOhm interlayer transitions",
+    "Only shunt-to-Pi positive branch; upstream copper and return not modeled"
+  ]
+}

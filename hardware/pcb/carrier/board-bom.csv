@@ -1,36 +1,35 @@
 reference,value,manufacturer_reference,footprint,documentation_url,status
-J_PICO,Pico 2 W / socketed,Pico 2 W,Carrier:Pico_Socketed,https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf,CAD draft; footprint and bench review pending
-J_UART,INTERPOSER / JST-XH-5,B5B-XH-A(LF)(SN),Carrier:XH5,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,CAD draft; footprint and bench review pending
-J_EVM,INA229EVM / direct plug,NPPN062FJFN-RC,Carrier:NPPN062FJFN,https://drawings-pdf.s3.amazonaws.com/10461.pdf,CAD draft; footprint and bench review pending
-D1,LED1 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,CAD draft; footprint and bench review pending
-R_LED1,1k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_PD1,100k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-D2,LED2 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,CAD draft; footprint and bench review pending
-R_LED2,1k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_PD2,100k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-D3,LED3 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,CAD draft; footprint and bench review pending
-R_LED3,1k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_PD3,100k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-D4,LED4 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,CAD draft; footprint and bench review pending
-R_LED4,1k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_PD4,100k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-D5,LED5 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,CAD draft; footprint and bench review pending
-R_LED5,1k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_PD5,100k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_CS,100k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-C1,100nF X7R 16V,,Carrier:C_0805,,CAD draft; footprint and bench review pending
-C2,1uF X7R 16V,,Carrier:C_0805,,CAD draft; footprint and bench review pending
-TP1,PICO 3V3,,Carrier:TestPoint,,CAD draft; footprint and bench review pending
-TP2,GND,,Carrier:TestPoint,,CAD draft; footprint and bench review pending
-J_SD,microSD / hinge,693072010801,Carrier:microSD_Wuerth,https://www.we-online.com/components/products/datasheet/693072010801.pdf,CAD draft; footprint and bench review pending
-U_SD,3.3V / dedicated SD LDO,TLV75533PDBVR,Carrier:SOT23_5,https://www.ti.com/lit/gpn/TLV755P,CAD draft; footprint and bench review pending
-R_SDP1,10k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_SDP2,10k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_SDP3,10k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_SDP4,10k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-R_SDP5,10k 1%,,Carrier:R_0805,,CAD draft; footprint and bench review pending
-C_SDIN,4.7uF X7R 16V,,Carrier:C_0805,,CAD draft; footprint and bench review pending
-C_SDOUT,4.7uF X7R 16V,,Carrier:C_0805,,CAD draft; footprint and bench review pending
-C_SDBULK,22uF X7R 16V,,Carrier:C_1206,,CAD draft; footprint and bench review pending
-C_SDSOCKET,100nF X7R 16V,,Carrier:C_0805,,CAD draft; footprint and bench review pending
-Pico socket strips,2 x 1x20 female 2.54mm,,Pico_Socketed,,Select socket/header pair; validate height
+J_PICO,Pico 2 W / socketed,Pico 2 W,Carrier:Pico_Socketed,https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf,prototype selection; release reviews pending
+J_UART,INTERPOSER / JST-XH-5,B5B-XH-A(LF)(SN),Carrier:XH5,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,prototype selection; release reviews pending
+J_EVM,INA229EVM / direct plug,NPPN062FJFN-RC,Carrier:NPPN062FJFN,https://drawings-pdf.s3.amazonaws.com/10461.pdf,prototype selection; release reviews pending
+D1,LED1 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,prototype selection; release reviews pending
+R_LED1,1k 1%,CRCW08051K00FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_PD1,100k 1%,CRCW0805100KFKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+D2,LED2 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,prototype selection; release reviews pending
+R_LED2,1k 1%,CRCW08051K00FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_PD2,100k 1%,CRCW0805100KFKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+D3,LED3 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,prototype selection; release reviews pending
+R_LED3,1k 1%,CRCW08051K00FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_PD3,100k 1%,CRCW0805100KFKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+D4,LED4 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,prototype selection; release reviews pending
+R_LED4,1k 1%,CRCW08051K00FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_PD4,100k 1%,CRCW0805100KFKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+D5,LED5 GREEN,APT2012LZGCK,Carrier:LED_0805,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,prototype selection; release reviews pending
+R_LED5,1k 1%,CRCW08051K00FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_PD5,100k 1%,CRCW0805100KFKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_CS,100k 1%,CRCW0805100KFKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+C1,100nF X7R 16V,GRM21BR71C104KA01L,Carrier:C_0805_Murata,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,prototype selection; release reviews pending
+C2,1uF X7R 16V,GRM21BR71C105KA01L,Carrier:C_0805_Murata,https://www.murata.com/en-us/products/productdetail?partno=GRM21BR71C105KA01%23,prototype selection; release reviews pending
+TP1,PICO 3V3,,Carrier:TestPoint,,prototype selection; release reviews pending
+TP2,GND,,Carrier:TestPoint,,prototype selection; release reviews pending
+J_SD,microSD / hinge,693072010801,Carrier:microSD_Wuerth,https://www.we-online.com/components/products/datasheet/693072010801.pdf,prototype selection; release reviews pending
+U_SD,3.3V / dedicated SD LDO,TLV75533PDBVR,Carrier:SOT23_5,https://www.ti.com/lit/gpn/TLV755P,prototype selection; release reviews pending
+R_SDP1,10k 1%,CRCW080510K0FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_SDP2,10k 1%,CRCW080510K0FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_SDP3,10k 1%,CRCW080510K0FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_SDP4,10k 1%,CRCW080510K0FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+R_SDP5,10k 1%,CRCW080510K0FKEA,Carrier:R_0805,https://www.vishay.com/docs/20035/dcrcwe3.pdf,prototype selection; release reviews pending
+C_SDIN,4.7uF X7R 16V,GRM21BR71C475KA73L,Carrier:C_0805_Murata,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C475KA73-01.pdf,prototype selection; release reviews pending
+C_SDOUT,4.7uF X7R 16V,GRM21BR71C475KA73L,Carrier:C_0805_Murata,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C475KA73-01.pdf,prototype selection; release reviews pending
+C_SDBULK,22uF X5R 16V,CL31A226KOHNNNE,Carrier:C_1206,https://product.samsungsem.com/mlcc/CL31A226KOHNNN.do,prototype selection; release reviews pending
+C_SDSOCKET,100nF X7R 16V,GRM21BR71C104KA01L,Carrier:C_0805_Murata,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,prototype selection; release reviews pending

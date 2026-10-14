@@ -180,7 +180,7 @@
       "mpn": "NPPN062FJFN-RC",
       "documentation_url": "https://drawings-pdf.s3.amazonaws.com/10461.pdf",
       "kind": "header",
-      "footprint_source": "Sullins drawing 10461-H; local mating-number convention"
+      "footprint_source": "Sullins drawing 10461-H; corrected 4.85mm body depth; local mating-number convention and body offset pending physical review"
     },
     {
       "ref": "D1",
@@ -197,7 +197,7 @@
       "mpn": "APT2012LZGCK",
       "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
       "kind": "led",
-      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+      "footprint_source": "LED_SMD:LED_0805_2012Metric; pads corrected to Kingbright APT2012LZGCK datasheet page 1"
     },
     {
       "ref": "R_LED1",
@@ -211,10 +211,12 @@
         60,
         15.3
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW08051K00FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_PD1",
@@ -228,10 +230,12 @@
         60,
         17.6
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW0805100KFKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "D2",
@@ -248,7 +252,7 @@
       "mpn": "APT2012LZGCK",
       "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
       "kind": "led",
-      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+      "footprint_source": "LED_SMD:LED_0805_2012Metric; pads corrected to Kingbright APT2012LZGCK datasheet page 1"
     },
     {
       "ref": "R_LED2",
@@ -262,10 +266,12 @@
         60,
         22.3
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW08051K00FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_PD2",
@@ -279,10 +285,12 @@
         60,
         24.6
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW0805100KFKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "D3",
@@ -299,7 +307,7 @@
       "mpn": "APT2012LZGCK",
       "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
       "kind": "led",
-      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+      "footprint_source": "LED_SMD:LED_0805_2012Metric; pads corrected to Kingbright APT2012LZGCK datasheet page 1"
     },
     {
       "ref": "R_LED3",
@@ -313,10 +321,12 @@
         60,
         29.3
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW08051K00FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_PD3",
@@ -330,10 +340,12 @@
         60,
         31.6
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW0805100KFKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "D4",
@@ -350,7 +362,7 @@
       "mpn": "APT2012LZGCK",
       "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
       "kind": "led",
-      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+      "footprint_source": "LED_SMD:LED_0805_2012Metric; pads corrected to Kingbright APT2012LZGCK datasheet page 1"
     },
     {
       "ref": "R_LED4",
@@ -364,10 +376,12 @@
         60,
         36.3
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW08051K00FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_PD4",
@@ -381,10 +395,12 @@
         60,
         38.6
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW0805100KFKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "D5",
@@ -401,7 +417,7 @@
       "mpn": "APT2012LZGCK",
       "documentation_url": "https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf",
       "kind": "led",
-      "footprint_source": "LED_SMD:LED_0805_2012Metric"
+      "footprint_source": "LED_SMD:LED_0805_2012Metric; pads corrected to Kingbright APT2012LZGCK datasheet page 1"
     },
     {
       "ref": "R_LED5",
@@ -415,10 +431,12 @@
         60,
         43.3
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW08051K00FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_PD5",
@@ -432,10 +450,12 @@
         60,
         45.6
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW0805100KFKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_CS",
@@ -449,15 +469,17 @@
         19,
         23
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW0805100KFKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "C1",
       "value": "100nF X7R 16V",
-      "footprint": "C_0805",
+      "footprint": "C_0805_Murata",
       "pins": {
         "1": "PICO_3V3",
         "2": "GND"
@@ -466,15 +488,17 @@
         19,
         27
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "GRM21BR71C104KA01L",
+      "documentation_url": "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf",
       "kind": "passive",
-      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+      "footprint_source": "Murata GRM21 reflow land pattern: gap 1.2; pads 0.6 x 1.25 mm",
+      "manufacturer": "Murata",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "C2",
       "value": "1uF X7R 16V",
-      "footprint": "C_0805",
+      "footprint": "C_0805_Murata",
       "pins": {
         "1": "PICO_3V3",
         "2": "GND"
@@ -483,10 +507,12 @@
         19,
         31
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "GRM21BR71C105KA01L",
+      "documentation_url": "https://www.murata.com/en-us/products/productdetail?partno=GRM21BR71C105KA01%23",
       "kind": "passive",
-      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+      "footprint_source": "Murata GRM21 reflow land pattern: gap 1.2; pads 0.6 x 1.25 mm",
+      "manufacturer": "Murata",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "TP1",
@@ -576,10 +602,12 @@
         15,
         16
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW080510K0FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_SDP2",
@@ -593,10 +621,12 @@
         15,
         20
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW080510K0FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_SDP3",
@@ -610,10 +640,12 @@
         15,
         24
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW080510K0FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_SDP4",
@@ -627,10 +659,12 @@
         15,
         28
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW080510K0FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "R_SDP5",
@@ -644,15 +678,17 @@
         15,
         32
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CRCW080510K0FKEA",
+      "documentation_url": "https://www.vishay.com/docs/20035/dcrcwe3.pdf",
       "kind": "passive",
-      "footprint_source": "Resistor_SMD:R_0805_2012Metric"
+      "footprint_source": "Resistor_SMD:R_0805_2012Metric",
+      "manufacturer": "Vishay",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "C_SDIN",
       "value": "4.7uF X7R 16V",
-      "footprint": "C_0805",
+      "footprint": "C_0805_Murata",
       "pins": {
         "1": "USB_5V",
         "2": "GND"
@@ -661,15 +697,17 @@
         25,
         16
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "GRM21BR71C475KA73L",
+      "documentation_url": "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C475KA73-01.pdf",
       "kind": "passive",
-      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+      "footprint_source": "Murata GRM21 reflow land pattern: gap 1.2; pads 0.6 x 1.25 mm",
+      "manufacturer": "Murata",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "C_SDOUT",
       "value": "4.7uF X7R 16V",
-      "footprint": "C_0805",
+      "footprint": "C_0805_Murata",
       "pins": {
         "1": "SD_3V3",
         "2": "GND"
@@ -678,14 +716,16 @@
         25,
         24
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "GRM21BR71C475KA73L",
+      "documentation_url": "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C475KA73-01.pdf",
       "kind": "passive",
-      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+      "footprint_source": "Murata GRM21 reflow land pattern: gap 1.2; pads 0.6 x 1.25 mm",
+      "manufacturer": "Murata",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "C_SDBULK",
-      "value": "22uF X7R 16V",
+      "value": "22uF X5R 16V",
       "footprint": "C_1206",
       "pins": {
         "1": "SD_3V3",
@@ -695,15 +735,17 @@
         9,
         39
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "CL31A226KOHNNNE",
+      "documentation_url": "https://product.samsungsem.com/mlcc/CL31A226KOHNNN.do",
       "kind": "passive",
-      "footprint_source": "Capacitor_SMD:C_1206_3216Metric"
+      "footprint_source": "Capacitor_SMD:C_1206_3216Metric",
+      "manufacturer": "Samsung Electro-Mechanics",
+      "selection_status": "selected for prototype; release reviews pending"
     },
     {
       "ref": "C_SDSOCKET",
       "value": "100nF X7R 16V",
-      "footprint": "C_0805",
+      "footprint": "C_0805_Murata",
       "pins": {
         "1": "SD_3V3",
         "2": "GND"
@@ -712,10 +754,26 @@
         10,
         43
       ],
-      "mpn": "",
-      "documentation_url": "",
+      "mpn": "GRM21BR71C104KA01L",
+      "documentation_url": "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf",
       "kind": "passive",
-      "footprint_source": "Capacitor_SMD:C_0805_2012Metric"
+      "footprint_source": "Murata GRM21 reflow land pattern: gap 1.2; pads 0.6 x 1.25 mm",
+      "manufacturer": "Murata",
+      "selection_status": "selected for prototype; release reviews pending"
     }
-  ]
+  ],
+  "design_constraints": {
+    "ambient_C": [
+      10,
+      40
+    ],
+    "prototype_budget_EUR": [
+      100,
+      200
+    ],
+    "budget_excludes": "INA229EVM and owned equipment",
+    "assembly": "factory SMT; manual through-hole connectors",
+    "fault_policy": "operator abort and supply power cycle; not a hardware fault latch",
+    "fablab_equipment": "user confirmed access; no measurements performed"
+  }
 }

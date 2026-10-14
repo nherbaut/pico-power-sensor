@@ -1,0 +1,20 @@
+{
+  "board": "carrier",
+  "status": "isolated review candidate; not fabrication-ready",
+  "baseline_pcb_sha256": "e0e84e60eb6e726a629949ffd580ea855fcbccf1351fd2480c6b5cc5495d82f8",
+  "candidate_pcb_sha256": "9e39beb79fb834bbe45e2ed07494d1f5bd9ff6f8e651392dfe6e7fce76313a26",
+  "changes": [
+    "D5: Kingbright 1.25 x 1.10 mm pads, 1.10 mm gap; cathode pad 1 retained",
+    "D2: Kingbright 1.25 x 1.10 mm pads, 1.10 mm gap; cathode pad 1 retained",
+    "J_EVM: projected body depth 7.20 -> 4.85 mm; offset and mating orientation remain provisional",
+    "D3: Kingbright 1.25 x 1.10 mm pads, 1.10 mm gap; cathode pad 1 retained",
+    "D1: Kingbright 1.25 x 1.10 mm pads, 1.10 mm gap; cathode pad 1 retained",
+    "D4: Kingbright 1.25 x 1.10 mm pads, 1.10 mm gap; cathode pad 1 retained"
+  ],
+  "unmerged_autosave_present": false,
+  "limitations": [
+    "Circuit, BOM and routing otherwise unchanged.",
+    "Physical fit and remaining footprint reviews are not complete.",
+    "Do not replace a saved project or autosave automatically."
+  ]
+}

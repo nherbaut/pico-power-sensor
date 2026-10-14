@@ -1,0 +1,70 @@
+board,reference,manufacturer_reference,value,quantity,assembly,documentation_url,status
+interposer,J1,1776508,POWER IN + / -,1,manual through-hole,https://www.phoenixcontact.com/en-us/products/pcb-header-mstb-25-2-gf-508-1776508,planning only; technical review and supplier availability pending
+interposer,F1,0031.8201,6.3 A candidate / 5x20 holder,1,manual through-hole,https://at.schurter.com/en/datasheet/typ_OGN.pdf,planning only; technical review and supplier availability pending
+interposer,Q1,BSC010N04LS6ATMA1,NMOS input,1,factory SMT,https://www.infineon.com/part/BSC010N04LS6,planning only; technical review and supplier availability pending
+interposer,Q2,BSC010N04LS6ATMA1,NMOS output,1,factory SMT,https://www.infineon.com/part/BSC010N04LS6,planning only; technical review and supplier availability pending
+interposer,U1,LTC4367IMS8#PBF,LTC4367 protection switch,1,factory SMT,https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4367.pdf,planning only; technical review and supplier availability pending
+interposer,RSH1,WSK25125L000DEA,5 mOhm / 0.5% / 1 W,1,factory SMT,https://www.vishay.com/docs/30108/wsk2512.pdf,planning only; technical review and supplier availability pending
+interposer,J2,SSQ-120-03-G-D,40-pin stacking socket,1,manual through-hole,https://www.samtec.com/products/ssq-120-03-g-d,planning only; technical review and supplier availability pending
+interposer,J3,B4B-XH-A(LF)(SN),S+ / S- / VBUS / GND,1,manual through-hole,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,planning only; technical review and supplier availability pending
+interposer,J4,B5B-XH-A(LF)(SN),GND / PiTX / PiRX / MARK / Pico3V3,1,manual through-hole,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,planning only; technical review and supplier availability pending
+interposer,U2,SN74AXC4T245PWR,UART power-off buffer,1,factory SMT,https://www.ti.com/lit/ds/symlink/sn74axc4t245.pdf,planning only; technical review and supplier availability pending
+interposer,D1,APT2012LZGCK,GREEN POWER,1,factory SMT,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,planning only; technical review and supplier availability pending
+interposer,R2,TNPW080510K0BEEA,10.0k 0.1%,1,factory SMT,https://www.vishay.com/docs/28758/tnpw_e3.pdf,planning only; technical review and supplier availability pending
+interposer,R3,TNPW08051K50BEEA,1.50k 0.1%,1,factory SMT,https://www.vishay.com/docs/28758/tnpw_e3.pdf,planning only; technical review and supplier availability pending
+interposer,R4,TNPW080595K3BEEA,95.3k 0.1%,1,factory SMT,https://www.vishay.com/docs/28758/tnpw_e3.pdf,planning only; technical review and supplier availability pending
+interposer,R5,CRCW0805510KFKEA,510k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R6,CRCW080510R0FKEA,10R,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R7,CRCW080510R0FKEA,10R,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R8,CRCW08055K10FKEA,5.1k,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R9,CRCW08052K70FKEA,2.7k 1% 0.125W,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R10,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R11,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R12,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R13,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R14,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,R15,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+interposer,C1,C0805C123J5GACTU,12nF C0G 50V,1,factory SMT,https://content.kemet.com/datasheets/KEM_C1003_C0G_SMD.pdf,planning only; technical review and supplier availability pending
+interposer,C2,GRM21BR72A104JAC4L,100nF X7R 100V,1,factory SMT,https://www.murata.com/en-us/products/productdetail?partno=GRM21BR72A104JAC4%23,planning only; technical review and supplier availability pending
+interposer,C3,GRM21BR71C104KA01L,100nF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,planning only; technical review and supplier availability pending
+interposer,C4,GRM21BR71C104KA01L,100nF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,planning only; technical review and supplier availability pending
+interposer,TP1,,PI_5V,0,bare PCB feature,,planning only; technical review and supplier availability pending
+interposer,TP2,,GND,0,bare PCB feature,,planning only; technical review and supplier availability pending
+interposer,TP3,,PROTECTED,0,bare PCB feature,,planning only; technical review and supplier availability pending
+interposer,TP4,,VIN_FUSED,0,bare PCB feature,,planning only; technical review and supplier availability pending
+interposer,F1 cartridge,021706.3MXP,6.3 A fast 5x20 cartridge,1,manual insertion after inspection,https://www.littelfuse.com/assetdocs/littelfuse-fuse-217-datasheet?assetguid=af55be94-c42e-41b1-ad43-e070e09443fe,retained provisional part; complete voltage-drop budget unresolved
+carrier,J_PICO,Pico 2 W,Pico 2 W / socketed,0,owned socketed module; do not order or solder to PCB,https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf,planning only; technical review and supplier availability pending
+carrier,J_UART,B5B-XH-A(LF)(SN),INTERPOSER / JST-XH-5,1,manual through-hole,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,planning only; technical review and supplier availability pending
+carrier,J_EVM,NPPN062FJFN-RC,INA229EVM / direct plug,1,manual through-hole,https://drawings-pdf.s3.amazonaws.com/10461.pdf,planning only; technical review and supplier availability pending
+carrier,D1,APT2012LZGCK,LED1 GREEN,1,factory SMT,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,planning only; technical review and supplier availability pending
+carrier,R_LED1,CRCW08051K00FKEA,1k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_PD1,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,D2,APT2012LZGCK,LED2 GREEN,1,factory SMT,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,planning only; technical review and supplier availability pending
+carrier,R_LED2,CRCW08051K00FKEA,1k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_PD2,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,D3,APT2012LZGCK,LED3 GREEN,1,factory SMT,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,planning only; technical review and supplier availability pending
+carrier,R_LED3,CRCW08051K00FKEA,1k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_PD3,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,D4,APT2012LZGCK,LED4 GREEN,1,factory SMT,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,planning only; technical review and supplier availability pending
+carrier,R_LED4,CRCW08051K00FKEA,1k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_PD4,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,D5,APT2012LZGCK,LED5 GREEN,1,factory SMT,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,planning only; technical review and supplier availability pending
+carrier,R_LED5,CRCW08051K00FKEA,1k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_PD5,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_CS,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,C1,GRM21BR71C104KA01L,100nF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,planning only; technical review and supplier availability pending
+carrier,C2,GRM21BR71C105KA01L,1uF X7R 16V,1,factory SMT,https://www.murata.com/en-us/products/productdetail?partno=GRM21BR71C105KA01%23,planning only; technical review and supplier availability pending
+carrier,TP1,,PICO 3V3,0,bare PCB feature,,planning only; technical review and supplier availability pending
+carrier,TP2,,GND,0,bare PCB feature,,planning only; technical review and supplier availability pending
+carrier,J_SD,693072010801,microSD / hinge,1,factory SMT,https://www.we-online.com/components/products/datasheet/693072010801.pdf,planning only; technical review and supplier availability pending
+carrier,U_SD,TLV75533PDBVR,3.3V / dedicated SD LDO,1,factory SMT,https://www.ti.com/lit/gpn/TLV755P,planning only; technical review and supplier availability pending
+carrier,R_SDP1,CRCW080510K0FKEA,10k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_SDP2,CRCW080510K0FKEA,10k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_SDP3,CRCW080510K0FKEA,10k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_SDP4,CRCW080510K0FKEA,10k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_SDP5,CRCW080510K0FKEA,10k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,C_SDIN,GRM21BR71C475KA73L,4.7uF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C475KA73-01.pdf,planning only; technical review and supplier availability pending
+carrier,C_SDOUT,GRM21BR71C475KA73L,4.7uF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C475KA73-01.pdf,planning only; technical review and supplier availability pending
+carrier,C_SDBULK,CL31A226KOHNNNE,22uF X5R 16V,1,factory SMT,https://product.samsungsem.com/mlcc/CL31A226KOHNNN.do,planning only; technical review and supplier availability pending
+carrier,C_SDSOCKET,GRM21BR71C104KA01L,100nF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,planning only; technical review and supplier availability pending
+carrier,J_PICO socket strips,SSW-120-01-G-S,1x20 female socket,2,manual through-hole; replaces module in purchasing list,https://www.samtec.com/products/ssw-120-01-g-s,planning only; drawing and physical fit pending

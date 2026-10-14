@@ -1,6 +1,10 @@
 # Acceptance tests
 
-Software/source checks and physical validation are separate. No physical test is recorded yet.
+Software/source checks and physical validation are separate. An [initial paper mock-up photograph](mechanical/paper-mockup-2026-10-14.md) is recorded as partial mechanical evidence; no assembled-board bench validation is recorded.
+
+The [release procedure](../docs/release.md) and [CSV checklist](../hardware/release-checklist.csv) record separate fabrication and connection gates. Use `make release-check BOARD=interposer GATE=fabrication` to list remaining requirements; failure is expected until all required evidence is recorded.
+
+`make test` includes a native footprint/generator regression using `/usr/bin/python3` and KiCad's `pcbnew` module. It verifies the integrated LED/shunt/socket corrections and their persistence through generation paths; it does not perform physical acceptance. Normal website builds do not run this KiCad-dependent test.
 
 | Procedure | Purpose |
 |---|---|

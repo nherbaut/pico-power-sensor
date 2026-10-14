@@ -1,0 +1,9 @@
+element,reference_resistance_mohm,reference_drop_at_5A_mV,basis,source,remaining
+Shunt RSH1,5.025,25.125,5 mOhm +0.5% initial tolerance; excludes temperature drift,https://www.vishay.com/docs/30108/wsk2512.pdf,Verify fitted resistance and Kelvin attachment
+MOSFETs Q1 + Q2,2.8,14,2 x 1.4 mOhm datasheet maximum at 4.5 V gate and stated room-temperature test conditions,https://www.infineon.com/assets/row/public/documents/24/49/infineon-bsc010n04ls6-datasheet-en.pdf,Hot resistance and startup/SOA are unbounded by this row
+Input connector positive + return,2,10,2 x published 1 mOhm contact figure; not a verified worst-case assembled loop bound,https://www.phoenixcontact.com/en-us/products/pcb-header-mstb-25-2-gf-508-1776508,Include plug wire termination and both contacts; verify maximum and temperature
+Fuse link,9.5,47.5,"021706.3MXP: manufacturer nominal cold resistance, not a hot maximum",https://www.littelfuse.com/assetdocs/littelfuse-fuse-217-datasheet?assetguid=af55be94-c42e-41b1-ad43-e070e09443fe,"DC interrupting specification checked: 70A at 60VDC; obtain assembled 5A hot drop, tolerance and holder contribution"
+Fuse holder contacts,,,Current rating and power acceptance do not establish contact resistance,https://at.schurter.com/en/datasheet/typ_OGN.pdf,Obtain or measure assembled holder contribution
+Pi header positive + return,,,Two positive contacts in parallel; several return contacts; actual sharing and mated Pi connector unknown,https://www.samtec.com/products/ssq-120-03-g-d,"Establish resistance, current sharing and full stack thermal limit"
+Board copper / vias / solder,,,Native tracks coexist with filled planes; summed track lengths are not equivalent resistance,,"Review necks, thermal spokes and returns; solve or measure complete path"
+External supply harness,,,Outside J1-to-header target; additional loss between Korad posts and J1,,Record wire length/gauge and banana/contact losses separately

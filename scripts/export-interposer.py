@@ -16,6 +16,8 @@ cli('sch','export','pdf','-o',OUT/'schematic.pdf',OUT/'interposer.kicad_sch')
 for side in ['front','back']:
     layers='F.Cu,F.Silkscreen,Edge.Cuts' if side=='front' else 'B.Cu,B.Silkscreen,Edge.Cuts'
     cli('pcb','export','svg','--mode-single','--exclude-drawing-sheet','--fit-page-to-board','--layers',layers,'-o',OUT/f'layout-{side}.svg',OUT/'interposer.kicad_pcb')
+    svg=OUT/f'layout-{side}.svg'
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines())+'\n')
 reports=OUT/'checks';reports.mkdir(exist_ok=True)
 for name in ['erc.rpt','drc.rpt','source-check.json']:
     shutil.copyfile(ROOT/'.build/hardware'/name,reports/name)
@@ -23,6 +25,8 @@ render_board_images('interposer')
 archive=OUT/'interposer-review.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:
     for path in sorted(OUT.rglob('*')):
-        if path.is_file() and path!=archive and path.suffix not in ['.kicad_prl','.lck','.bak']:
+        if (path.is_file() and path!=archive and path.suffix not in ['.kicad_prl','.lck','.bak']
+                and not path.name.startswith('_autosave-') and path.name!='fp-info-cache'
+                and not any(part.endswith('-backups') or part=='backups' for part in path.relative_to(OUT).parts)):
             z.write(path,Path('interposer')/path.relative_to(OUT))
 print('Exported schematic PDF, copper previews, check reports and portable review archive.')
