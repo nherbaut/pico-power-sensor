@@ -1,6 +1,6 @@
 {
   "board": "interposer",
-  "design_sha256": "af9866c4be83a6a44c9fb96282d87086d14e3e1e8228865198b800a3ca925c8f",
+  "design_sha256": "4934c0d4844723ee9d328c0ed78418e09f238db88efdd006fda8a425c6fe81e0",
   "evidence_type": "automated CAD geometry extraction; not footprint approval or physical measurement",
   "footprints": [
     {
@@ -3491,8 +3491,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,
@@ -3513,8 +3513,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,
@@ -3535,8 +3535,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,
@@ -3557,8 +3557,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,
@@ -3579,8 +3579,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,
@@ -3601,8 +3601,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,
@@ -3623,8 +3623,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,
@@ -3645,8 +3645,8 @@
           ],
           "attribute": 1,
           "size_mm": [
-            1.625,
-            0.4
+            0.889,
+            0.42
           ],
           "drill_mm": [
             0.0,

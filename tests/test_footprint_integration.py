@@ -46,6 +46,11 @@ for name,library in [('interposer','PicoPower.pretty'),('carrier','Carrier.prett
             assert not pads['1'].IsOnLayer(pcbnew.F_Paste)
             paste=[x for x in fp.Pads() if not x.GetNumber() and abs(pcbnew.ToMM(x.GetFPRelativePosition().x)+2.9)<.05]
             assert len(paste)==4 and all(not x.IsOnLayer(pcbnew.F_Cu) for x in paste),(ref,len(paste))
+        if ref=='U1':
+            # LTC4367 Rev. D page 19: 0.42 mm wide pads about 0.889 mm long, 0.65 mm pitch, centres kept.
+            for pad in fp.Pads():
+                assert abs(pcbnew.ToMM(pad.GetSize().x)-.889)<1e-6 and abs(pcbnew.ToMM(pad.GetSize().y)-.42)<1e-6,(ref,pad.GetNumber())
+                assert abs(abs(pcbnew.ToMM(pad.GetFPRelativePosition().x))-2.1125)<1e-6
         if ref=='RSH1':
             for pad in fp.Pads():
                 if pad.GetNumber() in ('2','3'):

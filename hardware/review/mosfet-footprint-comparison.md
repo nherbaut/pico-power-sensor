@@ -27,7 +27,7 @@ Coordinates below follow the pin axis: distances run from the package centre tow
 
 ## Applied change (2026-10-15)
 
-The Infineon copper pattern was applied to Q1 and Q2 of the routed interposer with `scripts/apply-mosfet-footprint.py`, using `mosfet()` in `scripts/footprint_corrections.py`; `scripts/layout-interposer.py` uses the same function, so a regeneration keeps it. Resulting pads, in the footprint frame:
+The Infineon copper pattern was applied to Q1 and Q2 of the routed interposer with `scripts/apply-footprint-corrections.py`, using `mosfet()` in `scripts/footprint_corrections.py`; `scripts/layout-interposer.py` uses the same function, so a regeneration keeps it. Resulting pads, in the footprint frame:
 
 - Drain (pad 5): 4.455 x 4.41 mm, from 1.13 mm toward the leads to 3.325 mm away.
 - Lead pads: 1.055 mm long, centred at 2.7975 mm; the gate (pad 4) is 0.5 mm wide.

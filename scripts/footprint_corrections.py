@@ -146,6 +146,17 @@ def mosfet(fp):
         paste.SetFPRelativePosition(point(-2.9, y))
 
 
+def msop8(fp):
+    """LTC4367 MS8 recommended solder pads (datasheet Rev. D, page 19): 0.42 mm wide, 0.889 mm long.
+
+    Applied to the KiCad MSOP-8_3x3mm_P0.65mm stock footprint. Pad centres are kept, so the rows
+    stay 3.335 mm apart inner edge to inner edge, inside the recommended 3.20 to 3.45 mm.
+    """
+    for pad in fp.Pads():
+        if pad.GetNumber() in ('1', '2', '3', '4', '5', '6', '7', '8'):
+            pad.SetSize(point(.889, .42))
+
+
 def socket(fp):
     # 10461-H: 4.85 mm projected depth, 7.20 mm height. Keep provisional body offset.
     for graphic in fp.GraphicalItems():
