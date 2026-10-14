@@ -20,13 +20,15 @@ The [TPS25982 datasheet](https://www.ti.com/lit/ds/symlink/tps25982.pdf), Rev. D
 
 ## Proposed detector and control
 
-The **INA300AIDGSR** candidate monitors the same Kelvin sense pair as the INA229EVM. It is a separate protection detector; the INA229 continues measuring current, power and energy. A 1.43 kΩ, 0.1% threshold resistor gives a nominal 5.62 A trip for the 10 µs setting, including TI's 500 µV noise adjustment. The initial tolerance screen is approximately **5.41–5.83 A**. Temperature, supply/common-mode effects and actual response remain unqualified. Its latched alert requires deliberate reset. [INA300 datasheet](https://www.ti.com/lit/ds/symlink/ina300.pdf), Rev. C, pp. 5, 12 and 18; the current addendum lists INA300AIDGSR active, while INA300AIDGST is obsolete.
+The **INA300AIDGSR** candidate monitors the same Kelvin sense pair as the INA229 on the carrier. It is a separate protection detector; the INA229 continues measuring current, power and energy. A 1.43 kΩ, 0.1% threshold resistor gives a nominal 5.62 A trip for the 10 µs setting, including TI's 500 µV noise adjustment. The initial tolerance screen is approximately **5.41–5.83 A**. Temperature, supply/common-mode effects and actual response remain unqualified. Its latched alert requires deliberate reset. [INA300 datasheet](https://www.ti.com/lit/ds/symlink/ina300.pdf), Rev. C, pp. 5, 12 and 18; the current addendum lists INA300AIDGSR active, while INA300AIDGST is obsolete.
 
 Supply the detector from independent **Pico 3V3**, before and outside DUT current measurement. Its IN− input nevertheless introduces a small, explicitly identified measured-side bias: a 10 µA table reference is 0.01% of 100 mA. This is not a full-temperature or unpowered bound. Measure the additional bias and Kelvin wiring error; retain raw measurements rather than silently subtracting a constant.
 
 **Do not wire ALERT straight to LTC4367 SHDN as a guaranteed interface.** Their published worst-case low-level figures meet at 0.4 V, leaving zero margin. A **SN74AUP1G17DBVR** buffer and SHDN pull-down are candidates for a defined low level and power-off behavior. Source conditions and the required loading checks are recorded in the [calculation artifact](../hardware/review/electronic-protection-study.json). The buffer is an active SOT-23 part, suitable for the selected factory SMT process; availability is not yet a quote. [TI buffer](https://www.ti.com/product/SN74AUP1G17/part-details/SN74AUP1G17DBVR).
 
 SHDN uses the LTC4367's **slow** gate-discharge path. The fast UV/OV timing does not apply. Directly joining ALERT to UV would also introduce leakage into the precision divider, so that connection is not adopted. [LTC4367 datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4367.pdf), Rev. D, pp. 4 and 7.
+
+The [control design](electronic-protection-design.md) now defines the arming, reset and brownout rules; it is a proposal and is not integrated.
 
 ## Requirements before drawing the new PCB
 
