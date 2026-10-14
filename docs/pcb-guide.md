@@ -7,7 +7,7 @@ The **interposer** sits between the lab power supply and the Raspberry Pi under 
 | Korad U202 | Supplies the Pi through the interposer | Keep this supply; no voltage-converter HAT is needed |
 | Interposer | Routes power, provides protection and carries the shunt | This is the board whose power path must be tested before connecting a Pi |
 | Shunt | A small, accurately specified resistor used to infer current from its voltage drop | Its four connections separate current flow from voltage sensing |
-| INA229EVM | Reads the shunt voltage and supply voltage | It connects to the carrier for power/data and to the interposer for sensing |
+| INA229 (on the carrier) | Reads the shunt voltage and supply voltage | Soldered on the carrier; the sense cable from the interposer plugs into the carrier |
 | Pico carrier | Supports the Pico, five programmable LEDs, microSD and connectors | Its USB supply powers the instrument independently |
 | Raspberry Pi and HAT | Run the task being measured | Their power is the measurement target, or DUT: device under test |
 

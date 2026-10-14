@@ -2,18 +2,20 @@
 
 A reproducible instrument for measuring Raspberry Pi task energy and correlating power with runtime metrics across hardware and software configurations.
 
+For the latest design direction, completed checks and next work, start with the [project state and agent handoff](docs/project-state.md). Both boards remain engineering drafts; fabrication and Pi connection are gated by the [release checklist](hardware/release-checklist.csv).
+
 ## The instrument
 
 PicoPower is being designed to answer a practical question: how much energy does a Raspberry Pi need to complete a task, and how does that change with its software, Pi model, cooling and accelerator HAT?
 
-The first design targets a **Raspberry Pi 5**, powered directly by the existing **Korad U202**. A custom interposer measures the Pi's supply current and voltage. A separate Pico 2 W carrier connects the INA229EVM sensor, talks to the Pi through a buffered UART cable, and provides Wi-Fi and a microSD slot for future measurement logging.
+The first design targets a **Raspberry Pi 5**, powered directly by the existing **Korad U202**. A custom interposer measures the Pi's supply current and voltage. A separate Pico 2 W carrier carries an INA229 power monitor, talks to the Pi through a buffered UART cable, and provides Wi-Fi and a microSD slot for future measurement logging.
 
 | Part | What it does |
 |---|---|
 | Korad U202 | Supplies the DUT at the planned 5.1 V setting |
 | Pi interposer | Power entry, fuse, protection, four-terminal shunt and 40-pin HAT pass-through |
-| INA229EVM | Measures shunt voltage and bus voltage through its analog sense connections |
-| Pico carrier | Independent USB power, EVM SPI0 connection, five programmable LEDs, JST-XH UART/marker cable and microSD on SPI1 |
+| INA229 (on the carrier) | Measures shunt voltage and bus voltage through its analog sense connections |
+| Pico carrier | Independent USB power, INA229 on SPI0, five programmable LEDs, JST-XH UART/marker cable and microSD on SPI1 |
 | Pi and HAT | The device under test, running the workload and reporting runtime metrics through a future daemon |
 
 The Pi, HAT and Pi-powered peripherals form the measured load. Pico, sensor, card and carrier LEDs use independent instrument power. The Pi-powered side of the communication buffer is an explicitly included interface overhead; it must be characterized rather than silently subtracted. See the [measurement boundary](docs/architecture.md) and [wiring guide](docs/wiring.md).
@@ -30,9 +32,9 @@ The interposer carries the fuse and 5 mOhm four-terminal shunt on an outward ext
 
 ### Pico instrument carrier
 
-The carrier sockets a Pico 2 W and accepts the INA229EVM through a direct plug-in socket. Five green LEDs on GP4-GP8 can show firmware-defined status. Its five-pin JST-XH connector carries UART RX/TX, a workload marker, ground and the Pico-side buffer supply to the interposer.
+The carrier sockets a Pico 2 W and carries the INA229 power monitor; the interposer's four-pin sense cable plugs into its JST-XH connector. Five green LEDs on GP27/26/22/21/20 can show firmware-defined status. Its five-pin JST-XH connector carries UART RX/TX, a workload marker, ground and the Pico-side buffer supply to the interposer.
 
-The hinged microSD slot uses **SPI1 on GP12-GP15**, while the INA229 retains **SPI0 on GP16-GP19**. The card has a dedicated USB-fed 3.3 V regulator. Its power consumption stays outside DUT measurements. Recording requires future firmware with RAM buffering so card write stalls do not block acquisition.
+The hinged microSD slot uses **SPI1 on GP12-GP15**, while the INA229 uses **SPI0 on GP4-GP7**. The card has a dedicated USB-fed 3.3 V regulator. Its power consumption stays outside DUT measurements. Recording requires future firmware with RAM buffering so card write stalls do not block acquisition.
 
 ![Front PCB layout of the Pico carrier with five LEDs, UART connector and microSD slot](hardware/pcb/carrier/layout-front.png "Carrier front PCB drawing, including the microSD slot and dedicated card regulator. Engineering draft; physical fit and electrical validation are pending.")
 

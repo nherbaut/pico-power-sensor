@@ -1,10 +1,10 @@
 # Prototype assembly and sourcing
 
-Use a common comparison request of **two assembled interposers and two assembled carriers**, with one working instrument as the immediate goal and the second pair as spares. Also compare one assembled unit per design where the service allows it. Extra bare boards required by an order minimum must be counted. Target EUR 100–200 delivered to France including VAT, assembly, parts, setup/stencils and shipping; INA229EVM and owned equipment are excluded. No actual quote has been obtained and the target is not guaranteed.
+Use a common comparison request of **two assembled interposers and two assembled carriers**, with one working instrument as the immediate goal and the second pair as spares. Also compare one assembled unit per design where the service allows it. Extra bare boards required by an order minimum must be counted. Target EUR 100–200 delivered to France including VAT, assembly, parts, setup/stencils and shipping; owned equipment is excluded. No actual quote has been obtained and the target is not guaranteed.
 
 ## Assembly split
 
-The generated [assembly review CSV](../hardware/assembly-review.csv) is a local planning list, **not an order-ready BOM/CPL**. Every physical circuit component is classified. Factory placement covers resistors, capacitors, LEDs, ICs, shunt, MOSFETs and the microSD socket. Manual assembly covers the power connector, fuse holder, long-tail header, JST connectors, EVM socket and two Pico socket strips. Insert the fuse, Pico, EVM and card only at the appropriate assembly stage. Bare test pads and mounting holes require no purchased component.
+The generated [assembly review CSV](../hardware/assembly-review.csv) is a local planning list, **not an order-ready BOM/CPL**. Every physical circuit component is classified. Factory placement covers resistors, capacitors, LEDs, ICs, shunt, MOSFETs and the microSD socket. Manual assembly covers the power connector, fuse holder, long-tail header, JST connectors (including the carrier's J_SENSE) and two Pico socket strips. Insert the fuse, Pico and card only at the appropriate assembly stage. Bare test pads and mounting holes require no purchased component.
 
 J_PICO is a combined logical footprint. It must not be ordered as a factory-soldered Pico module. Its two socket strips are listed separately. J2 is one physical stacking socket; the schematic's logical HAT-side J5 is not a second component. Preserve these distinctions when preparing an eventual BOM/CPL.
 
@@ -34,10 +34,9 @@ JLCPCB is the first budget candidate, Eurocircuits/AISLER the European compariso
 
 | Item | Quantity per instrument | Status |
 |---|---:|---|
-| TI INA229EVM | 1 | Needed to verify actual revision, empty R1, mating connector and support |
 | Samtec SSQ-120-03-G-D | 1 | Existing stacking candidate; generic owned connectors are preliminary aids |
 | Samtec SSW-120-01-G-S | 2 | Selected Pico socket strips; drawing/seating review pending |
-| Sullins NPPN062FJFN-RC | 1 | Selected EVM socket; physical offset, numbering and support check pending |
+| TI INA229AIDGSR | 1 | Soldered on the carrier (VSSOP-10); footprint and availability review pending |
 | M2.5 spacers/screws and side-wing support | Fit-dependent | Determine exact heights with rigid 1.6 mm mock-up; do not reuse 16 mm HAT spacers by assumption |
 
 Use the existing Pi/cooler/HAT hardware. No new scope, load or DUT supply is required: fablab access is confirmed. Procurement remains empty until actual purchases/receipts occur.

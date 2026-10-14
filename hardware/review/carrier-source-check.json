@@ -10,7 +10,7 @@
   },
   "release_status": "not-for-manufacture",
   "pending": [
-    "EVM revision / mating orientation and height",
+    "INA229 footprint, Kelvin routing and sense-cable mating",
     "LED polarity / brightness",
     "USB and antenna clearance",
     "3V3 stability during Wi-Fi and all LEDs on",

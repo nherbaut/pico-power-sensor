@@ -4,7 +4,7 @@ The assembled instrument measures current through a 5 mOhm shunt and voltage at 
 
 ## Calibration procedure
 
-- Record shunt part/lot, instrument revision, EVM revision, ADC settings, reference meter identity and temperature.
+- Record shunt part/lot, instrument revision, carrier revision, INA229 lot, ADC settings, reference meter identity and temperature.
 - Measure zero-current offset and voltage offset with a controlled supply and dummy load.
 - Compare at several loads, including 0.1, 0.5, 1, 3 and 5 A where equipment supports them. Use four-wire resistance measurements or fitted gain calibration; an ordinary two-lead ohmmeter cannot characterize 5 mOhm accurately.
 - Fit gain/offset only from reference data, retain residuals and store coefficients per instrument. Re-test after thermal stabilization.

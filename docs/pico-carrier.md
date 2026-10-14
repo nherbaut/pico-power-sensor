@@ -4,11 +4,11 @@ Status: routed KiCad 9 engineering draft; physical validation and fabrication re
 
 ## Mechanical arrangement
 
-The carrier replaces the TI controller in `img/picoinamount.png`: the INA229EVM plugs horizontally into a left-edge right-angle socket, with the two boards side by side. Use a Sullins NPPN062FJFN-RC 2 x 6, 2 mm female socket to mate with the EVM J3 NRPN062PARN-RC male header. The local footprint uses Sullins drawing 10461-H and the TI-SCB mating-number convention. Verify body offset, pin orientation and mating height against the actual parts before fabrication. The example photograph shows SENS064A; validate the actual EVM revision and its chip-select routing before connection.
+The carrier holds the INA229 power monitor (U_PM, TI INA229AIDGSR, VSSOP-10) directly on the board; the INA229EVM is not used. The interposer's four-pin sense connector J3 is joined to the carrier's J_SENSE with a short straight-through XHP-4 cable. The previous EVM socket and its mating-number convention no longer exist. Verify the INA229 footprint against TI's DGS0010A land pattern and the J_SENSE footprint against the JST drawing before fabrication. The example photograph (`img/picoinamount.png`) shows the earlier EVM arrangement and no longer reflects this carrier.
 
 Socket a headered Pico 2 W on two 20-pin, 2.54 mm female strips, leaving USB and BOOTSEL accessible. Position its antenna at the board edge with the copper/component keepout prescribed by the Pico 2 W datasheet. Keep LEDs, connectors and mounting hardware outside that keepout.
 
-The two-layer PCB is 66 x 54 mm and 1.6 mm thick, with two 35 um copper layers and four 2.7 mm mounting holes for M2.5 hardware. Hole centers are (4,4), (62,4), (4,50), (62,50) mm from the top-left, each with a 6 mm copper keepout. Both boards are supported independently on a shared bench base. Provide cable strain relief; do not use the EVM connector to bear cable loads. Confirm EVM support locations from the actual board before fixing its mounting pattern. Label pin 1, Pico orientation and all external connectors.
+The two-layer PCB is 78 x 54 mm and 1.6 mm thick, with two 35 um copper layers and four 2.7 mm mounting holes for M2.5 hardware. Hole centers are (4,4), (74,4), (4,50), (74,50) mm from the top-left, each with a 6 mm copper keepout. Both boards are supported independently on a shared bench base. Provide cable strain relief; do not use J_SENSE or J_UART to bear cable loads. Label pin 1, Pico orientation and all external connectors.
 
 ## Interposer connector: J_UART
 
@@ -24,22 +24,24 @@ Fit a JST-XH B5B-XH-A(LF)(SN) five-pin, 2.50 mm vertical through-hole header on 
 
 Pin 5 supplies 3.3 V **from the carrier to the interposer**. Never connect it to PI_3V3, VBUS or VSYS. The five-pin plug cannot mate normally with the interposer's four-pin analog sense connector. No additional UART buffer is required on the carrier; the interposer provides it.
 
-## EVM connector: J_EVM
+## INA229 power monitor: U_PM and J_SENSE
 
-| Mating EVM digital pin | Signal | Pico GPIO / physical pin |
+| INA229 pin | Signal | Pico GPIO / physical pin or other connection |
 |---|---|---|
-| 1 | CS | GP17 / 22 |
-| 3 | SCLK | GP18 / 24 |
-| 4 | GND | GND / 23 |
-| 5 | MOSI | GP19 / 25 |
-| 6 | PICO_3V3 | 3V3 OUT / 36 |
-| 7 | MISO | GP16 / 21 |
-| 8 | ALERT | GP3 / 5 |
-| 2, 9, 10, 11, 12 | No connection | None |
+| 1 | CS (active low) | GP5 / 7, 100 kOhm pull-up to PICO_3V3 |
+| 2 | MOSI | GP7 / 10 |
+| 3 | ALERT (open-drain, active low) | GP3 / 5, 10 kOhm pull-up to PICO_3V3 |
+| 4 | MISO | GP4 / 6 |
+| 5 | SCLK | GP6 / 9 |
+| 6 | VS | PICO_3V3, 100 nF bypass (C_PM) at the pin |
+| 7 | GND | GND |
+| 8 | VBUS | SENSE_VBUS, from J_SENSE pin 3 |
+| 9 | IN- | SENSE_MINUS, from J_SENSE pin 2 |
+| 10 | IN+ | SENSE_PLUS, from J_SENSE pin 1 |
 
-Number this socket by electrical mating correspondence to EVM J3; verify the physical socket pin labels and mirrored mating view before fabrication; the CAD numbering follows the TI-SCB interface. Route the EVM switch to the chip-select signal on digital pin 1; document the switch position for the actual revision. Leave digital pin 2 (the TI interface's 5 V supply) unconnected. Provide a 100 kOhm CS pull-up to PICO_3V3, local 100 nF and 1 uF decoupling, and GND/3.3 V test points. The EVM already supplies its ALERT pull-up.
+Pin numbering follows TI's INA229 datasheet (SLYS023A, table 5-1, DGS package). The INA229 supply range is 2.7 V to 5.5 V; its inputs accept 0 V to 85 V whether or not it is powered, and its input bias is 2.5 nA maximum. J_SENSE is a JST B4B-XH-A: 1 SENSE_PLUS, 2 SENSE_MINUS, 3 SENSE_VBUS, 4 GND, matching interposer J3 pin for pin. Never cross the cable. The four-pin housing cannot mate with the five-pin J_UART.
 
-Analog IN+, IN-, VBUS and GND stay on the direct interposer-J3-to-EVM-J1 sense cable. No Pi load current passes through the carrier or EVM. Keep EVM R1 unpopulated.
+SENSE_VBUS, SENSE_MINUS and SENSE_PLUS are analog nets that reach only J_SENSE and U_PM. No Pi load current passes through the carrier. Keep the sense pair short and adjacent; its layout still needs review. ALERT is a 3.3 V open-drain signal: use an input with a pull-up (the carrier provides one).
 
 ## Five programmable indicators
 
@@ -47,11 +49,11 @@ Use five independent, low-current green Kingbright APT2012LZGCK 0805 LEDs, label
 
 | Indicator | GPIO | Pico physical pin | Series resistor | Reset pull-down |
 |---|---|---|---|---|
-| LED1 | GP4 | 6 | R_LED1, 1 kOhm | R_PD1, 100 kOhm |
-| LED2 | GP5 | 7 | R_LED2, 1 kOhm | R_PD2, 100 kOhm |
-| LED3 | GP6 | 9 | R_LED3, 1 kOhm | R_PD3, 100 kOhm |
-| LED4 | GP7 | 10 | R_LED4, 1 kOhm | R_PD4, 100 kOhm |
-| LED5 | GP8 | 11 | R_LED5, 1 kOhm | R_PD5, 100 kOhm |
+| LED1 | GP27 | 32 | R_LED1, 1 kOhm | R_PD1, 100 kOhm |
+| LED2 | GP26 | 31 | R_LED2, 1 kOhm | R_PD2, 100 kOhm |
+| LED3 | GP22 | 29 | R_LED3, 1 kOhm | R_PD3, 100 kOhm |
+| LED4 | GP21 | 27 | R_LED4, 1 kOhm | R_PD4, 100 kOhm |
+| LED5 | GP20 | 26 | R_LED5, 1 kOhm | R_PD5, 100 kOhm |
 
 Each branch is `GPIO -> 1 kOhm -> LED anode; LED cathode -> GND`, with a separate 100 kOhm pull-down from the GPIO to GND. Use 0805, 1%, 0.125 W resistors. GPIO high turns the LED on; low turns it off. PWM can control brightness. Firmware should initialize the output latch low before enabling output, and leave these pins configured for indicator use. The pull-downs define the reset state; they do not force an LED off if firmware explicitly drives high.
 
@@ -72,7 +74,7 @@ J_SD is a Würth Elektronik 693072010801 hinged microSD socket on the lower-left
 | 7 DAT0 | MISO | GP12 / 16 |
 | 8 DAT1 | Unused; 10 kOhm pull-up | None |
 
-The card uses SPI1; the INA229 retains SPI0 on GP16-GP19. Five 10 kOhm resistors pull CMD and DAT0-DAT3 to SD_3V3. CLK has no pull-up. No 5 V level shifter is needed: both logic domains use 3.3 V. The four socket shell pads are grounded.
+The card uses SPI1; the INA229 uses SPI0 on GP4-GP7. Five 10 kOhm resistors pull CMD and DAT0-DAT3 to SD_3V3. CLK has no pull-up. No 5 V level shifter is needed: both logic domains use 3.3 V. The four socket shell pads are grounded.
 
 U_SD is a TLV75533PDBVR LDO: IN (pin 1) from Pico USB VBUS (physical 40), GND (2), EN (3) from PICO_3V3, NC (4), OUT (5) to SD_3V3. This reserves the Pico regulator output for the sensor/buffer rather than powering card write bursts through it. SD_3V3 and PICO_3V3 are separate rails sharing ground. VBUS is the USB supply, not VSYS (physical 39) or DUT power. Use an independent regulated 5 V USB supply; do not power the Pico from the DUT Pi's USB.
 
@@ -84,9 +86,9 @@ Sources: [socket drawing](https://www.we-online.com/components/products/datashee
 
 ## Power
 
-Power the Pico through its own USB input. Its 3V3 output supplies the EVM, GPIO LEDs, the Pico side of the interposer buffer and the SD LDO enable, with shared ground. The card itself uses the separate USB-fed SD_3V3 regulator. Never join this rail to Pi 3V3 or supply the Pico from the measured Pi rail. Account for EVM indicator LEDs and pull-ups as well as the sensor, carrier LEDs and buffer loads. Raspberry Pi recommends less than 300 mA of external 3V3 load, with available current depending on internal activity and supply conditions; validate operation during Wi-Fi bursts with all carrier LEDs on. The Pi side of the buffer remains an explicitly included measurement overhead.
+Power the Pico through its own USB input. Its 3V3 output supplies the INA229, GPIO LEDs, the Pico side of the interposer buffer and the SD LDO enable, with shared ground. The card itself uses the separate USB-fed SD_3V3 regulator. Never join this rail to Pi 3V3 or supply the Pico from the measured Pi rail. Account for the INA229, pull-ups, carrier LEDs and buffer loads. Raspberry Pi recommends less than 300 mA of external 3V3 load, with available current depending on internal activity and supply conditions; validate operation during Wi-Fi bursts with all carrier LEDs on. The Pi side of the buffer remains an explicitly included measurement overhead.
 
-Do not simultaneously connect a TI controller or another EVM power source without reviewing supply contention. Confirm EVM wiring and rail stability before connection to a Pi.
+Do not power the INA229 from any other source. Confirm sense wiring and rail stability before connection to a Pi.
 
 ## CAD and bench acceptance
 
@@ -94,4 +96,4 @@ The independent KiCad 9 project in `hardware/pcb/carrier` includes a schematic, 
 
 On the bench, check continuity and voltage before fitting modules; test all five LEDs individually and together, reset behavior, PWM, SPI device identification, UART and marker communication, card write/read integrity, and both 3.3 V rails during simultaneous SD writes and Wi-Fi activity. Physical fit and electrical acceptance remain separate from automated CAD checks. No carrier firmware or hardware activation is included in this CAD milestone.
 
-Sources: [Pico 2 W datasheet](https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf), [INA229EVM guide](https://www.ti.com/lit/ug/sbou241e/sbou241e.pdf), [JST-XH family drawing](https://www.jst-mfg.com/product/pdf/eng/eXH.pdf), [LED datasheet](https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf).
+Sources: [Pico 2 W datasheet](https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf), [INA229 datasheet](https://www.ti.com/lit/ds/symlink/ina229.pdf), [JST-XH family drawing](https://www.jst-mfg.com/product/pdf/eng/eXH.pdf), [LED datasheet](https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf).

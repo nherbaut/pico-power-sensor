@@ -1,13 +1,13 @@
 {
   "board": "carrier",
-  "design_sha256": "9945f906368ac3cd42cb460f68e881b3fc94dd181dc5ac3666b5f3657d18982c",
+  "design_sha256": "54c7a1efd7d7c194b161a5ee7da728af3f3a1a334a70ea0f20694303dffbcb93",
   "evidence_type": "automated CAD geometry extraction; not footprint approval or physical measurement",
   "footprints": [
     {
       "reference": "C1",
       "footprint": "C_0805_Murata",
       "position_mm": [
-        19.0,
+        31.0,
         27.0
       ],
       "rotation_degrees": 0.0,
@@ -21,7 +21,7 @@
             0.0
           ],
           "board_position_mm": [
-            18.1,
+            30.1,
             27.0
           ],
           "attribute": 1,
@@ -43,7 +43,7 @@
             0.0
           ],
           "board_position_mm": [
-            19.9,
+            31.9,
             27.0
           ],
           "attribute": 1,
@@ -64,7 +64,7 @@
       "reference": "C2",
       "footprint": "C_0805_Murata",
       "position_mm": [
-        19.0,
+        31.0,
         31.0
       ],
       "rotation_degrees": 0.0,
@@ -78,7 +78,7 @@
             0.0
           ],
           "board_position_mm": [
-            18.1,
+            30.1,
             31.0
           ],
           "attribute": 1,
@@ -100,8 +100,65 @@
             0.0
           ],
           "board_position_mm": [
-            19.9,
+            31.9,
             31.0
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.6,
+            1.25
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 1,
+          "net": "/GND"
+        }
+      ]
+    },
+    {
+      "reference": "C_PM",
+      "footprint": "C_0805_Murata",
+      "position_mm": [
+        12.5,
+        19.4
+      ],
+      "rotation_degrees": 0.0,
+      "proposed_mpn_in_cad": "GRM21BR71C104KA01L",
+      "library_source": "Murata GRM21 reflow land pattern: gap 1.2; pads 0.6 x 1.25 mm",
+      "pads": [
+        {
+          "number": "1",
+          "local_position_mm": [
+            -0.9,
+            0.0
+          ],
+          "board_position_mm": [
+            11.6,
+            19.4
+          ],
+          "attribute": 1,
+          "size_mm": [
+            0.6,
+            1.25
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 1,
+          "net": "/PICO_3V3"
+        },
+        {
+          "number": "2",
+          "local_position_mm": [
+            0.9,
+            0.0
+          ],
+          "board_position_mm": [
+            13.4,
+            19.4
           ],
           "attribute": 1,
           "size_mm": [
@@ -121,7 +178,7 @@
       "reference": "C_SDBULK",
       "footprint": "C_1206",
       "position_mm": [
-        9.0,
+        21.0,
         39.0
       ],
       "rotation_degrees": 0.0,
@@ -135,7 +192,7 @@
             0.0
           ],
           "board_position_mm": [
-            7.525,
+            19.525,
             39.0
           ],
           "attribute": 1,
@@ -157,7 +214,7 @@
             0.0
           ],
           "board_position_mm": [
-            10.475,
+            22.475,
             39.0
           ],
           "attribute": 1,
@@ -178,7 +235,7 @@
       "reference": "C_SDIN",
       "footprint": "C_0805_Murata",
       "position_mm": [
-        25.0,
+        37.0,
         16.0
       ],
       "rotation_degrees": 0.0,
@@ -192,7 +249,7 @@
             0.0
           ],
           "board_position_mm": [
-            24.1,
+            36.1,
             16.0
           ],
           "attribute": 1,
@@ -214,7 +271,7 @@
             0.0
           ],
           "board_position_mm": [
-            25.9,
+            37.9,
             16.0
           ],
           "attribute": 1,
@@ -235,7 +292,7 @@
       "reference": "C_SDOUT",
       "footprint": "C_0805_Murata",
       "position_mm": [
-        25.0,
+        37.0,
         24.0
       ],
       "rotation_degrees": 0.0,
@@ -249,7 +306,7 @@
             0.0
           ],
           "board_position_mm": [
-            24.1,
+            36.1,
             24.0
           ],
           "attribute": 1,
@@ -271,7 +328,7 @@
             0.0
           ],
           "board_position_mm": [
-            25.9,
+            37.9,
             24.0
           ],
           "attribute": 1,
@@ -292,7 +349,7 @@
       "reference": "C_SDSOCKET",
       "footprint": "C_0805_Murata",
       "position_mm": [
-        10.0,
+        22.0,
         43.0
       ],
       "rotation_degrees": 0.0,
@@ -306,7 +363,7 @@
             0.0
           ],
           "board_position_mm": [
-            9.1,
+            21.1,
             43.0
           ],
           "attribute": 1,
@@ -328,7 +385,7 @@
             0.0
           ],
           "board_position_mm": [
-            10.9,
+            22.9,
             43.0
           ],
           "attribute": 1,
@@ -349,7 +406,7 @@
       "reference": "D1",
       "footprint": "LED_0805",
       "position_mm": [
-        60.0,
+        72.0,
         13.0
       ],
       "rotation_degrees": 0.0,
@@ -363,7 +420,7 @@
             0.0
           ],
           "board_position_mm": [
-            58.825,
+            70.825,
             13.0
           ],
           "attribute": 1,
@@ -385,7 +442,7 @@
             0.0
           ],
           "board_position_mm": [
-            61.175,
+            73.175,
             13.0
           ],
           "attribute": 1,
@@ -406,7 +463,7 @@
       "reference": "D2",
       "footprint": "LED_0805",
       "position_mm": [
-        60.0,
+        72.0,
         20.0
       ],
       "rotation_degrees": 0.0,
@@ -420,7 +477,7 @@
             0.0
           ],
           "board_position_mm": [
-            58.825,
+            70.825,
             20.0
           ],
           "attribute": 1,
@@ -442,7 +499,7 @@
             0.0
           ],
           "board_position_mm": [
-            61.175,
+            73.175,
             20.0
           ],
           "attribute": 1,
@@ -463,7 +520,7 @@
       "reference": "D3",
       "footprint": "LED_0805",
       "position_mm": [
-        60.0,
+        72.0,
         27.0
       ],
       "rotation_degrees": 0.0,
@@ -477,7 +534,7 @@
             0.0
           ],
           "board_position_mm": [
-            58.825,
+            70.825,
             27.0
           ],
           "attribute": 1,
@@ -499,7 +556,7 @@
             0.0
           ],
           "board_position_mm": [
-            61.175,
+            73.175,
             27.0
           ],
           "attribute": 1,
@@ -520,7 +577,7 @@
       "reference": "D4",
       "footprint": "LED_0805",
       "position_mm": [
-        60.0,
+        72.0,
         34.0
       ],
       "rotation_degrees": 0.0,
@@ -534,7 +591,7 @@
             0.0
           ],
           "board_position_mm": [
-            58.825,
+            70.825,
             34.0
           ],
           "attribute": 1,
@@ -556,7 +613,7 @@
             0.0
           ],
           "board_position_mm": [
-            61.175,
+            73.175,
             34.0
           ],
           "attribute": 1,
@@ -577,7 +634,7 @@
       "reference": "D5",
       "footprint": "LED_0805",
       "position_mm": [
-        60.0,
+        72.0,
         41.0
       ],
       "rotation_degrees": 0.0,
@@ -591,7 +648,7 @@
             0.0
           ],
           "board_position_mm": [
-            58.825,
+            70.825,
             41.0
           ],
           "attribute": 1,
@@ -613,7 +670,7 @@
             0.0
           ],
           "board_position_mm": [
-            61.175,
+            73.175,
             41.0
           ],
           "attribute": 1,
@@ -669,7 +726,7 @@
       "reference": "H2",
       "footprint": "MountingHole_2.7mm_M2.5",
       "position_mm": [
-        62.0,
+        74.0,
         4.0
       ],
       "rotation_degrees": 0.0,
@@ -683,7 +740,7 @@
             0.0
           ],
           "board_position_mm": [
-            62.0,
+            74.0,
             4.0
           ],
           "attribute": 3,
@@ -739,7 +796,7 @@
       "reference": "H4",
       "footprint": "MountingHole_2.7mm_M2.5",
       "position_mm": [
-        62.0,
+        74.0,
         50.0
       ],
       "rotation_degrees": 0.0,
@@ -753,7 +810,7 @@
             0.0
           ],
           "board_position_mm": [
-            62.0,
+            74.0,
             50.0
           ],
           "attribute": 3,
@@ -771,287 +828,10 @@
       ]
     },
     {
-      "reference": "J_EVM",
-      "footprint": "NPPN062FJFN",
-      "position_mm": [
-        11.0,
-        23.0
-      ],
-      "rotation_degrees": 0.0,
-      "proposed_mpn_in_cad": "NPPN062FJFN-RC",
-      "library_source": "Sullins drawing 10461-H; corrected 4.85mm body depth; local mating-number convention and body offset pending physical review",
-      "pads": [
-        {
-          "number": "1",
-          "local_position_mm": [
-            0.0,
-            0.0
-          ],
-          "board_position_mm": [
-            11.0,
-            23.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 1,
-          "net": "/CS"
-        },
-        {
-          "number": "2",
-          "local_position_mm": [
-            -2.0,
-            0.0
-          ],
-          "board_position_mm": [
-            9.0,
-            23.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "unconnected-(J_EVM-NC-Pad2)"
-        },
-        {
-          "number": "3",
-          "local_position_mm": [
-            0.0,
-            2.0
-          ],
-          "board_position_mm": [
-            11.0,
-            25.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "/SCLK"
-        },
-        {
-          "number": "4",
-          "local_position_mm": [
-            -2.0,
-            2.0
-          ],
-          "board_position_mm": [
-            9.0,
-            25.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "/GND"
-        },
-        {
-          "number": "5",
-          "local_position_mm": [
-            0.0,
-            4.0
-          ],
-          "board_position_mm": [
-            11.0,
-            27.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "/MOSI"
-        },
-        {
-          "number": "6",
-          "local_position_mm": [
-            -2.0,
-            4.0
-          ],
-          "board_position_mm": [
-            9.0,
-            27.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "/PICO_3V3"
-        },
-        {
-          "number": "7",
-          "local_position_mm": [
-            0.0,
-            6.0
-          ],
-          "board_position_mm": [
-            11.0,
-            29.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "/MISO"
-        },
-        {
-          "number": "8",
-          "local_position_mm": [
-            -2.0,
-            6.0
-          ],
-          "board_position_mm": [
-            9.0,
-            29.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "/ALERT"
-        },
-        {
-          "number": "9",
-          "local_position_mm": [
-            0.0,
-            8.0
-          ],
-          "board_position_mm": [
-            11.0,
-            31.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "unconnected-(J_EVM-NC-Pad9)"
-        },
-        {
-          "number": "10",
-          "local_position_mm": [
-            -2.0,
-            8.0
-          ],
-          "board_position_mm": [
-            9.0,
-            31.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "unconnected-(J_EVM-NC-Pad10)"
-        },
-        {
-          "number": "11",
-          "local_position_mm": [
-            0.0,
-            10.0
-          ],
-          "board_position_mm": [
-            11.0,
-            33.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "unconnected-(J_EVM-NC-Pad11)"
-        },
-        {
-          "number": "12",
-          "local_position_mm": [
-            -2.0,
-            10.0
-          ],
-          "board_position_mm": [
-            9.0,
-            33.0
-          ],
-          "attribute": 0,
-          "size_mm": [
-            1.4,
-            1.4
-          ],
-          "drill_mm": [
-            0.8,
-            0.8
-          ],
-          "shape": 0,
-          "net": "unconnected-(J_EVM-NC-Pad12)"
-        }
-      ]
-    },
-    {
       "reference": "J_PICO",
       "footprint": "Pico_Socketed",
       "position_mm": [
-        32.0,
+        44.0,
         3.0
       ],
       "rotation_degrees": 0.0,
@@ -1065,7 +845,7 @@
             0.0
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             3.0
           ],
           "attribute": 0,
@@ -1087,7 +867,7 @@
             2.54
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             5.54
           ],
           "attribute": 0,
@@ -1109,7 +889,7 @@
             5.08
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             8.08
           ],
           "attribute": 0,
@@ -1131,7 +911,7 @@
             7.62
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             10.62
           ],
           "attribute": 0,
@@ -1153,7 +933,7 @@
             10.16
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             13.16
           ],
           "attribute": 0,
@@ -1175,7 +955,7 @@
             12.7
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             15.7
           ],
           "attribute": 0,
@@ -1188,7 +968,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/LED1_GPIO"
+          "net": "/MISO"
         },
         {
           "number": "7",
@@ -1197,7 +977,7 @@
             15.24
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             18.24
           ],
           "attribute": 0,
@@ -1210,7 +990,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/LED2_GPIO"
+          "net": "/CS"
         },
         {
           "number": "8",
@@ -1219,7 +999,7 @@
             17.78
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             20.78
           ],
           "attribute": 0,
@@ -1241,7 +1021,7 @@
             20.32
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             23.32
           ],
           "attribute": 0,
@@ -1254,7 +1034,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/LED3_GPIO"
+          "net": "/SCLK"
         },
         {
           "number": "10",
@@ -1263,7 +1043,7 @@
             22.86
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             25.86
           ],
           "attribute": 0,
@@ -1276,7 +1056,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/LED4_GPIO"
+          "net": "/MOSI"
         },
         {
           "number": "11",
@@ -1285,7 +1065,7 @@
             25.4
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             28.4
           ],
           "attribute": 0,
@@ -1298,7 +1078,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/LED5_GPIO"
+          "net": "unconnected-(J_PICO-NC-Pad11)"
         },
         {
           "number": "12",
@@ -1307,7 +1087,7 @@
             27.94
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             30.94
           ],
           "attribute": 0,
@@ -1329,7 +1109,7 @@
             30.48
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             33.48
           ],
           "attribute": 0,
@@ -1351,7 +1131,7 @@
             33.02
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             36.02
           ],
           "attribute": 0,
@@ -1373,7 +1153,7 @@
             35.56
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             38.56
           ],
           "attribute": 0,
@@ -1395,7 +1175,7 @@
             38.1
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             41.1
           ],
           "attribute": 0,
@@ -1417,7 +1197,7 @@
             40.64
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             43.64
           ],
           "attribute": 0,
@@ -1439,7 +1219,7 @@
             43.18
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             46.18
           ],
           "attribute": 0,
@@ -1461,7 +1241,7 @@
             45.72
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             48.72
           ],
           "attribute": 0,
@@ -1483,7 +1263,7 @@
             48.26
           ],
           "board_position_mm": [
-            32.0,
+            44.0,
             51.26
           ],
           "attribute": 0,
@@ -1505,7 +1285,7 @@
             48.26
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             51.26
           ],
           "attribute": 0,
@@ -1518,7 +1298,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/MISO"
+          "net": "unconnected-(J_PICO-NC-Pad21)"
         },
         {
           "number": "22",
@@ -1527,7 +1307,7 @@
             45.72
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             48.72
           ],
           "attribute": 0,
@@ -1540,7 +1320,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/CS"
+          "net": "unconnected-(J_PICO-NC-Pad22)"
         },
         {
           "number": "23",
@@ -1549,7 +1329,7 @@
             43.18
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             46.18
           ],
           "attribute": 0,
@@ -1571,7 +1351,7 @@
             40.64
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             43.64
           ],
           "attribute": 0,
@@ -1584,7 +1364,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/SCLK"
+          "net": "unconnected-(J_PICO-NC-Pad24)"
         },
         {
           "number": "25",
@@ -1593,7 +1373,7 @@
             38.1
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             41.1
           ],
           "attribute": 0,
@@ -1606,7 +1386,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "/MOSI"
+          "net": "unconnected-(J_PICO-NC-Pad25)"
         },
         {
           "number": "26",
@@ -1615,7 +1395,7 @@
             35.56
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             38.56
           ],
           "attribute": 0,
@@ -1628,7 +1408,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "unconnected-(J_PICO-NC-Pad26)"
+          "net": "/LED5_GPIO"
         },
         {
           "number": "27",
@@ -1637,7 +1417,7 @@
             33.02
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             36.02
           ],
           "attribute": 0,
@@ -1650,7 +1430,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "unconnected-(J_PICO-NC-Pad27)"
+          "net": "/LED4_GPIO"
         },
         {
           "number": "28",
@@ -1659,7 +1439,7 @@
             30.48
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             33.48
           ],
           "attribute": 0,
@@ -1681,7 +1461,7 @@
             27.94
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             30.94
           ],
           "attribute": 0,
@@ -1694,7 +1474,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "unconnected-(J_PICO-NC-Pad29)"
+          "net": "/LED3_GPIO"
         },
         {
           "number": "30",
@@ -1703,7 +1483,7 @@
             25.4
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             28.4
           ],
           "attribute": 0,
@@ -1725,7 +1505,7 @@
             22.86
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             25.86
           ],
           "attribute": 0,
@@ -1738,7 +1518,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "unconnected-(J_PICO-NC-Pad31)"
+          "net": "/LED2_GPIO"
         },
         {
           "number": "32",
@@ -1747,7 +1527,7 @@
             20.32
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             23.32
           ],
           "attribute": 0,
@@ -1760,7 +1540,7 @@
             1.0
           ],
           "shape": 0,
-          "net": "unconnected-(J_PICO-NC-Pad32)"
+          "net": "/LED1_GPIO"
         },
         {
           "number": "33",
@@ -1769,7 +1549,7 @@
             17.78
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             20.78
           ],
           "attribute": 0,
@@ -1791,7 +1571,7 @@
             15.24
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             18.24
           ],
           "attribute": 0,
@@ -1813,7 +1593,7 @@
             12.7
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             15.7
           ],
           "attribute": 0,
@@ -1835,7 +1615,7 @@
             10.16
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             13.16
           ],
           "attribute": 0,
@@ -1857,7 +1637,7 @@
             7.62
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             10.62
           ],
           "attribute": 0,
@@ -1879,7 +1659,7 @@
             5.08
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             8.08
           ],
           "attribute": 0,
@@ -1901,7 +1681,7 @@
             2.54
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             5.54
           ],
           "attribute": 0,
@@ -1923,7 +1703,7 @@
             0.0
           ],
           "board_position_mm": [
-            49.78,
+            61.78,
             3.0
           ],
           "attribute": 0,
@@ -1944,7 +1724,7 @@
       "reference": "J_SD",
       "footprint": "microSD_Wuerth",
       "position_mm": [
-        20.0,
+        32.0,
         45.0
       ],
       "rotation_degrees": 0.0,
@@ -1958,7 +1738,7 @@
             -1.55
           ],
           "board_position_mm": [
-            16.8,
+            28.8,
             43.45
           ],
           "attribute": 1,
@@ -1980,7 +1760,7 @@
             -1.55
           ],
           "board_position_mm": [
-            17.9,
+            29.9,
             43.45
           ],
           "attribute": 1,
@@ -2002,7 +1782,7 @@
             -1.55
           ],
           "board_position_mm": [
-            19.0,
+            31.0,
             43.45
           ],
           "attribute": 1,
@@ -2024,7 +1804,7 @@
             -1.55
           ],
           "board_position_mm": [
-            20.1,
+            32.1,
             43.45
           ],
           "attribute": 1,
@@ -2046,7 +1826,7 @@
             -1.55
           ],
           "board_position_mm": [
-            21.2,
+            33.2,
             43.45
           ],
           "attribute": 1,
@@ -2068,7 +1848,7 @@
             -1.55
           ],
           "board_position_mm": [
-            22.3,
+            34.3,
             43.45
           ],
           "attribute": 1,
@@ -2090,7 +1870,7 @@
             -1.55
           ],
           "board_position_mm": [
-            23.4,
+            35.4,
             43.45
           ],
           "attribute": 1,
@@ -2112,7 +1892,7 @@
             -1.55
           ],
           "board_position_mm": [
-            24.5,
+            36.5,
             43.45
           ],
           "attribute": 1,
@@ -2134,7 +1914,7 @@
             -4.15
           ],
           "board_position_mm": [
-            13.125,
+            25.125,
             40.85
           ],
           "attribute": 1,
@@ -2156,7 +1936,7 @@
             4.15
           ],
           "board_position_mm": [
-            13.125,
+            25.125,
             49.15
           ],
           "attribute": 1,
@@ -2178,7 +1958,7 @@
             -4.15
           ],
           "board_position_mm": [
-            26.875,
+            38.875,
             40.85
           ],
           "attribute": 1,
@@ -2200,7 +1980,7 @@
             4.15
           ],
           "board_position_mm": [
-            26.875,
+            38.875,
             49.15
           ],
           "attribute": 1,
@@ -2218,10 +1998,111 @@
       ]
     },
     {
+      "reference": "J_SENSE",
+      "footprint": "XH4",
+      "position_mm": [
+        5.2,
+        27.0
+      ],
+      "rotation_degrees": 90.0,
+      "proposed_mpn_in_cad": "B4B-XH-A(LF)(SN)",
+      "library_source": "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+      "pads": [
+        {
+          "number": "1",
+          "local_position_mm": [
+            0.0,
+            0.0
+          ],
+          "board_position_mm": [
+            5.2,
+            27.0
+          ],
+          "attribute": 0,
+          "size_mm": [
+            1.7,
+            1.95
+          ],
+          "drill_mm": [
+            0.95,
+            0.95
+          ],
+          "shape": 4,
+          "net": "/SENSE_PLUS"
+        },
+        {
+          "number": "2",
+          "local_position_mm": [
+            2.5,
+            0.0
+          ],
+          "board_position_mm": [
+            5.2,
+            24.5
+          ],
+          "attribute": 0,
+          "size_mm": [
+            1.7,
+            1.95
+          ],
+          "drill_mm": [
+            0.95,
+            0.95
+          ],
+          "shape": 2,
+          "net": "/SENSE_MINUS"
+        },
+        {
+          "number": "3",
+          "local_position_mm": [
+            5.0,
+            0.0
+          ],
+          "board_position_mm": [
+            5.2,
+            22.0
+          ],
+          "attribute": 0,
+          "size_mm": [
+            1.7,
+            1.95
+          ],
+          "drill_mm": [
+            0.95,
+            0.95
+          ],
+          "shape": 2,
+          "net": "/SENSE_VBUS"
+        },
+        {
+          "number": "4",
+          "local_position_mm": [
+            7.5,
+            0.0
+          ],
+          "board_position_mm": [
+            5.2,
+            19.5
+          ],
+          "attribute": 0,
+          "size_mm": [
+            1.7,
+            1.95
+          ],
+          "drill_mm": [
+            0.95,
+            0.95
+          ],
+          "shape": 2,
+          "net": "/GND"
+        }
+      ]
+    },
+    {
       "reference": "J_UART",
       "footprint": "XH5",
       "position_mm": [
-        15.0,
+        27.0,
         10.0
       ],
       "rotation_degrees": 0.0,
@@ -2235,7 +2116,7 @@
             0.0
           ],
           "board_position_mm": [
-            15.0,
+            27.0,
             10.0
           ],
           "attribute": 0,
@@ -2257,7 +2138,7 @@
             0.0
           ],
           "board_position_mm": [
-            17.5,
+            29.5,
             10.0
           ],
           "attribute": 0,
@@ -2279,7 +2160,7 @@
             0.0
           ],
           "board_position_mm": [
-            20.0,
+            32.0,
             10.0
           ],
           "attribute": 0,
@@ -2301,7 +2182,7 @@
             0.0
           ],
           "board_position_mm": [
-            22.5,
+            34.5,
             10.0
           ],
           "attribute": 0,
@@ -2323,7 +2204,7 @@
             0.0
           ],
           "board_position_mm": [
-            25.0,
+            37.0,
             10.0
           ],
           "attribute": 0,
@@ -2341,10 +2222,67 @@
       ]
     },
     {
+      "reference": "R_ALERT",
+      "footprint": "R_0805",
+      "position_mm": [
+        12.5,
+        29.2
+      ],
+      "rotation_degrees": 0.0,
+      "proposed_mpn_in_cad": "CRCW080510K0FKEA",
+      "library_source": "Resistor_SMD:R_0805_2012Metric",
+      "pads": [
+        {
+          "number": "1",
+          "local_position_mm": [
+            -0.9125,
+            0.0
+          ],
+          "board_position_mm": [
+            11.5875,
+            29.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.025,
+            1.4
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/PICO_3V3"
+        },
+        {
+          "number": "2",
+          "local_position_mm": [
+            0.9125,
+            0.0
+          ],
+          "board_position_mm": [
+            13.4125,
+            29.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.025,
+            1.4
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/ALERT"
+        }
+      ]
+    },
+    {
       "reference": "R_CS",
       "footprint": "R_0805",
       "position_mm": [
-        19.0,
+        31.0,
         23.0
       ],
       "rotation_degrees": 0.0,
@@ -2358,7 +2296,7 @@
             0.0
           ],
           "board_position_mm": [
-            18.0875,
+            30.0875,
             23.0
           ],
           "attribute": 1,
@@ -2380,7 +2318,7 @@
             0.0
           ],
           "board_position_mm": [
-            19.9125,
+            31.9125,
             23.0
           ],
           "attribute": 1,
@@ -2401,7 +2339,7 @@
       "reference": "R_LED1",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         15.3
       ],
       "rotation_degrees": 0.0,
@@ -2415,7 +2353,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             15.3
           ],
           "attribute": 1,
@@ -2437,7 +2375,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             15.3
           ],
           "attribute": 1,
@@ -2458,7 +2396,7 @@
       "reference": "R_LED2",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         22.3
       ],
       "rotation_degrees": 0.0,
@@ -2472,7 +2410,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             22.3
           ],
           "attribute": 1,
@@ -2494,7 +2432,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             22.3
           ],
           "attribute": 1,
@@ -2515,7 +2453,7 @@
       "reference": "R_LED3",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         29.3
       ],
       "rotation_degrees": 0.0,
@@ -2529,7 +2467,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             29.3
           ],
           "attribute": 1,
@@ -2551,7 +2489,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             29.3
           ],
           "attribute": 1,
@@ -2572,7 +2510,7 @@
       "reference": "R_LED4",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         36.3
       ],
       "rotation_degrees": 0.0,
@@ -2586,7 +2524,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             36.3
           ],
           "attribute": 1,
@@ -2608,7 +2546,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             36.3
           ],
           "attribute": 1,
@@ -2629,7 +2567,7 @@
       "reference": "R_LED5",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         43.3
       ],
       "rotation_degrees": 0.0,
@@ -2643,7 +2581,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             43.3
           ],
           "attribute": 1,
@@ -2665,7 +2603,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             43.3
           ],
           "attribute": 1,
@@ -2686,7 +2624,7 @@
       "reference": "R_PD1",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         17.6
       ],
       "rotation_degrees": 0.0,
@@ -2700,7 +2638,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             17.6
           ],
           "attribute": 1,
@@ -2722,7 +2660,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             17.6
           ],
           "attribute": 1,
@@ -2743,7 +2681,7 @@
       "reference": "R_PD2",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         24.6
       ],
       "rotation_degrees": 0.0,
@@ -2757,7 +2695,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             24.6
           ],
           "attribute": 1,
@@ -2779,7 +2717,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             24.6
           ],
           "attribute": 1,
@@ -2800,7 +2738,7 @@
       "reference": "R_PD3",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         31.6
       ],
       "rotation_degrees": 0.0,
@@ -2814,7 +2752,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             31.6
           ],
           "attribute": 1,
@@ -2836,7 +2774,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             31.6
           ],
           "attribute": 1,
@@ -2857,7 +2795,7 @@
       "reference": "R_PD4",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         38.6
       ],
       "rotation_degrees": 0.0,
@@ -2871,7 +2809,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             38.6
           ],
           "attribute": 1,
@@ -2893,7 +2831,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             38.6
           ],
           "attribute": 1,
@@ -2914,7 +2852,7 @@
       "reference": "R_PD5",
       "footprint": "R_0805",
       "position_mm": [
-        60.0,
+        72.0,
         45.6
       ],
       "rotation_degrees": 0.0,
@@ -2928,7 +2866,7 @@
             0.0
           ],
           "board_position_mm": [
-            59.0875,
+            71.0875,
             45.6
           ],
           "attribute": 1,
@@ -2950,7 +2888,7 @@
             0.0
           ],
           "board_position_mm": [
-            60.9125,
+            72.9125,
             45.6
           ],
           "attribute": 1,
@@ -2971,7 +2909,7 @@
       "reference": "R_SDP1",
       "footprint": "R_0805",
       "position_mm": [
-        15.0,
+        27.0,
         16.0
       ],
       "rotation_degrees": 0.0,
@@ -2985,7 +2923,7 @@
             0.0
           ],
           "board_position_mm": [
-            14.0875,
+            26.0875,
             16.0
           ],
           "attribute": 1,
@@ -3007,7 +2945,7 @@
             0.0
           ],
           "board_position_mm": [
-            15.9125,
+            27.9125,
             16.0
           ],
           "attribute": 1,
@@ -3028,7 +2966,7 @@
       "reference": "R_SDP2",
       "footprint": "R_0805",
       "position_mm": [
-        15.0,
+        27.0,
         20.0
       ],
       "rotation_degrees": 0.0,
@@ -3042,7 +2980,7 @@
             0.0
           ],
           "board_position_mm": [
-            14.0875,
+            26.0875,
             20.0
           ],
           "attribute": 1,
@@ -3064,7 +3002,7 @@
             0.0
           ],
           "board_position_mm": [
-            15.9125,
+            27.9125,
             20.0
           ],
           "attribute": 1,
@@ -3085,7 +3023,7 @@
       "reference": "R_SDP3",
       "footprint": "R_0805",
       "position_mm": [
-        15.0,
+        27.0,
         24.0
       ],
       "rotation_degrees": 0.0,
@@ -3099,7 +3037,7 @@
             0.0
           ],
           "board_position_mm": [
-            14.0875,
+            26.0875,
             24.0
           ],
           "attribute": 1,
@@ -3121,7 +3059,7 @@
             0.0
           ],
           "board_position_mm": [
-            15.9125,
+            27.9125,
             24.0
           ],
           "attribute": 1,
@@ -3142,7 +3080,7 @@
       "reference": "R_SDP4",
       "footprint": "R_0805",
       "position_mm": [
-        15.0,
+        27.0,
         28.0
       ],
       "rotation_degrees": 0.0,
@@ -3156,7 +3094,7 @@
             0.0
           ],
           "board_position_mm": [
-            14.0875,
+            26.0875,
             28.0
           ],
           "attribute": 1,
@@ -3178,7 +3116,7 @@
             0.0
           ],
           "board_position_mm": [
-            15.9125,
+            27.9125,
             28.0
           ],
           "attribute": 1,
@@ -3199,7 +3137,7 @@
       "reference": "R_SDP5",
       "footprint": "R_0805",
       "position_mm": [
-        15.0,
+        27.0,
         32.0
       ],
       "rotation_degrees": 0.0,
@@ -3213,7 +3151,7 @@
             0.0
           ],
           "board_position_mm": [
-            14.0875,
+            26.0875,
             32.0
           ],
           "attribute": 1,
@@ -3235,7 +3173,7 @@
             0.0
           ],
           "board_position_mm": [
-            15.9125,
+            27.9125,
             32.0
           ],
           "attribute": 1,
@@ -3256,7 +3194,7 @@
       "reference": "TP1",
       "footprint": "TestPoint",
       "position_mm": [
-        24.0,
+        36.0,
         35.0
       ],
       "rotation_degrees": 0.0,
@@ -3270,7 +3208,7 @@
             0.0
           ],
           "board_position_mm": [
-            24.0,
+            36.0,
             35.0
           ],
           "attribute": 1,
@@ -3291,7 +3229,7 @@
       "reference": "TP2",
       "footprint": "TestPoint",
       "position_mm": [
-        18.0,
+        30.0,
         35.0
       ],
       "rotation_degrees": 0.0,
@@ -3305,7 +3243,7 @@
             0.0
           ],
           "board_position_mm": [
-            18.0,
+            30.0,
             35.0
           ],
           "attribute": 1,
@@ -3323,10 +3261,243 @@
       ]
     },
     {
+      "reference": "U_PM",
+      "footprint": "VSSOP10",
+      "position_mm": [
+        12.5,
+        23.2
+      ],
+      "rotation_degrees": 180.0,
+      "proposed_mpn_in_cad": "INA229AIDGSR",
+      "library_source": "Package_SO:VSSOP-10_3x3mm_P0.5mm",
+      "pads": [
+        {
+          "number": "1",
+          "local_position_mm": [
+            -2.2,
+            -1.0
+          ],
+          "board_position_mm": [
+            14.7,
+            24.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/CS"
+        },
+        {
+          "number": "2",
+          "local_position_mm": [
+            -2.2,
+            -0.5
+          ],
+          "board_position_mm": [
+            14.7,
+            23.7
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/MOSI"
+        },
+        {
+          "number": "3",
+          "local_position_mm": [
+            -2.2,
+            0.0
+          ],
+          "board_position_mm": [
+            14.7,
+            23.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/ALERT"
+        },
+        {
+          "number": "4",
+          "local_position_mm": [
+            -2.2,
+            0.5
+          ],
+          "board_position_mm": [
+            14.7,
+            22.7
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/MISO"
+        },
+        {
+          "number": "5",
+          "local_position_mm": [
+            -2.2,
+            1.0
+          ],
+          "board_position_mm": [
+            14.7,
+            22.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/SCLK"
+        },
+        {
+          "number": "6",
+          "local_position_mm": [
+            2.2,
+            1.0
+          ],
+          "board_position_mm": [
+            10.3,
+            22.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/PICO_3V3"
+        },
+        {
+          "number": "7",
+          "local_position_mm": [
+            2.2,
+            0.5
+          ],
+          "board_position_mm": [
+            10.3,
+            22.7
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/GND"
+        },
+        {
+          "number": "8",
+          "local_position_mm": [
+            2.2,
+            0.0
+          ],
+          "board_position_mm": [
+            10.3,
+            23.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/SENSE_VBUS"
+        },
+        {
+          "number": "9",
+          "local_position_mm": [
+            2.2,
+            -0.5
+          ],
+          "board_position_mm": [
+            10.3,
+            23.7
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/SENSE_MINUS"
+        },
+        {
+          "number": "10",
+          "local_position_mm": [
+            2.2,
+            -1.0
+          ],
+          "board_position_mm": [
+            10.3,
+            24.2
+          ],
+          "attribute": 1,
+          "size_mm": [
+            1.45,
+            0.3
+          ],
+          "drill_mm": [
+            0.0,
+            0.0
+          ],
+          "shape": 4,
+          "net": "/SENSE_PLUS"
+        }
+      ]
+    },
+    {
       "reference": "U_SD",
       "footprint": "SOT23_5",
       "position_mm": [
-        25.0,
+        37.0,
         20.0
       ],
       "rotation_degrees": 0.0,
@@ -3340,7 +3511,7 @@
             -0.95
           ],
           "board_position_mm": [
-            23.8625,
+            35.8625,
             19.05
           ],
           "attribute": 1,
@@ -3362,7 +3533,7 @@
             0.0
           ],
           "board_position_mm": [
-            23.8625,
+            35.8625,
             20.0
           ],
           "attribute": 1,
@@ -3384,7 +3555,7 @@
             0.95
           ],
           "board_position_mm": [
-            23.8625,
+            35.8625,
             20.95
           ],
           "attribute": 1,
@@ -3406,7 +3577,7 @@
             0.95
           ],
           "board_position_mm": [
-            26.1375,
+            38.1375,
             20.95
           ],
           "attribute": 1,
@@ -3428,7 +3599,7 @@
             -0.95
           ],
           "board_position_mm": [
-            26.1375,
+            38.1375,
             19.05
           ],
           "attribute": 1,

@@ -9,7 +9,7 @@ Consult current manufacturer documentation before ordering or releasing footprin
 | Pi power capability | [Configuration](https://www.raspberrypi.com/documentation/computers/configuration.html) | EEPROM PSU_MAX_CURRENT declaration |
 | Korad U202 | [Korad user manual, hosted by distributor](https://priniotakiselectronics.gr/image/KORAD/U202Englishusermanual.pdf) | 0-30 V, 0-5 A adjustable supply; terminal use |
 | INA229 | [Datasheet](https://www.ti.com/lit/ds/symlink/ina229.pdf) | SPI, conversion timing, ranges, Kelvin layout |
-| INA229EVM | [EVM guide](https://www.ti.com/lit/ug/sbou241e/sbou241e.pdf) | External shunt, input terminals, direct controller access |
+| INA229 | [Datasheet](https://www.ti.com/lit/ds/symlink/ina229.pdf) (SLYS023A) | Pin map, VSSOP-10 land pattern example, input range and bias, layout guidance |
 | Vishay WSK2512 | [Datasheet](https://www.vishay.com/docs/30108/wsk2512.pdf) | 5 mOhm part, tolerance, TCR, four-terminal layout |
 | WSK 5-200 mOhm footprint | [KiCad library source](https://raw.githubusercontent.com/KiCad/kicad-footprints/master/Resistor_SMD.pretty/R_Shunt_Vishay_WSK2512_6332Metric_T1.19mm.kicad_mod) | Current pads 1/4 and sense pads 2/3; geometry source |
 | LTC4367 | [Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4367.pdf) | Pin map, input switch, gate drive, threshold and reverse input behavior |

@@ -3,7 +3,7 @@
 Perform initial tests with an appropriately rated dummy/electronic load, not a Pi.
 
 1. Verify every header contact and input polarity against the [pinout](../../hardware/pcb/interposer/pinout.csv). Both 5 V contacts must be connected; no 3V3/GPIO contact may join the supply path.
-2. Verify that the only path from PROTECTED to PI_5V is through RSH1. Check all Kelvin leads and ensure no external shunt is also fitted on the EVM.
+2. Verify that the only path from PROTECTED to PI_5V is through RSH1. Check all Kelvin leads and ensure no other resistor or shunt is connected across the sense pair.
 3. Measure input-fault disconnect and recovery thresholds slowly. Compare against resistor/comparator tolerance, leakage and hysteresis calculations. Observe output overshoot with a scope.
 4. Test reversed input and excessive voltage incrementally within the reviewed circuit envelope. First verify with no load and then a resistor load. Stop if any rating or behavior is uncertain. Never perform fault injection with a Pi attached.
 5. Check startup/inrush, output-off behavior and reconnect. Verify the gate slew branch against actual output capacitance and MOSFET SOA; no high-voltage hot-plug guarantee is claimed.

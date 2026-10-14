@@ -44,3 +44,6 @@ These are user-supplied physical mock-up photographs. Observations below disting
 Next mechanical stage: with power and attached devices disconnected, use the exact stacking connector and a rigid 1.6 mm mock-up to check pin 1, both mounting positions, seating and engagement. Add representative component heights to check cooler, support, both HAT versions and PCIe ribbon clearances. Use [mechanical requirements](../../docs/mechanical.md). Further progress on circuit, BOM and footprint review does not depend on more paper photos.
 
 Both mechanical checklist entries remain partial. These photos do not complete either fabrication gate.
+
+
+**Superseded for the carrier (2026-10-14):** the carrier outline changed to 78 x 54 mm and the EVM socket was replaced by an on-board INA229 and a JST-XH sense connector. This paper check no longer matches the carrier; print the regenerated `hardware/review/carrier-mockup.pdf` and repeat it. The interposer record is unaffected.

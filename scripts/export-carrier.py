@@ -28,24 +28,26 @@ def mounting_drawing():
                   f'<circle cx="{x}" cy="{y}" r="1.35" fill="white" stroke="#182b3a" stroke-width=".15"/>',
                   f'<text x="{x}" y="{y+4.5 if y==4 else y-4.5}" text-anchor="middle" font-size="1.4">{hole["ref"]}</text>']
     x0,y0,x1,y1=board['antenna_keepout_mm']
+    sh=w-66  # strip added on the left for the INA229 sense group
     lines += [f'<rect x="{x0}" y="{y0}" width="{x1-x0}" height="{y1-y0}" fill="#ffedd5" stroke="#b56917" stroke-width=".12"/>',
-              '<text x="41" y="49" font-size="1.1" text-anchor="middle">ANTENNA</text>',
-              '<rect x="30.39" y="2.13" width="21" height="50" fill="none" stroke="#567381" stroke-width=".15"/>',
-              '<text x="41" y="28" font-size="1.5" text-anchor="middle">PICO</text>',
-              '<rect x="13.15" y="39.25" width="13.7" height="13.7" fill="#e0e7ef" stroke="#567381" stroke-width=".15"/>',
-              '<text x="20" y="46" font-size="1.3" text-anchor="middle">microSD</text>',
-              '<rect x=".35" y="21.75" width="7.2" height="12.5" fill="#dae6ed" stroke="#567381" stroke-width=".15"/>',
-              '<path d="M-11 28 H0" fill="none" stroke="#567381" stroke-width=".25"/>',
-              '<text x="-12" y="26" text-anchor="end" font-size="1.5">EVM</text>',
+              f'<text x="{41+sh}" y="49" font-size="1.1" text-anchor="middle">ANTENNA</text>',
+              f'<rect x="{30.39+sh}" y="2.13" width="21" height="50" fill="none" stroke="#567381" stroke-width=".15"/>',
+              f'<text x="{41+sh}" y="28" font-size="1.5" text-anchor="middle">PICO</text>',
+              f'<rect x="{13.15+sh}" y="39.25" width="13.7" height="13.7" fill="#e0e7ef" stroke="#567381" stroke-width=".15"/>',
+              f'<text x="{20+sh}" y="46" font-size="1.3" text-anchor="middle">microSD</text>',
+              '<rect x="1.1" y="17.7" width="6.2" height="12" fill="#dae6ed" stroke="#567381" stroke-width=".15"/>',
+              '<text x="4.2" y="16.2" text-anchor="middle" font-size="1.2">SENSE J_SENSE</text>',
+              '<rect x="10.3" y="21.6" width="4.4" height="3.2" fill="#dae6ed" stroke="#567381" stroke-width=".15"/>',
+              '<text x="12.5" y="20.4" text-anchor="middle" font-size="1.2">INA229</text>',
               f'<path d="M0 -3 V-7 H{w} V-3" fill="none" stroke="#182b3a" stroke-width=".12"/>',
               f'<text x="{w/2}" y="-8.5" font-size="1.7" text-anchor="middle">{w}</text>',
               f'<path d="M{w+3} 0 H{w+7} V{h} H{w+3}" fill="none" stroke="#182b3a" stroke-width=".12"/>',
               f'<text x="{w+9}" y="{h/2}" font-size="1.7">{h}</text>',
-              '<path d="M4 58 V61 H62 V58" fill="none" stroke="#182b3a" stroke-width=".12"/>',
-              '<text x="33" y="63.5" text-anchor="middle" font-size="1.5">58 hole-center spacing</text>',
+              f'<path d="M4 58 V61 H{62+sh} V58" fill="none" stroke="#182b3a" stroke-width=".12"/>',
+              f'<text x="{33+sh/2}" y="63.5" text-anchor="middle" font-size="1.5">{58+sh} hole-center spacing</text>',
               '</g>',
-              '<text x="40" y="720" font-size="16">H1 (4,4), H2 (62,4), H3 (4,50), H4 (62,50): Ø2.7 NPTH; Ø6 copper keepout.</text>',
-              '<text x="40" y="748" font-size="15">Use a shared base with independent EVM supports; confirm its height and mounting locations.</text>',
+              f'<text x="40" y="720" font-size="16">H1 (4,4), H2 ({62+sh},4), H3 (4,50), H4 ({62+sh},50): Ø2.7 NPTH; Ø6 copper keepout.</text>',
+              '<text x="40" y="748" font-size="15">Use a shared base; confirm standoff height and mounting locations on the actual Pico and cable connectors.</text>',
               '</g></svg>']
     (OUT/'mounting.svg').write_text('\n'.join(lines)+'\n')
 

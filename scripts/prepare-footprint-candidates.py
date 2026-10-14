@@ -46,8 +46,6 @@ def prepare(name):
             led(fp);changes.append(f'{ref}: Kingbright 1.25 x 1.10 mm pads, 1.10 mm gap; cathode pad 1 retained')
         if name=='interposer' and ref=='RSH1':
             shunt(fp);changes.append('RSH1: sense pad length 1.40 -> 1.70 mm, outer edge and .51 mm vertical gap retained')
-        if name=='carrier' and ref=='J_EVM':
-            socket(fp);changes.append('J_EVM: projected body depth 7.20 -> 4.85 mm; offset and mating orientation remain provisional')
     # Snapshot corrected embedded footprints into the isolated local library only.
     library=target/('PicoPower.pretty' if name=='interposer' else 'Carrier.pretty')
     saved=set()

@@ -18,7 +18,7 @@ This reads current saved projects, copies them into `.build/footprint-candidates
 |---|---|---|---|
 | Six APT2012LZGCK LEDs | Previously generic pads 0.975 x 1.40 mm, 0.90 mm inner gap | Integrated: 1.25 x 1.10 mm, 1.10 mm gap; pad 1 cathode retained; silk/courtyard adjusted | Physical soldering/brightness and assembly review |
 | WSK2512 shunt | Previously sense pads 1.40 x 0.76 mm | Integrated: 1.70 x 0.76 mm sense pads; outer edge retained and centre adjusted; current pads unchanged; silk moved clear | Kelvin routing/sign-off and fitted calibration |
-| NPPN062FJFN socket | Previously 7.20 mm projected body depth | Integrated: 4.85 mm projected depth; 7.20 mm is height; larger courtyard retained | Body offset, EVM numbering/mating and physical support remain provisional |
+| NPPN062FJFN socket (removed 2026-10-14; the INA229 is now on the carrier) | Previously 7.20 mm projected body depth | Integrated: 4.85 mm projected depth; 7.20 mm is height; larger courtyard retained | Body offset, EVM numbering/mating and physical support remain provisional |
 
 Sources: [Kingbright page 1](https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf), [Vishay page 2](https://www.vishay.com/docs/30108/wsk2512.pdf), [Sullins drawing 10461-H](https://drawings-pdf.s3.amazonaws.com/10461.pdf). Geometric agreement is a datasheet review, not a physical measurement. Enlarging the shunt sense pads exposed a silkscreen/mask violation; moving the silkscreen resolves it without suppressing the check.
 

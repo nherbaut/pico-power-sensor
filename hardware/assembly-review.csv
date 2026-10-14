@@ -35,7 +35,8 @@ interposer,TP4,,VIN_FUSED,0,bare PCB feature,,planning only; technical review an
 interposer,F1 cartridge,021706.3MXP,6.3 A fast 5x20 cartridge,1,manual insertion after inspection,https://www.littelfuse.com/assetdocs/littelfuse-fuse-217-datasheet?assetguid=af55be94-c42e-41b1-ad43-e070e09443fe,retained provisional part; complete voltage-drop budget unresolved
 carrier,J_PICO,Pico 2 W,Pico 2 W / socketed,0,owned socketed module; do not order or solder to PCB,https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf,planning only; technical review and supplier availability pending
 carrier,J_UART,B5B-XH-A(LF)(SN),INTERPOSER / JST-XH-5,1,manual through-hole,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,planning only; technical review and supplier availability pending
-carrier,J_EVM,NPPN062FJFN-RC,INA229EVM / direct plug,1,manual through-hole,https://drawings-pdf.s3.amazonaws.com/10461.pdf,planning only; technical review and supplier availability pending
+carrier,J_SENSE,B4B-XH-A(LF)(SN),INTERPOSER SENSE / JST-XH-4,1,manual through-hole,https://www.jst-mfg.com/product/pdf/eng/eXH.pdf,planning only; technical review and supplier availability pending
+carrier,U_PM,INA229AIDGSR,INA229 power monitor,1,factory SMT,https://www.ti.com/lit/ds/symlink/ina229.pdf,planning only; technical review and supplier availability pending
 carrier,D1,APT2012LZGCK,LED1 GREEN,1,factory SMT,https://www.kingbrightusa.com/images/catalog/spec/apt2012lzgck.pdf,planning only; technical review and supplier availability pending
 carrier,R_LED1,CRCW08051K00FKEA,1k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
 carrier,R_PD1,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
@@ -52,6 +53,8 @@ carrier,D5,APT2012LZGCK,LED5 GREEN,1,factory SMT,https://www.kingbrightusa.com/i
 carrier,R_LED5,CRCW08051K00FKEA,1k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
 carrier,R_PD5,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
 carrier,R_CS,CRCW0805100KFKEA,100k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,R_ALERT,CRCW080510K0FKEA,10k 1%,1,factory SMT,https://www.vishay.com/docs/20035/dcrcwe3.pdf,planning only; technical review and supplier availability pending
+carrier,C_PM,GRM21BR71C104KA01L,100nF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,planning only; technical review and supplier availability pending
 carrier,C1,GRM21BR71C104KA01L,100nF X7R 16V,1,factory SMT,https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM21BR71C104KA01-01.pdf,planning only; technical review and supplier availability pending
 carrier,C2,GRM21BR71C105KA01L,1uF X7R 16V,1,factory SMT,https://www.murata.com/en-us/products/productdetail?partno=GRM21BR71C105KA01%23,planning only; technical review and supplier availability pending
 carrier,TP1,,PICO 3V3,0,bare PCB feature,,planning only; technical review and supplier availability pending

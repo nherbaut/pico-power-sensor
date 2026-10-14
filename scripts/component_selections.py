@@ -58,7 +58,7 @@ def apply_selections(board, parts):
 
 def constraints():
     return dict(ambient_C=[10, 40], prototype_budget_EUR=[100, 200],
-                budget_excludes='INA229EVM and owned equipment',
+                budget_excludes='owned equipment',
                 assembly='factory SMT; manual through-hole connectors',
                 fault_policy='operator abort and supply power cycle; not a hardware fault latch',
                 fablab_equipment='user confirmed access; no measurements performed')

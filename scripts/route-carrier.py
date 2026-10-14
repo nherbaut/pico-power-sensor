@@ -32,9 +32,23 @@ def main():
                         ((gy*module.STEP>=y0-margin)&(gy*module.STEP<=y1+margin)))[None,:,:]
             return blocked
     router=CarrierRouter(board)
-    # Reserve a ground escape from the tightly spaced EVM connector first.
-    # Otherwise surrounding signal traces can isolate it on both ground planes.
-    router.route(router.pad('J_EVM',4),router.pad('J_UART',1),.25)
+    def fan_out(ref,pins,direction,pitch=1.0,straight=1.0):
+        """Fan 0.5 mm-pitch pads out to a coarser pitch before general routing.
+
+        Outer pins bend first and inner pins run straight longer, so parallel
+        diagonals stay at least 0.7 mm apart and every via lands in one column.
+        """
+        pads=[router.pad(ref,n) for n in pins]
+        ys=[module.xy(p.GetPosition())[1] for p in pads];centre=sum(ys)/len(ys)
+        half=(len(pins)-1)/2
+        for i,(n,pad,y) in enumerate(zip(pins,pads,ys)):
+            x=module.xy(pad.GetPosition())[0];offset=i-half
+            run=straight+(pitch/2)*(half-abs(offset));shift=abs(offset)*(pitch-.5)
+            end=(x+direction*(run+shift),centre+offset*pitch);code=pad.GetNetCode()
+            router.track(code,[(x,y),(x+direction*run,y),end],.2)
+            router.via(code,end);router.escapes[(ref,str(n))]=end
+    # INA229 DGS (VSSOP-10): SPI pads 1-5 on one side, VS/GND/VBUS/IN-/IN+ on the other.
+    fan_out('U_PM',[5,4,3,2,1],1);fan_out('U_PM',[6,7,8,9,10],-1,straight=.9)
     groups={}
     for pad in router.pads:
         if pad.GetNumber() and pad.GetNetCode() and not pad.GetNetname().startswith('unconnected-'):
@@ -63,7 +77,8 @@ def main():
         else:raise RuntimeError('No ground-via location for '+pad.GetParentFootprint().GetReference())
     def priority(item):
         pads=item[1];name=pads[0].GetNetname()
-        return (name=='/GND',name=='/PICO_3V3',len(pads),name)
+        # ALERT sits mid-row on the fine-pitch INA229; neighbours would wall it in.
+        return (name!='/ALERT',name=='/GND',name=='/PICO_3V3',len(pads),name)
     for code,pads in sorted(groups.items(),key=priority):
         if pads[0].GetNetname()=='/GND':continue  # Ground planes and short via connections below.
         if len(pads)<2:continue
@@ -76,6 +91,15 @@ def main():
                   f'{b.GetParentFootprint().GetReference()}.{b.GetNumber()}',flush=True)
             router.route(a,b,.25 if a.GetNetname() in ['/PICO_3V3','/SD_3V3','/USB_5V'] else .2)
             linked.append(b);remaining.remove(b)
+    # Fan-out vias that the final routes never used would be single-layer stubs.
+    tracks=list(board.GetTracks())
+    for via in [t for t in tracks if isinstance(t,pcbnew.PCB_VIA)]:
+        if via.GetNetname()=='/GND':continue
+        position=via.GetPosition();joined={t.GetLayer() for t in tracks
+            if not isinstance(t,pcbnew.PCB_VIA) and t.GetNetCode()==via.GetNetCode()
+            and position in (t.GetStart(),t.GetEnd())}
+        on_pad=any(pad.GetPosition()==position for pad in router.pads)
+        if len(joined)<2 and not on_pad:board.Remove(via)
     for layer in module.LAYERS:
         for zone in list(board.Zones()):
             if not zone.GetIsRuleArea() and zone.GetLayer()==layer:board.Remove(zone)

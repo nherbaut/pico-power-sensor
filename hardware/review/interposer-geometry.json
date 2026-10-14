@@ -1,6 +1,6 @@
 {
   "board": "interposer",
-  "design_sha256": "96732f0d7cf7cd179dc8c90efd7dbf775ae926caff559851731ee4e029105d0b",
+  "design_sha256": "5fc6823291801dc64fb63937337d3c29d9acde9d8d9593581f9d07bfbb0cf6a2",
   "evidence_type": "automated CAD geometry extraction; not footprint approval or physical measurement",
   "footprints": [
     {

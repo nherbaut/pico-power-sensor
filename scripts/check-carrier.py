@@ -20,22 +20,26 @@ def check_circuit(data):
     pins={ref:p['pins'] for ref,p in parts.items()}
     require(pins['J_UART']=={'1':'GND','2':'PICO_RX','3':'PICO_TX','4':'PICO_MARK','5':'PICO_3V3'},
             'Carrier connector must match interposer J4 without cable crossover')
-    expected={str(n):None for n in range(1,13)}
-    expected.update({'1':'CS','3':'SCLK','4':'GND','5':'MOSI','6':'PICO_3V3','7':'MISO','8':'ALERT'})
-    require(pins['J_EVM']==expected,'EVM supply, SPI, ALERT or unused pin mapping changed')
+    require(pins['J_SENSE']=={'1':'SENSE_PLUS','2':'SENSE_MINUS','3':'SENSE_VBUS','4':'GND'},
+            'Sense connector must match interposer J3 without cable crossover')
+    # INA229 DGS VSSOP-10 pinout, TI SLYS023A table 5-1.
+    require(pins['U_PM']=={'1':'CS','2':'MOSI','3':'ALERT','4':'MISO','5':'SCLK','6':'PICO_3V3',
+                           '7':'GND','8':'SENSE_VBUS','9':'SENSE_MINUS','10':'SENSE_PLUS'},
+            'INA229 pin mapping, SPI, supply or sense polarity changed')
+    require(parts['U_PM']['mpn']=='INA229AIDGSR','Power monitor must be the INA229 VSSOP-10')
     pico=pins['J_PICO']
     require(len(pico)==40,'Pico header must preserve all 40 physical pins')
-    for n,net in {'1':'PICO_TX','2':'PICO_RX','4':'PICO_MARK','5':'ALERT','21':'MISO',
-                  '22':'CS','24':'SCLK','25':'MOSI','36':'PICO_3V3'}.items():
+    for n,net in {'1':'PICO_TX','2':'PICO_RX','4':'PICO_MARK','5':'ALERT','6':'MISO',
+                  '7':'CS','9':'SCLK','10':'MOSI','36':'PICO_3V3'}.items():
         require(pico[n]==net,f'Pico physical pin {n} must connect to {net}')
     require(all(pico[n] is None for n in ['37','39']) and pico['40']=='USB_5V',
             '3V3_EN and VSYS must be NC; VBUS powers only the SD regulator')
     require([n for n,net in pico.items() if net=='GND']==['3','8','13','18','23','28','33','38'],
             'Pico ground pins changed')
-    reserved={0,1,2,3,12,13,14,15,16,17,18,19}
-    require(data['gpio']['leds']==[4,5,6,7,8] and not set(data['gpio']['leds'])&reserved,
+    reserved={0,1,2,3,4,5,6,7,12,13,14,15}
+    require(data['gpio']['leds']==[27,26,22,21,20] and not set(data['gpio']['leds'])&reserved,
             'LED GPIO allocation conflicts with another instrument interface')
-    for n,physical in enumerate([6,7,9,10,11],1):
+    for n,physical in enumerate([32,31,29,27,26],1):
         signal=f'LED{n}_GPIO';anode=f'LED{n}_A'
         require(pico[str(physical)]==signal,'LED connected to wrong Pico pin')
         require(pins[f'D{n}']=={'1':'GND','2':anode},'LED polarity or return changed')
@@ -43,10 +47,17 @@ def check_circuit(data):
                 'Each LED needs its own 1k current-limiting resistor')
         require(pins[f'R_PD{n}']=={'1':signal,'2':'GND'} and parts[f'R_PD{n}']['value']=='100k 1%',
                 'Each indicator GPIO needs its reset pull-down')
-    forbidden={'PI_5V','PI_3V3','VIN_RAW','PROTECTED','SENSE_PLUS','SENSE_MINUS'}
+    forbidden={'PI_5V','PI_3V3','VIN_RAW','PROTECTED'}
     require(not forbidden&{net for p in parts.values() for net in p['pins'].values()},
-            'DUT power or analog sense connection on carrier violates measurement boundary')
-    require(pins['C1']==pins['C2']=={'1':'PICO_3V3','2':'GND'},'EVM decoupling supply changed')
+            'DUT power connection on carrier violates measurement boundary')
+    # Analog sense nets belong only on the sense connector and the INA229 inputs.
+    sense={'SENSE_PLUS','SENSE_MINUS','SENSE_VBUS'}
+    for ref,p in parts.items():
+        require(ref in ('J_SENSE','U_PM') or not sense&set(p['pins'].values()),
+                'Analog sense connection reaches a part other than J_SENSE or U_PM (measurement boundary)')
+    require(pins['C1']==pins['C2']=={'1':'PICO_3V3','2':'GND'},'Sensor 3V3 decoupling changed')
+    require(pins['C_PM']=={'1':'PICO_3V3','2':'GND'},'INA229 supply bypass changed')
+    require(pins['R_ALERT']=={'1':'PICO_3V3','2':'ALERT'},'INA229 open-drain ALERT needs a pull-up')
     require(pins['R_CS']=={'1':'PICO_3V3','2':'CS'},'Chip select must idle high')
     require(pins['J_SD']=={'1':'SD_DAT2','2':'SD_CS','3':'SD_MOSI','4':'SD_3V3',
                           '5':'SD_SCLK','6':'GND','7':'SD_MISO','8':'SD_DAT1','9':'GND'},
@@ -80,7 +91,7 @@ def check_circuit(data):
                 'resistor_only_per_gpio_upper_bound_at_3_3V_1percent':3.3/.99,
                 'basis':'Kingbright specifies typical Vf 2.65V at 2mA; using it at another current is a reference calculation, not an operating-point prediction'},
             'release_status':'not-for-manufacture',
-            'pending':['EVM revision / mating orientation and height','LED polarity / brightness',
+            'pending':['INA229 footprint, Kelvin routing and sense-cable mating','LED polarity / brightness',
                        'USB and antenna clearance','3V3 stability during Wi-Fi and all LEDs on',
                        'SPI identification / UART / marker bench tests',
                        'SD regulator transient and thermal behavior; card write/read verification',

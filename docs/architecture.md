@@ -1,6 +1,6 @@
 # Instrument architecture
 
-The current hardware is a Pi 5 interposer plus a separately powered Pico 2 W carrier and INA229EVM. Their [electrical schematics](../hardware/pcb/interposer/README.md) and [carrier drawings](../hardware/pcb/carrier/README.md) are engineering drafts. The execution and storage behavior described below is the intended software architecture; no firmware, Pi daemon or server has been implemented.
+The current hardware is a Pi 5 interposer plus a separately powered Pico 2 W carrier that carries the INA229 power monitor. Their [electrical schematics](../hardware/pcb/interposer/README.md) and [carrier drawings](../hardware/pcb/carrier/README.md) are engineering drafts. The execution and storage behavior described below is the intended software architecture; no firmware, Pi daemon or server has been implemented.
 
 ## Measurement boundary
 
@@ -15,15 +15,15 @@ The interposer is a direct DC power path, not a voltage converter. The Korad sup
 | Component | Responsibility |
 |---|---|
 | Interposer | Secure power entry, fuse, protection, shunt, buffered UART/marker and 40-pin continuity |
-| INA229EVM | Voltage/current conversion; SPI interface |
-| Pico carrier | Direct EVM socket, five programmable LEDs, buffered UART/marker harness and independently powered microSD slot |
+| INA229 (carrier U_PM) | Voltage/current conversion; SPI interface |
+| Pico carrier | INA229 and sense connector, five programmable LEDs, buffered UART/marker harness and independently powered microSD slot |
 | Pico 2 W firmware (planned) | Monotonic sample timestamps, command sequencing, GPIO marker capture, buffered logging and Wi-Fi upload |
 | Pi daemon | Commands, runtime metrics, configuration fingerprint and workload marker |
 | Server | Plan management, persistent storage, alignment, profiles and predictive modelling |
 
-The Pico and INA229EVM have independent instrument power. No TI-SCB or Windows driver is required for direct SPI operation. UART carries commands and runtime metrics; power acquisition does not depend on the Pi daemon running.
+The Pico and INA229 have independent instrument power. No TI evaluation board, TI-SCB or Windows driver is used; the Pico talks to the INA229 directly over SPI. UART carries commands and runtime metrics; power acquisition does not depend on the Pi daemon running.
 
-The carrier's microSD slot uses SPI1 on GP12-GP15; INA229 communication uses SPI0 on GP16-GP19, with ALERT on GP3. A dedicated 3.3 V card regulator takes input from the independently powered Pico's USB VBUS. The card, regulator and GP4-GP8 indicator LEDs are instrument loads outside DUT current. See the [carrier specification](pico-carrier.md) for the five-pin JST-XH interface, power rails and pin numbering.
+The carrier's microSD slot uses SPI1 on GP12-GP15; INA229 communication uses SPI0 on GP4-GP7, with ALERT on GP3. A dedicated 3.3 V card regulator takes input from the independently powered Pico's USB VBUS. The card, regulator and GP27/26/22/21/20 indicator LEDs are instrument loads outside DUT current. See the [carrier specification](pico-carrier.md) for the five-pin JST-XH interface, power rails and pin numbering.
 
 ## Data workflow
 

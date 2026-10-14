@@ -5,7 +5,7 @@
 | State | Not assembled |
 | Interposer hardware revision | |
 | Pico firmware commit | |
-| INA229EVM revision | |
+| Carrier revision | |
 | Shunt part, lot and measured resistance | |
 | Protection validation report | |
 | Calibration revision and date | |

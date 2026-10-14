@@ -279,6 +279,9 @@ def pin_name(part, n):
         return {'1':'VCCA','2':'1DIR','3':'2DIR','4':'1A1','5':'1A2','6':'2A1','7':'2A2',
                 '8':'GND','9':'GND','10':'2B2','11':'2B1','12':'1B2','13':'1B1',
                 '14':'2OE_N','15':'1OE_N','16':'VCCB'}[n]
+    if part['ref']=='U_PM':
+        return {'1':'CS_N','2':'MOSI','3':'ALERT_N','4':'MISO','5':'SCLK','6':'VS',
+                '7':'GND','8':'VBUS','9':'IN-','10':'IN+'}[n]
     if part['kind'] == 'led':
         return 'K' if n=='1' else 'A'
     if part['kind'] == 'mosfet':
@@ -303,6 +306,9 @@ def symbol_definition(part, standalone=False):
         typ = 'passive'
         if ref == 'U2':
             typ = 'power_in' if n in ['1','8','9','16'] else 'input' if n in ['2','3','7','11','12','13','14','15'] else 'output'
+        if ref == 'U_PM':
+            typ = {'1':'input','2':'input','3':'open_collector','4':'output','5':'input',
+                   '6':'power_in','7':'power_in','8':'input','9':'input','10':'input'}[n]
         if ref == 'U1':
             typ = 'power_in' if n in ['1', '4', '7'] else 'output' if n == '8' else 'open_collector' if n == '6' else 'input'
         lines.append(f'        (pin {typ} line (at {x} {y} {angle}) (length 5.08) (name {q(pin_name(part,n))} (effects (font (size 1 1)))) (number {q(n)} (effects (font (size 1 1)))))')

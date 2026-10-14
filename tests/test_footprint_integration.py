@@ -23,7 +23,6 @@ assert interposer.pads_for('LED_0805')==[('1',-1.175,0,1.25,1.1,0),('2',1.175,0,
 sense={p[0]:p for p in interposer.pads_for('WSK2512_5m_Kelvin')}
 assert sense['2'][1:5]==(-3.28,1.27,1.7,.76)
 assert sense['3'][1:5]==(3.28,-1.27,1.7,.76)
-assert '(start -8.3 -1.25)' in carrier.evm_footprint()
 for name,library in [('interposer','PicoPower.pretty'),('carrier','Carrier.pretty')]:
     folder=Path('hardware/pcb')/name
     board=pcbnew.LoadBoard(str(folder/(name+'.kicad_pcb')))
@@ -40,9 +39,6 @@ for name,library in [('interposer','PicoPower.pretty'),('carrier','Carrier.prett
                 if pad.GetNumber() in ('2','3'):
                     assert abs(pcbnew.ToMM(pad.GetSize().x)-1.70)<1e-6
                     assert abs(abs(pcbnew.ToMM(pad.GetFPRelativePosition().x))-3.28)<1e-6
-        if ref=='J_EVM':
-            rect=next(g for g in fp.GraphicalItems() if isinstance(g,pcbnew.PCB_SHAPE) and g.GetLayer()==pcbnew.F_Fab)
-            assert abs(abs(pcbnew.ToMM(rect.GetEnd().x-rect.GetStart().x))-4.85)<1e-6
     # Correcting a freshly loaded stock footprint twice must retain the dimensions.
     fp=pcbnew.FootprintLoad('/usr/share/kicad/footprints/LED_SMD.pretty','LED_0805_2012Metric')
     led(fp);led(fp)

@@ -5,11 +5,11 @@ This review implements the selected prototype components and documents the remai
 ## Agreed requirements
 
 - Indoor bench use: 10–40 °C ambient. Component temperatures are higher and need separate limits and measurements.
-- EUR 100–200 target for both prototype boards and assembly, excluding the INA229EVM and owned equipment. This is a budget, not a supplier quote.
+- EUR 100–200 target for both prototype boards and assembly, excluding owned equipment. This is a budget, not a supplier quote.
 - Factory SMT assembly; manual through-hole connectors, fuse insertion, socketed modules and mechanical hardware.
 - Retain the Korad U202, direct Pi power, 40-pin pass-through, and upstream protection/indicator supplies. Pi-side UART buffer consumption remains explicitly included in DUT consumption.
 - Operator stops and invalidates the experiment after a detected fault and power-cycles the DUT supply. **The present circuit has no latched fault shutdown.** Automatic reconnection can occur; unattended fault handling is not implemented.
-- User reports owning Pi 3/4/5, both AI HAT versions, cooler, generic stacking connectors, Pico 1 and Pico 2 W. INA229EVM is not owned. Access to the fablab's scope, load, meters and temperature equipment is confirmed; none of the electrical checks has been performed.
+- User reports owning Pi 3/4/5, both AI HAT versions, cooler, generic stacking connectors, Pico 1 and Pico 2 W. The INA229EVM is no longer used. Access to the fablab's scope, load, meters and temperature equipment is confirmed; none of the electrical checks has been performed.
 
 ## Component changes applied
 
@@ -59,7 +59,7 @@ EN is tied to Pico 3V3, while SD pull-ups are tied to the separate SD rail. This
 
 1. Complete the remaining exact-package footprint reviews, particularly MOSFET copper/mask/paste, socket orientation/offset, microSD hinge/shell and regulator/buffer packages.
 2. Resolve the complete 5 A drop budget, startup SOA, fault envelope and SD power sequencing/effective capacitance. None is marked passed by the automated checks.
-3. Perform the rigid mechanical checks with the selected connectors and received INA229EVM.
+3. Perform the rigid mechanical checks with the selected connectors.
 4. Confirm assembler stackup/DFM and cost; only then inspect final manufacturing plots. See [assembly sourcing](assembly-sourcing.md) and [fablab validation](fablab-validation.md).
 
 `make component-sync` is an explicit local mutation command: it backs up the projects in `.build/pre-component-selection/`, updates selected components/lands and regenerates schematics from circuit.json without rerouting boards. `make hardware-review` regenerates calculation and geometry evidence. Neither command grants release.

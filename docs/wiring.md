@@ -12,16 +12,16 @@ J2 routes its 5 V power to physical pins 2 and 4 and ground to pins 6, 9, 14, 20
 
 D1 (green, marked POWER) is fed from the protected supply before the shunt through R9 (2.7 kOhm). It shows that voltage is present after the fuse/protection circuit. Its approximately 1 mA current is outside DUT measurements. It does not confirm Pi boot or exact Pi-side voltage, and an extinguished LED is not proof that all rails are discharged or that another connected device cannot back-power the Pi.
 
-## J3: INA229EVM sense cable
+## J3: sense cable to the carrier
 
-| J3 pin | Signal | EVM destination |
-|---|---|---|
-| 1 | SENSE_PLUS | J1 pin 5 or 6, IN+ |
-| 2 | SENSE_MINUS | J1 pin 3 or 4, IN- |
-| 3 | PI_5V / VBUS | J1 pin 2, VBUS |
-| 4 | GND | J1 pin 1, GND |
+| J3 pin | Signal | Carrier J_SENSE pin | INA229 pin |
+|---|---|---|---|
+| 1 | SENSE_PLUS | 1 | 10, IN+ |
+| 2 | SENSE_MINUS | 2 | 9, IN- |
+| 3 | PI_5V / VBUS | 3 (SENSE_VBUS) | 8, VBUS |
+| 4 | GND | 4 | 7, GND |
 
-The EVM's R1 shunt remains unpopulated. Use a short twisted sense pair. Never pass the Pi load current through the sense connector or EVM. The measurement inputs are analog connections; do not connect them to Pico GPIOs.
+The cable is straight through, with XHP-4 housings at both ends. The INA229 is soldered on the carrier; there is no evaluation board and no second shunt. Use a short twisted sense pair. Never pass the Pi load current through the sense connector or the carrier. The measurement inputs are analog connections; do not connect them to Pico GPIOs.
 
 ## J4: buffered daemon communication
 
@@ -47,7 +47,7 @@ Source: [TI buffer datasheet](https://www.ti.com/lit/ds/symlink/sn74axc4t245.pdf
 
 ## Instrument power and SPI
 
-Power the Pico through its own USB supply. Use Pico 3V3 and GND for the EVM's sensor supply, accounting for LED, pull-up, buffer and module loads within the Pico regulator budget. Raspberry Pi recommends keeping external 3V3 load below 300 mA; actual available current depends on the Pico and Wi-Fi activity. The EVM supply and Pico side of U2 are instrument loads, independently powered from the DUT. Never connect a TI controller/another supply at the same time as the Pico supply without reviewing power-source contention. Proposed SPI0: GP18 SCLK, GP19 MOSI, GP16 MISO, GP17 CS; GP3 for ALERT. Match the selected CS routing switch on the EVM to the wired header pin. Confirm the exact EVM header numbering and pin polarity from its schematic before connection.
+Power the Pico through its own USB supply. Use Pico 3V3 and GND for the INA229 supply on the carrier, accounting for LED, pull-up, buffer and INA229 loads within the Pico regulator budget. Raspberry Pi recommends keeping external 3V3 load below 300 mA; actual available current depends on the Pico and Wi-Fi activity. The INA229 supply and Pico side of U2 are instrument loads, independently powered from the DUT. Do not power the INA229 from any other source. SPI0: GP6 SCLK (physical 9), GP7 MOSI (10), GP4 MISO (6), GP5 CS (7); GP3 for ALERT (5). All are on the left header, next to the INA229. The INA229 chip select is wired directly to GP5; there is no routing switch.
 
 ## Pi 5 power capability
 
@@ -55,11 +55,11 @@ Once the entire source, connector and board path has been validated for 5 A, edi
 
 Source: [Raspberry Pi bootloader power properties](https://www.raspberrypi.com/documentation/computers/configuration.html).
 
-Power sources: [Pico 2 W datasheet](https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf), [INA229EVM guide](https://www.ti.com/lit/ug/sbou241e/sbou241e.pdf).
+Power sources: [Pico 2 W datasheet](https://datasheets.raspberrypi.com/picow/pico-2-w-datasheet.pdf), [INA229 datasheet](https://www.ti.com/lit/ds/symlink/ina229.pdf).
 
 ## Carrier indicators and interposer cable
 
-The carrier specification reserves GP4, GP5, GP6, GP7 and GP8 for LED1-LED5 respectively (Pico physical pins 6, 7, 9, 10 and 11). Each active-high green LED has its own 1 kOhm series resistor and each GPIO has a 100 kOhm pull-down to ground for the reset state. Indicator current is supplied by the independent Pico USB power source, outside DUT measurements. Firmware roles and PWM remain programmable.
+The carrier specification reserves GP27, GP26, GP22, GP21 and GP20 for LED1-LED5 respectively (Pico physical pins 32, 31, 29, 27 and 26, all on the right header). Each active-high green LED has its own 1 kOhm series resistor and each GPIO has a 100 kOhm pull-down to ground for the reset state. Indicator current is supplied by the independent Pico USB power source, outside DUT measurements. Firmware roles and PWM remain programmable.
 
 Carrier J_UART uses the same five-pin JST-XH B5B-XH-A header and pin numbering as interposer J4. Connect with a straight-through cable using XHP-5 housings at both ends: GND, PICO_RX, PICO_TX, PICO_MARK, PICO_3V3. Do not cross TX/RX in the cable; the board assignments already account for signal direction. Pin 5 powers the interposer buffer from the Pico, never the other way around. See the [carrier specification](pico-carrier.md) for its direct-plug EVM connection and indicator circuit. The routed carrier CAD is available in the [review package](../hardware/pcb/carrier/README.md); physical validation remains pending.
 

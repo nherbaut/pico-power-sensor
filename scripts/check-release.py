@@ -15,7 +15,7 @@ REQUIRED = {
         'connection': {'continuity', 'faults', 'inrush', 'load', 'buffer', 'metrology'},
     },
     'carrier': {
-        'fabrication': {'source', 'erc', 'drc', 'bom', 'footprints', 'evm-mating',
+        'fabrication': {'source', 'erc', 'drc', 'bom', 'footprints', 'sense-ic',
                         'mechanics', 'sd-power', 'stackup', 'package',
                         'schematic-review', 'rule-map'},
         'connection': {'continuity', 'supplies', 'interfaces', 'storage'},

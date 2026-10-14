@@ -19,9 +19,25 @@ class CarrierBoundaryTests(unittest.TestCase):
     def test_agreed_design_passes(self):
         self.assertEqual(checks.check_circuit(self.data)['source_checks'],'passed')
 
-    def test_swapped_evm_supply_and_ground_rejected(self):
-        pins=self.part('J_EVM')['pins'];pins['4'],pins['6']=pins['6'],pins['4']
-        with self.assertRaisesRegex(ValueError,'EVM supply'):checks.check_circuit(self.data)
+    def test_swapped_ina229_supply_and_ground_rejected(self):
+        pins=self.part('U_PM')['pins'];pins['6'],pins['7']=pins['7'],pins['6']
+        with self.assertRaisesRegex(ValueError,'INA229 pin mapping'):checks.check_circuit(self.data)
+
+    def test_swapped_sense_polarity_rejected(self):
+        pins=self.part('U_PM')['pins'];pins['9'],pins['10']=pins['10'],pins['9']
+        with self.assertRaisesRegex(ValueError,'INA229 pin mapping'):checks.check_circuit(self.data)
+
+    def test_sense_cable_crossover_rejected(self):
+        pins=self.part('J_SENSE')['pins'];pins['1'],pins['2']=pins['2'],pins['1']
+        with self.assertRaisesRegex(ValueError,'Sense connector'):checks.check_circuit(self.data)
+
+    def test_sense_nets_cannot_reach_other_parts(self):
+        self.part('R_CS')['pins']['2']='SENSE_PLUS'
+        with self.assertRaisesRegex(ValueError,'measurement boundary'):checks.check_circuit(self.data)
+
+    def test_alert_pullup_required(self):
+        self.part('R_ALERT')['pins']['1']='GND'
+        with self.assertRaisesRegex(ValueError,'ALERT needs a pull-up'):checks.check_circuit(self.data)
 
     def test_cable_crossover_rejected(self):
         pins=self.part('J_UART')['pins'];pins['2'],pins['3']=pins['3'],pins['2']
@@ -32,7 +48,7 @@ class CarrierBoundaryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'measurement boundary'):checks.check_circuit(self.data)
 
     def test_led_cannot_take_uart_or_spi_pin(self):
-        self.data['gpio']['leds'][0]=17
+        self.data['gpio']['leds'][0]=5
         with self.assertRaisesRegex(ValueError,'GPIO allocation'):checks.check_circuit(self.data)
 
     def test_reversed_led_rejected(self):

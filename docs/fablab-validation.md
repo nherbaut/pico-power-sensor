@@ -6,7 +6,7 @@ The user has confirmed access to the requested equipment. This is a future test 
 
 No further paper-only photographs are required. Transfer the existing outline to a rigid insulating 1.6 mm mock-up and use actual selected sockets, M2.5 hardware and component-height blocks. Verify both interposer holes, header engagement and pin 1, cooler inlet and connector access, then each AI HAT and PCIe ribbon separately. Support the outward wing so cable forces do not load the Pi header. Record spacer heights, available pin engagement and interference dimensions, with photographs. All hardware must be unpowered.
 
-For the carrier, check Pico socket seating/USB access/antenna clearance, EVM connector mating and base support, and full microSD hinge/card travel. Inspect the received EVM revision and confirm R1 absent before connecting its sense terminals. Verify J3 correspondence by the TI guide and continuity, not cable color.
+For the carrier, check Pico socket seating/USB access/antenna clearance, J_SENSE and J_UART cable access, and full microSD hinge/card travel. Verify the J3-to-J_SENSE cable by continuity, not cable color, before connecting the sense pair to the interposer. Read the INA229 device ID over SPI as the first electrical check of the assembled carrier.
 
 ## Equipment and wiring
 
@@ -19,7 +19,7 @@ Review earth/reference connections with the lab operator. Ordinary scope ground 
 | Stage | Method | Required record / acceptance |
 |---|---|---|
 | Unpowered assembly | Inspect solder/polarity; check all 40 pins, fuse path, Kelvin paths and isolated rails | Continuity matrix; no shorts or shunt bypass; no load or Pi connected |
-| Carrier alone | Independent USB power with current limit; then fit Pico/EVM after rail checks | Pico/EVM/SD voltages, ripple, temperature; verify no unintended DUT supply path |
+| Carrier alone | Independent USB power with current limit; then fit the Pico after rail checks | Pico/INA229/SD voltages, ripple, temperature; verify no unintended DUT supply path |
 | Interposer initial power | Low current limit, no Pi; scope Korad input and protected output at 5.10 V | Startup captures; investigate unexpected output or oscillation before increasing load |
 | Slow UV/OV sweep | Small dummy load; sweep through calculated thresholds with scope and meter | Trip/recovery values and hysteresis; compare to calculation including equipment uncertainty; no Pi attached |
 | Fault recovery | After each fault disable output, investigate, allow rails to discharge, verify input/output near 0 V, restore 5.10 V and restart deliberately | Whether automatic reconnection occurs before operator action; successful power-cycle recovery; invalidated trial record; FAULT currently NC |
@@ -27,7 +27,7 @@ Review earth/reference connections with the lab operator. Ordinary scope ground 
 | Steady load | 0.5, 1, 3 and 5 A after thermal stabilization; pause on abnormal heating or regulation | J1-to-header positive **plus return** drop <100 mV at 5 A, contact rise <30 °C, all component limits respected; external harness drop reported separately |
 | Power domains | Pico first, DUT fixture first, reset, brownout, removal | UART/marker levels, off-side leakage and Pi-side buffer overhead; no off-side rail held up |
 | SD exercise | Actual selected card, Wi-Fi + all LEDs + repeated writes/reads; abrupt USB removal/reset | Peak/average current, SD/Pico rail decay and GPIO injection, write integrity, voltage droop and LDO temperature; firmware/fixture still required |
-| Metrology | Known loads and independent references | Actual shunt value, current/power/energy comparison and uncertainty; INA229EVM is not its own calibration reference |
+| Metrology | Known loads and independent references | Actual shunt value, current/power/energy comparison and uncertainty; the INA229 is not its own calibration reference |
 
 The full ±30 V fault range is **not** an executable test instruction yet. Freeze the fault/transient limits and protective fixture after circuit/SOA review. Likewise, transient acceptance needs an agreed DUT voltage envelope; an OV comparator threshold alone is not a Pi absolute maximum. Leave those rows open until limits are established.
 

@@ -1,5 +1,5 @@
 {
-  "design_sha256": "96732f0d7cf7cd179dc8c90efd7dbf775ae926caff559851731ee4e029105d0b",
+  "design_sha256": "5fc6823291801dc64fb63937337d3c29d9acde9d8d9593581f9d07bfbb0cf6a2",
   "evidence_type": "design arithmetic and datasheet reference conditions; not physical measurements",
   "initial_tolerance_protection": {
     "uv_nominal": 4.643478260869565,
