@@ -45,3 +45,7 @@ Before **prototype fabrication**: finish remaining footprint and selected-compon
 Before **DUT connection**: assemble a released prototype, perform continuity checks, validate faults/startup with a dummy load, measure 5 A voltage drop and temperature, validate power-off UART behaviour, and calibrate sensing. Independently validate carrier power, LEDs, SPI and SD writes with the actual card. Firmware/test fixtures for those exercises remain a separate milestone. The supplied checklist is the record of these requirements, not permission to energize hardware.
 
 See the [current design review](../../docs/design-review.md), [assembly sourcing comparison](../../docs/assembly-sourcing.md) and [fablab procedure](../../docs/fablab-validation.md). Fablab equipment access is confirmed; physical measurements remain pending.
+
+## Full-loop follow-up
+
+The [electronic protection study](../../docs/electronic-protection.md) now includes all six copper branches, giving an approximately **132.8 mV** mixed reference subtotal at 5 A. This supersedes the earlier 117.8 mV calculation, which included only the shunt-to-header copper. The [copper comparison](power-path-candidate-copper.json) gains about **4.0 mV** over the full loop; it does not meet the 100 mV requirement. The [isolated candidate](power-path-candidate.zip) is not promoted. The shared-shunt comparator architecture remains a study with explicit power-state/timing/measurement gates.

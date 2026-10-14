@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 570" width="1100" height="570">
+<rect width="1100" height="570" fill="#f8fafc"/>
+<style>text{font-family:sans-serif;fill:#0f172a} .title{font-size:25px;font-weight:bold}.label{font-size:18px}.small{font-size:15px}.box{fill:white;stroke:#334155;stroke-width:2}.power{fill:none;stroke:#dc2626;stroke-width:4}.sense{fill:none;stroke:#2563eb;stroke-width:2}.control{fill:none;stroke:#16a34a;stroke-width:2}</style>
+<text x="35" y="42" class="title">Electronic protection — proposed architecture</text>
+<text x="35" y="72" class="small">Engineering study. Wiring, startup and power-loss behavior still require design review.</text>
+<rect x="35" y="130" width="140" height="100" rx="8" class="box"/><text x="105" y="172" text-anchor="middle" class="label">Korad U202</text><text x="105" y="202" text-anchor="middle" class="small">DUT supply</text>
+<rect x="240" y="130" width="250" height="100" rx="8" class="box"/><text x="365" y="163" text-anchor="middle" class="label">Existing protection</text><text x="365" y="190" text-anchor="middle" class="small">LTC4367 + two MOSFETs</text><text x="365" y="215" text-anchor="middle" class="small">Voltage / reverse protection</text>
+<rect x="560" y="130" width="160" height="100" rx="8" class="box"/><text x="640" y="170" text-anchor="middle" class="label">5 mΩ shunt</text><text x="640" y="202" text-anchor="middle" class="small">Measurement shunt</text>
+<rect x="810" y="130" width="225" height="100" rx="8" class="box"/><text x="922" y="172" text-anchor="middle" class="label">Pi + HAT</text><text x="922" y="202" text-anchor="middle" class="small">Measured device</text>
+<path d="M175 180H240 M490 180H560 M720 180H810" class="power"/>
+<text x="745" y="120" class="small">Measurement boundary</text><path d="M745 130V230" stroke="#94a3b8" stroke-dasharray="6 6"/>
+<rect x="530" y="325" width="180" height="90" rx="8" class="box"/><text x="620" y="360" text-anchor="middle" class="label">INA300 detector</text><text x="620" y="389" text-anchor="middle" class="small">Latched current fault</text>
+<rect x="805" y="325" width="230" height="90" rx="8" class="box"/><text x="920" y="360" text-anchor="middle" class="label">INA229EVM</text><text x="920" y="389" text-anchor="middle" class="small">Current / power / energy</text>
+<path d="M607 230V290H580V325 M670 230V307H665V325 M607 275H850V325 M670 293H980V325" class="sense"/>
+<rect x="240" y="325" width="225" height="90" rx="8" class="box"/><text x="352" y="360" text-anchor="middle" class="label">Control interface</text><text x="352" y="389" text-anchor="middle" class="small">Arming / reset / power loss</text>
+<path d="M530 365H465 M352 325V230" class="control"/>
+<text x="35" y="490" class="label">Independent Pico supply powers detector and control — outside DUT current.</text>
+<text x="35" y="522" class="small">Small sense-input bias is explicitly tracked. No converter or extra series sensing resistor.</text>
+<text x="35" y="552" class="small">Cartridge removal is proposed only. Main interposer CAD remains unchanged; no fabrication release.</text>
+</svg>

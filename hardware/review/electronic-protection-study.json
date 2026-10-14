@@ -1,0 +1,93 @@
+{
+  "evidence_type": "engineering study arithmetic; not a circuit qualification or physical measurement",
+  "authorization": "User agreed to study electronic protection; no topology promoted to main CAD",
+  "target_drop_mV": 100,
+  "nominal_current_A": 5,
+  "baseline_copper_mohm": 7.231500919843118,
+  "accounting_comparison": {
+    "cartridge_reference_mV": 132.7825045992156,
+    "tps25982_typical_ron_reference_mV": 98.78250459921559,
+    "tps25982_maximum_ron_reference_mV": 107.78250459921559,
+    "shared_shunt_comparator_reference_mV": 85.28250459921559,
+    "shared_shunt_remaining_mV": 14.717495400784415,
+    "limitations": "Accounting on incumbent copper only; removing the fuse changes routing. Header, holder, further heating, tolerances and new routing not qualified. TPS25982 resistance tested at 2A, not 5A."
+  },
+  "comparator": {
+    "candidate_mpn": "INA300AIDGSR",
+    "shunt_ohm": 0.005,
+    "limit_resistor_ohm": 1430,
+    "limit_resistor_tolerance": 0.001,
+    "delay_setting": "open: 10 us nominal setting",
+    "noise_adjustment_V": 0.0005,
+    "nominal_trip_A": 5.620000000000001,
+    "screening_trip_A": [
+      5.414351144278607,
+      5.827801909547738
+    ],
+    "screening_includes": "19.85..20.15 uA threshold source; initial 0.1% RLIMIT / 0.5% shunt; conservative +/-650 uV offset envelope",
+    "qualified_trip_interval": false,
+    "missing": "Temperature/ageing, actual VCM/supply rejection, input wiring/filter error and NAF validation; no maximum response guarantee inferred from a typical delay",
+    "input_bias_reference_per_pin_uA": 10,
+    "input_bias_spec_condition": "25 C table condition; enabled; not a full-temperature or unpowered bound",
+    "downstream_input_bias_reference_fraction_at_100mA": 0.0001,
+    "supply_owner": "Independent Pico 3V3, not the measured DUT rail",
+    "supply_reference_max_uA": 150,
+    "bias_boundary": "IN- is an explicit additional measured-side input current; calibration must retain/characterize it",
+    "detects": "Positive overcurrent only; does not establish reverse-current protection"
+  },
+  "logic": {
+    "direct_alert_to_shdn_margin_V": 0.0,
+    "direct_connection_qualified": false,
+    "preferred_interface": "SN74AUP1G17DBVR buffer plus SHDN pull-down; architecture only",
+    "reference_low_margin_V": 0.30000000000000004,
+    "low_spec_condition": "Buffer VOL max .1 V at 20 uA, or .33 V at 2.7 mA/VCC3 V; verify SHDN loading under actual conditions",
+    "off_reference_shdn_V": 0.06211499999999999,
+    "off_spec_condition": "AUP Ioff max .6 uA at VCC0; LTC SHDN 15nA reference at SHDN10V/VIN60V; not brownout qualification",
+    "brownout_interlock_required": true,
+    "startup_arming_required": true,
+    "manual_latch_reset_required": true,
+    "slow_shutdown": "LTC4367 SHDN uses slow gate discharge: 50..160 uA at stated 12V conditions; do not call it the fast UV/OV path",
+    "uv_wired_or_rejected": "INA300 ALERT leakage up to 1uA would shift the precision UV divider; no direct UV connection adopted"
+  },
+  "release": {
+    "design_selected": false,
+    "schematic_integrated": false,
+    "layout_integrated": false,
+    "complete_loss_bound": false,
+    "bench_validated": false,
+    "korad_current_limit_remains_primary": true
+  },
+  "source_board_sha256": "d36a7e9330eaf497e2f1a4ccefcc0c66f4de86e019921b04746e08c5efeb60f9",
+  "sources": [
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/ina300.pdf",
+      "revision": "SBOS613C June 2021",
+      "pages": "3,5,12,18,32",
+      "use": "pin map; threshold source and offset; NAF; latch; active DGS ordering code"
+    },
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/tps25982.pdf",
+      "revision": "SLVSEI3D May 2026",
+      "pages": "4,8,9",
+      "use": "5V-compatible variant; on-resistance at 2A; current-limit spread"
+    },
+    {
+      "url": "https://www.ti.com/lit/ds/symlink/sn74aup1g17.pdf",
+      "revision": "SCES579J September 2017",
+      "pages": "6,7",
+      "use": "buffer logic levels and off leakage"
+    },
+    {
+      "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/ltc4367.pdf",
+      "revision": "Rev D",
+      "pages": "4,7",
+      "use": "SHDN falling threshold; slow gate-discharge path"
+    },
+    {
+      "url": "https://www.littelfuse.com/assetdocs/littelfuse-fuse-217-datasheet?assetguid=af55be94-c42e-41b1-ad43-e070e09443fe",
+      "revision": "GD July 17 2025",
+      "pages": "2",
+      "use": "6.3A cold 9.5mOhm and rated-current maximum drop 130mV"
+    }
+  ]
+}

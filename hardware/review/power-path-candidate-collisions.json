@@ -1,0 +1,15 @@
+{
+  "verdict": "clean",
+  "backend": "SWIG pcbnew 9.0.9; direct unchanged audit_board without GUI initialization",
+  "source_board_sha256": "c2876aab8e86ed453d7c4cc13e5df492170ec53043e32d43c96da65889b256dd",
+  "calibration": "known crossing rejected; legal separation accepted",
+  "findings": [],
+  "inventory": {
+    "layers": {
+      "F.Cu": 1110,
+      "B.Cu": 1358
+    },
+    "items": 2468
+  },
+  "scope": "tracks/vias/pads; zones excluded; native DRC separately required"
+}

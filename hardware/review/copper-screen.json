@@ -33,12 +33,88 @@
       "nodes": 83064
     }
   ],
+  "branches": [
+    {
+      "net": "/VIN_RAW",
+      "terminals": [
+        "J1.1",
+        "F1.1"
+      ],
+      "grid_mm": 0.1,
+      "copper_resistance_mohm": 0.836246923906977,
+      "drop_at_5A_mV": 4.181234619534885,
+      "nodes": 6309
+    },
+    {
+      "net": "/VIN_FUSED",
+      "terminals": [
+        "F1.2",
+        "Q1.5"
+      ],
+      "grid_mm": 0.1,
+      "copper_resistance_mohm": 0.16377734368105376,
+      "drop_at_5A_mV": 0.8188867184052688,
+      "nodes": 5385
+    },
+    {
+      "net": "/COMMON_SOURCE",
+      "terminals": [
+        "Q1.1",
+        "Q2.1"
+      ],
+      "grid_mm": 0.1,
+      "copper_resistance_mohm": 0.5119855518416266,
+      "drop_at_5A_mV": 2.559927759208133,
+      "nodes": 1510
+    },
+    {
+      "net": "/PROTECTED",
+      "terminals": [
+        "Q2.5",
+        "RSH1.1"
+      ],
+      "grid_mm": 0.1,
+      "copper_resistance_mohm": 0.9296930091799006,
+      "drop_at_5A_mV": 4.648465045899504,
+      "nodes": 5030
+    },
+    {
+      "net": "/PI_5V",
+      "terminals": [
+        "RSH1.4",
+        "J2.2"
+      ],
+      "grid_mm": 0.1,
+      "copper_resistance_mohm": 4.334747575290777,
+      "drop_at_5A_mV": 21.673737876453885,
+      "nodes": 20474
+    },
+    {
+      "net": "/GND",
+      "terminals": [
+        "J1.2",
+        "J2.6"
+      ],
+      "grid_mm": 0.1,
+      "copper_resistance_mohm": 0.4550505159427827,
+      "drop_at_5A_mV": 2.2752525797139134,
+      "nodes": 449210
+    }
+  ],
+  "loop": {
+    "copper_resistance_mohm": 7.231500919843118,
+    "drop_at_5A_mV": 36.157504599215585,
+    "component_reference_subtotal_mV": 96.625,
+    "mixed_reference_total_mV": 132.7825045992156,
+    "complete_loss_bound": false
+  },
   "assumptions": [
     "70 um copper per side; room-temperature resistivity 1.7241e-8 ohm m",
-    "Both Pi 5V contacts ideally tied; header/contact resistance excluded",
+    "Pi 5V/return contacts and MOSFET source pins ideally tied; mated contacts excluded",
     "KiCad 9 numeric net IDs expanded on analysis-only text; live CAD unchanged",
     "Native pad coordinates/nets and track/via counts cross-checked",
     "Pad shapes approximated by solver; fixed 0.2 mOhm interlayer transitions",
-    "Only shunt-to-Pi positive branch; upstream copper and return not modeled"
+    "Six copper branches form the loop; fuse/shunt/MOSFET device resistances are separate",
+    "No temperature, fuse-holder, mated-header or assembly tolerance qualification"
   ]
 }

@@ -1,0 +1,7 @@
+net,source_terminal,sink_terminal,reference_resistance_mohm,reference_drop_at_5A_mV,basis
+/VIN_RAW,J1.1,F1.1,0.836247,4.181235,"0.1mm DC raster, 70um/side, ideal parallel terminals; not measured"
+/VIN_FUSED,F1.2,Q1.5,0.163777,0.818887,"0.1mm DC raster, 70um/side, ideal parallel terminals; not measured"
+/COMMON_SOURCE,Q1.1,Q2.1,0.511986,2.559928,"0.1mm DC raster, 70um/side, ideal parallel terminals; not measured"
+/PROTECTED,Q2.5,RSH1.1,0.929693,4.648465,"0.1mm DC raster, 70um/side, ideal parallel terminals; not measured"
+/PI_5V,RSH1.4,J2.2,4.334748,21.673738,"0.1mm DC raster, 70um/side, ideal parallel terminals; not measured"
+/GND,J1.2,J2.6,0.455051,2.275253,"0.1mm DC raster, 70um/side, ideal parallel terminals; not measured"

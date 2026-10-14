@@ -29,9 +29,9 @@ The [assembly list](../hardware/assembly-review.csv) separates factory-soldered 
 
 Every fuse, connector and copper track loses some voltage while carrying current. Our target is at most **0.10 V lost at 5 A** between the board input and the Pi header, including the return path. The external Korad cables add their own loss.
 
-The component reference subtotal is already about **0.097 V**. A preliminary calculation of just the copper from the shunt to the two Pi power contacts adds about **0.021 V**. Together these give roughly **0.118 V**, before several other contributions. These are calculations, not measurements, and they do not establish the complete worst case. They do show why the present design cannot yet demonstrate the 0.10 V target.
+The component reference subtotal is already about **0.097 V**. The complete six-branch copper calculation adds about **0.036 V**, including the return path. Together these give roughly **0.133 V**, before several other contributions. This supersedes the earlier 0.118 V subtotal, which counted only one copper branch. These are calculations, not measurements, and they do not establish the complete worst case. They do show why the present design cannot yet demonstrate the 0.10 V target.
 
-The next electrical design decision is therefore how to reduce losses in the fuse/holder and copper path while retaining protection and measurement quality. Raising the supply voltage is not a substitute for resolving that design requirement.
+The [electronic protection study](electronic-protection.md) investigates a detector that commands the existing power switches. It could remove the fuse/holder loss while retaining the measurement shunt, but cutoff, reset and power-loss behavior must be designed first. Raising the supply voltage is not a substitute for resolving that design requirement.
 
 ## What happens next
 

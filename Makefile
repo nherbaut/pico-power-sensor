@@ -35,6 +35,14 @@ help:
 copper-screen:
 	$(PYTHON) scripts/screen-interposer-copper.py
 
+.PHONY: power-path-candidate
+power-path-candidate:
+	/usr/bin/python3 scripts/prepare-power-path-candidate.py
+
+.PHONY: electronic-protection-study
+electronic-protection-study:
+	$(PYTHON) scripts/export-electronic-protection-study.py
+
 component-sync:
 	/usr/bin/python3 scripts/sync-component-selections.py
 

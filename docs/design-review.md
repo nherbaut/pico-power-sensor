@@ -63,3 +63,7 @@ EN is tied to Pico 3V3, while SD pull-ups are tied to the separate SD rail. This
 4. Confirm assembler stackup/DFM and cost; only then inspect final manufacturing plots. See [assembly sourcing](assembly-sourcing.md) and [fablab validation](fablab-validation.md).
 
 `make component-sync` is an explicit local mutation command: it backs up the projects in `.build/pre-component-selection/`, updates selected components/lands and regenerates schematics from circuit.json without rerouting boards. `make hardware-review` regenerates calculation and geometry evidence. Neither command grants release.
+
+## Electronic-protection follow-up
+
+The [new study](electronic-protection.md) supersedes the partial 117.8 mV accounting subtotal with the six-branch 132.8 mV reference. Copper-only changes give approximately 4.0 mV improvement on the isolated comparison. The user agreed to study electronic protection; no new topology has been promoted to main CAD or BOM.

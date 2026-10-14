@@ -31,16 +31,23 @@ def digest(path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--solver', type=Path, default=Path.home()/'.codex/skills/kicad-design/scripts/copper_guards.py')
+    parser.add_argument('--board-dir', type=Path, default=ROOT/'hardware/pcb/interposer')
+    parser.add_argument('--output', type=Path)
     args = parser.parse_args()
+    output = args.output or ROOT/'hardware/review/copper-screen.json'
+    require(args.output is not None or args.board_dir.resolve() == (ROOT/'hardware/pcb/interposer').resolve(),
+            'Alternate boards require an explicit --output report path')
+    require(output.suffix == '.json' and not output.resolve().is_relative_to(args.board_dir.resolve()),
+            'Diagnostic report must be JSON outside the input project')
     require(args.solver.is_file(), 'Missing external solver; pass --solver PATH')
     spec = importlib.util.spec_from_file_location('copper', args.solver)
     solver = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(solver)
     from shapely.geometry import box
 
-    source = ROOT/'hardware/pcb/interposer/interposer.kicad_pcb'
+    source = args.board_dir/'interposer.kicad_pcb'
     before = digest(source)
-    scratch = ROOT/'.build/copper-screen'
+    scratch = ROOT/'.build/copper-screen'/before[:12]
     scratch.mkdir(parents=True, exist_ok=True)
     shutil.copytree(source.parent, scratch/'interposer', dirs_exist_ok=True)
     board_path = scratch/'interposer/interposer.kicad_pcb'
@@ -100,15 +107,29 @@ Path(sys.argv[2]).write_text(json.dumps(d))
     broken['zone_fills'] = {('CAL','F.Cu'):[box(0,-1,9,1),box(11,-1,20,1)]}
     broken_r, _ = solver.check_resistance(broken,'CAL','A.1','B.1',grid=.05,oz=2)
     require(math.isinf(broken_r), 'Disconnected calibration failed')
-    # Optimistic boundary: ideal external tie of both Pi 5 V header contacts.
+    # Optimistic terminal groups: ideal tying of parallel package/header pins.
     for pad in model['pads']:
-        if pad['ref'] == 'J2' and pad['pad'] == '4':
+        if pad['ref'] in ('Q1', 'Q2') and pad['pad'] in ('2', '3'):
+            pad['pad'] = '1'
+        if pad['ref'] == 'J2' and pad['net'] == '/PI_5V':
             pad['pad'] = '2'
+        if pad['ref'] == 'J2' and pad['net'] == '/GND':
+            pad['pad'] = '6'
     results = []
     for grid in (.1, .05):
         r, nodes = solver.check_resistance(model,'/PI_5V','RSH1.4','J2.2',grid=grid,oz=2)
         require(math.isfinite(r) and r > 0, 'Unresolved copper model; not a board verdict')
         results.append(dict(grid_mm=grid,copper_resistance_mohm=r*1000,drop_at_5A_mV=r*5000,nodes=nodes))
+    branches = []
+    for net, terminal_a, terminal_b in [('/VIN_RAW','J1.1','F1.1'),
+            ('/VIN_FUSED','F1.2','Q1.5'),('/COMMON_SOURCE','Q1.1','Q2.1'),
+            ('/PROTECTED','Q2.5','RSH1.1'),('/PI_5V','RSH1.4','J2.2'),
+            ('/GND','J1.2','J2.6')]:
+        r, nodes = solver.check_resistance(model, net, terminal_a, terminal_b, grid=.1, oz=2)
+        require(math.isfinite(r) and r > 0, 'Unresolved copper branch: '+net)
+        branches.append(dict(net=net,terminals=[terminal_a,terminal_b],grid_mm=.1,
+                             copper_resistance_mohm=r*1000,drop_at_5A_mV=r*5000,nodes=nodes))
+    loop_mohm = sum(row['copper_resistance_mohm'] for row in branches)
     require(digest(source) == before, 'Live CAD changed during diagnostic')
     report = dict(evidence_type='DC raster calculation, not a physical measurement or complete loss bound',
         tool='kicad-design/scripts/copper_guards.py',tool_sha256=digest(args.solver),
@@ -116,14 +137,19 @@ Path(sys.argv[2]).write_text(json.dumps(d))
         native_parser_counts=dict(pads=len(model['pads']),tracks=len(model['segments']),vias=len(model['vias'])),
         calibration=dict(rectangle_mm=[20,2],copper_um=70,analytical_mohm=expected*1000,
                          model_mohm=resistance*1000,disconnected_fixture_rejected=True),
-        results=results, assumptions=[
+        results=results, branches=branches,
+        loop=dict(copper_resistance_mohm=loop_mohm,drop_at_5A_mV=loop_mohm*5,
+                  component_reference_subtotal_mV=96.625,
+                  mixed_reference_total_mV=96.625+loop_mohm*5,
+                  complete_loss_bound=False), assumptions=[
             '70 um copper per side; room-temperature resistivity 1.7241e-8 ohm m',
-            'Both Pi 5V contacts ideally tied; header/contact resistance excluded',
+            'Pi 5V/return contacts and MOSFET source pins ideally tied; mated contacts excluded',
             'KiCad 9 numeric net IDs expanded on analysis-only text; live CAD unchanged',
             'Native pad coordinates/nets and track/via counts cross-checked',
             'Pad shapes approximated by solver; fixed 0.2 mOhm interlayer transitions',
-            'Only shunt-to-Pi positive branch; upstream copper and return not modeled'])
-    output = ROOT/'hardware/review/copper-screen.json'
+            'Six copper branches form the loop; fuse/shunt/MOSFET device resistances are separate',
+            'No temperature, fuse-holder, mated-header or assembly tolerance qualification'])
+    output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
 

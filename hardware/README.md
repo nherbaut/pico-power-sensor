@@ -13,3 +13,5 @@ The [optional BOM](optional-bom.csv) contains shared bench equipment. Calibratio
 Read the [current review findings and printable mock-ups](review/README.md), [passive component proposals](passive-proposals.csv) and [release checklist](release-checklist.csv). The [release procedure](../docs/release.md) separates prototype fabrication from assembled-board validation before Pi connection. Both gates remain blocked.
 
 Current prototype work: [design review](../docs/design-review.md), [assembly sourcing](../docs/assembly-sourcing.md) and [fablab validation](../docs/fablab-validation.md).
+
+The [electronic protection study](../docs/electronic-protection.md) compares fuse replacement and a copper alternative. Main CAD retains its cartridge design until the new control circuitry is qualified.
