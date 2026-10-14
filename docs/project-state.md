@@ -49,6 +49,10 @@ Latest local verification: **42 tests passed**, website built and internal links
 
 The INA229EVM was removed. The carrier now carries an INA229AIDGSR (U_PM, VSSOP-10) with a 100 nF bypass, a 10 kOhm ALERT pull-up and a JST-XH four-pin sense connector (J_SENSE, same pinout as interposer J3), and it grew from 66 to 78 x 54 mm. Carrier ERC, DRC, parity and source checks pass; the fabrication gate is still open (new `sense-ic` row: INA229 footprint, Kelvin routing, cable mating). The earlier carrier paper mock-up no longer matches and must be redone. Regenerating the carrier with `make carrier-build` currently fails in the router, so the saved routed board is the source of truth (see the carrier README). The INA229 SPI uses GP4-GP7 and the five LEDs use GP27, GP26, GP22, GP21 and GP20, chosen to keep traces short. The protection-electronics direction was not touched; the INA300 candidate came from the earlier study and has not been selected by the user.
 
+## Schematic symbols (2026-10-14)
+
+Both schematics now use class-specific symbols (resistor, capacitor, LED with polarity, fuse, NMOS, shunt, test point) from `scripts/generate-interposer.py`, guarded by `tests/test_schematic_symbols.py`; ICs and connectors remain named-pin boxes. `scripts/refresh-schematics.py` regenerates only the schematic and symbol files, so it is safe on the routed boards. The `schematic-review` checklist rows are `partial`: pin names of several ICs and the netlist export still need independent verification.
+
 ## Continue here
 
 The next design task is to turn the electronic-protection study into a complete, reviewable circuit **before routing it**:

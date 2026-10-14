@@ -257,8 +257,38 @@ def pcb(data):
     return '\n'.join(lines) + '\n'
 
 
+def symbol_class(part):
+    """Electrical class that selects the schematic graphic; unknown references fail closed."""
+    ref, kind = part['ref'], part.get('kind')
+    if kind == 'led':
+        return 'led'
+    if kind == 'mosfet':
+        return 'nmos'
+    if kind == 'shunt':
+        return 'shunt'
+    if ref.startswith('TP'):
+        return 'testpoint'
+    if ref.startswith('F'):
+        return 'fuse'
+    if ref.startswith('R'):
+        return 'resistor'
+    if ref.startswith('C'):
+        return 'capacitor'
+    if ref.startswith('U'):
+        return 'ic'
+    if ref.startswith('J'):
+        return 'connector'
+    raise ValueError('No schematic symbol class for ' + ref)
+
+
 def pin_layout(part):
     pins = list(part['pins'])
+    if symbol_class(part) == 'nmos':
+        # Gate on the left, drain at the top right, the three source pins at the bottom right.
+        sources = [n for n in pins if n in ('1', '2', '3')]
+        result = [('4', -12.7, 0, 0), ('5', 12.7, 5.08, 180)]
+        result += [(n, 12.7, -2.54 * (i + 1), 180) for i, n in enumerate(sources)]
+        return result, 8.89
     if part['kind'] == 'header':
         left, right = pins[::2], pins[1::2]
     else:
@@ -279,6 +309,10 @@ def pin_name(part, n):
         return {'1':'VCCA','2':'1DIR','3':'2DIR','4':'1A1','5':'1A2','6':'2A1','7':'2A2',
                 '8':'GND','9':'GND','10':'2B2','11':'2B1','12':'1B2','13':'1B1',
                 '14':'2OE_N','15':'1OE_N','16':'VCCB'}[n]
+    if part['ref']=='U_SD':
+        return {'1':'IN','2':'GND','3':'EN','4':'NC','5':'OUT'}[n]
+    if part['ref']=='J_SD':
+        return {'1':'DAT2','2':'CD/DAT3','3':'CMD','4':'VDD','5':'CLK','6':'VSS','7':'DAT0','8':'DAT1','9':'SHIELD'}[n]
     if part['ref']=='U_PM':
         return {'1':'CS_N','2':'MOSI','3':'ALERT_N','4':'MISO','5':'SCLK','6':'VS',
                 '7':'GND','8':'VBUS','9':'IN-','10':'IN+'}[n]
@@ -291,16 +325,67 @@ def pin_name(part, n):
     return part['pins'][n] or 'NC'
 
 
+def body_graphics(cls, h):
+    """Conventional graphic for each electrical class; ICs and connectors keep a pin box."""
+    stroke = '(stroke (width .254) (type default))'
+    def line(*pts):
+        coords = ' '.join(f'(xy {x} {y})' for x, y in pts)
+        return f'        (polyline (pts {coords}) {stroke} (fill (type none)))'
+    def rect(x0, y0, x1, y1, fill='none'):
+        return f'        (rectangle (start {x0} {y0}) (end {x1} {y1}) {stroke} (fill (type {fill})))'
+    def circle(x, y, r):
+        return f'        (circle (center {x} {y}) (radius {r}) {stroke} (fill (type none)))'
+    if cls in ('ic', 'connector'):
+        return [rect(-7.62, h, 7.62, -h, 'background')]
+    if cls == 'resistor':
+        return [line((-7.62, 0), (-5.08, 0)), line((5.08, 0), (7.62, 0)), rect(-5.08, 1.524, 5.08, -1.524)]
+    if cls == 'shunt':
+        return [line((-7.62, 1.27), (-5.08, 1.27)), line((-7.62, -1.27), (-5.08, -1.27)),
+                line((5.08, 1.27), (7.62, 1.27)), line((5.08, -1.27), (7.62, -1.27)),
+                rect(-5.08, 2.54, 5.08, -2.54)]
+    if cls == 'capacitor':
+        return [line((-7.62, 0), (-0.508, 0)), line((0.508, 0), (7.62, 0)),
+                line((-0.508, 2.54), (-0.508, -2.54)), line((0.508, 2.54), (0.508, -2.54))]
+    if cls == 'fuse':
+        return [line((-7.62, 0), (-5.08, 0)), line((5.08, 0), (7.62, 0)),
+                rect(-5.08, 1.27, 5.08, -1.27), line((-5.08, 0), (5.08, 0))]
+    if cls == 'led':
+        # Pin 1 (cathode) on the left, pin 2 (anode) on the right: current flows right to left.
+        return [line((-7.62, 0), (-1.905, 0)), line((1.905, 0), (7.62, 0)),
+                line((1.905, 1.905), (1.905, -1.905), (-1.905, 0), (1.905, 1.905)),
+                line((-1.905, 1.905), (-1.905, -1.905)),
+                line((-0.5, 2.8), (1.0, 4.3)), line((0.3, 4.3), (1.0, 4.3), (1.0, 3.6)),
+                line((1.5, 2.2), (3.0, 3.7)), line((2.3, 3.7), (3.0, 3.7), (3.0, 3.0))]
+    if cls == 'testpoint':
+        return [circle(-6.35, 0, 1.27)]
+    if cls == 'nmos':
+        return [line((-7.62, 0), (-2.54, 0)), line((-2.54, 2.54), (-2.54, -2.54)),
+                line((-1.27, 2.54), (-1.27, 1.27)), line((-1.27, 0.635), (-1.27, -0.635)),
+                line((-1.27, -1.27), (-1.27, -2.54)),
+                line((-1.27, 2.032), (2.54, 2.032), (2.54, 5.08), (7.62, 5.08)),
+                line((-1.27, -2.032), (2.54, -2.032), (2.54, -5.08), (7.62, -5.08)),
+                line((-1.27, 0), (1.0, 0), (1.0, -2.032)),
+                line((-0.2, 0.5), (-1.27, 0), (-0.2, -0.5)),
+                line((7.62, -2.54), (7.62, -7.62))]
+    raise ValueError('No graphic for class ' + cls)
+
+
 def symbol_definition(part, standalone=False):
     ref = part['ref']
     name = ref if standalone else 'PicoPower:' + ref
     coords, h = pin_layout(part)
-    lines = [f'    (symbol {q(name)} (pin_names (offset .508)) (in_bom yes) (on_board yes)',
+    # Passive glyphs are two-pin graphics: net labels sit outside, so pin names would overprint them.
+    cls = symbol_class(part)
+    narrow_connector = cls == 'connector' and len(part['pins']) <= 5  # long net names collide inside a small box
+    hide_names = ' hide' if cls in ('resistor', 'capacitor', 'fuse', 'led', 'testpoint') or narrow_connector else ''
+    lines = [f'    (symbol {q(name)} (pin_names (offset .508){hide_names}) (in_bom yes) (on_board yes)',
              f'      (property "Reference" {q(ref)} (at 0 {h+2.54} 0) (effects (font (size 1.27 1.27))))',
              f'      (property "Value" {q(part["value"])} (at 0 {-h-2.54} 0) (effects (font (size 1.27 1.27))))',
              f'      (property "Footprint" {q("PicoPower:" + part["footprint"])} (at 0 0 0) (effects (font (size 1 1)) hide))',
+             f'      (property "SymbolClass" {q(symbol_class(part))} (at 0 0 0) (effects (font (size 1 1)) hide))',
              f'      (symbol {q(ref + "_0_1")}',
-             f'        (rectangle (start -7.62 {h}) (end 7.62 {-h}) (stroke (width .254) (type default)) (fill (type background))))',
+             *body_graphics(symbol_class(part), h),
+             '      )',
              f'      (symbol {q(ref + "_1_1")}']
     for n, x, y, angle in coords:
         typ = 'passive'

@@ -1,12 +1,12 @@
 {
   "cad_sha256": {
-    "interposer.kicad_sch": "8ea20c771d4b30b0139a78ae8a337b79ab60f4e655885b3cec78a12653a17312",
+    "interposer.kicad_sch": "605aa5908010b11e2c913aa84bedaa135d64966620a7b758b4b5ac38b0fcf98d",
     "interposer.kicad_pcb": "d36a7e9330eaf497e2f1a4ccefcc0c66f4de86e019921b04746e08c5efeb60f9",
     "circuit.json": "33a9d40e3e7736b9b1968489857b5e4458003dbd7e7ef7f06503b3946a0926df"
   },
   "png_sha256": {
-    "schematic.png": "886c265f65a4b17d3d264be9fd1a1a8d733155a42aa98b1c124f62d537696399",
-    "schematic-preview.png": "d7ed62693f3de6af787599f40e8603cd66d2ddbf5337bf64b24024b72518f3e1",
+    "schematic.png": "176fffa48fd145a4942e980713a1db5546710fe613c0f9cb8513c9ea16b92077",
+    "schematic-preview.png": "3375a01cc76a68953ab4b4bc88a568136f0a58dc5b21654a7f92165a160dc77c",
     "layout-front.png": "33b5f1f3849c32082601067f661c5b179d1463767bef50481d64c60d6cd1ac74"
   },
   "dimensions_px": {
