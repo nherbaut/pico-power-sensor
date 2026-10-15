@@ -1,6 +1,6 @@
 {
   "board": "carrier",
-  "design_sha256": "7cc98162cb8edb9995f995d7ca0099759ebf20eab79f4b2b49c2f20fa7dd702c",
+  "design_sha256": "dbcd42627ebaf5ec395baa1852036e8e72e489a2bd7132ed981c485b560d5b43",
   "evidence_type": "automated CAD geometry extraction; not footprint approval or physical measurement",
   "footprints": [
     {

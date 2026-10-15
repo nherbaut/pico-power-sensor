@@ -10,7 +10,7 @@ Use 1.6 mm FR4 and the reviewed copper stack-up, initially targeting two layers 
 
 1. Assemble small SMD parts, MOSFETs and shunt first. Inspect polarity, pin 1 and solder joints under magnification. The shunt's sense pads must not be shorted to current pads by external copper or solder.
 2. Fit the keyed power connector, fuse holder, signal connectors and stacking socket. Confirm that the lower socket mates with the Pi and the upper tails engage the AI HAT correctly.
-3. Mount the side wing to a nonconductive support. Add cable strain relief. The fuse and power plug must remain accessible with the HAT fitted.
+3. Fasten the power header J1 to the board with its two screws from the underside before wiring the plug. Mount the side wing to a nonconductive support. Add cable strain relief. The fuse and power plug must remain accessible with the HAT fitted.
 4. With no Pi or instrument attached, check ground continuity, both 5 V contacts, each individual pass-through signal and power-to-ground resistance. Verify the series power path and absence of any shunt bypass.
 5. Set the Korad output off, voltage 5.10 V and a low initial current limit. Verify polarity on the detached mating plug before insertion.
 6. Test with a dummy load first. Sweep through the input protection thresholds, reversed input and startup behavior without a Pi. Test at nominal voltage up to 5 A with an appropriately rated electronic load.

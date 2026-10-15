@@ -157,6 +157,35 @@ def msop8(fp):
             pad.SetSize(point(.889, .42))
 
 
+def phoenix_flange(fp):
+    """Optional PCB fastening holes of the Phoenix MSTB 2,5/2-GF-5,08 header (family drawing 00855760/06).
+
+    Two 2.4 mm non-plated holes for ISO 1481-ST 2.2 x 6.5 screws, 5.18 mm beyond the end pins and
+    2.5 mm from the pin row toward the body. They keep the screwed plug's pull off the soldered
+    pins. Footprint frame: pin 1 at the origin, pin 2 at x = 5.08. Safe to apply twice.
+    """
+    for pad in list(fp.Pads()):
+        position = pad.GetFPRelativePosition()
+        if not pad.GetNumber() and pad.GetAttribute() == pcbnew.PAD_ATTRIB_NPTH \
+                and abs(pcbnew.ToMM(position.y) - 2.5) < .05:
+            fp.Remove(pad)
+    for x in (-5.18, 5.08 + 5.18):
+        hole = pcbnew.PAD(fp)
+        hole.SetAttribute(pcbnew.PAD_ATTRIB_NPTH)
+        hole.SetShape(pcbnew.PAD_SHAPE_CIRCLE)
+        hole.SetSize(point(2.4, 2.4))
+        hole.SetDrillSize(point(2.4, 2.4))
+        layers = pcbnew.LSET()
+        layers.AddLayer(pcbnew.F_Cu)
+        layers.AddLayer(pcbnew.B_Cu)
+        layers.AddLayer(pcbnew.F_Mask)
+        layers.AddLayer(pcbnew.B_Mask)
+        hole.SetLayerSet(layers)
+        fp.Add(hole)
+        hole.SetOrientation(fp.GetOrientation())
+        hole.SetFPRelativePosition(point(x, 2.5))
+
+
 def socket(fp):
     # 10461-H: 4.85 mm projected depth, 7.20 mm height. Keep provisional body offset.
     for graphic in fp.GraphicalItems():

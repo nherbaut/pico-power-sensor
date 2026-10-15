@@ -25,6 +25,8 @@ Use lower standoffs to support the interposer and upper spacers to support a HAT
 
 Create a nonconductive 1:1 mock-up and check these items before PCB ordering. Manufacturer drawings are starting references; the Pi mechanical drawing explicitly warns against using approximate dimensions as production data.
 
+The power header J1 has two 2.4 mm non-plated holes, at board positions (3.82, 9.50) and (19.26, 9.50) mm, for ISO 1481 ST 2.2 x 6.5 C screws that enter from the board underside and hold the header's flanges; they keep the screwed plug's pull off the soldered pins. The surrounding copper is ground only, so a metal screw head touches nothing else. Screw length and thread must still be checked against the real header.
+
 Samtec's family drawing (rev. BH) gives, for the SSQ-120-03-G-D, a 10.01 mm tail below the insulator, an 8.51 mm high and 4.95 mm wide insulator and a 51.31 mm length (20 positions), with up to 2 degrees of tail sway and a row spacing at the tails of 2.54 mm +0.25/-0.31 mm for lead style -03. Seated on a 1.6 mm board, the tails protrude about 8.4 mm. The drawing does not give the PCB hole size or the mating depth; both still need confirming with the Samtec layout recommendation and a test-fit.
 
 Sources: [Pi 5 mechanical drawing](https://pip-assets.raspberrypi.com/categories/892-raspberry-pi-5/documents/RP-008347-DS-1-raspberry-pi-5-mechanical-drawing.pdf), [AI HAT mounting instructions](https://www.raspberrypi.com/documentation/accessories/ai-hat-plus.html), [Samtec connector](https://www.samtec.com/products/ssq-120-03-g-d).

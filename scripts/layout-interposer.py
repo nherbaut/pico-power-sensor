@@ -13,7 +13,7 @@ for key, name in [('XDG_CONFIG_HOME','config'),('XDG_CACHE_HOME','cache'),('XDG_
     path=ROOT/'.build/kicad'/name;path.mkdir(parents=True,exist_ok=True)
     os.environ[key]=str(path)
 import pcbnew
-from footprint_corrections import led, shunt, mosfet, msop8, selected_passive, part_fields
+from footprint_corrections import led, shunt, mosfet, msop8, phoenix_flange, selected_passive, part_fields
 
 OUT=ROOT/'hardware/pcb/interposer'
 LIB=Path('/usr/share/kicad/footprints')
@@ -58,6 +58,7 @@ def main():
         if ref=='RSH1':shunt(fp)
         if ref in ('Q1','Q2'):mosfet(fp)
         if ref=='U1':msop8(fp)
+        if ref=='J1':phoenix_flange(fp)
         selected_passive(fp, p['footprint'])
         fp.SetFPID(pcbnew.LIB_ID('PicoPower',p['footprint']))
         fp.SetReference(ref);fp.SetValue(p['value']);fp.SetPath(old.GetPath())
@@ -76,6 +77,7 @@ def main():
         if ref=='RSH1':shunt(library_fp)
         if ref in ('Q1','Q2'):mosfet(library_fp)
         if ref=='U1':msop8(library_fp)
+        if ref=='J1':phoenix_flange(library_fp)
         selected_passive(library_fp, p['footprint'])
         library_fp.SetFPID(pcbnew.LIB_ID('PicoPower',p['footprint']))
         library_fp.SetValue(p['value'])

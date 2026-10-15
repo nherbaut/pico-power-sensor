@@ -46,6 +46,14 @@ for name,library in [('interposer','PicoPower.pretty'),('carrier','Carrier.prett
             assert not pads['1'].IsOnLayer(pcbnew.F_Paste)
             paste=[x for x in fp.Pads() if not x.GetNumber() and abs(pcbnew.ToMM(x.GetFPRelativePosition().x)+2.9)<.05]
             assert len(paste)==4 and all(not x.IsOnLayer(pcbnew.F_Cu) for x in paste),(ref,len(paste))
+        if ref=='J1':
+            # Phoenix family drawing 00855760/06: two 2.4 mm non-plated fastening holes 5.18 mm beyond the pins.
+            holes=[x for x in fp.Pads() if not x.GetNumber() and x.GetAttribute()==pcbnew.PAD_ATTRIB_NPTH]
+            assert len(holes)==2,(ref,len(holes))
+            assert all(abs(pcbnew.ToMM(h.GetDrillSize().x)-2.4)<1e-6 for h in holes)
+            offsets=sorted(round(pcbnew.ToMM(h.GetFPRelativePosition().x),2) for h in holes)
+            assert offsets==[-5.18,10.26],offsets
+            assert all(abs(pcbnew.ToMM(h.GetFPRelativePosition().y)-2.5)<1e-6 for h in holes)
         if ref=='U1':
             # LTC4367 Rev. D page 19: 0.42 mm wide pads about 0.889 mm long, 0.65 mm pitch, centres kept.
             for pad in fp.Pads():

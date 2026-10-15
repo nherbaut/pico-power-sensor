@@ -1,6 +1,6 @@
 {
   "board": "interposer",
-  "design_sha256": "4934c0d4844723ee9d328c0ed78418e09f238db88efdd006fda8a425c6fe81e0",
+  "design_sha256": "b64321804ce31d7d2acdb246466263c9fa785da89cf43d46975193b256a45ef3",
   "evidence_type": "automated CAD geometry extraction; not footprint approval or physical measurement",
   "footprints": [
     {
@@ -448,6 +448,50 @@
       "proposed_mpn_in_cad": "1776508",
       "library_source": "Connector_Phoenix_MSTB:PhoenixContact_MSTB_2,5_2-GF-5,08_1x02_P5.08mm_Horizontal_ThreadedFlange",
       "pads": [
+        {
+          "number": "",
+          "local_position_mm": [
+            -5.18,
+            2.5
+          ],
+          "board_position_mm": [
+            19.26,
+            9.5
+          ],
+          "attribute": 3,
+          "size_mm": [
+            2.4,
+            2.4
+          ],
+          "drill_mm": [
+            2.4,
+            2.4
+          ],
+          "shape": 0,
+          "net": ""
+        },
+        {
+          "number": "",
+          "local_position_mm": [
+            10.26,
+            2.5
+          ],
+          "board_position_mm": [
+            3.82,
+            9.5
+          ],
+          "attribute": 3,
+          "size_mm": [
+            2.4,
+            2.4
+          ],
+          "drill_mm": [
+            2.4,
+            2.4
+          ],
+          "shape": 0,
+          "net": ""
+        },
         {
           "number": "1",
           "local_position_mm": [
