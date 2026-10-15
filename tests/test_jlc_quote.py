@@ -91,6 +91,27 @@ class JlcQuotePackageTests(unittest.TestCase):
         for ref, rotation in jlc.items():
             self.assertEqual(rotation, (kicad[ref] + offsets.get(ref, 0)) % 360, ref)
 
+    def test_template_bom_matches_the_csv_bom(self):
+        import shutil
+        if not (ROOT / 'img/JLCPCB_BOM_Template.xls').exists() or not shutil.which('soffice'):
+            self.skipTest('JLCPCB template or LibreOffice not available')
+        import openpyxl
+        xls = self.out / 'carrier/carrier-BOM-JLCPCB-template.xls'
+        self.assertTrue(xls.exists())
+        work = Path(self.tmp.name) / 'xlscheck'
+        work.mkdir()
+        shutil.copyfile(xls, work / 'bom.xls')
+        subprocess.run(['soffice', f'-env:UserInstallation=file://{work}/profile', '--headless', '--convert-to', 'xlsx',
+                        '--outdir', str(work), str(work / 'bom.xls')], check=True, capture_output=True, timeout=180)
+        sheet = openpyxl.load_workbook(work / 'bom.xlsx').worksheets[0]
+        rows = [r for r in sheet.iter_rows(values_only=True) if any(v is not None for v in r)]
+        self.assertEqual(list(rows[0]), ['Comment', 'Designator', 'Footprint', 'JLCPCB Part#(optional)'])
+        with (self.out / 'carrier/carrier-BOM-quote-only.csv').open(newline='') as handle:
+            expected = [(r['Comment'], r['Designator'].replace(',', ', '), r['LCSC Part #']) for r in csv.DictReader(handle)]
+        got = [(r[0], r[1], r[3] or '') for r in rows[1:]]
+        self.assertEqual(got, expected)
+        self.assertTrue(all(r[3] for r in rows[1:]), 'every carrier line has a JLCPCB number')
+
     def test_a_candidate_never_fills_the_bom(self):
         import importlib.util
         spec = importlib.util.spec_from_file_location('quote', ROOT / 'scripts/prepare-jlc-quote.py')

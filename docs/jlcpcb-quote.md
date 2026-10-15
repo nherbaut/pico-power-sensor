@@ -10,6 +10,7 @@ This page describes how to get a price from JLCPCB for the two boards, with fact
 |---|---|
 | `<board>-gerbers-QUOTE-ONLY.zip` | Copper, mask, silkscreen, outline and drill files from the saved KiCad board |
 | `<board>-BOM-quote-only.csv` | Bill of materials in JLCPCB's columns: Comment, Designator, Footprint, LCSC Part # |
+| `<board>-BOM-JLCPCB-template.xls` | The same BOM written into a copy of JLCPCB's own `.xls` template (`img/JLCPCB_BOM_Template.xls`): Comment, Designator, Footprint and JLCPCB Part# columns, with the Footprint column using JLCPCB's package names (0805, 1206, VSSOP-10, SOT-23-5, SMD). It is built with LibreOffice and skipped if the template or LibreOffice is missing; the template itself is never modified |
 | `<board>-CPL-quote-only.csv` | Placement file: Designator, Mid X, Mid Y, Layer, Rotation |
 | `<board>-parts-to-map.csv` | Each part with its manufacturer reference, specification and a flag for the parts to check first |
 | `QUOTE-ONLY.txt` | The notice that these files are not a release |

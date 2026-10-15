@@ -80,25 +80,74 @@ def selections(board):
     return chosen, candidates
 
 
-def jlc_bom(board, refs, parts):
-    """One BOM line per manufacturer reference and footprint; Comment is the value when all agree."""
+def bom_records(board, refs, parts):
+    """One record per manufacturer reference and footprint: (comment, designators, footprint, mpn, lcsc)."""
     groups = {}
     for ref in sorted(refs, key=natural):
         part = parts[ref]
         groups.setdefault((part['mpn'], part['footprint']), []).append(ref)
+    chosen, _ = selections(board)
+    records = []
+    for (mpn, footprint), designators in groups.items():
+        values = {parts[r]['value'] for r in designators}
+        comment = values.pop() if len(values) == 1 else mpn
+        picks = {chosen[r]['lcsc_part'] for r in designators if r in chosen}
+        lcsc = picks.pop() if len(picks) == 1 and all(r in chosen for r in designators) else ''
+        records.append((comment, designators, footprint, mpn, lcsc))
+    return records
+
+
+def jlc_bom(board, refs, parts):
+    """One BOM line per manufacturer reference and footprint; Comment is the value when all agree."""
     out = io.StringIO()
     writer = csv.writer(out, lineterminator='\n')
     writer.writerow(['Comment', 'Designator', 'Footprint', 'LCSC Part #'])
     lines = {}
-    chosen, _ = selections(board)
-    for (mpn, footprint), designators in groups.items():
-        values = {parts[r]['value'] for r in designators}
-        comment = values.pop() if len(values) == 1 else mpn
+    for comment, designators, footprint, mpn, lcsc in bom_records(board, refs, parts):
         lines[(comment, footprint, mpn)] = designators
-        picks = {chosen[r]['lcsc_part'] for r in designators if r in chosen}
-        lcsc = picks.pop() if len(picks) == 1 and all(r in chosen for r in designators) else ''
         writer.writerow([comment, ','.join(designators), footprint, lcsc])
     return out.getvalue(), lines
+
+
+# JLCPCB's package names, as its parts listings show them, for the template's Footprint column.
+JLC_PACKAGE = {'C_0805_Murata': '0805', 'C_0805_KEMET': '0805', 'C_1206': '1206', 'LED_0805': '0805',
+               'R_0805': '0805', 'R_0805_TNPW': '0805', 'microSD_Wuerth': 'SMD', 'VSSOP10': 'VSSOP-10',
+               'SOT23_5': 'SOT-23-5', 'MSOP8_P0.65': 'MSOP-8', 'TSSOP16_P0.65': 'TSSOP-16'}
+TEMPLATE = ROOT / 'img/JLCPCB_BOM_Template.xls'
+
+
+def soffice(*args, profile):
+    """LibreOffice with its own profile, so a copy already open on the desktop is left alone."""
+    command = ['soffice', f'-env:UserInstallation=file://{profile}', '--headless', *map(str, args)]
+    subprocess.run(command, check=True, capture_output=True, text=True, timeout=180)
+
+
+def write_template_bom(records, destination, work):
+    """Fill a copy of JLCPCB's .xls template with the BOM records; the template itself is not touched."""
+    import openpyxl
+    work.mkdir(parents=True, exist_ok=True)
+    profile = work / 'profile'
+    shutil.copyfile(TEMPLATE, work / 'template.xls')
+    soffice('--convert-to', 'xlsx', '--outdir', work, work / 'template.xls', profile=profile)
+    workbook = openpyxl.load_workbook(work / 'template.xlsx')
+    sheet = workbook.worksheets[0]
+    header = [c.value for c in sheet[1]]
+    if header[:3] != ['Comment', 'Designator', 'Footprint']:
+        raise SystemExit('Unexpected JLCPCB template header: %r' % header)
+    styles = [sheet.cell(row=2, column=col)._style for col in range(1, 5)]
+    for row in sheet.iter_rows(min_row=2, max_row=max(sheet.max_row, 2)):
+        for cell in row:
+            cell.value = None
+    for number, (comment, designators, footprint, _mpn, lcsc) in enumerate(records, start=2):
+        values = [comment, ', '.join(designators), JLC_PACKAGE.get(footprint, footprint), lcsc or None]
+        for col, value in enumerate(values, start=1):
+            cell = sheet.cell(row=number, column=col, value=value)
+            cell._style = styles[col - 1]
+    if sheet.max_row > len(records) + 1:
+        sheet.delete_rows(len(records) + 2, sheet.max_row)
+    workbook.save(work / 'filled.xlsx')
+    soffice('--convert-to', 'xls', '--outdir', work, work / 'filled.xlsx', profile=profile)
+    shutil.copyfile(work / 'filled.xls', destination)
 
 
 def natural(ref):
@@ -187,6 +236,9 @@ def prepare(board, out_root):
     bom_text, groups = jlc_bom(board, refs, parts)
     cpl_text, _ = jlc_cpl(pos.read_text(), refs, rotation_offsets(board))
     (out / f'{board}-BOM-quote-only.csv').write_text(bom_text)
+    if TEMPLATE.exists() and shutil.which('soffice'):
+        write_template_bom(bom_records(board, refs, parts), out / f'{board}-BOM-JLCPCB-template.xls',
+                           ROOT / '.build/jlc-quote-xls' / board)
     (out / f'{board}-CPL-quote-only.csv').write_text(cpl_text)
     (out / f'{board}-parts-to-map.csv').write_text(parts_to_map(board, groups, refs, bom_models()))
     (out / 'QUOTE-ONLY.txt').write_text(notice(board))
