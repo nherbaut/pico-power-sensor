@@ -87,10 +87,9 @@ class JlcQuotePackageTests(unittest.TestCase):
             kicad = {r['Ref']: float(r['Rot']) for r in csv.DictReader(handle)}
         with (self.out / 'carrier/carrier-CPL-quote-only.csv').open(newline='') as handle:
             jlc = {r['Designator']: float(r['Rotation']) for r in csv.DictReader(handle)}
-        self.assertEqual(jlc['U_SD'], (kicad['U_SD'] + 180) % 360)
+        offsets = {'U_SD': 180, 'U_PM': 270}
         for ref, rotation in jlc.items():
-            if ref != 'U_SD':
-                self.assertEqual(rotation, kicad[ref] % 360, ref)
+            self.assertEqual(rotation, (kicad[ref] + offsets.get(ref, 0)) % 360, ref)
 
     def test_a_candidate_never_fills_the_bom(self):
         import importlib.util
