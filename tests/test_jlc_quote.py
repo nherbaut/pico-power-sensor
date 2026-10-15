@@ -36,7 +36,8 @@ class JlcQuotePackageTests(unittest.TestCase):
                 reader = csv.DictReader(handle)
                 self.assertEqual(reader.fieldnames, ['Comment', 'Designator', 'Footprint', 'LCSC Part #'])
                 for row in reader:
-                    self.assertEqual(row['LCSC Part #'], '', 'LCSC numbers must be left for the owner')
+                    if row['LCSC Part #']:
+                        self.assertEqual(row['LCSC Part #'], 'C1779', 'only owner-chosen parts may fill the LCSC column')
                     bom_refs |= set(row['Designator'].split(','))
             with (folder / f'{board}-CPL-quote-only.csv').open(newline='') as handle:
                 reader = csv.DictReader(handle)
@@ -61,6 +62,17 @@ class JlcQuotePackageTests(unittest.TestCase):
                 self.assertTrue(any(n.endswith('.gtl') for n in names) and any(n.endswith('.gbl') for n in names))
                 self.assertTrue(any(n.endswith('PTH.drl') for n in names))
                 self.assertTrue(any(n.endswith('.gm1') for n in names), 'board outline missing')
+
+    def test_only_owner_chosen_parts_fill_the_lcsc_column(self):
+        with (self.out / 'carrier/carrier-BOM-quote-only.csv').open(newline='') as handle:
+            rows = list(csv.DictReader(handle))
+        filled = {r['Designator']: r['LCSC Part #'] for r in rows if r['LCSC Part #']}
+        self.assertEqual(filled, {'C_SDIN,C_SDOUT': 'C1779'})
+        with (self.out / 'carrier/carrier-parts-to-map.csv').open(newline='') as handle:
+            parts = {r['designators']: r for r in csv.DictReader(handle)}
+        candidate = next(r for d, r in parts.items() if 'R_SDP1' in d)
+        self.assertEqual(candidate['lcsc_part'], '', 'a candidate must not fill the BOM')
+        self.assertTrue(candidate['selection_status'].startswith('candidate'))
 
     def test_specialised_parts_are_flagged_for_checking(self):
         with (self.out / 'carrier/carrier-parts-to-map.csv').open(newline='') as handle:

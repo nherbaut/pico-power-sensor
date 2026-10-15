@@ -65,6 +65,21 @@ def bom_models():
         return {r['manufacturer_reference']: r for r in csv.DictReader(handle) if r['manufacturer_reference']}
 
 
+def selections(board):
+    """Owner-chosen JLCPCB parts by reference; candidates are listed but never fill the BOM."""
+    path = ROOT / 'hardware/jlcpcb-selection.csv'
+    chosen, candidates = {}, {}
+    if path.exists():
+        with path.open(newline='') as handle:
+            for row in csv.DictReader(handle):
+                if row['board'] != board:
+                    continue
+                target = chosen if row['status'].startswith('chosen') else candidates
+                for ref in row['references'].split(';'):
+                    target[ref] = row
+    return chosen, candidates
+
+
 def jlc_bom(board, refs, parts):
     """One BOM line per manufacturer reference and footprint; Comment is the value when all agree."""
     groups = {}
@@ -75,11 +90,14 @@ def jlc_bom(board, refs, parts):
     writer = csv.writer(out, lineterminator='\n')
     writer.writerow(['Comment', 'Designator', 'Footprint', 'LCSC Part #'])
     lines = {}
+    chosen, _ = selections(board)
     for (mpn, footprint), designators in groups.items():
         values = {parts[r]['value'] for r in designators}
         comment = values.pop() if len(values) == 1 else mpn
         lines[(comment, footprint, mpn)] = designators
-        writer.writerow([comment, ','.join(designators), footprint, ''])
+        picks = {chosen[r]['lcsc_part'] for r in designators if r in chosen}
+        lcsc = picks.pop() if len(picks) == 1 and all(r in chosen for r in designators) else ''
+        writer.writerow([comment, ','.join(designators), footprint, lcsc])
     return out.getvalue(), lines
 
 
@@ -91,7 +109,8 @@ def natural(ref):
 def parts_to_map(board, groups, refs, models):
     out = io.StringIO()
     writer = csv.writer(out, lineterminator='\n')
-    writer.writerow(['designators', 'quantity', 'manufacturer_reference', 'value', 'specification', 'check_first', 'note', 'lcsc_part'])
+    writer.writerow(['designators', 'quantity', 'manufacturer_reference', 'value', 'specification', 'check_first', 'note', 'lcsc_part', 'selection_status', 'selection_differences'])
+    chosen, candidates = selections(board)
     for (value, _footprint, mpn), designators in groups.items():
         model = models.get(mpn, {})
         notes = []
@@ -99,8 +118,14 @@ def parts_to_map(board, groups, refs, models):
             notes.append(CHECK_FIRST[mpn])
         if mpn.startswith(PRECISION):
             notes.append('precision divider resistor (0.1 %, 25 ppm/K): a substitute must match tolerance and drift')
+        picked = [chosen[r] for r in designators if r in chosen]
+        candidate = [candidates[r] for r in designators if r in candidates]
+        row = (picked or candidate or [None])[0]
+        lcsc = row['lcsc_part'] if picked and len(picked) == len(designators) else ''
+        status = ('chosen: ' if picked else 'candidate: ') + row['selected_mpn'] + ' (' + row['lcsc_part'] + ', ' + row['jlcpcb_type'] + ')' if row else ''
         writer.writerow([','.join(designators), len(designators), mpn, value, model.get('model', ''),
-                         'yes' if mpn in CHECK_FIRST else '', '; '.join(notes), ''])
+                         'yes' if mpn in CHECK_FIRST else '', '; '.join(notes), lcsc, status,
+                         row['differences'] + ' | open: ' + row['open_checks'] if row else ''])
     return out.getvalue()
 
 

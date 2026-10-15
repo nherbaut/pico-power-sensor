@@ -16,6 +16,8 @@ This page describes how to get a price from JLCPCB for the two boards, with fact
 
 The BOM and the placement file cover only the parts the factory is meant to place (24 on the interposer, 32 on the carrier, from the [assembly planning list](../hardware/assembly-review.csv)). A test checks that they match that list exactly. Through-hole parts, the owned Pico and the bare test pads are left out.
 
+The parts you choose in JLCPCB's catalogue are recorded in [the selection list](../hardware/jlcpcb-selection.csv). Only rows marked `chosen` fill the LCSC column of the BOM; a `candidate` row appears in the parts file but never in the BOM. The design records (BOM and passive selections) are not changed by this list, so a substitute stays visible as a difference with its open checks.
+
 ## What you still have to do
 
 1. **Map each part to a JLCPCB part number.** The LCSC column is empty on purpose. JLCPCB's upload tool tries to match parts and reports the ones it cannot find. Start with the rows flagged `check_first` in the parts file. A substitute must keep the specification; the precision divider resistors (0.1 %, 25 ppm/K) and the C0G capacitor are not interchangeable with looser parts.
