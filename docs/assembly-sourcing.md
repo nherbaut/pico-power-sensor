@@ -4,6 +4,8 @@ Use a common comparison request of **two assembled interposers and two assembled
 
 ## Assembly split
 
+For a JLCPCB price with factory placement, see the [quote package](jlcpcb-quote.md).
+
 The generated [assembly review CSV](../hardware/assembly-review.csv) is a local planning list, **not an order-ready BOM/CPL**. Every physical circuit component is classified. Factory placement covers resistors, capacitors, LEDs, ICs, shunt, MOSFETs and the microSD socket. Manual assembly covers the power connector, fuse holder, long-tail header, JST connectors (including the carrier's J_SENSE) and two Pico socket strips. Insert the fuse, Pico and card only at the appropriate assembly stage. Bare test pads and mounting holes require no purchased component.
 
 J_PICO is a combined logical footprint. It must not be ordered as a factory-soldered Pico module. Its two socket strips are listed separately. J2 is one physical stacking socket; the schematic's logical HAT-side J5 is not a second component. Preserve these distinctions when preparing an eventual BOM/CPL.

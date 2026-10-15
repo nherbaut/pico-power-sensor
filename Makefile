@@ -29,7 +29,7 @@ help:
 	@echo "make release-check BOARD=carrier       Report outstanding fabrication checks (fails until complete)"
 	@echo "make release-check GATE=connection     Check fabrication and bench evidence before Pi connection"
 
-.PHONY: hardware-review release-check footprint-candidates component-sync assembly-review
+.PHONY: hardware-review release-check footprint-candidates component-sync assembly-review jlc-quote
 
 .PHONY: copper-screen
 copper-screen:
@@ -48,6 +48,10 @@ component-sync:
 
 assembly-review:
 	/usr/bin/python3 scripts/export-assembly-review.py
+
+# Quote-only Gerbers, BOM and CPL in .build/jlc-quote; not a fabrication release, nothing is uploaded.
+jlc-quote:
+	$(PYTHON) scripts/prepare-jlc-quote.py
 
 footprint-candidates:
 	/usr/bin/python3 scripts/prepare-footprint-candidates.py
