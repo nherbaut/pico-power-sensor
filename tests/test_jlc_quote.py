@@ -37,7 +37,7 @@ class JlcQuotePackageTests(unittest.TestCase):
                 self.assertEqual(reader.fieldnames, ['Comment', 'Designator', 'Footprint', 'LCSC Part #'])
                 for row in reader:
                     if row['LCSC Part #']:
-                        self.assertIn(row['LCSC Part #'], ('C1779', 'C520082', 'C94122', 'C90146', 'C5569446', 'C5912397', 'C269742', 'C149504', 'C17513'), 'only owner-chosen parts may fill the LCSC column')
+                        self.assertIn(row['LCSC Part #'], ('C1779', 'C520082', 'C94122', 'C90146', 'C5569446', 'C5912397', 'C269742', 'C149504', 'C17513', 'C2846803'), 'only owner-chosen parts may fill the LCSC column')
                     bom_refs |= set(row['Designator'].split(','))
             with (folder / f'{board}-CPL-quote-only.csv').open(newline='') as handle:
                 reader = csv.DictReader(handle)
@@ -71,7 +71,8 @@ class JlcQuotePackageTests(unittest.TestCase):
                           'D1,D2,D3,D4,D5': 'C5569446', 'J_SD': 'C5912397',
                           'R_ALERT,R_SDP1,R_SDP2,R_SDP3,R_SDP4,R_SDP5': 'C269742',
                           'R_CS,R_PD1,R_PD2,R_PD3,R_PD4,R_PD5': 'C149504',
-                          'R_LED1,R_LED2,R_LED3,R_LED4,R_LED5': 'C17513'})
+                          'R_LED1,R_LED2,R_LED3,R_LED4,R_LED5': 'C17513',
+                          'U_PM': 'C2846803'})
         with (self.out / 'interposer/interposer-BOM-quote-only.csv').open(newline='') as handle:
             filled = {r['Designator']: r['LCSC Part #'] for r in csv.DictReader(handle) if r['LCSC Part #']}
         self.assertEqual(filled, {'C3,C4': 'C520082', 'D1': 'C5569446', 'R10,R11,R12,R13,R14,R15': 'C149504'})
