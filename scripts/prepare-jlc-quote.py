@@ -109,7 +109,7 @@ def natural(ref):
 def parts_to_map(board, groups, refs, models):
     out = io.StringIO()
     writer = csv.writer(out, lineterminator='\n')
-    writer.writerow(['designators', 'quantity', 'manufacturer_reference', 'value', 'specification', 'check_first', 'note', 'lcsc_part', 'selection_status', 'selection_differences'])
+    writer.writerow(['designators', 'quantity', 'manufacturer_reference', 'value', 'specification', 'check_first', 'note', 'lcsc_part', 'selection_status', 'selection_differences', 'jlc_rotation_offset_deg'])
     chosen, candidates = selections(board)
     for (value, _footprint, mpn), designators in groups.items():
         model = models.get(mpn, {})
@@ -125,11 +125,18 @@ def parts_to_map(board, groups, refs, models):
         status = ('chosen: ' if picked else 'candidate: ') + row['selected_mpn'] + ' (' + row['lcsc_part'] + ', ' + row['jlcpcb_type'] + ')' if row else ''
         writer.writerow([','.join(designators), len(designators), mpn, value, model.get('model', ''),
                          'yes' if mpn in CHECK_FIRST else '', '; '.join(notes), lcsc, status,
-                         row['differences'] + ' | open: ' + row['open_checks'] if row else ''])
+                         row['differences'] + ' | open: ' + row['open_checks'] if row else '',
+                         row.get('jlc_rotation_offset_deg', '') if row else ''])
     return out.getvalue()
 
 
-def jlc_cpl(pos_csv, refs):
+def rotation_offsets(board):
+    """Degrees added to KiCad's rotation for owner-chosen parts whose JLCPCB footprint is turned."""
+    chosen, _ = selections(board)
+    return {ref: float(row.get('jlc_rotation_offset_deg') or 0) for ref, row in chosen.items()}
+
+
+def jlc_cpl(pos_csv, refs, offsets=None):
     reader = csv.DictReader(io.StringIO(pos_csv))
     rows = {}
     for row in reader:
@@ -143,8 +150,9 @@ def jlc_cpl(pos_csv, refs):
     writer.writerow(['Designator', 'Mid X', 'Mid Y', 'Layer', 'Rotation'])
     for ref in sorted(rows, key=natural):
         row = rows[ref]
+        rotation = (float(row['Rot']) + (offsets or {}).get(ref, 0.0)) % 360
         writer.writerow([ref, row['PosX'] + 'mm', row['PosY'] + 'mm',
-                         'Top' if row['Side'].strip().lower() == 'top' else 'Bottom', row['Rot']])
+                         'Top' if row['Side'].strip().lower() == 'top' else 'Bottom', f'{rotation:.6f}'])
     return out.getvalue(), rows
 
 
@@ -153,7 +161,7 @@ def notice(board):
             'These files were generated to obtain a price. The hardware release checklist is not complete '
             '(see hardware/release-checklist.csv), so do not order from them.\n'
             'The LCSC column of the BOM is empty on purpose; map each part in JLCPCB\'s tool.\n'
-            'Placement rotations are KiCad\'s and are not corrected for JLCPCB package conventions: '
+            'Placement rotations are KiCad\'s, plus any offset recorded in hardware/jlcpcb-selection.csv: '
             'check every part in JLCPCB\'s viewer.\n'
             'If a board has no paste Gerber (the interposer does not), JLCPCB builds the stencil from the copper pads; '
             'confirm that in their review.\n')
@@ -177,7 +185,7 @@ def prepare(board, out_root):
     if unknown:
         raise SystemExit(f'{board}: assembly list references not in the circuit: {unknown}')
     bom_text, groups = jlc_bom(board, refs, parts)
-    cpl_text, _ = jlc_cpl(pos.read_text(), refs)
+    cpl_text, _ = jlc_cpl(pos.read_text(), refs, rotation_offsets(board))
     (out / f'{board}-BOM-quote-only.csv').write_text(bom_text)
     (out / f'{board}-CPL-quote-only.csv').write_text(cpl_text)
     (out / f'{board}-parts-to-map.csv').write_text(parts_to_map(board, groups, refs, bom_models()))

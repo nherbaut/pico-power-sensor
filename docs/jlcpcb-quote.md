@@ -22,7 +22,7 @@ The parts you choose in JLCPCB's catalogue are recorded in [the selection list](
 
 1. **Map each part to a JLCPCB part number.** The LCSC column is empty on purpose. JLCPCB's upload tool tries to match parts and reports the ones it cannot find. Start with the rows flagged `check_first` in the parts file. A substitute must keep the specification; the precision divider resistors (0.1 %, 25 ppm/K) and the C0G capacitor are not interchangeable with looser parts.
 2. **Check stock and the extra fee for each distinct part** on JLCPCB's site; both change over time and are not recorded here.
-3. **Check every placement in JLCPCB's viewer.** Rotations are KiCad's and are not corrected for JLCPCB's package conventions.
+3. **Check every placement in JLCPCB's viewer.** Rotations are KiCad's, plus an offset only where one is recorded in the selection list (so far the TLV75533, whose JLCPCB footprint is turned 180 degrees). JLCPCB places a part with its own library orientation, which often differs from KiCad's. For any other part, compare the pin 1 position in the part's EasyEDA footprint with KiCad's and record the offset.
 4. **Choose the options** on their order page: copper weight (the interposer is designed for 70 µm, the carrier for 35 µm; confirm that JLCPCB offers 70 µm on two layers and that its minimum track and spacing rules accept 0.2 mm tracks and the 0.65 mm pitch parts), surface finish, quantities, which side is assembled (all factory-placed parts are on the top side) and shipping to France, including VAT and customs.
 5. **Hand-solder the rest:** the power header, the 40-pin stacking socket, the fuse holder and the JST connectors on the interposer; the Pico socket strips and the JST connectors on the carrier. The fuse is inserted last.
 

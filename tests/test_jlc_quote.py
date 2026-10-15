@@ -37,7 +37,7 @@ class JlcQuotePackageTests(unittest.TestCase):
                 self.assertEqual(reader.fieldnames, ['Comment', 'Designator', 'Footprint', 'LCSC Part #'])
                 for row in reader:
                     if row['LCSC Part #']:
-                        self.assertIn(row['LCSC Part #'], ('C1779', 'C520082', 'C94122', 'C90146', 'C5569446', 'C5912397', 'C269742', 'C149504', 'C17513', 'C2846803'), 'only owner-chosen parts may fill the LCSC column')
+                        self.assertIn(row['LCSC Part #'], ('C1779', 'C520082', 'C94122', 'C90146', 'C5569446', 'C5912397', 'C269742', 'C149504', 'C17513', 'C2846803', 'C404027'), 'only owner-chosen parts may fill the LCSC column')
                     bom_refs |= set(row['Designator'].split(','))
             with (folder / f'{board}-CPL-quote-only.csv').open(newline='') as handle:
                 reader = csv.DictReader(handle)
@@ -72,7 +72,7 @@ class JlcQuotePackageTests(unittest.TestCase):
                           'R_ALERT,R_SDP1,R_SDP2,R_SDP3,R_SDP4,R_SDP5': 'C269742',
                           'R_CS,R_PD1,R_PD2,R_PD3,R_PD4,R_PD5': 'C149504',
                           'R_LED1,R_LED2,R_LED3,R_LED4,R_LED5': 'C17513',
-                          'U_PM': 'C2846803'})
+                          'U_PM': 'C2846803', 'U_SD': 'C404027'})
         with (self.out / 'interposer/interposer-BOM-quote-only.csv').open(newline='') as handle:
             filled = {r['Designator']: r['LCSC Part #'] for r in csv.DictReader(handle) if r['LCSC Part #']}
         self.assertEqual(filled, {'C3,C4': 'C520082', 'D1': 'C5569446', 'R10,R11,R12,R13,R14,R15': 'C149504'})
@@ -81,6 +81,16 @@ class JlcQuotePackageTests(unittest.TestCase):
         chosen = next(r for d, r in parts.items() if 'R_SDP1' in d)
         self.assertEqual(chosen['lcsc_part'], 'C269742')
         self.assertTrue(chosen['selection_status'].startswith('chosen'))
+
+    def test_rotation_offsets_apply_only_where_recorded(self):
+        with (self.out / 'carrier/positions-kicad.csv').open(newline='') as handle:
+            kicad = {r['Ref']: float(r['Rot']) for r in csv.DictReader(handle)}
+        with (self.out / 'carrier/carrier-CPL-quote-only.csv').open(newline='') as handle:
+            jlc = {r['Designator']: float(r['Rotation']) for r in csv.DictReader(handle)}
+        self.assertEqual(jlc['U_SD'], (kicad['U_SD'] + 180) % 360)
+        for ref, rotation in jlc.items():
+            if ref != 'U_SD':
+                self.assertEqual(rotation, kicad[ref] % 360, ref)
 
     def test_a_candidate_never_fills_the_bom(self):
         import importlib.util
