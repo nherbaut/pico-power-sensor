@@ -37,7 +37,7 @@ class JlcQuotePackageTests(unittest.TestCase):
                 self.assertEqual(reader.fieldnames, ['Comment', 'Designator', 'Footprint', 'LCSC Part #'])
                 for row in reader:
                     if row['LCSC Part #']:
-                        self.assertIn(row['LCSC Part #'], ('C1779', 'C520082', 'C94122', 'C90146', 'C5569446', 'C5912397'), 'only owner-chosen parts may fill the LCSC column')
+                        self.assertIn(row['LCSC Part #'], ('C1779', 'C520082', 'C94122', 'C90146', 'C5569446', 'C5912397', 'C269742'), 'only owner-chosen parts may fill the LCSC column')
                     bom_refs |= set(row['Designator'].split(','))
             with (folder / f'{board}-CPL-quote-only.csv').open(newline='') as handle:
                 reader = csv.DictReader(handle)
@@ -68,15 +68,27 @@ class JlcQuotePackageTests(unittest.TestCase):
             rows = list(csv.DictReader(handle))
         filled = {r['Designator']: r['LCSC Part #'] for r in rows if r['LCSC Part #']}
         self.assertEqual(filled, {'C_SDIN,C_SDOUT': 'C1779', 'C1,C_PM,C_SDSOCKET': 'C520082', 'C2': 'C94122', 'C_SDBULK': 'C90146',
-                          'D1,D2,D3,D4,D5': 'C5569446', 'J_SD': 'C5912397'})
+                          'D1,D2,D3,D4,D5': 'C5569446', 'J_SD': 'C5912397',
+                          'R_ALERT,R_SDP1,R_SDP2,R_SDP3,R_SDP4,R_SDP5': 'C269742'})
         with (self.out / 'interposer/interposer-BOM-quote-only.csv').open(newline='') as handle:
             filled = {r['Designator']: r['LCSC Part #'] for r in csv.DictReader(handle) if r['LCSC Part #']}
         self.assertEqual(filled, {'C3,C4': 'C520082', 'D1': 'C5569446'})
         with (self.out / 'carrier/carrier-parts-to-map.csv').open(newline='') as handle:
             parts = {r['designators']: r for r in csv.DictReader(handle)}
-        candidate = next(r for d, r in parts.items() if 'R_SDP1' in d)
-        self.assertEqual(candidate['lcsc_part'], '', 'a candidate must not fill the BOM')
-        self.assertTrue(candidate['selection_status'].startswith('candidate'))
+        chosen = next(r for d, r in parts.items() if 'R_SDP1' in d)
+        self.assertEqual(chosen['lcsc_part'], 'C269742')
+        self.assertTrue(chosen['selection_status'].startswith('chosen'))
+
+    def test_a_candidate_never_fills_the_bom(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location('quote', ROOT / 'scripts/prepare-jlc-quote.py')
+        quote = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(quote)
+        row = dict(lcsc_part='C1', selected_mpn='X', jlcpcb_type='Extended', differences='', open_checks='')
+        quote.selections = lambda board: ({}, {'R1': row})
+        parts = {'R1': dict(value='10k', footprint='R_0805', mpn='M1')}
+        text, _ = quote.jlc_bom('carrier', ['R1'], parts)
+        self.assertEqual(text.splitlines()[1], '10k,R1,R_0805,')
 
     def test_specialised_parts_are_flagged_for_checking(self):
         with (self.out / 'carrier/carrier-parts-to-map.csv').open(newline='') as handle:
