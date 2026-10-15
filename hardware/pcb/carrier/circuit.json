@@ -663,7 +663,7 @@
       "mpn": "693072010801",
       "documentation_url": "https://www.we-online.com/components/products/datasheet/693072010801.pdf",
       "kind": "passive",
-      "rotation_deg": 0,
+      "rotation_deg": 180,
       "footprint_source": "Connector_Card:microSD_HC_Wuerth_693072010801"
     },
     {

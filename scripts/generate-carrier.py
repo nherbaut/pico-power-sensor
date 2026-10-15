@@ -77,7 +77,7 @@ def circuit():
     add('J_SD','microSD / hinge','microSD_Wuerth',
         {1:'SD_DAT2',2:'SD_CS',3:'SD_MOSI',4:'SD_3V3',5:'SD_SCLK',6:'GND',
          7:'SD_MISO',8:'SD_DAT1',9:'GND'},[20,45], '693072010801',
-        'https://www.we-online.com/components/products/datasheet/693072010801.pdf')
+        'https://www.we-online.com/components/products/datasheet/693072010801.pdf', rotation=180)
     add('U_SD','3.3V / dedicated SD LDO','SOT23_5',
         {1:'USB_5V',2:'GND',3:'PICO_3V3',4:None,5:'SD_3V3'},[25,20],
         'TLV75533PDBVR','https://www.ti.com/lit/gpn/TLV755P')

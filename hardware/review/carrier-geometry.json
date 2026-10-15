@@ -1,6 +1,6 @@
 {
   "board": "carrier",
-  "design_sha256": "dbcd42627ebaf5ec395baa1852036e8e72e489a2bd7132ed981c485b560d5b43",
+  "design_sha256": "82729b98fad3ded334c6ea2f5956b170554fdee72a113c2d913fd57fd1645479",
   "evidence_type": "automated CAD geometry extraction; not footprint approval or physical measurement",
   "footprints": [
     {
@@ -1727,7 +1727,7 @@
         32.0,
         45.0
       ],
-      "rotation_degrees": 0.0,
+      "rotation_degrees": 180.0,
       "proposed_mpn_in_cad": "693072010801",
       "library_source": "Connector_Card:microSD_HC_Wuerth_693072010801",
       "pads": [
@@ -1738,8 +1738,8 @@
             -1.55
           ],
           "board_position_mm": [
-            28.8,
-            43.45
+            35.2,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1760,8 +1760,8 @@
             -1.55
           ],
           "board_position_mm": [
-            29.9,
-            43.45
+            34.1,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1782,8 +1782,8 @@
             -1.55
           ],
           "board_position_mm": [
-            31.0,
-            43.45
+            33.0,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1804,8 +1804,8 @@
             -1.55
           ],
           "board_position_mm": [
-            32.1,
-            43.45
+            31.9,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1826,8 +1826,8 @@
             -1.55
           ],
           "board_position_mm": [
-            33.2,
-            43.45
+            30.8,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1848,8 +1848,8 @@
             -1.55
           ],
           "board_position_mm": [
-            34.3,
-            43.45
+            29.7,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1870,8 +1870,8 @@
             -1.55
           ],
           "board_position_mm": [
-            35.4,
-            43.45
+            28.6,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1892,8 +1892,8 @@
             -1.55
           ],
           "board_position_mm": [
-            36.5,
-            43.45
+            27.5,
+            46.55
           ],
           "attribute": 1,
           "size_mm": [
@@ -1914,8 +1914,8 @@
             -4.15
           ],
           "board_position_mm": [
-            25.125,
-            40.85
+            38.875,
+            49.15
           ],
           "attribute": 1,
           "size_mm": [
@@ -1936,8 +1936,8 @@
             4.15
           ],
           "board_position_mm": [
-            25.125,
-            49.15
+            38.875,
+            40.85
           ],
           "attribute": 1,
           "size_mm": [
@@ -1958,8 +1958,8 @@
             -4.15
           ],
           "board_position_mm": [
-            38.875,
-            40.85
+            25.125,
+            49.15
           ],
           "attribute": 1,
           "size_mm": [
@@ -1980,8 +1980,8 @@
             4.15
           ],
           "board_position_mm": [
-            38.875,
-            49.15
+            25.125,
+            40.85
           ],
           "attribute": 1,
           "size_mm": [
