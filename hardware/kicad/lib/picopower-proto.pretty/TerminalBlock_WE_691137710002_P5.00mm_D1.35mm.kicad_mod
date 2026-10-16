@@ -1,0 +1,192 @@
+(footprint "TerminalBlock_WE_691137710002_P5.00mm_D1.35mm"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Wurth WR-TBL 691137710002, 2 pos 5.00 mm; wire entry toward -Y; owner-approved 1.35/3.00 mm")
+	(property "Reference" "REF**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "9addb85e-9dff-4efa-80c3-dd14c4e14424")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "TerminalBlock_WE_691137710002_P5.00mm_D1.35mm"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "c7b28683-f27f-4510-8993-09530baa251c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e7930a70-5aba-44fd-b4a8-baf903b33450")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "149f8c86-7a74-4d5a-9286-d95fef6879d8")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -2.62 -4.12)
+		(end 7.62 -4.12)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "35541602-c709-4390-97a9-46ac035b75f6")
+	)
+	(fp_line
+		(start -2.62 3.62)
+		(end -2.62 -4.12)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "3cef3602-6a66-44a7-908a-b686154b70b9")
+	)
+	(fp_line
+		(start 7.62 -4.12)
+		(end 7.62 3.62)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "c8159520-e487-443c-9b0f-4f0533df40c4")
+	)
+	(fp_line
+		(start 7.62 3.62)
+		(end -2.62 3.62)
+		(stroke
+			(width 0.12)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "1cdd37a7-7e32-4bca-9f31-57055805a4d3")
+	)
+	(fp_line
+		(start -3 -4.5)
+		(end 8 -4.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "0e8922e5-a882-4c3b-8719-4c5efbda2b32")
+	)
+	(fp_line
+		(start -3 4)
+		(end -3 -4.5)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "704b2f16-ed8d-49ad-9dc3-24552aca5ba8")
+	)
+	(fp_line
+		(start 8 -4.5)
+		(end 8 4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "c7e6cbf3-3392-4067-8714-26e7eab96853")
+	)
+	(fp_line
+		(start 8 4)
+		(end -3 4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(layer "F.CrtYd")
+		(uuid "d832ba1a-9e38-4f37-9ac7-b824fdd5452a")
+	)
+	(fp_line
+		(start -2.5 -4)
+		(end 7.5 -4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "fe289e31-393b-4cac-8611-42fdc70e2d14")
+	)
+	(fp_line
+		(start -2.5 3.5)
+		(end -2.5 -4)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "f346e77b-67f1-43f9-a555-e53054b05b73")
+	)
+	(fp_line
+		(start 7.5 -4)
+		(end 7.5 3.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "ab945217-73dd-46fa-b27f-2dbcf9b87a8e")
+	)
+	(fp_line
+		(start 7.5 3.5)
+		(end -2.5 3.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "1128eca1-1bf0-4843-a075-8259b422f8bf")
+	)
+	(pad "1" thru_hole rect
+		(at 0 0)
+		(size 3 3)
+		(drill 1.35)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(thermal_bridge_angle 45)
+		(uuid "807ffb43-f213-477a-beb7-5159e3c29cbd")
+	)
+	(pad "2" thru_hole circle
+		(at 5 0)
+		(size 3 3)
+		(drill 1.35)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "4435a0ae-7ddd-4e7b-b44b-945b89296705")
+	)
+	(embedded_fonts no)
+)

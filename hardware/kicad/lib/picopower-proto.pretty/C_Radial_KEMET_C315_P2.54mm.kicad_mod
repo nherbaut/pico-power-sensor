@@ -1,0 +1,176 @@
+(footprint "C_Radial_KEMET_C315_P2.54mm"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "KEMET C315 radial ceramic, 2.54 mm pitch; body assumed 3.8 x 2.6 mm")
+	(tags "C Disc series Radial pin pitch 2.50mm diameter 3.8mm width 2.6mm Capacitor")
+	(property "Reference" "REF**"
+		(at 1.25 -2.55 0)
+		(layer "F.SilkS")
+		(uuid "83d0743d-2fe6-487f-9fe5-fcac4bf58e84")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "C_Radial_KEMET_C315_P2.54mm"
+		(at 1.25 2.55 0)
+		(layer "F.Fab")
+		(uuid "d114732c-58d7-4740-9a58-0cfbfdd8ec10")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "d91dfa54-0d52-43d6-96af-a29262342a4f")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9473abe1-e562-4d71-ac45-5e25f1efc5cd")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -0.77 -1.42)
+		(end 3.27 -1.42)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "47686287-1aca-42bd-b5ec-b3dece42ac86")
+	)
+	(fp_line
+		(start -0.77 -0.699)
+		(end -0.77 -1.42)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "242e3092-5be4-405a-a038-58ef9a167e91")
+	)
+	(fp_line
+		(start -0.77 1.42)
+		(end -0.77 0.699)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7a5439d2-bca4-4f37-8124-4673e019aa88")
+	)
+	(fp_line
+		(start 3.27 -1.42)
+		(end 3.27 -0.699)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "74962480-8d77-40d8-a6c6-661f3f613a67")
+	)
+	(fp_line
+		(start 3.27 0.699)
+		(end 3.27 1.42)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "27f1fbeb-8cdd-410e-9ac3-1f333b2aebe7")
+	)
+	(fp_line
+		(start 3.27 1.42)
+		(end -0.77 1.42)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8f7afde8-a829-4359-8399-41fc329d313d")
+	)
+	(fp_rect
+		(start -1.05 -1.55)
+		(end 3.55 1.55)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "e27a21bb-789b-4d49-8304-6689d9e620b3")
+	)
+	(fp_rect
+		(start -0.65 -1.3)
+		(end 3.15 1.3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "5d82aac8-f15a-41db-90dc-42bee2f91f98")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 1.25 0 0)
+		(layer "F.Fab")
+		(uuid "2fee0e81-a0a4-49bc-a35b-790c78c50592")
+		(effects
+			(font
+				(size 0.76 0.76)
+				(thickness 0.114)
+			)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at 0 0)
+		(size 1.8 1.8)
+		(drill 0.9)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "c6c1ed66-0f7d-49e4-85af-6913081a9cf8")
+	)
+	(pad "2" thru_hole circle
+		(at 2.54 0)
+		(size 1.8 1.8)
+		(drill 0.9)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "137cda26-ec5e-4b72-9c7f-1ad8d8f4f32e")
+	)
+	(embedded_fonts no)
+	(model "${KICAD9_3DMODEL_DIR}/Capacitor_THT.3dshapes/C_Disc_D3.8mm_W2.6mm_P2.50mm.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

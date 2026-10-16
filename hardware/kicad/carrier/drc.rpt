@@ -1,0 +1,35 @@
+** Drc report for carrier.kicad_pcb **
+** Created on 2026-10-17T00:08:06+0200 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 0 DRC violations **
+
+** Found 0 unconnected pads **
+
+** Found 8 Footprint errors **
+[footprint_filters_mismatch]: picopower-proto:Socket_Harwin_M20-782_1x20_P2.54mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(44,0000 mm, 3,0000 mm): Footprint J1
+[footprint_filters_mismatch]: picopower-proto:Socket_Harwin_M20-782_1x20_P2.54mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(61,7800 mm, 51,2600 mm): Footprint J2
+[footprint_filters_mismatch]: picopower-proto:Socket_Harwin_M20-782_1x08_P2.54mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(9,2700 mm, 26,8360 mm): Footprint J3
+[footprint_filters_mismatch]: picopower-proto:Socket_Harwin_M20-782_1x08_P2.54mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(32,1300 mm, 44,6160 mm): Footprint J4
+[footprint_filters_mismatch]: picopower-proto:Socket_Harwin_M20-782_1x09_P2.54mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(31,3600 mm, 21,3200 mm): Footprint J5
+[footprint_filters_mismatch]: picopower-proto:WirePads_1x03_P3.81mm_D1.0mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(12,0000 mm, 2,5000 mm): Footprint J6
+[footprint_filters_mismatch]: picopower-proto:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical_1.8mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(3,5000 mm, 22,0000 mm): Footprint J7
+[footprint_filters_mismatch]: picopower-proto:JST_XH_B5B-XH-A_1x05_P2.50mm_Vertical_1.8mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
+    Local override; warning
+    @(3,5000 mm, 40,0000 mm): Footprint J8
+
+** End of Report **
