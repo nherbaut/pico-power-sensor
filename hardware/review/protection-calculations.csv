@@ -1,0 +1,23 @@
+calculation_id,state,quantity,value,unit,basis,conditions,excluded_or_unresolved,status
+PT-C01,normal reference,fuse drop,47.5,mV,CALCULATION from PT-S01 nominal cold9.5mOhm,5A nominal cold reference,warming/tolerance/holder,REFERENCE ONLY
+PT-C02,normal reference,fuse dissipation,0.2375,W,CALCULATION from PT-S01,5A nominal cold reference,warming/tolerance/holder,REFERENCE ONLY
+PT-C03,normal reference,nominal shunt drop,25.0,mV,CALCULATION from selected5mOhm nominal,5A,tolerance/leads/joints/thermal,REFERENCE ONLY
+PT-C04,normal reference,nominal shunt dissipation,0.125,W,CALCULATION from selected5mOhm nominal,5A,tolerance/leads/joints/thermal,REFERENCE ONLY
+PT-C05,normal reference,Pololu resistance-only drop,25.0,mV,CALCULATION from PT-S05 approximate5mOhm path,5A; gate enhanced; no fixed ambient assumed,controller forward regulation/copper/connectors/hot/tolerance,NOT MODULE MAXIMUM
+PT-C06,normal reference,Pololu resistance-only heat,0.125,W,CALCULATION from PT-S05 approximate5mOhm path,5A; gate enhanced,controller losses/copper/connectors/hot/tolerance,NOT THERMAL PASS
+PT-C07,normal datasheet resistance screen,Adafruit IC drop,224.25,mV,CALCULATION from PT-S10 maximum44.85mOhm,2.7-23V; junction-40..125C; substitute5A,module terminals/copper; actual thermal margin,IC RESISTANCE SCREEN
+PT-C08,normal datasheet resistance screen,Adafruit IC heat,1.12125,W,CALCULATION from PT-S10 maximum44.85mOhm,5A; junction must remain within-40..125C,module/copper/contacts; ambient and heat path not fixed,NOT THERMAL PASS
+PT-C09,normal reference,discrete P-channel drop,59.0,mV,CALCULATION from PT-S03 maximum test-point R,VGS-4.5V ID-20A TJ25C pulse<=300us duty<=2percent; substitute5A,continuous/hot/application guarantee,REFERENCE ONLY
+PT-C10,normal reference,discrete P-channel heat,0.295,W,CALCULATION from PT-S03,same test-point R substituted at5A,continuous/hot/application thermal margin,NOT THERMAL PASS
+PT-C11,sensitivity,holder drop,100.0,mV,ASSUMPTION: 10mOhm per contact x2; PT-S02 scope unspecified,5A substitution; manufacturer contact test at100mA,actual hot contact bound,SCENARIO ONLY
+PT-C12,sensitivity,holder heat,0.5,W,ASSUMPTION: 10mOhm per contact x2,5A substitution,actual hot contact bound and ambient,NOT THERMAL PASS
+PT-C13,mixed reference subtotal,Pololu/fuse/shunt drop,97.5,mV,CALCULATION sum of references,5A; cold fuse; nominal shunt; approximate module R,holder/copper/cables/contacts/hot errors,NOT COMPLETE BUDGET
+PT-C14,mixed sensitivity subtotal,Pololu subtotal with holder scenario,197.5,mV,CALCULATION mixed-basis scenario,5A,copper/cables/other contacts/hot errors,NOT COMPLETE BUDGET
+PT-C15,mixed sensitivity subtotal,voltage after Pololu scenario,4.9025,V,CALCULATION mixed-basis scenario,5.1V supply setting;5A,all remaining losses and supply tolerance; no Pi acceptance criterion,NOT DUT VOLTAGE GUARANTEE
+PT-C16,mixed sensitivity subtotal,Adafruit subtotal with holder scenario,396.75000000000006,mV,CALCULATION mixed-basis scenario,5A; IC R limit substituted,other module/copper/cables/contacts/hot errors,NOT COMPLETE BUDGET
+PT-C17,mixed sensitivity subtotal,voltage after Adafruit scenario,4.70325,V,CALCULATION mixed-basis scenario,5.1V supply setting;5A,all remaining losses; no Pi acceptance criterion,NOT DUT VOLTAGE GUARANTEE
+PT-F17,sustained fault,Pololu5383 low-input body-diode fault,UNRESOLVED,W / C,missing applicable thermal/fault bounds,5A supply-limit setting; actual bound/transients unverified,ambient/heat path/duration/short waveform,NO THERMAL PASS
+PT-F18,sustained fault,SUP90 output-short body-diode fault,UNRESOLVED,W / C,missing applicable thermal/fault bounds,5A supply-limit setting; actual bound/transients unverified,ambient/heat path/duration/short waveform,NO THERMAL PASS
+PT-F19,sustained fault,Adafruit6359 startup and running output-short fault,UNRESOLVED,W / C,missing applicable thermal/fault bounds,5A supply-limit setting; actual bound/transients unverified,ambient/heat path/duration/short waveform,NO THERMAL PASS
+PT-C18,cost comparison,recommended three-part subtotal,5.83,EUR excl VAT,CALCULATION distributor observations PT-O01..03,one each,connectors/sockets/cover/wiring/delivery,ESTIMATE; NOT QUOTE
+PT-C19,cost comparison,estimated French VAT subtotal,6.9959999999999996,EUR incl assumed20percent VAT,CALCULATION,one each;20percent VAT assumption,same exclusions; tax checkout unverified,ESTIMATE; NOT QUOTE

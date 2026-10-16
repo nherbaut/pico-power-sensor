@@ -1,0 +1,18 @@
+calculation_id,topic,expression,value,unit,basis
+PH-C01,harness subtotal ex VAT,2*.15+2*.17+2*.09+2*.09+8*.69,6.52,EUR,indexed unit observations; no shipping/hardware
+PH-C02,recommended set ex VAT,6.52+2.53,9.05,EUR,conditional Adafruit plus harness
+PH-C03,recommended set assumed20percent VAT,9.05*1.2,10.86,EUR,calculated not checkout quote
+PH-C04,Samtec set ex VAT,6.52+7.37,13.89,EUR,alternative only
+PH-C05,Samtec set assumed20percent VAT,13.89*1.2,16.668,EUR,calculated not checkout quote
+PH-C06,Adafruit savings ex VAT,7.37-2.53,4.84,EUR,exact observed header price delta
+PH-C07,header saving percent,4.84/7.37*100,65.6716418,percent,not overall instrument saving
+PH-C08,set saving percent,4.84/13.89*100,34.8452124,percent,only proposed header plus2harnesses
+PH-C09,Adafruit max tail diagonal,sqrt(2)*(.64+.05),0.975807358,mm,dimension drawing not measured fit
+PH-C10,proposed minimum finished opening,1.10-.05,1.05,mm,Adafruit-only exception approved2026-10-16; fabricator not selected; actual footprint/insertion unverified
+PH-C11,minimum opening minus max diagonal,1.05-sqrt(2)*.69,0.074192642,mm,total diametral allowance;positional effects excluded
+PH-C12,inherited hypothetical minimum opening,1.00-.05,0.95,mm,assumed tolerance; less than max diagonal
+PH-C13,Adafruit equal-share socket drop,5*(.020/2+.020/8)*1000,62.5,mV,20mOhm percontact substitution; not installed bound
+PH-C14,Adafruit equal-share socket heat,5**2*(.020/2+.020/8),0.3125,W,same scenario;not measured thermal performance
+PH-C15,maximum resistance ratio for3A/2A split,3/(5-3),1.5,ratio,conditional3A percontact interpretation;two positive paths
+PH-C16,Samtec nominal top protrusion,10.01-1.6,8.41,mm,hypothetical1.6mmPCB;not engagement guarantee
+PH-C17,Adafruit drawing nominal top protrusion,11.0-1.6,9.4,mm,retail tail10mm differs;actual revision unverified

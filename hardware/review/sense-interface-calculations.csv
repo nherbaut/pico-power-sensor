@@ -1,0 +1,32 @@
+calculation_id,topic,expression,value,unit,basis
+SENSE-C01,10ohm short current at5.1V,5.1/(10*(1-0.01))*1000,515.151515152,mA,10ohm 1percent; initial tolerance only; no temperature/drift/transient allowance; ideal source and reference short
+SENSE-C02,10ohm short dissipation at5.1V,5.1**2/(10*(1-0.01)),2.62727272727,W,10ohm 1percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C03,10ohm initial maximum,10*(1+0.01),10.1,ohm,10ohm 1percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C04,82ohm short current at5.1V,5.1/(82*(1-0.05))*1000,65.4685494223,mA,82ohm 5percent; initial tolerance only; no temperature/drift/transient allowance; ideal source and reference short
+SENSE-C05,82ohm short dissipation at5.1V,5.1**2/(82*(1-0.05)),0.333889602054,W,82ohm 5percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C06,82ohm initial maximum,82*(1+0.05),86.1,ohm,82ohm 5percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C07,91ohm short current at5.1V,5.1/(91*(1-0.05))*1000,58.993637941,mA,91ohm 5percent; initial tolerance only; no temperature/drift/transient allowance; ideal source and reference short
+SENSE-C08,91ohm short dissipation at5.1V,5.1**2/(91*(1-0.05)),0.300867553499,W,91ohm 5percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C09,91ohm initial maximum,91*(1+0.05),95.55,ohm,91ohm 5percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C10,100ohm short current at5.1V,5.1/(100*(1-0.01))*1000,51.5151515152,mA,100ohm 1percent; initial tolerance only; no temperature/drift/transient allowance; ideal source and reference short
+SENSE-C11,100ohm short dissipation at5.1V,5.1**2/(100*(1-0.01)),0.262727272727,W,100ohm 1percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C12,100ohm initial maximum,100*(1+0.01),101,ohm,100ohm 1percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C13,1000ohm short current at5.1V,5.1/(1000*(1-0.01))*1000,5.15151515152,mA,1000ohm 1percent; initial tolerance only; no temperature/drift/transient allowance; ideal source and reference short
+SENSE-C14,1000ohm short dissipation at5.1V,5.1**2/(1000*(1-0.01)),0.0262727272727,W,1000ohm 1percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C15,1000ohm initial maximum,1000*(1+0.01),1010,ohm,1000ohm 1percent; initial tolerance only; no temperature/drift/transient allowance
+SENSE-C16,82ohm illustrative6V short current,6/(82*0.95)*1000,77.0218228498,mA,"6V is illustrative, not an adopted or measured voltage bound; initial tolerance only"
+SENSE-C17,82ohm illustrative6V short power,6**2/(82*0.95),0.462130937099,W,same6V scenario; installed thermal survival unverified
+SENSE-C18,nominal resistance lower screen,6**2/(0.5*0.95),75.7894736842,ohm,illustrative6V; engineering half-of1W screen; initial5percent only
+SENSE-C19,nominal resistance upper screen,100/1.05,95.2380952381,ohm,TI100ohm ceiling; initial5percent only; additional drift/contact/cable margin needed
+SENSE-C20,82ohm initial headroom,100-82*1.05,13.9,ohm,before temperature/ageing/connection effects
+SENSE-C21,typical-model current attenuation,164/(92000+164)*100,0.17794366564,percent,92kohm typical active differential input; two nominal82ohm; not guaranteed error
+SENSE-C22,5A typical-model current underread,5*164/(92000+164)*1000,8.89718328198,mA,not full system error or fixed calibration correction
+SENSE-C23,differential input bypass at25mV,0.025/(92000+164)*1e6,0.271255587865,uA,5A times5mohm; nominal linear active model
+SENSE-C24,differential filter Thevenin resistance,164*92000/(164+92000),163.708172388,ohm,lumped linear model; ignores cable and dynamic ADC loading
+SENSE-C25,filter nominal pole,1/(2*pi*(164*92000/(164+92000))*100e-9),9721.86915106,Hz,100nF nominal; not measured bandwidth
+SENSE-C26,filter settling to0.1percent,log(1000)*(164*92000/(164+92000))*100e-9*1e6,113.085599203,us,linear first-order step only; no ADC conversion settling pass
+SENSE-C27,VBUS initial-tolerance loading attenuation,86.1/(800000+86.1)*100,0.0107613418106,percent,0.8Mohm table minimum active impedance; table conditions only
+SENSE-C28,VBUS loading drop at5.1V,5.1*86.1/(800000+86.1)*1000,0.54882843234,mV,same model; initial resistance tolerance only
+SENSE-C29,VBUS nominal-resistor input draw at5.1V,5.1/(800000+82)*1e6,6.37434662947,uA,0.8Mohm input model; nominal82ohm; not total monitor supply draw
+SENSE-C30,resistor diametral clearance,0.9-0.05-(0.58+0.05),0.22,mm,proposed finished hole; assumed fabricator tolerance; no insertion test
+SENSE-C31,capacitor diametral clearance,0.9-0.05-0.61,0.24,mm,same hole; KEMET max lead; no insertion test

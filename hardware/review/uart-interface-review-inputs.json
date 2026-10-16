@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-16",
+  "status": "PARTIAL; owner-selected SN74LV125AN and470ohm nominal series direction; exact support MPNs unselected; electrical/footprint/hardware qualification incomplete",
+  "required_owner_decision": null,
+  "inputs": {
+    "AGENTS.md": "844db7af3dde23ebdf1dfd32eb2212594e6f290b1ef04cf53ac5afed6d304d6d",
+    "hardware/bom.csv": "866d09c466b56a3516ea527c0086f3d75f3f584d23e02e856f1ef37652e1edde",
+    "docs/requirements.md": "515a5d9462923df9e939b7973d044fc7e0cd8e12fdf348492d6c611e8c6e45f2",
+    "docs/architecture.md": "7b6359067a9cd69ae3c07776eadd25d7fe959974f028efdda9ade589f865a384",
+    "hardware/review/interboard-connector-contract.csv": "de64ac6c69cce07a2ca7988ce27b328248a82c7544eb956af6429eedadd90d08",
+    "hardware/evidence/uart/sources.csv": "d634e223730fa400ba8641fd129f3ceb522225fb856b432329e8e859ad0b863b",
+    "hardware/evidence/uart/web-observations.csv": "4317965a75c0b1a537f92c162c5cd7b916b89e051b56833c0b928fc9d0712f3a",
+    "hardware/evidence/uart/ti-sn74lv125a-sces124o.pdf": "f33fcc89efebec39fabbb6c57831754c8226e7a481118d2efd2ccc2c3e209893",
+    "hardware/evidence/uart/microchip-tn0702-ds20005941a.pdf": "dedc78f445b08456d2fc1ef998ff4fd531e104b0bb75601fba1ecf115de50add",
+    "hardware/evidence/uart/raspberrypi-rp1-b9b6f74.pdf": "87fb7b24e8d9add075b849d095a107827610c0409ea194785af624c1ea986c3d",
+    "hardware/evidence/uart/raspberrypi-rp2350-80d627281ed5.pdf": "a638d6780da919162660691bfa02c6dcf7c2a0b6e9f18e2d7519c80b664a2e39",
+    "hardware/evidence/uart/vishay-mrs16m25-2016-03-07.pdf": "645bb41aaa34f2a72fc19fc71d02ddb14ed400ae97634684ad1745189505f47e",
+    "hardware/evidence/uart/kemet-c315c104k5r5ta-2026-10-16.pdf": "b81cec5f5cf0517f91bfae4f1051056a27acb600b1c1223b775b1fa246ad257a"
+  },
+  "derived_artifacts": {
+    "docs/uart-interface-options.md": "feb22ce9250feb00ec877be9a03600b29f1aff42913de5397f424d4db3055b1a",
+    "hardware/review/uart-interface-calculations.csv": "599c9c526b07c5f7b2ca6fe4e395a65ebcbf6b6725b6e5810e78d1200453c99a",
+    "docs/uart-interface-qualification.md": "72b0fd9aa27e3db26598a56201837ac1f9854340bddad747b3aefab00dc490d0",
+    "hardware/review/uart-interface-qualification.csv": "9472659e7c503698f2304581e22c24d4bb3329aaae8f08aa9494ce9843a47f5f",
+    "hardware/review/uart-buffer-pin-contract.csv": "ebf4f9a8c3f925f3cd0636c9a0d6bb6e284e1019297c75970e1a01d0c1d2f32a",
+    "hardware/uart-support-candidates.csv": "805aeb2c99252ce4065e7f910acf4ce0e4c353d4b5f519cca926986d0bee6da3"
+  },
+  "verification_summary": {
+    "retained_source_hashes_verified": 55,
+    "new_primary_PDFs_this_update": 2,
+    "selected_bom_rows": 15,
+    "prior14_bom_rows": "preserved exactly against pre-update snapshot",
+    "new_bom_row": "one owner-approved SN74LV125AN",
+    "context_bindings_checked": 6,
+    "calculation_rows": 31,
+    "pin_contract_rows": 14,
+    "qualification_rows": 10,
+    "support_candidate_rows": 5,
+    "arithmetic": "All31expressions recomputed; decimal crosschecks distinguish220ohm short-current failure,470ohm current target and low-rail edge-screen failure",
+    "engineering_status": "Incomplete; documentary circuit/part review only; no hardware validation"
+  },
+  "visual_scope": [
+    "same-session vision capability previously passed; observed local rendereddatasheet pages",
+    "TI N-package top-view pin drawing andpinfunctiontable p3",
+    "Microchip package identity p1 andfront/bottom package views p9;explicit pinfunctiontable p6 text crosscheck",
+    "RP1 printed17/PDF18 fault-tolerant pad feature list",
+    "RP2350 table1673 pad types, table1683 electrical values, and E9 printed1358/PDF1359 description; no curve values read",
+    "New-model vision probe399299 PASS; candidate KEMET exact sheet p1 and Vishay dimensions p3 rendered and visually read; TE drawing not visually recovered"
+  ],
+  "source_scope": [
+    "TI device electrical/recommendedoperating/application/decoupling andexactNcodeactive evidence",
+    "Microchip fulltext andelectrical/ordering/pin/package tables; noexactcode manufactureractiveclaim",
+    "officialPicoSDK API documents output inversion; firmware notimplemented",
+    "RP1 draft build b9b6f74-clean qualitative off-current below3.63V; no numerical Pi5 logic-margin closure",
+    "RP2350 build80d627281ed5 targeted pad tables and A2 E9/A3 fix; not a full 1371-page review",
+    "Candidate resistor full4page datasheet and capacitor full4page exact sheet; no simulated curves used; TE exact lifecycle page read but drawing access remains unresolved"
+  ],
+  "not_performed": [
+    "support-part final selection",
+    "complete Pi5/Pico logic-margin qualification",
+    "startup/brownout and full fault qualification",
+    "custom footprint, Pi GPIO allocation and schematic parity",
+    "KiCad schematic/ERC/DRC/parity",
+    "simulation or physical measurement"
+  ],
+  "scope_limits": [
+    "Selected circuit approval is not electrical qualification",
+    "One SN74LV125AN in BOM; MOSFET absent; five support codes candidates only",
+    "Owner-accepted470ohm value direction meets conditional TI ground-short model;200pF low-rail edge model fails and remains open",
+    "No zero-leakage or full power-off protection claim",
+    "Pico GP0/1/2/3 allocated; Pi GPIO and baud rate remain open",
+    "Complete interface cost unquoted; no ordering or hardware power"
+  ],
+  "binding_updated_date": "2026-10-16",
+  "binding_update_scope": "Recorded owner approval of five TLLR4401 LEDs and five MRS25000C1801FCT00 resistors; two new BOM rows, prior17 preserved. Added partial socket-family contact/assembly screen. Socket selection remains open; context hash updates do not rerun or promote prior engineering qualification.",
+  "binding_history": [
+    {
+      "date": "2026-10-16",
+      "scope": "Owner approved only the scoped UART-bias load with \"ok\" on 2026-10-16. Requirements/architecture/header and harness contracts now record that allowance. New Pi5/RP2350 pad documentation supports a single-buffer candidate, not a selected or qualified circuit. Existing 14 BOM rows and all mechanical geometry preserved. Hashes bind this documentary context; earlier component electrical/thermal/footprint/physical reviews were not rerun and their partial engineering status remains unchanged."
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Recorded owner approval of the single SN74LV125AN circuit and one new BOM row; prior14rows and mechanical geometry unchanged. Added documentary startup/pin/support-part review and conditional470ohm proposal; low-rail200pF edge screen explicitly not passed. Refreshed context hashes only for earlier component reports: their engineering reviews were not rerun and remain partial."
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Recorded owner acceptance of470ohm nominal UART series direction; exact support MPNs remain candidates. Added unselected82ohm/100nF sense proposal to connector contract. Context hashes updated only; prior component engineering reviews were not rerun and remain partial."
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Recorded owner approval of three82ohm observation resistors and one100nF differential capacitor; two BOM rows added, prior15 preserved. Recorded separate USB charger/Wi-Fi-only Pi/optional AI HAT setup and shared-ground routing intent. Hash refresh is documentary context only; earlier engineering qualification not rerun."
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Added documentary carrier40pin GPIO allocation and25module endpoint map; LED option and socket shortlist remain unselected. BOM and mechanical geometry unchanged. Refreshed affected context hashes only; no earlier engineering qualification rerun."
+    }
+  ],
+  "owner_bias_decision": {
+    "date": "2026-10-16",
+    "response": "ok",
+    "scope": "One 10k Pi-RX pullup and two 100k Pi-TX/marker input pulldowns may be included in reported DUT consumption; active circuitry remains USB-powered",
+    "not_selected": [
+      "exact UART IC or MOSFET",
+      "socket/passive parts",
+      "GPIO assignment",
+      "baud rate",
+      "schematic or hardware power"
+    ]
+  },
+  "owner_decision": {
+    "date": "2026-10-16",
+    "response": "ok; then continue",
+    "scope": "Select single USB-powered SN74LV125AN for three UART/marker channels and continue qualification; omit return MOSFET and Pi positive pullup",
+    "does_not_establish": "Supporting exact-code selection,GPIO/baud assignment,schematic-stage approval or electrical/hardware qualification"
+  },
+  "owner_series_value_decision": {
+    "date": "2026-10-16",
+    "response": "ok",
+    "scope": "Accept470ohm nominal source-side series resistor direction; retain conditional edge/fault qualification",
+    "not_established": "Exact supporting MPN selection, GPIO/baud assignment, schematic approval or measured electrical performance"
+  },
+  "context_verification": {
+    "date": "2026-10-16",
+    "selected_bom_rows_now": 19,
+    "prior17_rows_preserved": true,
+    "scope": "Documentary approval update; original verification_summary is historical; no new engineering pass"
+  }
+}

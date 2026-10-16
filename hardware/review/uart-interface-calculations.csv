@@ -1,0 +1,32 @@
+calculation_id,topic,expression,value,unit,basis
+UART-C01,nominal return pull-up upper current,3.3/10000*1e6,330,uA,ignores series1k/MOSFET;conservativeDC atnominal3.3V
+UART-C02,nominal two input pull-down current,2*3.3/100000*1e6,66,uA,both Pi outputs high;nominal resistors
+UART-C03,nominal communication bias power,3.3*(3.3/10000+2*3.3/100000)*1000,1.3068,mW,"3.3V side only;excludes leakage,switching,Pi conversion loss andinternal pulls"
+UART-C04,hypothetical tolerance bias power,(3.3*1.05)**2*(1/9900+2/99000)*1000,1.4553,mW,hypotheticalrail+5percent;resistors-1percent;not establishedPi electricalenvelope
+UART-C05,return low reference,3.3*(1000+5)/(10000+1000+5),0.3013630168,V,5ohmMOSFET reference from2Vgate50mA25Cpulse table;not hot margin pass
+UART-C06,return RC constant,10000*200e-12*1e6,2,us,assumed200pF not measured or established bound
+UART-C07,return10to90rise,log(9)*10000*200e-12*1e6,4.394449155,us,same assumed capacitance;not receiver threshold pass
+UART-C08,proposed bit period,1e6/38400,26.04166667,us,planning baud rate not adopted requirement
+UART-C09,hot leakage substitution high level,3.3-100e-6*10000,2.3,V,125C100uA datasheet condition applied as scenario;not full installed high bound
+UART-C10,main devices excluding VAT,0.817+1.33,2.147,EUR,regional indexed price observations;passives/socket/shipping excluded
+UART-C11,main devices assumed20percentVAT,(0.817+1.33)*1.2,2.5764,EUR,not complete interface price or checkout quote
+UART-C12,single-buffer nominal two-input bias power,2*3.3**2/100000*1000,0.2178,mW,"candidate only; no Pi RX positive pullup; excludes leakage,switching,internal pulls and Pi conversion loss"
+UART-C13,single-buffer IC assumed20percentVAT,0.817*1.2,0.9804,EUR,same indexed regional observation; IC only; not complete interface cost
+UART-C14,hypothetical powered-off voltage headroom,3.63-3.3*1.05,0.165,V,assumed5percent rail; no actual rail or overshoot bound; RP1 condition is below3.63V
+UART-C15,single-buffer hypothetical tolerance bias power,2*(3.3*1.05)**2/99000*1000,0.24255,mW,assumed rail+5percent/resistors-1percent; not actual worst case
+UART-C16,Pico output high to TI input nominal comparison,2.62-0.7*3.3,0.31,V,RP2350 table1683 and TI table at stated tests; nominal rail comparison only
+UART-C17,Pico output low to TI input nominal comparison,0.3*3.3-0.5,0.49,V,RP2350 table1683 and TI table at stated tests; nominal rail comparison only
+UART-C18,old220 ground-short scenario,3.465/(220*0.99)*1000,15.9090909091,mA,ideal source;assumed+5percent rail;resistor-1percent;exceedsTI8mA recommended
+UART-C19,470 ground-short scenario,3.465/(470*0.99)*1000,7.44680851064,mA,same assumptions;TI output only;not Pi driver guarantee
+UART-C20,470 resistor short dissipation,3.465**2/(470*0.99)*1000,25.8031914894,mW,same conditional short scenario
+UART-C21,nominal resistance lower limit,3.465/0.008/0.99,437.5,ohm,TI8mA target;assumed rail;1percent resistor
+UART-C22,nominal resistance upper limit,100e-9*(0.3*3.3)/200e-12/1.01,490.099009901,ohm,instantaneous slope at slow end of chosen30to70window;ideal source;200pF assumption
+UART-C23,470 RC ten-to-ninety rise,log(9)*470*1.01*200e-12*1e9,208.604501372,ns,ideal step;200pF;not waveform measurement
+UART-C24,470 RC average transition slope,log(0.7/0.3)*470*1.01*200e-12/(0.4*3.3)*1e9,60.941256716,ns/V,chosen30to70window;not manufacturer test-method claim
+UART-C25,OE high startup scenario,(3.3/10100-4e-6)/(1/10100+1/36000),2.54545770065,V,3.3V;10k+1percent;36k internalPD;4uA assumed sink leakage;not full guaranteed bound
+UART-C26,OE high startup margin,(3.3/10100-4e-6)/(1/10100+1/36000)-0.7*3.3,0.235457700651,V,same conditional startup model
+UART-C27,conservative sum of instrument bias loads,(2*3.465/9900+3.465/99000)*1000,0.735,mA,independent worst loads summed;not simultaneous UART state;excludes switching/internal pulls
+UART-C28,470 RC slowest instantaneous slope in window,470*1.01*200e-12/(0.3*3.3)*1e9,95.898989899,ns/V,chosen30to70window;source impedance excluded
+UART-C29,additional source resistance allowance,100e-9*(0.3*3.3)/200e-12-470*1.01,20.3,ohm,same conditional200pF model;not actual output impedance
+UART-C30,470 instantaneous slope at hypothetical low rail,470*1.01*200e-12/(0.3*3.3*0.95)*1e9,100.946305157,ns/V,fails100ns/V chosen-window screen;no source impedance
+UART-C31,470 capacitance ceiling at hypothetical low rail,100e-9*(0.3*3.3*0.95)/(470*1.01)*1e12,198.125131662,pF,zero source impedance;chosen-window screen only

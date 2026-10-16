@@ -1,0 +1,7 @@
+date,candidate,supplier,source_url,crawl_age,currency,quantity,unit_price,tax_basis,stock_observation,notes
+2026-10-15,Adafruit4682,DigiKey France,https://www.digikey.fr/en/products/detail/adafruit-industries-llc/4682/12822319,approximately1week,EUR,1,3.684,including VAT,2985,Indexed snapshot; card/header sockets/shipping excluded
+2026-10-15,Adafruit4682,GoTronic,https://www.gotronic.fr/art-lecteur-de-carte-micro-sd-ada4682-33468.htm,approximately1month,EUR,1,4.55,including VAT,87,Indexed snapshot; shipping and card excluded; supplier listed by Adafruit
+2026-10-15,Adafruit4682,Adafruit,https://www.adafruit.com/product/4682,today,USD,1,3.50,US maker price; French VAT excluded,in stock,Current manufacturer offering; not a landed French price
+2026-10-15,Pololu2597,Pololu,https://www.pololu.com/product/2597,today,USD,1,4.95,US maker price; French VAT excluded,backorders allowed,Active and Preferred; live inventory quantity not established
+2026-10-15,SparkFunBOB-00544,SparkFun,https://www.sparkfun.com/sparkfun-microsd-transflash-breakout.html,today,USD,1,5.95,US maker price; French VAT excluded,in stock,Manufacturer assembled and tested socket breakout
+2026-10-15,Pololu2587,Pololu,https://www.pololu.com/product/2587,today,USD,1,7.49,US maker price; French VAT excluded,backorders allowed,Excluded direct Pico interface: MISO buffer output referenced to5V

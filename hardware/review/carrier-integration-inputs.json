@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-16",
+  "status": "PARTIAL; indicators owner selected; documentary GPIO allocation; sockets shortlisted",
+  "required_owner_decision": null,
+  "inputs": {
+    "AGENTS.md": "844db7af3dde23ebdf1dfd32eb2212594e6f290b1ef04cf53ac5afed6d304d6d",
+    "docs/requirements.md": "515a5d9462923df9e939b7973d044fc7e0cd8e12fdf348492d6c611e8c6e45f2",
+    "docs/architecture.md": "7b6359067a9cd69ae3c07776eadd25d7fe959974f028efdda9ade589f865a384",
+    "hardware/bom.csv": "866d09c466b56a3516ea527c0086f3d75f3f584d23e02e856f1ef37652e1edde",
+    "hardware/evidence/storage/pico-2-w-datasheet.pdf": "8f519b945e9f7078ffd3fee464992fca376d8037ebcd1f83bd2a021241717eb2",
+    "hardware/evidence/uart/raspberrypi-rp2350-80d627281ed5.pdf": "a638d6780da919162660691bfa02c6dcf7c2a0b6e9f18e2d7519c80b664a2e39",
+    "hardware/evidence/storage/adafruit-4682-source.sch": "2d6f148ef86f4478184cf76fbda9a9554ce3597025784223532577f4de9ebe8e",
+    "hardware/review/mikroe-4810-pinout.csv": "db49a7a9ef8b3c54ab122a6cca1298d4205fb4891fdde5a52a9b6d2f45371443",
+    "hardware/review/uart-buffer-pin-contract.csv": "ebf4f9a8c3f925f3cd0636c9a0d6bb6e284e1019297c75970e1a01d0c1d2f32a",
+    "hardware/evidence/uart/vishay-mrs16m25-2016-03-07.pdf": "645bb41aaa34f2a72fc19fc71d02ddb14ed400ae97634684ad1745189505f47e",
+    "hardware/evidence/carrier/sources.csv": "d3cf16b49779f13837487055a6c33609262fc11321a6ed1802efd1cb2f2f5da2",
+    "hardware/evidence/carrier/web-observations.csv": "678420141e9e03d8bf947130d94c56a5fe24bc75dfae59e942f8a915a47c47fd",
+    "hardware/evidence/carrier/vishay-tllx440x-rev2-7.pdf": "00746719220c06b4f37c18beb9ca11562dd69da17691c53bc84db119c556c449",
+    "hardware/evidence/carrier/kingbright-wp710a10lid-v11a.pdf": "a000c07b43034775702537eabc2c3c7fde9f3390de6408437307a59b560e9d9b",
+    "hardware/evidence/carrier/harwin-m20-782-rev11.pdf": "dc63950fd4db62272f85d19d3c48739909c6909ae21502f38542ba9acfd2fcf5",
+    "hardware/evidence/carrier/harwin-m20-7820842.html": "a7f83bb5c02273e63ad827c30cbc86b4079a1ca52cb411c015d7380b0a29cc16",
+    "hardware/evidence/carrier/harwin-c00120-2022-11.pdf": "886a13d7e7e8d0b1546a685b321fdaeeca5a596eafe4769e2911d8af88fab403"
+  },
+  "derived_artifacts": {
+    "docs/carrier-integration.md": "0904a96f7bb517bcfb2625861e2ada1122c783983709160003efba0bc6d6d30f",
+    "docs/indicator-options.md": "b233fada9d10549410df6cb518a001e3785f6dc5fd2fe07698b6e5c674f9b409",
+    "hardware/review/carrier-pico-pin-contract.csv": "998879fd07103baec5475e1ca61221809f4bd04cd66ea2adf949bc32cbc87de1",
+    "hardware/review/carrier-module-connections.csv": "55593900967e4d8e36a5c3570d9d2d7fa5d2012abafbc782f4bb97a5c48f3547",
+    "hardware/carrier-support-candidates.csv": "bf48863841ea46b27be336c147a77ac9c2c575cf233ac3faf51faa25a602f728",
+    "hardware/review/carrier-integration-calculations.csv": "cf67bd2ff873b2834f16eb8bf18b9a6233d02f7705a7d228f658a67ba3e2eb9e"
+  },
+  "vision": "New probe339229 PASS; Pico Figures2/4; Vishay LED dimensions p7; Kingbright p1; Harwin served drawing visually reviewed; no curve values extracted",
+  "source_scope": "Targeted datasheet/package/peripheral mapping review; RP2350 function table and E9; not full1371page review",
+  "sd_source_JP1_nets": {
+    "2": "GND",
+    "4": "DO",
+    "5": "DI",
+    "3": "SCLK",
+    "6": "CS",
+    "7": "DAT1",
+    "8": "DAT2",
+    "1": "3.3V",
+    "9": "CARDDET"
+  },
+  "verification_summary": {
+    "Pico_header_pins": 40,
+    "allocated_GPIO": 17,
+    "spare_GPIO": 9,
+    "module_endpoints": 25,
+    "calculation_rows": 15,
+    "BOM_unchanged": true,
+    "retained_source_hashes_verified": 60,
+    "flat_review_bindings_verified": 8,
+    "GPIO_uniqueness_and_module_endpoint_consistency": "passed documentary crosscheck",
+    "arithmetic": "15expressions recomputed",
+    "local_links_and_CSV_structure": "passed",
+    "engineering_status": "PARTIAL; not ERC/DRC/parity or physical validation"
+  },
+  "not_performed": [
+    "socket final selection/mating/lifecycle review",
+    "Pi GPIO/HAT allocation",
+    "custom schematic/layout/footprints",
+    "native ERC/DRC/parity",
+    "GPIO firmware build or run",
+    "physical insertion/visibility/current/thermal measurements",
+    "release approval"
+  ],
+  "binding_history": [
+    {
+      "date": "2026-10-16",
+      "scope": "initial binding"
+    }
+  ],
+  "owner_indicator_decision": {
+    "date": "2026-10-16",
+    "response": "ok",
+    "scope": "Five TLLR4401 red LEDs and five1.8kohm MRS25000C1801FCT00 resistors; no socket selection or hardware qualification implied"
+  },
+  "binding_updated_date": "2026-10-16",
+  "binding_update_scope": "Recorded owner approval of five TLLR4401 LEDs and five MRS25000C1801FCT00 resistors; two new BOM rows, prior17 preserved. Added partial socket-family contact/assembly screen. Socket selection remains open; context hash updates do not rerun or promote prior engineering qualification.",
+  "context_verification": {
+    "date": "2026-10-16",
+    "selected_bom_rows_now": 19,
+    "prior17_rows_preserved": true,
+    "scope": "Documentary approval update; original verification_summary is historical; no new engineering pass",
+    "retained_sources_verified_now": 61,
+    "flat_bindings_verified_now": 8,
+    "LED_quantities_verified": true
+  }
+}

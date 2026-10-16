@@ -1,0 +1,15 @@
+calculation_id,quantity,value,unit,basis,conditions,source
+MSR-C01,nominal drop,.025,V,calculation I*R,5 A; nominal 5 mOhm,SH-S05 page 1
+MSR-C02,nominal dissipation,.125,W,calculation I^2*R,5 A; nominal 5 mOhm,SH-S05 page 1
+MSR-C03,high initial resistance,.00505,ohm,calculation R*1.01,1 percent initial tolerance only,SH-S05 page 1
+MSR-C04,high initial drop,.02525,V,calculation I*Rhigh,5 A; temperature and pickup effects excluded,SH-S05 page 1
+MSR-C05,high initial dissipation,.12625,W,calculation I^2*Rhigh,5 A; temperature and pickup effects excluded,SH-S05 page 1
+MSR-C06,remaining provisional path allowance,.07475,V,calculation .1-.02525,100 mV target at 5 A; shunt initial tolerance only,requirements; SH-S05
+MSR-C07,ADC current ceiling at high initial R,8.110891089108911,A,calculation .04096/.00505,small ADC range; excludes thermal/pickup; not protection rating,PM-S01 table 8-1; SH-S05
+MSR-C08,nominal unrounded SHUNT_CAL,5242.88,register units,calculation 13107.2e6*20e-6*.005*4,ADCRANGE=1; illustrative CURRENT_LSB=20 uA,PM-S01 section 8.1.2
+MSR-C09,nominal rounded SHUNT_CAL,5243,register units,nearest integer,not installed calibration,PM-S01 section 8.1.2
+MSR-C10,register rounding scale error,0.002288818359375,percent,calculation rounded/unrounded-1,register scale term only,PM-S01 section 8.1.2
+MSR-C11,positive register current ceiling,10.48574,A,calculation (2^19-1)*20e-6,signed20-bit; ADC ceiling remains lower,PM-S01 sections 7.6 and 8.1.2
+MSR-C12,minimum insertion allowance,.20,mm diameter,calculation 1.30-.05-1.05,proposed finished hole1.30; assumed fab tolerance +/-0.05; lead max1.05,SH-S05 page 1; proposed process
+MSR-C13,minimum annular ring,.825,mm radial,calculation (3-(1.30+.05))/2,proposed pad3.00; excludes registration tolerance,proposed process
+MSR-C14,planning thermal error,.20,percent,calculation 500e-6*4*100,model500ppm/K and4K; not exact-part guarantee or measured rise,manufacturer family range; planning only

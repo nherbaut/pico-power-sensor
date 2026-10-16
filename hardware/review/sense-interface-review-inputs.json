@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-16",
+  "status": "PARTIAL; owner-approved sense components; external setup confirmed; no electrical or release pass",
+  "required_owner_decision": null,
+  "inputs": {
+    "AGENTS.md": "844db7af3dde23ebdf1dfd32eb2212594e6f290b1ef04cf53ac5afed6d304d6d",
+    "hardware/bom.csv": "866d09c466b56a3516ea527c0086f3d75f3f584d23e02e856f1ef37652e1edde",
+    "docs/requirements.md": "515a5d9462923df9e939b7973d044fc7e0cd8e12fdf348492d6c611e8c6e45f2",
+    "docs/architecture.md": "7b6359067a9cd69ae3c07776eadd25d7fe959974f028efdda9ade589f865a384",
+    "hardware/review/interboard-connector-contract.csv": "de64ac6c69cce07a2ca7988ce27b328248a82c7544eb956af6429eedadd90d08",
+    "hardware/evidence/sense/sources.csv": "8adab95bdad9dfd9599219eba02bd7308a5464d7baaa496dbac06e2e8a2ec847",
+    "hardware/evidence/sense/web-observations.csv": "17e0337200fbeb39b380ff53ec85d4c3fa7c983ef3c8c147a1cc5f90e1c5dedc",
+    "hardware/evidence/sense/vishay-pr01-2025-07-08.pdf": "1b65216400497850afb3e740f378a10a77cd584809e647ae7fcdb707d9b6a2bc",
+    "hardware/evidence/power-monitor/ina228-slys021a.pdf": "a138d39eeee04f8388426fed204c2f4012e75d36e95b60b0751ef003cd277447",
+    "hardware/evidence/power-monitor/mikroe-power-monitor-v100.pdf": "b93bbf412d93bbda76d22efdbf2ad0d67db05c837aeee21ab67f84634ff2ba37",
+    "hardware/evidence/uart/kemet-c315c104k5r5ta-2026-10-16.pdf": "b81cec5f5cf0517f91bfae4f1051056a27acb600b1c1223b775b1fa246ad257a"
+  },
+  "derived_artifacts": {
+    "docs/sense-interface-options.md": "900e2605b2e270e1e7c0af18e7bb664d4f4ced609ed78015dc4b269a3ed48bde",
+    "hardware/sense-interface-candidates.csv": "1740a558245031402dd0a925117afbab200e7a581dcee2492996cfc81bec0987",
+    "hardware/review/sense-interface-calculations.csv": "a612eb2b78e3f8658612ba1f9e81fcc81f3abecb3727d3b58b0c9890a14d4c2d",
+    "hardware/review/sense-interface-qualification.csv": "a7adbc988e1f505f22f926bde06166d9c2f3671f8ee7fb5b6c455e340034efa0",
+    "docs/ground-reference-review.md": "0a6cfa3d8de7eb9a5acbad0612c4625c4a3f13d2732442ff5e5eaa1acb8e6d19"
+  },
+  "review_scope": [
+    "Source-side observation lead limiting; differential input filtering; candidate through-hole fit; conditional error/fault calculations",
+    "TI p5 electrical table and sections7.3.3/8.1.4/8.2/9; Figure8-1 p35 visually reviewed; MikroE v100 schematic visually traced",
+    "Vishay19page PDF validated; targeted PR01 tables read; p5 derating endpoints and p16 dimensions visually read; thermal curves not digitized",
+    "KEMET exact drawing previously retained and visually reviewed; reused with separate sense quantity"
+  ],
+  "vision_probe": "Observed545603; VISION-PROBE-PASS in this resumed session; not a design validation",
+  "source_limits": [
+    "92kohm differential impedance typical only; no guaranteed full-range attenuation correction",
+    "Supply5.1V is setting,6V illustrative scenario only",
+    "Manufacturer exact-code lifecycle declarations incomplete",
+    "Ground/reverse/transient/off-state qualification remains open"
+  ],
+  "verification_summary": {
+    "calculation_rows": 31,
+    "qualification_rows": 15,
+    "candidate_rows": 2,
+    "selected_bom_rows": 15,
+    "BOM_unchanged": true,
+    "retained_source_hashes_verified": 56,
+    "flat_review_bindings_verified": 7,
+    "calculation_expressions_recomputed": 31,
+    "local_document_links": "checked; no missing target",
+    "candidate_and_contract_CSV_structure": "checked",
+    "git_diff_check": "passed; new files separately parsed and inspected",
+    "qualification_limit": "Documentary/arithmetic verification only; no engineering or physical release pass"
+  },
+  "not_performed": [
+    "custom schematic/PCB/footprint creation",
+    "ERC/DRC/parity",
+    "simulation",
+    "hardware energizing or physical measurement",
+    "release approval"
+  ],
+  "source_authority": "Earlier project mechanical CAD remains unchanged; no prototype CAD emitted",
+  "binding_history": [
+    {
+      "date": "2026-10-16",
+      "scope": "Initial review binding"
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Recorded owner approval of three82ohm observation resistors and one100nF differential capacitor; two BOM rows added, prior15 preserved. Recorded separate USB charger/Wi-Fi-only Pi/optional AI HAT setup and shared-ground routing intent. Hash refresh is documentary context only; earlier engineering qualification not rerun."
+    }
+  ],
+  "owner_decision": {
+    "date": "2026-10-16",
+    "response": "ok",
+    "scope": "Three PR01000108209JR500 source resistors and one C315C104K5R5TA differential capacitor as prototype choices; qualifications remain open",
+    "not_authorized": "Final monitor selection, schematic-stage transition, purchase, fabrication or energizing"
+  },
+  "external_setup": {
+    "owner_response": "Pico from a separate USB charger; Pi uses Wi-Fi only, occasionally IA Hat",
+    "implementation_direction": "Retain non-isolated shared-ground architecture; common DUT-header reference pickup; header-powered HAT included in DUT current",
+    "unverified": "Charger earth relationship; bench earth relationship; exact HAT connections and load; assembled reference offsets/fault behavior"
+  },
+  "binding_updated_date": "2026-10-16",
+  "binding_update_scope": "Recorded owner approval of five TLLR4401 LEDs and five MRS25000C1801FCT00 resistors; two new BOM rows, prior17 preserved. Added partial socket-family contact/assembly screen. Socket selection remains open; context hash updates do not rerun or promote prior engineering qualification.",
+  "context_verification": {
+    "date": "2026-10-16",
+    "selected_bom_rows_now": 19,
+    "prior17_rows_preserved": true,
+    "scope": "Documentary approval update; original verification_summary is historical; no new engineering pass"
+  }
+}

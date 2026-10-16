@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-16",
+  "kind": "MODEL nominal stack comparison only; not layout or mechanical validation",
+  "socketed_layers_mm": [
+    {
+      "name": "SSQ socket",
+      "height": 8.51
+    },
+    {
+      "name": "TSW insulator",
+      "height": 2.54
+    },
+    {
+      "name": "Pololu PCB",
+      "height": 1.02
+    },
+    {
+      "name": "module components",
+      "height": 1.4
+    }
+  ],
+  "soldered_layers_mm": [
+    {
+      "name": "TSW insulator",
+      "height": 2.54
+    },
+    {
+      "name": "Pololu PCB",
+      "height": 1.02
+    },
+    {
+      "name": "module components",
+      "height": 1.4
+    }
+  ],
+  "excluded": [
+    "tolerances",
+    "seat gaps",
+    "actual pin engagement",
+    "solder protrusion",
+    "cooler/HAT/fastener geometry"
+  ],
+  "source_authority": [
+    "Samtec SSQ assembly print BH",
+    "Samtec TSW printDS and exact product page",
+    "Pololu rvp01a drawing2025-12-04"
+  ]
+}

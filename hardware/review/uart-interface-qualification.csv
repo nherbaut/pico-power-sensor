@@ -1,0 +1,11 @@
+check_id,subject,status,basis,remaining_action,reviewer,date
+UART-Q01,Owner choice and exact IC lifecycle,DOCUMENTED,owner ok;TI exact Active;one IC added,recheck sourcing at purchase,Codex documentary review,2026-10-16
+UART-Q02,Fourteen IC pins,PARTIAL,TI explicit table/top view mapped,independent corroboration and final symbol/footprint check,Codex documentary review,2026-10-16
+UART-Q03,Logic levels,PARTIAL,nominal Pico/TI comparisons;RP1 FT feature,obtain RP1 limits;complete rail/load margins,Codex documentary review,2026-10-16
+UART-Q04,Startup and A2 E9,PARTIAL,sequence and enable divider model documented,actual silicon/GPIO/defaults/ramp verification,Codex documentary review,2026-10-16
+UART-Q05,Off-state behavior,PARTIAL,RP1 FT and TI Ioff endpoint evidence,bound rail/overshoot/injection;test transitions,Codex documentary review,2026-10-16
+UART-Q06,Series resistance and faults,PARTIAL,470ohm conditional interval and ground-short model,actual capacitance/source impedance;positive-rail and ground faults,Codex documentary review,2026-10-16
+UART-Q07,Support exact codes,PARTIAL,five candidate rows and two retained primary PDFs,lifecycle confirmations;socket drawing recovery,Codex documentary review,2026-10-16
+UART-Q08,Footprints and assembly,NOT_PERFORMED,no custom CAD emitted,manufacturer comparison and solder-tip/fit review,Codex documentary review,2026-10-16
+UART-Q09,Instrument power allocation,PARTIAL,1mA reserved inside prior10mA allocation,switching/internal pulls and actual rail measurements,Codex documentary review,2026-10-16
+UART-Q10,Hardware performance,NOT_PERFORMED,no hardware powered,release review then authorized fixtures and bench validation,Codex documentary review,2026-10-16

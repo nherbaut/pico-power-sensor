@@ -1,0 +1,12 @@
+observation_id,part,date,source_url,unit_price_eur_ex_vat,observed_stock,index_age,notes
+PH-O01,Adafruit2223,2026-10-16,https://www.digikey.fr/en/products/detail/adafruit-industries-llc/2223/5629433,2.53,4951,2weeks,Distributor Active; retail SKU does not establish shipped square-pin revision
+PH-O02,SamtecSSQ-120-03-G-D,2026-10-16,https://www.digikey.fr/fr/products/detail/samtec-inc/SSQ-120-03-G-D/1111443,7.37,107,3weeks,Distributor stock differs from maker page zero distributor quantity; not a live stock confirmation
+PH-O03,JSTB4B-XH-A,2026-10-16,https://www.digikey.fr/en/products/detail/jst-sales-america-inc/B4B-XH-A/1651047,0.15,not recorded,2weeks,No account accessed; no manufacturer lifecycle claim inferred
+PH-O04,JSTB5B-XH-A,2026-10-16,https://www.digikey.fr/fr/products/detail/jst-sales-america-inc/B5B-XH-A/1530483,0.17,43504,2weeks,Distributor Active; same query page variants reported slightly different stock
+PH-O05,JSTXHP-4,2026-10-16,https://www.digikey.fr/fr/products/detail/jst-sales-america-inc/XHP-4/683353,0.09,117569,2weeks,Distributor Active; housing supplied without terminals
+PH-O06,JSTXHP-5,2026-10-16,https://www.digikey.fr/fr/products/detail/jst-sales-america-inc/XHP-5/1125486,0.09,6732,6days,Distributor Active; housing supplied without terminals
+PH-O07,JSTASXHSXH22K152,2026-10-16,https://www.digikey.fr/fr/products/detail/jst-sales-america-inc/ASXHSXH22K152/6684931,0.69,17749,1week,Exact page price used rather than older related-part tile0.64EUR;8leads atone-piece tier
+PH-O08,Adafruit2223 current maker offering,2026-10-16,https://www.adafruit.com/product/2223,,in stock,today,Square-pin change2025-07-16; linked drawing11mm tail versus retail10mm; exact active declaration absent
+PH-O09,Samtec exact maker page,2026-10-16,https://www.samtec.com/products/ssq-120-03-g-d,,distributor stock0,1month,Exact code offered; Reserve mark on related variants is not proof for this code
+PH-O10,JST family and exact codes,2026-10-16,https://www.jst-mfg.com/product/index.php?series=277,,not recorded,today,Lists B4B/B5B/XHP parts; detailed2Ddownload requires form/email starting2025; no form submitted; exact active declaration absent
+PH-O11,JST203mm alternative,2026-10-16,https://www.digikey.fr/fr/products/detail/jst-sales-america-inc/ASXHSXH22K203/9961918,0.70,5086,3weeks,Not selected or recommended here; exact assembly drawing not reviewed; does not guarantee20cm usable reach

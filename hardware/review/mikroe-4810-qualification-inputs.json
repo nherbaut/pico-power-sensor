@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-15",
+  "kind": "documentary qualification evidence binding; not a fabrication release",
+  "overall_status": "PARTIAL; module not finally selected",
+  "input_sha256": "75e066add695f41cf68b1d0a1f936cf3c4779c5e7f1e8aa5d729cd5269c145cf",
+  "inputs": {
+    "retained_sources": {
+      "ina228-slys021a.pdf": "a138d39eeee04f8388426fed204c2f4012e75d36e95b60b0751ef003cd277447",
+      "ina229-slys023a.pdf": "386c808a6b1024304dfecd5e7e1834680188b4c42fc34abdc25ef302edf6d484",
+      "ti-evm-sbou241e.pdf": "05419823933b71973aa76825e70156ee1d8af6ee18322aca6a31243c5bf36040",
+      "mikroe-power-monitor-v100.pdf": "b93bbf412d93bbda76d22efdbf2ad0d67db05c837aeee21ab67f84634ff2ba37",
+      "isabellenhuette-pbv-2026-02-12.pdf": "330f436439c1412f3a27866ec77fb7ed5463f50f0f20672eca525bcab16eb81a",
+      "mikroe-power-monitor-v100-cad.zip": "7e56c70e7f46e8feac7d06755dddb37a776fa1b3412f0539be90c9a99bfcf89c",
+      "mikrobus-standard-v200.pdf": "6b9051d0e145f19c50d1060989f4411b30477eb3353e8083ad00ac266a00d087",
+      "click-guidelines-2019.pdf": "3af462b1fa3969a19ffa99716bd2f2af1ca02e43b4f327a8a888afc104f2214a"
+    },
+    "carrier_source_sha256": "be058611111f173023c39e1187417429d09f40d7b959f5a8bae823f64e744cac",
+    "module_dxf_sha256": "faf17ed52440e83f244501ae7a4ade8534f73918ed4b89afd93cc4f109281065"
+  },
+  "derived_artifacts": {
+    "docs/mikroe-4810-qualification.md": "79aea69209d6ac59223ee21247ef66c450a165f6e3fdde84f20347a9ad8e47bc",
+    "hardware/review/mikroe-4810-pinout.csv": "db49a7a9ef8b3c54ab122a6cca1298d4205fb4891fdde5a52a9b6d2f45371443",
+    "hardware/review/mikroe-4810-mechanical-study.json": "095ce4e0054bbebaa5a12e2fbc6934de608461dd7375bf0b31939730b59cabf2",
+    "hardware/review/mikroe-4810-envelope.svg": "3b72a2bf7a053ae96340011b22ac8e7c6ae999099979d05109c04108d67558fd",
+    "hardware/review/mikroe-4810-calculations.csv": "49eedbd8745b7430cb55c6fabecf5183ee3de01cc103d2e94403c073bacf3a0f",
+    "hardware/review/mikroe-4810-qualification.csv": "e1cd73eeb1708a0f77d1fac751544efe7f2b2d482857a25ed062f86e9bf0e593"
+  }
+}

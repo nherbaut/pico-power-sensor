@@ -1,0 +1,16 @@
+calculation_id,topic,expression,value,unit,basis
+CAR-C01,LED fixed-drop illustrative current,(3.3-1.9)/1800*1000,0.777777777778,mA,1.9V datasheet typical at2mA reused illustratively; not solved operating point
+CAR-C02,five LED illustrative current,5*(3.3-1.9)/1800*1000,3.88888888889,mA,same fixed-drop approximation
+CAR-C03,branch zero-drop screen,3.465/(1800*0.99)*1000,1.94444444444,mA,assumed3V3+5percent; initial1percent resistance; no drift allowance
+CAR-C04,five branch zero-drop screen,5*3.465/(1800*0.99)*1000,9.72222222222,mA,same screen; compare with10mA allocation only
+CAR-C05,resistor zero-drop power,3.465**2/(1800*0.99)*1000,6.7375,mW,shorted LED; not short bypassing resistor
+CAR-C06,nominal resistor lower screen,3.465/(0.002*0.99),1750,ohm,2mA allocation perbranch; initial resistance tolerance only
+CAR-C07,Vishay LED maximum lead diagonal,sqrt(0.7**2+0.55**2),0.890224690738,mm,independent maximum rectangular lead dimensions
+CAR-C08,Vishay LED hole clearance,1.0-0.05-sqrt(0.7**2+0.55**2),0.0597753092618,mm,proposed finished hole tolerance; no insertion evidence
+CAR-C09,Kingbright maximum lead diagonal,sqrt(2)*0.75,1.06066017178,mm,square lead tolerance; exceeds default1mm hole
+CAR-C10,socket maximum tail diagonal,sqrt(0.7**2+0.35**2),0.782623792125,mm,width tolerance and general thickness tolerance from drawing
+CAR-C11,socket hole clearance,1.0-0.05-sqrt(0.7**2+0.35**2),0.167376207875,mm,proposed1mm finished hole; differs from maker1.02mm recommendation
+CAR-C12,indicator set indexed price exVAT,5*(0.48+0.09),2.85,EUR,dated indexedqty1 unit prices; delivery excluded
+CAR-C13,indicator set assumed20percentVAT,5*(0.48+0.09)*1.2,3.42,EUR,illustrative20percentVAT; no checkout
+CAR-C14,carrier budget unchanged,200+15+10+10,235,mA,design allocations only; not actual current max
+CAR-C15,spare GPIO count,26-17,9,GPIO,17unique allocated exposed pins

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="620" viewBox="0 0 1000 620">
+<rect width="1000" height="620" fill="white"/>
+<style>text{font-family:sans-serif;fill:#17212b}.t{font-size:19px}.s{font-size:16px}</style>
+<text x="35" y="43" font-size="27">Pololu module mounting — nominal height comparison</text>
+<text x="35" y="75" class="s">MODEL only · fully seated dimensions · tolerances and actual cooler/HAT fit remain open</text>
+<text x="65" y="120" class="t">Socketed — recommended</text>
+<rect x="65" y="490" width="365" height="18" fill="#475569"/>
+<text x="65" y="538" class="s">Custom PCB top = 0 mm</text>
+<rect x="65" y="302.78" width="235" height="187.22" fill="#bfdbfe" stroke="#475569"/>
+<text x="310" y="401.39" class="s">8.51 mm</text>
+<text x="75" y="401.39" class="s">SSQ socket</text>
+<rect x="65" y="246.89999999999998" width="235" height="55.88" fill="#cbd5e1" stroke="#475569"/>
+<text x="310" y="279.84" class="s">2.54 mm</text>
+<text x="75" y="279.84" class="s">TSW insulator</text>
+<rect x="65" y="224.45999999999998" width="235" height="22.44" fill="#86efac" stroke="#475569"/>
+<text x="310" y="240.67999999999998" class="s">1.02 mm</text>
+<rect x="65" y="193.65999999999997" width="235" height="30.799999999999997" fill="#fed7aa" stroke="#475569"/>
+<text x="310" y="214.05999999999997" class="s">1.40 mm</text>
+<text x="65" y="177.65999999999997" class="t">13.47 mm nominal top</text>
+<text x="550" y="120" class="t">Soldered — lower alternative</text>
+<rect x="550" y="490" width="365" height="18" fill="#475569"/>
+<text x="550" y="538" class="s">Custom PCB top = 0 mm</text>
+<rect x="550" y="434.12" width="235" height="55.88" fill="#cbd5e1" stroke="#475569"/>
+<text x="795" y="467.06" class="s">2.54 mm</text>
+<text x="560" y="467.06" class="s">TSW insulator</text>
+<rect x="550" y="411.68" width="235" height="22.44" fill="#86efac" stroke="#475569"/>
+<text x="795" y="427.90000000000003" class="s">1.02 mm</text>
+<rect x="550" y="380.88" width="235" height="30.799999999999997" fill="#fed7aa" stroke="#475569"/>
+<text x="795" y="401.28" class="s">1.40 mm</text>
+<text x="550" y="364.88" class="t">4.96 mm nominal top</text>
+<text x="35" y="585" class="s">Green = module PCB; orange = components. Dimensions are calculations, not physical measurements.</text></svg>

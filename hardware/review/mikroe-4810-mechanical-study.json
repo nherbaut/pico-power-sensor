@@ -1,0 +1,874 @@
+{
+  "status": "preliminary board-envelope compatibility only; full 3D and complete carrier fit unverified",
+  "module_cad_archive_sha256": "7e56c70e7f46e8feac7d06755dddb37a776fa1b3412f0539be90c9a99bfcf89c",
+  "dxf_sha256": "faf17ed52440e83f244501ae7a4ade8534f73918ed4b89afd93cc4f109281065",
+  "module_outline_segments_vendor_mm": [
+    [
+      [
+        24.13,
+        36.83
+      ],
+      [
+        21.844,
+        39.116
+      ]
+    ],
+    [
+      [
+        1.016,
+        39.116
+      ],
+      [
+        -1.27,
+        36.83
+      ]
+    ],
+    [
+      [
+        -1.27,
+        -3.81
+      ],
+      [
+        21.59,
+        -3.81
+      ]
+    ],
+    [
+      [
+        -1.27,
+        -3.81
+      ],
+      [
+        -1.27,
+        36.83
+      ]
+    ],
+    [
+      [
+        1.016,
+        39.116
+      ],
+      [
+        21.844,
+        39.116
+      ]
+    ],
+    [
+      [
+        24.13,
+        -1.27
+      ],
+      [
+        24.13,
+        36.83
+      ]
+    ],
+    [
+      [
+        21.59,
+        -3.81
+      ],
+      [
+        24.13,
+        -1.27
+      ]
+    ]
+  ],
+  "module_outline_size_mm": [
+    25.4,
+    42.926
+  ],
+  "header_pitch_mm": 2.54,
+  "header_row_spacing_mm": 22.86,
+  "reference_transform": "x_top=x_vendor-min_x; y_top=max_y-y_vendor",
+  "envelope_test_origin_mm": [
+    8.0,
+    5.5
+  ],
+  "envelope_test_is_final_placement": false,
+  "pico_courtyard_horizontal_gap_mm": 7.905000000000001,
+  "hardware_envelope_gaps_mm": {
+    "H2": 37.627699910282885,
+    "H1": 1.2720018726587652,
+    "H3": 1.2985434742479915,
+    "H4": 37.630499332398074
+  },
+  "fixed_carrier_geometry": {
+    "source_sha256": "be058611111f173023c39e1187417429d09f40d7b959f5a8bae823f64e744cac",
+    "fixed_footprints": [
+      {
+        "reference": "H2",
+        "position_mm": [
+          74.0,
+          4.0
+        ],
+        "pads": [
+          {
+            "number": "",
+            "position_mm": [
+              74.0,
+              4.0
+            ],
+            "size_mm": [
+              2.7,
+              2.7
+            ],
+            "drill_mm": [
+              2.7,
+              2.7
+            ]
+          }
+        ]
+      },
+      {
+        "reference": "H1",
+        "position_mm": [
+          4.0,
+          4.0
+        ],
+        "pads": [
+          {
+            "number": "",
+            "position_mm": [
+              4.0,
+              4.0
+            ],
+            "size_mm": [
+              2.7,
+              2.7
+            ],
+            "drill_mm": [
+              2.7,
+              2.7
+            ]
+          }
+        ]
+      },
+      {
+        "reference": "H3",
+        "position_mm": [
+          4.0,
+          50.0
+        ],
+        "pads": [
+          {
+            "number": "",
+            "position_mm": [
+              4.0,
+              50.0
+            ],
+            "size_mm": [
+              2.7,
+              2.7
+            ],
+            "drill_mm": [
+              2.7,
+              2.7
+            ]
+          }
+        ]
+      },
+      {
+        "reference": "J_PICO",
+        "position_mm": [
+          44.0,
+          3.0
+        ],
+        "pads": [
+          {
+            "number": "1",
+            "position_mm": [
+              44.0,
+              3.0
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "2",
+            "position_mm": [
+              44.0,
+              5.54
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "3",
+            "position_mm": [
+              44.0,
+              8.08
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "4",
+            "position_mm": [
+              44.0,
+              10.62
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "5",
+            "position_mm": [
+              44.0,
+              13.16
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "6",
+            "position_mm": [
+              44.0,
+              15.7
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "7",
+            "position_mm": [
+              44.0,
+              18.24
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "8",
+            "position_mm": [
+              44.0,
+              20.78
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "9",
+            "position_mm": [
+              44.0,
+              23.32
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "10",
+            "position_mm": [
+              44.0,
+              25.86
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "11",
+            "position_mm": [
+              44.0,
+              28.4
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "12",
+            "position_mm": [
+              44.0,
+              30.94
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "13",
+            "position_mm": [
+              44.0,
+              33.48
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "14",
+            "position_mm": [
+              44.0,
+              36.02
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "15",
+            "position_mm": [
+              44.0,
+              38.56
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "16",
+            "position_mm": [
+              44.0,
+              41.1
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "17",
+            "position_mm": [
+              44.0,
+              43.64
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "18",
+            "position_mm": [
+              44.0,
+              46.18
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "19",
+            "position_mm": [
+              44.0,
+              48.72
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "20",
+            "position_mm": [
+              44.0,
+              51.26
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "21",
+            "position_mm": [
+              61.78,
+              51.26
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "22",
+            "position_mm": [
+              61.78,
+              48.72
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "23",
+            "position_mm": [
+              61.78,
+              46.18
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "24",
+            "position_mm": [
+              61.78,
+              43.64
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "25",
+            "position_mm": [
+              61.78,
+              41.1
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "26",
+            "position_mm": [
+              61.78,
+              38.56
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "27",
+            "position_mm": [
+              61.78,
+              36.02
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "28",
+            "position_mm": [
+              61.78,
+              33.48
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "29",
+            "position_mm": [
+              61.78,
+              30.94
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "30",
+            "position_mm": [
+              61.78,
+              28.4
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "31",
+            "position_mm": [
+              61.78,
+              25.86
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "32",
+            "position_mm": [
+              61.78,
+              23.32
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "33",
+            "position_mm": [
+              61.78,
+              20.78
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "34",
+            "position_mm": [
+              61.78,
+              18.24
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "35",
+            "position_mm": [
+              61.78,
+              15.7
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "36",
+            "position_mm": [
+              61.78,
+              13.16
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "37",
+            "position_mm": [
+              61.78,
+              10.62
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "38",
+            "position_mm": [
+              61.78,
+              8.08
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "39",
+            "position_mm": [
+              61.78,
+              5.54
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          },
+          {
+            "number": "40",
+            "position_mm": [
+              61.78,
+              3.0
+            ],
+            "size_mm": [
+              1.6,
+              1.6
+            ],
+            "drill_mm": [
+              1.0,
+              1.0
+            ]
+          }
+        ],
+        "courtyard_present": true,
+        "courtyard_box_mm": {
+          "origin": [
+            41.305,
+            -0.215
+          ],
+          "size": [
+            23.17,
+            53.94
+          ]
+        }
+      },
+      {
+        "reference": "H4",
+        "position_mm": [
+          74.0,
+          50.0
+        ],
+        "pads": [
+          {
+            "number": "",
+            "position_mm": [
+              74.0,
+              50.0
+            ],
+            "size_mm": [
+              2.7,
+              2.7
+            ],
+            "drill_mm": [
+              2.7,
+              2.7
+            ]
+          }
+        ]
+      }
+    ],
+    "rule_areas": [
+      {
+        "name": "H1 hardware clearance",
+        "origin_mm": [
+          1.0,
+          1.0
+        ],
+        "size_mm": [
+          6.0,
+          6.0
+        ]
+      },
+      {
+        "name": "Pico antenna / no copper or components",
+        "origin_mm": [
+          45.79,
+          44.13
+        ],
+        "size_mm": [
+          14.21,
+          9.87
+        ]
+      },
+      {
+        "name": "H4 hardware clearance",
+        "origin_mm": [
+          71.0,
+          47.0
+        ],
+        "size_mm": [
+          6.0,
+          6.0
+        ]
+      },
+      {
+        "name": "H3 hardware clearance",
+        "origin_mm": [
+          1.0,
+          47.0
+        ],
+        "size_mm": [
+          6.0,
+          6.0
+        ]
+      },
+      {
+        "name": "H2 hardware clearance",
+        "origin_mm": [
+          71.0,
+          1.0
+        ],
+        "size_mm": [
+          6.0,
+          6.0
+        ]
+      }
+    ]
+  }
+}

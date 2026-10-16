@@ -1,0 +1,9 @@
+observation_id,date,source_url,finding,limitations
+CAR-W01,2026-10-16,https://www.digikey.fr/en/products/detail/vishay-semiconductor-opto-division/TLLR4401/4074717,Indexed listing exact code; related indexed category quotesEUR0.48qty1exVAT,Direct page fetch cache miss; not live checkout; distributorActive not maker lifecycle
+CAR-W02,2026-10-16,https://www.digikey.fr/en/products/detail/vishay-beyschlag-draloric-bc-components/MRS25000C1801FCT00/7350486,Indexed exact resistor listingEUR0.09exVATqty1;9754stock,Dated sourcing indication; not inventory reservation or maker lifecycle
+CAR-W03,2026-10-16,https://cdn.harwin.com/pdfs/Obsolescence_notification_2019-05-13_Harwin.pdf,Manufacturer notice lists M20-7820846 immediate obsolete; current drawing available table uses0842,Notice found via web text; local current drawing retained separately
+CAR-W04,2026-10-16,https://www.raspberrypi.com/documentation/microcontrollers/pico-series.html,Manufacturer lists Pico2W with and without headers,Exact purchase variant not selected; pin allocation grounded in retained board/chip PDFs
+CAR-W05,2026-10-16,https://www.vishay.com/en/product/83029/tab/quality/,Manufacturer exact LED family/part listings found,Quality/compliance listing is not explicit active/preferred lifecycle declaration
+CAR-W06,2026-10-16,https://www.harwin.com/products/M20-9992045,Manufacturer page: 20-position male plug; 6.1 mm gold pin; 3.00 mm tail; overall 8.64 mm above PCB,Page shows no explicit lifecycle field; active status taken from drawing table only
+CAR-W07,2026-10-16,https://www.harwin.com/products/M20-9990945,Manufacturer page: 9-position male plug; 6.1 mm gold pin; 3.00 mm tail,Page shows no explicit lifecycle field; active status taken from drawing table only
+CAR-W08,2026-10-16,https://www.mikroe.com/power-monitor-click,Fetch returned HTTP 403,Whether MIKROE-4810 ships with headers fitted and their dimensions/plating remain unverified

@@ -1,0 +1,15 @@
+reference,pin,function,proposed_net,connection,basis,status
+U_UART,1,1OE_N,UART_OE_N,common enable;10k to INSTR_3V3;Pico GP3 physical5 SIO active-low control,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,2,1A,PI_TX_CABLE,J_UART2;100k to GND;source-side470ohm on interposer,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,3,1Y,PICO_UART_RX,Pico GP1 physical2; UART0 RX,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,4,2OE_N,UART_OE_N,same as pin1,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,5,2A,PI_MARK_CABLE,J_UART4;100k to GND;source-side470ohm on interposer,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,6,2Y,PICO_MARK_RX,Pico GP2 physical4; task marker input,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,7,GND,SIGNAL_GND,instrument reference;100nF return,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,8,3Y,PICO_TX_DRV,470ohm before J_UART3;PiRX100k to ground,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,9,3A,PICO_UART_TX,Pico GP0 physical1; UART0 TX normal polarity;10k to INSTR_3V3,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,10,3OE_N,UART_OE_N,same as pin1,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,11,4Y,NC,intentionally unconnected unused output,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,12,4A,SIGNAL_GND,unused input tied low,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,13,4OE_N,INSTR_3V3,unused enable inactive,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete
+U_UART,14,VCC,INSTR_3V3,Pico USB-derived3V3;local100nF to pin7,TI SCES124O p3 N-package top view and numbered pin table,DOCUMENTARY; Pico GPIO allocated; footprint/parity and Pi GPIO mapping incomplete

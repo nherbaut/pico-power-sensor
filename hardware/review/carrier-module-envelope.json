@@ -1,0 +1,190 @@
+{
+  "date": "2026-10-16",
+  "scope": "MODEL geometry study only; no KiCad layout or populated3D clearance claim",
+  "carrier_source_sha256": "be058611111f173023c39e1187417429d09f40d7b959f5a8bae823f64e744cac",
+  "source_monitor_study_sha256": "095ce4e0054bbebaa5a12e2fbc6934de608461dd7375bf0b31939730b59cabf2",
+  "source_sd_board_sha256": "0ec91e989f1004c85c203bc4539bb2652b8c33614cc18f624bd3bdac7cbf8c57",
+  "board_outline_mm": [
+    78,
+    54
+  ],
+  "fixed_pad_inventory_count": 44,
+  "monitor_origin_top_mm": [
+    8,
+    5.5
+  ],
+  "monitor_size_mm": [
+    25.4,
+    42.926
+  ],
+  "monitor_side": "front",
+  "storage_origin_projected_top_mm": [
+    8.5,
+    1.0
+  ],
+  "storage_size_mm": [
+    25.4,
+    22.86
+  ],
+  "storage_side": "back",
+  "storage_transform": "x_carrier=8.5+max_x_vendor-x_vendor; y_carrier=1+max_y_vendor-y_vendor; physical bottom-view drawing additionally x_display=78-x_carrier",
+  "storage_header_pads_projected_top_mm": [
+    {
+      "pin": "1",
+      "x_mm": 31.36,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "2",
+      "x_mm": 28.82,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "3",
+      "x_mm": 26.28,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "4",
+      "x_mm": 23.74,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "5",
+      "x_mm": 21.2,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "6",
+      "x_mm": 18.66,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "7",
+      "x_mm": 16.119999999999997,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "8",
+      "x_mm": 13.579999999999998,
+      "y_mm": 21.32
+    },
+    {
+      "pin": "9",
+      "x_mm": 11.04,
+      "y_mm": 21.32
+    }
+  ],
+  "monitor_header_pads_top_mm": [
+    {
+      "pin": "1",
+      "x_mm": 9.27,
+      "y_mm": 26.836
+    },
+    {
+      "pin": "2",
+      "x_mm": 9.27,
+      "y_mm": 29.376
+    },
+    {
+      "pin": "3",
+      "x_mm": 9.27,
+      "y_mm": 31.916
+    },
+    {
+      "pin": "4",
+      "x_mm": 9.27,
+      "y_mm": 34.456
+    },
+    {
+      "pin": "5",
+      "x_mm": 9.27,
+      "y_mm": 36.995999999999995
+    },
+    {
+      "pin": "6",
+      "x_mm": 9.27,
+      "y_mm": 39.536
+    },
+    {
+      "pin": "7",
+      "x_mm": 9.27,
+      "y_mm": 42.076
+    },
+    {
+      "pin": "8",
+      "x_mm": 9.27,
+      "y_mm": 44.616
+    },
+    {
+      "pin": "9",
+      "x_mm": 32.129999999999995,
+      "y_mm": 44.616
+    },
+    {
+      "pin": "10",
+      "x_mm": 32.129999999999995,
+      "y_mm": 42.076
+    },
+    {
+      "pin": "11",
+      "x_mm": 32.129999999999995,
+      "y_mm": 39.536
+    },
+    {
+      "pin": "12",
+      "x_mm": 32.129999999999995,
+      "y_mm": 36.995999999999995
+    },
+    {
+      "pin": "13",
+      "x_mm": 32.129999999999995,
+      "y_mm": 34.456
+    },
+    {
+      "pin": "14",
+      "x_mm": 32.129999999999995,
+      "y_mm": 31.916
+    },
+    {
+      "pin": "15",
+      "x_mm": 32.129999999999995,
+      "y_mm": 29.376
+    },
+    {
+      "pin": "16",
+      "x_mm": 32.129999999999995,
+      "y_mm": 26.836
+    }
+  ],
+  "minimum_sd_monitor_pad_centre_distance_mm": 5.56948435674255,
+  "minimum_sd_monitor_pad_pair": [
+    "1",
+    "16"
+  ],
+  "model_2mm_pad_edge_gap_mm": 3.5694843567425503,
+  "minimum_sd_fixed_pad_centre_distance_mm": 12.651529551797285,
+  "minimum_sd_fixed_pair": [
+    "1",
+    "J_PICO",
+    "8"
+  ],
+  "storage_to_pico_courtyard_gap_mm": 7.405000000000002,
+  "storage_hardware_envelope_gaps_mm": {
+    "H1 hardware clearance": 1.5,
+    "H4 hardware clearance": 43.72493110343343,
+    "H3 hardware clearance": 23.1885661479963,
+    "H2 hardware clearance": 37.099999999999994
+  },
+  "same_face_rectangular_model": {
+    "left_space_width_mm": 41.305,
+    "right_space_width_mm": 13.525000000000006,
+    "minimum_side_by_side_width_mm": 48.26,
+    "minimum_stacked_height_mm": 65.786,
+    "result": "no non-overlapping0/90degree rectangular-envelope arrangement on one face with these fixed Pico courtyard bounds; not a proof for arbitrary rotations or interlocking outlines"
+  },
+  "z_clearance": "UNVERIFIED: exact sockets, pin/tail lengths, module underside components and support heights not selected",
+  "card_projection_and_finger_access": "UNVERIFIED beyond module edge; card slot faces carrier north edge",
+  "solder_access": "UNVERIFIED with actual sockets/modules; opposite-side solder tails cross projected module area",
+  "remaining_carrier_parts": "LEDs, interfaces and support parts not placed"
+}

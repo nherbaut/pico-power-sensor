@@ -1,0 +1,12 @@
+calculation_id,quantity,value,unit,basis,conditions,exclusions
+CN-C01,recommended connector set cost,2.41,EUR excludingVAT,CALCULATION from CN-O04/O06/O10,one terminal;two headers;two sockets,delivery/wire/hardware; live France socket quote
+CN-C02,recommended connector set cost with VAT,2.892,EUR including assumed20percent VAT,CALCULATION,same quantities;20percent VAT assumption,same exclusions; checkout tax unverified
+CN-C03,soldered alternative cost,0.69,EUR excludingVAT,CALCULATION,omit2sockets,delivery/wire/hardware
+CN-C04,socket omission saving,1.72,EUR excludingVAT,CALCULATION,cost saving vsrecommended,desoldering required for replacement
+CN-C05,socket omission cost reduction,71.36929460580913,percent,CALCULATION,whole connector set cost denominator,not an electrical improvement
+CN-C06,nominal socketed module top,13.47,mm above custom PCB,CALCULATION from manufacturer printed nominal/reference dimensions,fully seated; no seat gap; long posts downward,dimension tolerance; actual seat engagement; actual cooler/HAT clearance
+CN-C07,nominal soldered module top,4.96,mm above custom PCB,CALCULATION from nominal/reference dimensions,module supported onheader insulator; excessposts trimmed,tolerance/actual assembly; actual cooler/HAT clearance
+CN-C08,terminal pair drop at20mOhm each,200.0,mV,DATASHEET VALUE SUBSTITUTION; not measurement,5A;20mOhm attributed to each positive/return terminal,temperature/actual resistance bound;wirecontact construction
+CN-C09,terminal pair heat at20mOhm each,1.0,W,DATASHEET VALUE SUBSTITUTION; not thermal validation,5A;20mOhm perterminal,ambient/actualinstalledtemperature
+CN-C10,two module mating contacts drop allocation,50.0,mV,PLANNING ASSUMPTION;5mOhm percontact not a manufacturer specification,5A VIN/VOUT contacts; GND references not seriesreturn,actual exactpair resistance and thermal behavior
+CN-C11,two module mating contacts heat allocation,0.25,W,PLANNING ASSUMPTION,5A;5mOhm percontact,not a thermal pass

@@ -1,0 +1,2 @@
+evidence_id,kind,local_file,revision,retrieved_or_copied_date,source_url,sha256,inspection_scope
+SENSE-S01,manufacturer datasheet,vishay-pr01-2025-07-08.pdf,08-Jul-2025; served PDF created2026-09-09,2026-10-16,https://www.vishay.com/docs/28729/pr010203.pdf,1b65216400497850afb3e740f378a10a77cd584809e647ae7fcdb707d9b6a2bc,"19pages PDF validated; targeted PR01 ratings/ordering/assembly/tests/dimensions read; p5 derating and p16 dimensions visually inspected; derating endpoints read, thermal curves not digitized; not exact-code lifecycle proof"

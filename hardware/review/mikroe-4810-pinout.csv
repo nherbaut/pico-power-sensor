@@ -1,0 +1,17 @@
+module_pin,mikrobus_label,proposed_net,x_mm,y_mm,view,map_status
+1,AN,NC,1.27,21.336,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+2,RST,NC,1.27,23.876,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+3,CS,NC,1.27,26.416,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+4,SCK,NC,1.27,28.956,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+5,MISO,NC,1.27,31.496,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+6,MOSI,NC,1.27,34.036,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+7,3.3V,INSTR_3V3,1.27,36.576,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+8,GND,INSTR_GND,1.27,39.116,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+9,GND,INSTR_GND,24.13,39.116,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+10,5V,NC_5V,24.13,36.576,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+11,SDA,PM_SDA,24.13,34.036,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+12,SCL,PM_SCL,24.13,31.496,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+13,TX,NC,24.13,28.956,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+14,RX,NC,24.13,26.416,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+15,INT,PM_ALERT_N,24.13,23.876,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified
+16,PWM,NC,24.13,21.336,top; origin at module outline upper-left; +x right; +y down,documentary cross-check; purchased module and socket not verified

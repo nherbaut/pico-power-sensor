@@ -1,0 +1,26 @@
+module,module_pin,module_label,carrier_net,pico_gpio,pico_physical_pin,status
+M_PM,1,AN,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,2,RST,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,3,CS,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,4,SCK,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,5,MISO,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,6,MOSI,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,7,3.3V,INSTR_3V3,,,Documentary; supplied module and footprint orientation unverified
+M_PM,8,GND,INSTR_GND,,,Documentary; supplied module and footprint orientation unverified
+M_PM,9,GND,INSTR_GND,,,Documentary; supplied module and footprint orientation unverified
+M_PM,10,5V,NC_5V,,,Documentary; supplied module and footprint orientation unverified
+M_PM,11,SDA,PM_SDA,4,6,Documentary; supplied module and footprint orientation unverified
+M_PM,12,SCL,PM_SCL,5,7,Documentary; supplied module and footprint orientation unverified
+M_PM,13,TX,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,14,RX,NC,,,Documentary; supplied module and footprint orientation unverified
+M_PM,15,INT,PM_ALERT_N,6,9,Documentary; supplied module and footprint orientation unverified
+M_PM,16,PWM,NC,,,Documentary; supplied module and footprint orientation unverified
+M_SD,1,3.3V,INSTR_3V3,,,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,2,GND,INSTR_GND,,,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,3,SCLK,SD_SCLK,18,24,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,4,DO,SD_MISO,16,21,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,5,DI,SD_MOSI,19,25,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,6,CS,SD_CS_N,17,22,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,7,DAT1,NC_SD_DAT1,,,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,8,DAT2,NC_SD_DAT2,,,Documentary; underside physical view must be mirrored in assembly drawing
+M_SD,9,CARDDET,SD_CARD_PRESENT,20,26,Documentary; underside physical view must be mirrored in assembly drawing

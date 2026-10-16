@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-16",
+  "status": "PARTIAL documentary review; owner-approved prototype connector choices and two scoped hole exceptions; no release",
+  "inputs": {
+    "AGENTS.md": "844db7af3dde23ebdf1dfd32eb2212594e6f290b1ef04cf53ac5afed6d304d6d",
+    "hardware/bom.csv": "866d09c466b56a3516ea527c0086f3d75f3f584d23e02e856f1ef37652e1edde",
+    "docs/mechanical-baseline.md": "cd512249ddf6249c34c1a175a67cc4b58d4d795df55f1aaebc780101d0516f42",
+    "docs/protection-options.md": "8642ad815952bbf0c61cca5d7470fee7c808c1871c813acc49a5777412b34f02",
+    "hardware/evidence/protection/pololu-reverse-voltage-protectors.pdf": "1e266afca4fd00afad39e54d43653a06e83913e0c83fd2a5dd010ca04910c153",
+    "hardware/evidence/protection/pololu-5383-pinout.jpg": "71964ce9cb1b6124cb1139bc26d24d5c5395687cdecac0960e2f48a1739950aa",
+    "hardware/evidence/protection/pololu-60v-schematic.png": "8c3d99ecb1b43095a79959307d53c4358b5ca8fbec3f7477bb325cfb20b135b0",
+    "hardware/evidence/connectors/we691137710002-rev002-mirror.pdf": "07bdef30dd2ee4a4693beb44a719668f05d1bb178e5030c6ad9c8804a6167966",
+    "hardware/evidence/connectors/samtec-ssq-tsw-power.pdf": "7735c53dd56eb836d0f600796bb4f11c2e85623e695b6b2e2c85582a9fbea104",
+    "hardware/evidence/connectors/web-observations.csv": "b4d9b6b66de2cf4cbad8026f68c9cef76e307d02ea5514143f591fec20d581c9",
+    "hardware/evidence/connectors/samtec-tsw-print.pdf": "047ecedcc921fb0aed7127f08b9ba0fc1200d92d33fb7ded1b311d0ed8f42063",
+    "hardware/evidence/connectors/phoenix1727010-drawing.jpg": "f547d5d4cb3a4fa3dd06db5baa6071a256c4073485065a802b8fe9c135097875",
+    "hardware/evidence/connectors/sources.csv": "19ea32f4abd801e2d821734b46f0c815f03dad842275f642ccd5353415a7fe43",
+    "hardware/evidence/connectors/samtec-tsw-footprint.pdf": "264658121ff2dad25ebd6259e726b123bf1ea31f9145bc695607999181af028f",
+    "hardware/evidence/connectors/samtec-ssq-print.pdf": "3609be190ef021cc260abf423296449d797dd474fe1618dcf0fec719e2a05141",
+    "hardware/evidence/connectors/samtec-ssw-ssq-catalog.pdf": "6d89f5c186a49e0f52f37d7bf7b5095081aff8f98e5ba18a85b0811caaf6f509",
+    "hardware/evidence/connectors/samtec-ssq-footprint.pdf": "22412225a71a963f7337ba8057011971d161901832198f98770636aa7912b19c"
+  },
+  "derived_artifacts": {
+    "docs/power-connector-options.md": "b023f4c46d87b749c694559010285f68bc4bddb2355539936b4f7e5e5979e6d5",
+    "hardware/power-connector-candidates.csv": "521010724f6b73dacc96e028b9e8b502f998a82824825feb4058a0332995dee8",
+    "hardware/review/power-connector-calculations.csv": "29482690bf3fbe836cc3f1f3c49e4c10ceecb46c6d1d99a9ff95a843dbf99d0f",
+    "hardware/review/power-connector-stack.json": "34e181e09f28d19bda267980007f2a282636b54672a802f3fe3944a85ef504fe",
+    "hardware/review/power-connector-stack.svg": "3f374d35595ee217ec618154d81bd61f023dfcf7481602f8ba066a3340068c2e"
+  },
+  "verification_scope": [
+    "retained documents hashes",
+    "printed manufacturer dimensions and relevant tables",
+    "cost and nominal stack calculation consistency",
+    "nominal stack SVG rendered and visually inspected; not actual mechanical fit"
+  ],
+  "not_performed": [
+    "actual custom footprint creation/review",
+    "full installed current/thermal qualification",
+    "actual slot/post/socket engagement",
+    "populated cooler/HAT fit",
+    "native ERC/DRC/parity",
+    "bench test"
+  ],
+  "verification_summary": {
+    "retained_source_hashes_verified": 49,
+    "candidate_rows": 4,
+    "calculation_rows": 11,
+    "headline_arithmetic": "consistent; costs estimated from recorded regional observations",
+    "whitespace": "new Markdown checked; git diff --check passed",
+    "selected_bom_rows": 14,
+    "approval_record_consistency": "BOM quantities and candidate choices checked; prior engineering statuses remain partial",
+    "prior_eight_bom_rows": "preserved exactly; checked against pre-approval snapshot"
+  },
+  "owner_decision": {
+    "date": "2026-10-16",
+    "response": "ok",
+    "scope": [
+      "one Wurth Elektronik691137710002 bench-entry terminal",
+      "two Samtec TSW-102-07-G-S module-side headers",
+      "two Samtec SSQ-102-01-G-S interposer-side sockets",
+      "terminal-only1.35mm nominal finished PTH tolerance+/-0.05mm and3.00mm pads",
+      "two sockets only: four1.10mm nominal finished PTH tolerance+/-0.05mm and2.00mm pads"
+    ],
+    "unselected_alternatives": [
+      "direct-soldered module without sockets",
+      "Phoenix1727010 terminal"
+    ],
+    "qualification_status": "PARTIAL; actual fit, installed loss/current/thermal behavior, lifecycle and cooler/HAT clearance remain open",
+    "module_drilling": "not authorized; use existing Pololu slots"
+  },
+  "binding_updated_date": "2026-10-16",
+  "binding_update_scope": "Recorded owner approval of five TLLR4401 LEDs and five MRS25000C1801FCT00 resistors; two new BOM rows, prior17 preserved. Added partial socket-family contact/assembly screen. Socket selection remains open; context hash updates do not rerun or promote prior engineering qualification.",
+  "binding_history": [
+    {
+      "date": "2026-10-16",
+      "scope": "Owner-approved Adafruit2223 square-pin socket, JST-XH harness set and Adafruit-only40hole exception recorded. Previous8BOMrows and shunt/holder/Pololu exceptions preserved. Source CAD, outlines, mounting holes, header centres and carrier envelope unchanged; proposed Adafruit drill/pad change approved but not implemented. Documentary context binding refreshed; engineering statuses remain partial; no new electrical, thermal, CAD or physical validation."
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Owner approved only the scoped UART-bias load with \"ok\" on 2026-10-16. Requirements/architecture/header and harness contracts now record that allowance. New Pi5/RP2350 pad documentation supports a single-buffer candidate, not a selected or qualified circuit. Existing 14 BOM rows and all mechanical geometry preserved. Hashes bind this documentary context; earlier component electrical/thermal/footprint/physical reviews were not rerun and their partial engineering status remains unchanged."
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Recorded owner approval of the single SN74LV125AN circuit and one new BOM row; prior14rows and mechanical geometry unchanged. Added documentary startup/pin/support-part review and conditional470ohm proposal; low-rail200pF edge screen explicitly not passed. Refreshed context hashes only for earlier component reports: their engineering reviews were not rerun and remain partial."
+    },
+    {
+      "date": "2026-10-16",
+      "scope": "Recorded owner approval of three82ohm observation resistors and one100nF differential capacitor; two BOM rows added, prior15 preserved. Recorded separate USB charger/Wi-Fi-only Pi/optional AI HAT setup and shared-ground routing intent. Hash refresh is documentary context only; earlier engineering qualification not rerun."
+    }
+  ],
+  "context_verification": {
+    "date": "2026-10-16",
+    "selected_bom_rows_now": 19,
+    "prior17_rows_preserved": true,
+    "scope": "Documentary approval update; original verification_summary is historical; no new engineering pass"
+  }
+}

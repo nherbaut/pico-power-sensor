@@ -1,0 +1,20 @@
+item,value,unit,conditions,formula,basis
+reference_shunt,0.005,ohm,unselected reference value,input,requirements; not a selected part
+shunt_drop_at_5A,0.025,V,nominal 5 A; 5 mOhm; excludes tolerance and temperature,I*R,calculation
+shunt_dissipation_at_5A,0.125,W,nominal 5 A; 5 mOhm; not a thermal qualification,I^2*R,calculation
+nominal_current_span,8.192,A,ADCRANGE=1; reference shunt; excludes overload/tolerance,40.96mV/R,INA228 SLYS021A section 6.5 and calculation
+equivalent_current_offset,0.0002,A,1 uV term; see datasheet VCM and TCT conditions; no total-error claim,Vos/R,INA228 SLYS021A section 6.5 and calculation
+offset_only_error_at_0.1A,0.200,percent,0.1 A; 5 mOhm reference; 1 uV offset only,100*Vos/(R*I),illustrative calculation; not guaranteed at our full operating envelope
+offset_only_error_at_0.5A,0.0400,percent,0.5 A; 5 mOhm reference; 1 uV offset only,100*Vos/(R*I),illustrative calculation; not guaranteed at our full operating envelope
+offset_only_error_at_1A,0.0200,percent,1 A; 5 mOhm reference; 1 uV offset only,100*Vos/(R*I),illustrative calculation; not guaranteed at our full operating envelope
+offset_only_error_at_5A,0.00400,percent,5 A; 5 mOhm reference; 1 uV offset only,100*Vos/(R*I),illustrative calculation; not guaranteed at our full operating envelope
+active_bus_input_loading_min,4.25000000,uA,5.1 V; 1.2 MOhm active input impedance,V/R,INA228 SLYS021A section 6.5 and calculation
+active_bus_input_loading_max,6.375000000,uA,5.1 V; 0.8 MOhm active input impedance,V/R,INA228 SLYS021A section 6.5 and calculation
+typical_differential_loading,0.2717391304347826086956521739,uA,25 mV; 92 kOhm typical only; not a guaranteed bound,Vdiff/Rdiff,INA228 SLYS021A section 6.5 and calculation
+low_line_pullup_current,0.6170212765957446808510638298,mA,nominal 4.7 kOhm; 3.3 V supply; 0.4 V low; excludes resistor tolerance,(Vcc-Vol)/Rpu,MikroE v100; INA228 section 6.5; calculation
+evaluation_pair_period,0.001080,s,540 us shunt plus 540 us bus; AVG=1; no temperature conversion,2*Tct,nominal calculation; oscillator and scheduling not validated
+evaluation_pair_rate,925.9259259259259259259259259,pairs/s,same conditions; not demonstrated throughput,1/(2*Tct),nominal calculation
+boundary_only_error_at_0.1s,2.16000,percent,constant-power 0.1 s task; assumed one period uncertainty per boundary; not total error,100*2*Tpair/task_duration,illustrative uncertainty model; not measured latency
+boundary_only_error_at_1s,0.216000,percent,constant-power 1 s task; assumed one period uncertainty per boundary; not total error,100*2*Tpair/task_duration,illustrative uncertainty model; not measured latency
+boundary_only_error_at_10s,0.021600,percent,constant-power 10 s task; assumed one period uncertainty per boundary; not total error,100*2*Tpair/task_duration,illustrative uncertainty model; not measured latency
+uncalibrated_two_term_example,1.0,percent,illustrative 0.5% shunt tolerance plus 0.5% timing error; aligned signs; all other errors omitted,shunt_term+timing_term,screening example; not a selected shunt or complete budget
