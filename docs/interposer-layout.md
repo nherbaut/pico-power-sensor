@@ -63,7 +63,7 @@ The interposer plugs onto the Pi with the Adafruit 2223 stacking socket undernea
 | JST XH header with mated housing | about 9–10 mm (estimate) |
 | MSR1 shunt | up to 7.6 mm (datasheet 5.1 ± 2.5 mm) |
 
-So the board works without a HAT, but an AI HAT cannot sit directly on it. This needs an owner decision (raise the HAT with an extra 2×20 extender and longer stand-offs, or change the stack order); see the thread. Not resolved in this revision.
+So the board works without a HAT, but an AI HAT cannot sit directly on it. **Owner decision 2026-10-17 ("yes"): raise the HAT.** Plug a second Adafruit 2223 onto the interposer's J2 pins as an extender and mount the HAT on it with longer M2.5 stand-offs. Estimated HAT gap becomes about 17 mm (two socket heights) against about 13.5 mm for the tallest part, a margin of about 3.5 mm. These are drawing estimates; the stack and stand-off lengths must be measured after first assembly. No board change is needed. Both items are in the BOM.
 
 ## Open items
 

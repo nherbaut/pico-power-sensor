@@ -10,7 +10,7 @@ CU-C,carrier,Copper collision audit,docs/carrier-layout.md,PASS 0 collisions,Cla
 RES-I,interposer,DC copper resistance guard on 5 A path,docs/interposer-layout.md,"PASS 13/13 branches (positive 3.1 mOhm total; ground worst 2.80 mOhm, limit 3)",Claude,2026-10-17,1c34ce965ddd33ca
 FP,both,Footprint review against drawings,docs/footprint-review.md,PARTIAL - documentary; test fit with delivered parts open,Claude,2026-10-17,1c34ce965ddd33ca
 PARTS,both,"Parts review (lifecycle, lead fit, headers)",hardware/bom.csv,PARTIAL - see qualification columns,,2026-10-17,1c34ce965ddd33ca
-MECH-HAT,interposer,AI HAT stacking clearance,docs/interposer-layout.md,FAIL - parts taller than HAT gap; owner decision pending,,2026-10-17,1c34ce965ddd33ca
+MECH-HAT,interposer,AI HAT stacking clearance,docs/interposer-layout.md,MITIGATION SELECTED - HAT extender + longer standoffs (owner yes 2026-10-17); fit unmeasured,,2026-10-17,1c34ce965ddd33ca
 MECH-COOL,interposer,Active Cooler clearance under interposer,,OPEN,,2026-10-17,1c34ce965ddd33ca
 MECH-C,carrier,"Module stack, U1 under MikroE, standoffs",docs/carrier-layout.md,OPEN,,2026-10-17,1c34ce965ddd33ca
 HOLES,both,Fabricator finished-hole tolerance for scoped exceptions,AGENTS.md,OPEN,,2026-10-17,1c34ce965ddd33ca
