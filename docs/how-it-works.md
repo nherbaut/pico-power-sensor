@@ -39,7 +39,7 @@ The Adafruit 4682 microSD module plugs into the back of the carrier. The Pico wr
 
 ### 5. Indicators: five LEDs
 
-Five red LEDs (LED1–LED5) at the right edge are driven by Pico pins GP7–GP11, each through a 1.8 kΩ resistor that limits the current to about 1 mA. Their meaning is set in firmware, for example: powered, logging, task running, link OK, error.
+Five red LEDs (LED1–LED5) at the right edge are driven by Pico pins GP28, GP27, GP26, GP22 and GP21 (right-hand pin row), each through a 1.8 kΩ resistor that limits the current to about 1 mA. Their meaning is set in firmware, for example: powered, logging, task running, link OK, error.
 
 ### 6. Physical arrangement
 

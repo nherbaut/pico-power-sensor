@@ -25,7 +25,7 @@ Date: 2026-10-16. Status: **captured, ERC clean, technical review by Claude only
 | R2, R3 | R_PI_TX_PD, R_PI_MARK_PD | 100 kΩ | Pull-downs on the Pi-driven cable inputs |
 | R4, R5 | R_UART_OE_PU, R_PICO_TX_PU | 10 kΩ | Buffer disabled by default; Pico TX idles high |
 | J8 | J_UART | JST B5B-XH-A | 1 INSTR_GND, 2 PI_TX_CABLE, 3 PI_RX_CABLE, 4 PI_MARK_CABLE, 5 empty |
-| R6–R10, D1–D5 | R_LED1–5, LED1–5 | 1.8 kΩ, TLLR4401 | GP7–GP11 → resistor → LED → ground |
+| R6–R10, D1–D5 | R_LED1–5, LED1–5 | 1.8 kΩ, TLLR4401 | GP28, GP27, GP26, GP22, GP21 → resistor → LED → ground |
 
 U1 uses the stock `74xx:74LS125` symbol: its pin numbering (1OE 1, 1A 2, 1Y 3 … VCC 14, GND 7) matches the SN74LV125A N-package table recorded in `hardware/review/uart-buffer-pin-contract.csv`. Only the graphic is borrowed; the value and BOM part are SN74LV125AN.
 

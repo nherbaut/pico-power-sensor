@@ -56,12 +56,12 @@ def lib(name):
 PICO = {
     1: "PICO_UART_TX", 2: "PICO_UART_RX", 3: "INSTR_GND", 4: "PICO_MARK_RX",
     5: "UART_OE_N", 6: "PM_SDA", 7: "PM_SCL", 8: "INSTR_GND", 9: "PM_ALERT_N",
-    10: "LED1_DRIVE", 11: "LED2_DRIVE", 12: "LED3_DRIVE", 13: "INSTR_GND",
-    14: "LED4_DRIVE", 15: "LED5_DRIVE", 16: "NC_GP12", 17: "NC_GP13",
+    10: "NC_GP7", 11: "NC_GP8", 12: "NC_GP9", 13: "INSTR_GND",
+    14: "NC_GP10", 15: "NC_GP11", 16: "NC_GP12", 17: "NC_GP13",
     18: "INSTR_GND", 19: "NC_GP14", 20: "NC_GP15", 21: "SD_MISO", 22: "SD_CS_N",
     23: "INSTR_GND", 24: "SD_SCLK", 25: "SD_MOSI", 26: "SD_CARD_PRESENT",
-    27: "NC_GP21", 28: "INSTR_GND", 29: "NC_GP22", 30: "NC_RUN", 31: "NC_GP26",
-    32: "NC_GP27", 33: "NC_AGND", 34: "NC_GP28", 35: "NC_ADC_VREF",
+    27: "LED5_DRIVE", 28: "INSTR_GND", 29: "LED4_DRIVE", 30: "NC_RUN", 31: "LED3_DRIVE",
+    32: "LED2_DRIVE", 33: "NC_AGND", 34: "LED1_DRIVE", 35: "NC_ADC_VREF",
     36: "INSTR_3V3", 37: "NC_3V3_EN", 38: "INSTR_GND", 39: "NC_VSYS", 40: "NC_VBUS",
 }
 # MIKROE-4810 mikroBUS pin -> net (hardware/review/carrier-module-connections.csv).
@@ -180,7 +180,7 @@ NOTES = [
     (20.32, 40.64, "Sense: J7 -> C1 (100n across the Kelvin pair, close to the module) -> J6 wire pads -> MikroE IN1+ / IN1- / IN2 VBUS screw terminals. J7 pin 4 is the shared ground reference."),
     (20.32, 264.16, "UART (docs/uart-interface-qualification.md): U1 is USB-powered. Keep UART_OE_N high (R4) until the Pico has set up its pins. Pico TX is normal polarity (R5 idle-high)."),
     (20.32, 269.24, "R2/R3 load the Pi outputs (approved UART-bias exception). R1 is the 470R source resistor for Pico->Pi. U1 channel 4 unused: input low, enable high."),
-    (297.18, 96.52, "Indicators: Pico GP7-GP11 -> 1.8k -> red LED -> ground."),
+    (297.18, 96.52, "Indicators: Pico GP28, GP27, GP26, GP22, GP21 (LED1..LED5) -> 1.8k -> red LED -> ground."),
 ]
 
 # ---------------------------------------------------------------- emitters

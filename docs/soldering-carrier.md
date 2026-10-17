@@ -37,4 +37,4 @@ Plug the modules in last: microSD module on the back (card slot toward the top e
 | J8 pin 2 | U1 pin 2; to ground | ≈ 0 Ω; ≈ 100 kΩ |
 | J8 pin 4 | U1 pin 5 | ≈ 0 Ω |
 | J8 pin 3 | U1 pin 8 | ≈ 470 Ω |
-| J1 pin 10, 11, 12, 14, 15 | LED1…LED5 anode | ≈ 1.8 kΩ each |
+| J2 pin 14, 12, 11, 9, 7 (Pico pins 34, 32, 31, 29, 27) | LED1…LED5 anode | ≈ 1.8 kΩ each |
