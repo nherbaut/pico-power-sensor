@@ -1,24 +1,18 @@
 ** Drc report for interposer.kicad_pcb **
-** Created on 2026-10-17T10:26:19+0200 **
+** Created on 2026-10-17T16:10:25+0200 **
 ** Report includes: Errors, Warnings, Exclusions **
 
 ** Found 0 DRC violations **
 
 ** Found 0 unconnected pads **
 
-** Found 6 Footprint errors **
+** Found 4 Footprint errors **
 [footprint_filters_mismatch]: picopower-proto:TerminalBlock_WE_691137710002_P5.00mm_D1.35mm doesn't match symbol's footprint filters (TerminalBlock*:*).
     Local override; warning
     @(61,0000 mm, 4,5000 mm): Footprint J1
 [footprint_filters_mismatch]: picopower-proto:PiStack_Adafruit2223_2x20_P2.54mm_D1.10mm doesn't match symbol's footprint filters (Connector*:*_2x??_*).
     Local override; warning
     @(10,0000 mm, 42,5400 mm): Footprint J2
-[footprint_filters_mismatch]: picopower-proto:Socket_Samtec_SSQ-102_1x02_P2.54mm_D1.10mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
-    Local override; warning
-    @(24,0000 mm, 8,5400 mm): Footprint J3
-[footprint_filters_mismatch]: picopower-proto:Socket_Samtec_SSQ-102_1x02_P2.54mm_D1.10mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
-    Local override; warning
-    @(13,8400 mm, 8,5400 mm): Footprint J4
 [footprint_filters_mismatch]: picopower-proto:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical_1.8mm doesn't match symbol's footprint filters (Connector*:*_1x??_*).
     Local override; warning
     @(48,0000 mm, 15,0000 mm): Footprint J5

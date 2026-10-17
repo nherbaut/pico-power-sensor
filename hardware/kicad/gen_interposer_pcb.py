@@ -37,9 +37,11 @@ def main():
     # ---------------------------------------------------------- placement
     bd.place("J2", 10.0, 42.54)               # Pi stacking header (inherited)
     bd.place("J1", 61.0, 4.5, rot=270)        # bench terminal, wire entry at right edge
-    bd.place("F1", 53.5, 6.0, rot=180)        # pad1 right (raw), pad2 left (fused)
-    bd.place("J3", 24.0, 8.54, rot=180)       # Pololu VIN (pin1 low) / GND
-    bd.place("J4", 13.84, 8.54, rot=180)      # Pololu VOUT (pin1 low) / GND
+    bd.place("F1", 53.5, 6.0, rot=180)        # pad1 right (protected), pad2 left (fused)
+    # Reverse-polarity P-MOSFET, lying flat, leads at the top, body toward the
+    # Pi header: G (62, 15), D (59.46, 15), S (56.92, 15).
+    bd.place("Q1", 62.0, 15.0, rot=180)
+    bd.place("R8", 60.2, 36.5, rot=180)       # gate pull-down, standing, below Q1 body
     bd.place("R1", 6.5, 15.0, rot=270)        # shunt: pad1 top, pad4 bottom
     bd.place("R2", 12.0, 19.0)                # Kelvin+ 82R
     bd.place("R3", 12.0, 22.81)               # Kelvin- 82R
@@ -50,17 +52,19 @@ def main():
     bd.place("R6", 28.66, 35.0)               # marker 470R
     bd.place("R7", 35.0, 31.5)                # Pi RX 100k pull-down
     bd.place("NT1", 50.64, 37.0, rot=180)     # MEAS_GND_REF tie at pin 34
-    bd.place("NT2", 45.56, 37.0, rot=180)     # SIGNAL_GND tie at pin 30
+    bd.place("NT2", 32.86, 37.0, rot=180)     # SIGNAL_GND tie at pin 20
 
     P = bd.pad_xy
     bd.solid_pads("J2", {"6", "9", "14", "20", "25", "30", "34", "39"})
 
     # ---------------------------------------------------------- 5 A path (top)
-    bd.track("/BENCH_5V1_RAW", [P("J1", "1"), (57.0, 6.0), P("F1", "1")], B_PWR)
-    bd.track("/FUSED_5V1", [P("F1", "2"), (28.5, 6.0), (26.0, 8.54)], B_PWR)
-    bd.track("/FUSED_5V1", [(26.0, 8.54), P("J3", "1")], B_PWR_NECK)
-    bd.track("/PROTECTED_5V1", [P("J4", "1"), (10.0, 8.54)], B_PWR_NECK)
-    bd.track("/PROTECTED_5V1", [(10.0, 8.54), (6.5, 12.04), (6.5, 14.4)], B_PWR)
+    # Order: J1 -> Q1 (drain in, source out) -> F1 -> R1 shunt.
+    bd.track("/BENCH_5V1_RAW", [P("J1", "1"), (57.25, 4.5), (57.25, 11.0), (59.46, 13.2), P("Q1", "D")], B_PWR_NECK)
+    bd.track("/PROTECTED_5V1", [P("Q1", "S"), (54.6, 15.0), (54.6, 7.2), P("F1", "1")], B_PWR_NECK)
+    bd.track("/FUSED_5V1", [P("F1", "2"), (27.0, 10.0), (9.5, 10.0), (6.5, 13.0), (6.5, 14.4)], B_PWR)
+    # Gate pull-down on the bottom layer, straight down under the Q1 body; it runs
+    # parallel to the ground return, so the bottom plane is not cut across.
+    bd.track("/Q1_GATE", [P("Q1", "G"), (62.0, 35.2), P("R8", "1")], SIG, layer=pcbnew.B_Cu)
     bd.track("/DUT_5V_POST_SHUNT", [(6.5, 27.0), (6.5, 36.0), (8.5, 38.0)], B_PWR)
     bd.track("/DUT_5V_POST_SHUNT", [(8.5, 38.0), P("J2", "2"), P("J2", "4")], B_PWR_NECK)
 
@@ -82,19 +86,27 @@ def main():
     bd.track("/PI_GPIO23_MARKER", [P("J2", "16"), (27.78, 35.88), P("R6", "1")], SIG)
     bd.track("/PI_TASK_MARKER", [P("R6", "2"), (37.5, 33.68), P("J6", "4")], SIG)
     # SIGNAL_GND leaves J6 pin 1 on the bottom layer and joins at NT2.
-    bd.track("/SIGNAL_GND", [P("J6", "1"), (31.25, 27.25), (31.25, 37.0), (43.6, 37.0)], SIG, layer=pcbnew.B_Cu)
-    bd.via("/SIGNAL_GND", 43.6, 37.0)
-    bd.track("/SIGNAL_GND", [(43.6, 37.0), P("NT2", "2")], SIG)
-    bd.track("/BENCH_GND", [P("NT2", "1"), (46.06, 38.5), P("J2", "30")], 0.5)
+    # Short bottom-layer run only (a long one slit the bottom ground plane).
+    bd.track("/SIGNAL_GND", [P("J6", "1"), (31.25, 27.25), (31.25, 37.0)], SIG, layer=pcbnew.B_Cu)
+    bd.via("/SIGNAL_GND", 31.25, 37.0)
+    bd.track("/SIGNAL_GND", [(31.25, 37.0), P("NT2", "2")], SIG)
+    bd.track("/BENCH_GND", [P("NT2", "1"), (33.36, 38.5), P("J2", "20")], 0.5)
 
     # ---------------------------------------------------------- 5 A pours (top)
     # Pours widen the 5 A path beyond the guaranteed track widths above; the
-    # filler keeps clearance from other nets (J3/J4 GND, Kelvin pickups, H1).
+    # filler keeps clearance from other nets (Kelvin pickups, H1, other nets).
     Z = bd.zone
     F = pcbnew.F_Cu
-    Z("/BENCH_5V1_RAW", F, [(50.5, 0.5), (65.5, 0.5), (65.5, 7.2), (50.5, 9.5)], spoke=1.0, priority=1)
-    Z("/FUSED_5V1", F, [(21.6, 7.4), (21.6, 11.2), (33.5, 11.2), (33.5, 1.0), (26.5, 1.0), (26.5, 7.4)], spoke=1.0, priority=1)
-    Z("/PROTECTED_5V1", F, [(2.5, 7.4), (16.2, 7.4), (16.2, 11.2), (9.6, 11.2), (9.6, 15.4), (2.5, 15.4)], spoke=1.0, priority=1)
+    # RAW pour leaves J1 pin 2 (ground) in the top ground fill, so the return
+    # current from the Pi ground pins also has a top-layer path to J1.
+    Z("/BENCH_5V1_RAW", F, [(55.9, 0.5), (65.5, 0.5), (65.5, 7.0), (58.7, 7.0), (58.7, 11.8),
+                             (60.8, 11.8), (60.8, 16.2), (58.3, 16.2), (58.3, 12.0), (55.9, 12.0)],
+      spoke=1.0, priority=1)
+    Z("/PROTECTED_5V1", F, [(52.2, 0.5), (55.6, 0.5), (55.6, 12.0), (58.0, 12.0), (58.0, 16.2), (53.4, 16.2),
+                             (53.4, 12.0), (52.2, 12.0)],
+      spoke=1.0, priority=1)
+    Z("/FUSED_5V1", F, [(2.5, 1.0), (33.5, 1.0), (33.5, 11.2), (9.6, 11.2), (9.6, 15.4), (2.5, 15.4)],
+      spoke=1.0, priority=1)
     Z("/DUT_5V_POST_SHUNT", F, [(2.5, 25.9), (10.0, 25.9), (10.0, 34.0), (14.2, 38.0), (14.2, 41.0),
                                  (2.5, 41.0)], spoke=1.0, priority=1)
 
@@ -102,30 +114,36 @@ def main():
     # Lowest priority: fills the free top copper and adds parallel return copper
     # to the Pi ground pins (the per-pin copper-resistance check needed it).
     bd.zone("/BENCH_GND", F, [(0.3, 0.3), (65.7, 0.3), (65.7, 37.3), (66.83, 37.3),
-                               (66.83, 45.7), (0.3, 45.7)], priority=0)
+                               (66.83, 45.7), (0.3, 45.7)], clearance=0.25, priority=0)
+
+    # ---------------------------------------------------------- ground stitching
+    # Vias tie the top ground fill to the bottom plane in open areas (not under
+    # the Q1 tab), lowering the return resistance to the inner-row Pi ground pins.
+    for x, y in ((63.6, 10.6), (65.1, 18.0), (65.1, 24.0), (65.1, 30.0), (52.4, 21.0), (52.4, 26.0),
+                 (52.4, 31.0), (44.0, 34.6), (41.0, 36.6), (23.9, 37.6), (25.6, 37.6), (14.6, 34.6)):
+        bd.via("/BENCH_GND", x, y)
 
     # ---------------------------------------------------------- ground plane (bottom)
     bd.zone("/BENCH_GND", pcbnew.B_Cu, [(0.3, 0.3), (65.7, 0.3), (65.7, 37.3), (66.83, 37.3),
-                                        (66.83, 45.7), (0.3, 45.7)])
+                                        (66.83, 45.7), (0.3, 45.7)], clearance=0.25)
 
     # ---------------------------------------------------------- silkscreen
     T = bd.text
-    for ref in ("J1", "F1", "J3", "J4", "J5", "J6", "H1", "H2"):
+    for ref in ("J1", "F1", "Q1", "R8", "J5", "J6", "H1", "H2"):
         bd.ref_at(ref, hide=True)
     for ref in ("R1", "R2", "R3", "R4", "R5", "R6", "R7"):
         bd.ref_at(ref)
     bd.ref_at("J2", 33.0, 37.6)
     bd.ref_at("NT1", 51.9, 35.6)
-    bd.ref_at("NT2", 44.2, 35.6)
+    bd.ref_at("NT2", 34.9, 36.0)
     T("+", 58.6, 4.5, 1.0)
     T("-", 58.6, 9.5, 1.0)
-    T("J1 BENCH 5.1V", 63.3, 20.0, 0.8, rot=90)
     T("F1 6.3A F", 40.0, 11.9, 0.8)
-    T("J4 VOUT", 13.84, 11.6, 0.8)
-    T("J3 VIN", 24.0, 11.6, 0.8)
-    T("GND", 19.0, 6.0, 0.8)
+    T("J1 BENCH 5.1V", 61.0, 0.95, 0.8)
+    T("Q1", 59.5, 25.0, 1.0)
+    T("R8", 54.8, 36.5, 0.8)
     T("I", 3.0, 20.7, 0.8)
-    T("J5 SENSE", 52.6, 18.75, 0.8, rot=90)
+    T("J5 SENSE", 42.6, 18.75, 0.8, rot=90)
     T("J6 UART", 35.0, 22.0, 0.8)
     T("PI 40-PIN", 33.0, 45.1, 0.8)
     T("picopower-proto interposer r1", 33.0, 20.0, 0.8, layer=pcbnew.B_SilkS)

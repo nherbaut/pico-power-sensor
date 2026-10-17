@@ -8,7 +8,7 @@
 	(property "Reference" "REF**"
 		(at 11.25 -6 0)
 		(layer "F.SilkS")
-		(uuid "5715d6a8-11da-4a89-a4c6-171acc151cc0")
+		(uuid "1a43e573-e2d0-4a0c-bf35-f4b94a1005ee")
 		(effects
 			(font
 				(size 1 1)
@@ -19,7 +19,7 @@
 	(property "Value" "Fuseholder_Schurter_0031.8201_P22.5mm_D1.35mm"
 		(at 11.25 6 0)
 		(layer "F.Fab")
-		(uuid "8a87581f-d84e-4d23-bfea-06fc3fc0f8ee")
+		(uuid "7c0539dd-041f-4a9b-9525-b10dcd8bf45e")
 		(effects
 			(font
 				(size 1 1)
@@ -32,7 +32,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "a15da58b-aea6-41cb-ad33-051fea3bb664")
+		(uuid "8d0b167b-ea92-4c61-890f-24222ae76491")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -45,7 +45,7 @@
 		(unlocked yes)
 		(layer "F.Fab")
 		(hide yes)
-		(uuid "2e19e585-d42f-45f8-923c-d0831a2bbec2")
+		(uuid "fd996a34-6934-4e8b-82d1-284e49d0ea7f")
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -62,7 +62,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "96f83459-a704-4237-adc0-56999577320f")
+		(uuid "5eff16d2-a92d-43c9-9d1c-7b1c0d937ba2")
 	)
 	(fp_line
 		(start -0.11 -1.75)
@@ -72,7 +72,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "46377f8b-e3c6-45af-a148-f566cee3d3af")
+		(uuid "1fbb58fb-32f1-4c4e-9e01-d3ed41c45ee6")
 	)
 	(fp_line
 		(start -0.11 4.91)
@@ -82,7 +82,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "85b07df4-8112-4819-bd9c-bc238c21df61")
+		(uuid "b4ab2c28-1a1a-4905-9a22-24cdc83cf503")
 	)
 	(fp_line
 		(start -0.11 4.91)
@@ -92,7 +92,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "9dc43b7d-a956-4459-aee1-cfea2cb0e983")
+		(uuid "a6ded5d3-0879-4089-b058-8746a8b5ca82")
 	)
 	(fp_line
 		(start 22.61 -1.75)
@@ -102,7 +102,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "184c9b3f-b022-4958-b55c-2d4090fd444a")
+		(uuid "df30a2c0-7af7-48d7-a6a3-1853dbd5254e")
 	)
 	(fp_line
 		(start 22.61 4.91)
@@ -112,7 +112,7 @@
 			(type solid)
 		)
 		(layer "F.SilkS")
-		(uuid "947abcd2-fb40-4ae7-ab36-05e9512732a9")
+		(uuid "f2338857-063c-4dae-9f8f-284ac261dc81")
 	)
 	(fp_line
 		(start -1.5 -5.65)
@@ -122,7 +122,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "77a700a6-f01b-45cf-959f-b45b85576d8f")
+		(uuid "6ca501a4-6e67-4243-b36e-8b3190fa0840")
 	)
 	(fp_line
 		(start -1.5 5.65)
@@ -132,7 +132,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "eb6f20f5-3c22-43ff-9574-342a0de5fa66")
+		(uuid "97926f88-0e1a-43a2-b942-9c2ab3c5eab5")
 	)
 	(fp_line
 		(start 24 -5.65)
@@ -142,7 +142,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "c15e5870-763f-45aa-b473-7546650d92ff")
+		(uuid "23faba1d-58ba-4d8c-9c9c-50d5d5c0ebb1")
 	)
 	(fp_line
 		(start 24 5.65)
@@ -152,7 +152,7 @@
 			(type default)
 		)
 		(layer "F.CrtYd")
-		(uuid "9ce4643b-9a42-4907-8fd6-233c05480f25")
+		(uuid "0289d7a0-96a3-4f4c-bec3-611dd12b3409")
 	)
 	(fp_line
 		(start 0 -4.8)
@@ -162,7 +162,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "43b6096f-6ff0-4ed0-a929-35a66959cd75")
+		(uuid "2aa6b381-42b6-46c7-a836-97bf74b03e0a")
 	)
 	(fp_line
 		(start 0 4.8)
@@ -172,7 +172,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "db9d76ff-194e-4745-9dfd-e204627585df")
+		(uuid "e2e95dd8-eb69-4b2b-bc65-11ed749b020e")
 	)
 	(fp_line
 		(start 22.5 -4.8)
@@ -182,7 +182,7 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "3d5041d9-bf14-4c76-bea7-b9200aa77d56")
+		(uuid "050a8f73-6ba1-49e5-9442-71aaa69a3482")
 	)
 	(fp_line
 		(start 22.5 4.8)
@@ -192,12 +192,12 @@
 			(type solid)
 		)
 		(layer "F.Fab")
-		(uuid "b778ad76-0412-4372-bd03-23b85026c9c0")
+		(uuid "1645cfc3-30fe-499d-b7b9-45231688ad2a")
 	)
 	(fp_text user "${REFERENCE}"
 		(at 11.25 4 0)
 		(layer "F.Fab")
-		(uuid "5092dedb-4244-48a6-8f95-05c5c62ef205")
+		(uuid "5b4e923b-cbd9-4aa0-a1f1-125dfc997c75")
 		(effects
 			(font
 				(size 1 1)
@@ -211,7 +211,7 @@
 		(drill 1.35)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "4e7b6eb8-3241-4a06-a443-14579324d758")
+		(uuid "ec000924-a7b9-4ef4-be7e-1eafd9e42779")
 	)
 	(pad "2" thru_hole circle
 		(at 22.5 0)
@@ -219,7 +219,7 @@
 		(drill 1.35)
 		(layers "*.Cu" "*.Mask")
 		(remove_unused_layers no)
-		(uuid "5c3458dd-5f72-460f-a742-b2b75feffbd9")
+		(uuid "23ccfea9-9c64-4716-a517-7dfe7e6c0bc6")
 	)
 	(embedded_fonts no)
 	(model "${KICAD9_3DMODEL_DIR}/Fuse.3dshapes/Fuseholder_Cylinder-5x20mm_Schurter_0031_8201_Horizontal_Open.step"

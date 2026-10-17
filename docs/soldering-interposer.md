@@ -5,7 +5,7 @@ Tools: temperature-controlled iron (about 330 °C; up to 370 °C for the ground 
 ## Before you start
 
 - Check the bare board for shorts: J1 "+" to J1 "−" must read open.
-- Solder the **Pololu 5383 module first, off the board**: put the two TSW-102-07-G-S headers through its slots from below (pins pointing down), keep them square by plugging them into the SSQ sockets loosely, and solder on the module's top side.
+- **Q1 (IPP80P03P4L-04) is mounted lying flat, metal tab down, no screw.** Bend its three leads down by 90° at about 2.5–3 mm from the body so they drop into the three holes while the tab rests flat on the board inside the Q1 outline. Pin 1 (gate) goes to the hole nearest the board's right edge.
 
 ## Assembly order (lowest parts first)
 
@@ -15,11 +15,11 @@ Tools: temperature-controlled iron (about 330 °C; up to 370 °C for the ground 
 | 2 | R5, R6 — 470 Ω; R7 — 100 kΩ (MRS25) | Above the Pi header | Not polarized. Read the colour bands: 470 Ω = yellow-violet-black-black, 100 kΩ = brown-black-black-orange |
 | 3 | R1 — shunt MSR1 5 mΩ | Left column, standing | Not polarized. Push fully down; form the leads only as needed for the 11.4 mm holes. Do not resolder it after calibration |
 | 4 | J5 (4-pin JST) and J6 (5-pin JST) | Right of centre | Latch/key orientation as printed on the silkscreen outline |
-| 5 | J3, J4 — SSQ-102 sockets | Top, labelled VIN / VOUT | Square pad = pin 1 (VIN or VOUT). The module is not keyed; see the VIN/VOUT/GND labels |
+| 5 | Q1 — MOSFET TO-220 lying flat; R8 — 10 kΩ standing, below Q1 | Right side, under J1 | Q1: tab down, leads bent as described above, gate toward the right edge. R8: brown-black-black-red |
 | 6 | F1 — fuse holder | Top centre | Seat flat; heat each large pad well |
 | 7 | J1 — bench terminal | Top right, wire entry facing the right edge | "+" = square pad |
 | 8 | J2 — Adafruit 2223 stacking socket | **Body on the BOTTOM side**, long pins pointing up through the board; solder on the top side | Pin 1 = left end of the row nearest the bottom board edge (next to H1), at the "PI 40-PIN" label side. Solder 2 corner pins, check it is square, then the rest. Do not trim the long pins: they carry the HAT. The eight ground pins have no thermal relief and need more heat |
-| 9 | Insert the 6.3 A F 5×20 fuse in F1; plug the Pololu module into J3/J4 | — | VIN side on J3, VOUT side on J4 |
+| 9 | Insert the 6.3 A F 5×20 fuse in F1 | — | — |
 
 Clip resistor and connector tails on the bottom side to about 1 mm (except J2): the bottom faces the Pi and its cooler.
 
@@ -27,9 +27,11 @@ Clip resistor and connector tails on the bottom side to about 1 mm (except J2): 
 
 | From | To | Expected |
 |---|---|---|
-| J1 + | J3 pin 1 (via fuse) | ≈ 0 Ω |
+| J1 + | Q1 drain (middle lead) | ≈ 0 Ω |
+| Q1 source (left lead) | F1 right-hand clip | ≈ 0 Ω |
+| Q1 gate (right lead) | ground | ≈ 10 kΩ |
 | J1 + | J1 − | open (no short) |
-| J4 pin 1 | R1 upper pad | ≈ 0 Ω |
+| F1 left-hand clip | R1 upper pad | ≈ 0 Ω |
 | R1 lower pad | J2 pins 2 and 4 | ≈ 0 Ω |
 | J1 − | J2 pins 6, 9, 14, 20, 25, 30, 34, 39 | ≈ 0 Ω each |
 | J2 pin 2 | any ground pin; J2 pin 1 or 17 | open |

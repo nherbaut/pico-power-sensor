@@ -192,148 +192,6 @@
 		)
 		(embedded_fonts no)
 	)
-(symbol "Connector_Generic:Conn_01x02"
-		(pin_names
-			(offset 1.016)
-			(hide yes)
-		)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(property "Reference" "J"
-			(at 0 2.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x02"
-			(at 0 -5.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "ki_keywords" "connector"
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "ki_fp_filters" "Connector*:*_1x??_*"
-			(at 0 0 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(symbol "Conn_01x02_1_1"
-			(rectangle
-				(start -1.27 1.27)
-				(end 1.27 -3.81)
-				(stroke
-					(width 0.254)
-					(type default)
-				)
-				(fill
-					(type background)
-				)
-			)
-			(rectangle
-				(start -1.27 0.127)
-				(end 0 -0.127)
-				(stroke
-					(width 0.1524)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(rectangle
-				(start -1.27 -2.413)
-				(end 0 -2.667)
-				(stroke
-					(width 0.1524)
-					(type default)
-				)
-				(fill
-					(type none)
-				)
-			)
-			(pin passive line
-				(at -5.08 0 0)
-				(length 3.81)
-				(name "Pin_1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "1"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-			(pin passive line
-				(at -5.08 -2.54 0)
-				(length 3.81)
-				(name "Pin_2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-				(number "2"
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
-			)
-		)
-		(embedded_fonts no)
-	)
 (symbol "Connector_Generic:Conn_01x04"
 		(pin_names
 			(offset 1.016)
@@ -2269,6 +2127,296 @@
 		)
 		(embedded_fonts no)
 	)
+(symbol "Device:Q_PMOS"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 0)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "Q"
+			(at 5.08 1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Q_PMOS"
+			(at 5.08 -1.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 5.08 2.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "P-MOSFET transistor"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ki_keywords" "PMOS P-MOS"
+			(at 0 0 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(symbol "Q_PMOS_0_1"
+			(polyline
+				(pts
+					(xy 0.254 1.905) (xy 0.254 -1.905)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.254 0) (xy -2.54 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.762 2.286) (xy 0.762 1.27)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.762 1.778) (xy 3.302 1.778) (xy 3.302 -1.778) (xy 0.762 -1.778)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.762 0.508) (xy 0.762 -0.508)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 0.762 -1.27) (xy 0.762 -2.286)
+				)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(circle
+				(center 1.651 0)
+				(radius 2.794)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.286 0) (xy 1.27 0.381) (xy 1.27 -0.381) (xy 2.286 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.54 2.54) (xy 2.54 1.778)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(circle
+				(center 2.54 1.778)
+				(radius 0.254)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(circle
+				(center 2.54 -1.778)
+				(radius 0.254)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type outline)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 2.921 -0.381) (xy 3.683 -0.381)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+			(polyline
+				(pts
+					(xy 3.302 -0.381) (xy 2.921 0.254) (xy 3.683 0.254) (xy 3.302 -0.381)
+				)
+				(stroke
+					(width 0)
+					(type default)
+				)
+				(fill
+					(type none)
+				)
+			)
+		)
+		(symbol "Q_PMOS_1_1"
+			(pin input line
+				(at -5.08 0 0)
+				(length 2.54)
+				(name "G"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "G"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 2.54 5.08 270)
+				(length 2.54)
+				(name "D"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "D"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+			(pin passive line
+				(at 2.54 -5.08 90)
+				(length 2.54)
+				(name "S"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(number "S"
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+			)
+		)
+		(embedded_fonts no)
+	)
 (symbol "Device:R"
 		(pin_numbers
 			(hide yes)
@@ -2581,24 +2729,26 @@
 (label "BENCH_5V1_RAW" (at 38.10 73.66 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "63e9f4ef-290a-5203-80dd-2669252a7aa5"))
 (wire (pts (xy 40.64 76.20) (xy 38.10 76.20)) (stroke (width 0) (type default)) (uuid "658dcc9b-b19c-548e-b662-f03959266886"))
 (label "BENCH_GND" (at 38.10 76.20 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "e0071abf-4964-5cfd-865d-e1f01360291d"))
-(symbol (lib_id "Device:Fuse") (at 81.28 71.12 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "d9a11c72-8cb6-5eef-a6c2-dd62ae13815b") (property "Reference" "F1" (at 81.28 64.77 90) (effects (font (size 1.27 1.27)))) (property "Value" "6.3A F 5x20" (at 81.28 77.47 90) (effects (font (size 1.27 1.27)))) (property "Role" "F1+FH1" (at 81.28 80.01 90) (effects (font (size 1.27 1.27)))) (property "Footprint" "picopower-proto:Fuseholder_Schurter_0031.8201_P22.5mm_D1.35mm" (at 81.28 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "Datasheet" "" (at 81.28 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "MPN" "Littelfuse 021706.3MXP in Schurter 0031.8201.G (FH1)" (at 81.28 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (pin "1" (uuid "72a3dc3b-6261-528a-92cf-0a5e9f981b22")) (pin "2" (uuid "8c0161ad-4e1a-55e9-95d2-6955959831ba")) (instances (project "interposer" (path "/7e5ae90b-a01d-595d-b70b-2c632c2bbb5e" (reference "F1") (unit 1)))))
-(wire (pts (xy 77.47 71.12) (xy 74.93 71.12)) (stroke (width 0) (type default)) (uuid "97352e9d-2795-59cf-95a4-08b1f8679abc"))
-(label "BENCH_5V1_RAW" (at 74.93 71.12 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "d8072279-1d3b-5acf-aa14-07d230e3369b"))
-(wire (pts (xy 85.09 71.12) (xy 87.63 71.12)) (stroke (width 0) (type default)) (uuid "0e6d5013-5810-5f59-a942-baf4dc7a9133"))
-(label "FUSED_5V1" (at 87.63 71.12 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "546e7a82-67f7-571b-bd23-f4c5f30060ed"))
-(symbol (lib_id "Connector_Generic:Conn_01x02") (at 116.84 71.12 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "53b5660b-1e59-5ec7-ba60-c0815dcd005d") (property "Reference" "J3" (at 116.84 64.77 0) (effects (font (size 1.27 1.27)))) (property "Value" "Pololu 5383 VIN/GND" (at 116.84 77.47 0) (effects (font (size 1.27 1.27)))) (property "Role" "J_RPIN" (at 116.84 80.01 0) (effects (font (size 1.27 1.27)))) (property "Footprint" "picopower-proto:Socket_Samtec_SSQ-102_1x02_P2.54mm_D1.10mm" (at 116.84 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "Datasheet" "" (at 116.84 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "MPN" "Samtec SSQ-102-01-G-S" (at 116.84 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (pin "1" (uuid "d51d8859-2c1a-5908-87e7-ce666c4db642")) (pin "2" (uuid "1a8fbe1d-8499-5033-8e54-1d1a89e4eb41")) (instances (project "interposer" (path "/7e5ae90b-a01d-595d-b70b-2c632c2bbb5e" (reference "J3") (unit 1)))))
-(wire (pts (xy 111.76 71.12) (xy 109.22 71.12)) (stroke (width 0) (type default)) (uuid "45d127c4-9f13-517d-b8f3-3bb47571d3ae"))
-(label "FUSED_5V1" (at 109.22 71.12 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "fa258062-b59c-5278-830e-21c4e1552435"))
-(wire (pts (xy 111.76 73.66) (xy 109.22 73.66)) (stroke (width 0) (type default)) (uuid "f9b1b9e9-d71b-5170-b2a1-f6c1956e0078"))
-(label "BENCH_GND" (at 109.22 73.66 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "54964802-882f-5158-9f5f-320885aa9019"))
-(symbol (lib_id "Connector_Generic:Conn_01x02") (at 157.48 71.12 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "c33c4f77-3392-51c7-89d0-363f3d01ebff") (property "Reference" "J4" (at 157.48 64.77 0) (effects (font (size 1.27 1.27)))) (property "Value" "Pololu 5383 VOUT/GND" (at 157.48 77.47 0) (effects (font (size 1.27 1.27)))) (property "Role" "J_RPOUT" (at 157.48 80.01 0) (effects (font (size 1.27 1.27)))) (property "Footprint" "picopower-proto:Socket_Samtec_SSQ-102_1x02_P2.54mm_D1.10mm" (at 157.48 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "Datasheet" "" (at 157.48 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "MPN" "Samtec SSQ-102-01-G-S" (at 157.48 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (pin "1" (uuid "16ac3622-c366-5d8e-8bcd-35b76b5628f7")) (pin "2" (uuid "48a5c588-c31e-532b-b448-95a710455188")) (instances (project "interposer" (path "/7e5ae90b-a01d-595d-b70b-2c632c2bbb5e" (reference "J4") (unit 1)))))
-(wire (pts (xy 152.40 71.12) (xy 149.86 71.12)) (stroke (width 0) (type default)) (uuid "b2de7780-92b3-57e9-aed4-fa47c9d47830"))
-(label "PROTECTED_5V1" (at 149.86 71.12 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a0d5c8dc-7bb6-5d5e-98b2-c3cca786aa91"))
-(wire (pts (xy 152.40 73.66) (xy 149.86 73.66)) (stroke (width 0) (type default)) (uuid "9789adad-0e0c-57e1-b5c7-f0d2eb405dfd"))
-(label "BENCH_GND" (at 149.86 73.66 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "784e15e1-5aeb-568f-ab5f-14ff8eb85edb"))
+(symbol (lib_id "Device:Q_PMOS") (at 81.28 71.12 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "64215d25-9454-50f9-9913-8e938d5e60b6") (property "Reference" "Q1" (at 81.28 64.77 90) (effects (font (size 1.27 1.27)))) (property "Value" "IPP80P03P4L-04" (at 81.28 80.01 90) (effects (font (size 1.27 1.27)))) (property "Role" "Q_RP" (at 81.28 82.55 90) (effects (font (size 1.27 1.27)))) (property "Footprint" "picopower-proto:TO-220-3_Horizontal_TabDown_GDS_D1.2mm" (at 81.28 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "Datasheet" "" (at 81.28 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "MPN" "Infineon IPP80P03P4L-04 (TO-220, pin 1 G, 2 D, 3 S, tab D)" (at 81.28 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (pin "D" (uuid "bdbebb0f-7ed6-567b-98df-b1fdb968a511")) (pin "G" (uuid "b595bc7b-6be5-5ec2-bbc1-9bd4da733396")) (pin "S" (uuid "c2674466-00b2-5e55-9f26-6953842a84e0")) (instances (project "interposer" (path "/7e5ae90b-a01d-595d-b70b-2c632c2bbb5e" (reference "Q1") (unit 1)))))
+(wire (pts (xy 76.20 68.58) (xy 73.66 68.58)) (stroke (width 0) (type default)) (uuid "67ea1489-f91c-5102-a204-c529abc966af"))
+(label "BENCH_5V1_RAW" (at 73.66 68.58 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "a9e99aa1-38f6-51bf-91f6-130b3107de09"))
+(wire (pts (xy 81.28 76.20) (xy 81.28 78.74)) (stroke (width 0) (type default)) (uuid "ee64ba83-2ec4-5969-bcae-30dd547088b4"))
+(label "Q1_GATE" (at 81.28 78.74 270) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "91ffe52a-0c98-5b18-bf12-ac4e8a56176a"))
+(wire (pts (xy 86.36 68.58) (xy 88.90 68.58)) (stroke (width 0) (type default)) (uuid "e0669685-bacd-55c0-95dd-09208370b6f7"))
+(label "PROTECTED_5V1" (at 88.90 68.58 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "a421b963-bddd-552e-b26c-ac07aa525e3e"))
+(symbol (lib_id "Device:R") (at 81.28 96.52 0) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "33279362-192d-5d81-a598-e21f6e52ee3a") (property "Reference" "R8" (at 81.28 104.14 0) (effects (font (size 1.27 1.27)))) (property "Value" "10k 1%" (at 81.28 106.68 0) (effects (font (size 1.27 1.27)))) (property "Role" "R_RP_GATE" (at 81.28 109.22 0) (effects (font (size 1.27 1.27)))) (property "Footprint" "picopower-proto:R_Axial_L6.5mm_D2.5mm_P2.54mm_Vertical_1.8mm" (at 81.28 96.52 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "Datasheet" "" (at 81.28 96.52 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "MPN" "Vishay MRS25000C1002FCT00" (at 81.28 96.52 0) (effects (font (size 1.27 1.27)) (hide yes))) (pin "1" (uuid "2e268408-db2b-5d82-acee-d74cf424b78c")) (pin "2" (uuid "860d8e73-7ad6-58f8-935b-07d61c75fabe")) (instances (project "interposer" (path "/7e5ae90b-a01d-595d-b70b-2c632c2bbb5e" (reference "R8") (unit 1)))))
+(wire (pts (xy 81.28 92.71) (xy 81.28 90.17)) (stroke (width 0) (type default)) (uuid "0a3be9cc-0bbf-5379-9167-f2b949c2882d"))
+(label "Q1_GATE" (at 81.28 90.17 90) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "4fbcdb1f-cf7b-599a-943b-7e1fb52760a4"))
+(wire (pts (xy 81.28 100.33) (xy 81.28 102.87)) (stroke (width 0) (type default)) (uuid "c8f84b3e-1753-5635-8901-2be016112699"))
+(label "BENCH_GND" (at 81.28 102.87 270) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "5b293d20-2416-5f79-bf81-b848d8ed34e6"))
+(symbol (lib_id "Device:Fuse") (at 127.00 71.12 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "d9a11c72-8cb6-5eef-a6c2-dd62ae13815b") (property "Reference" "F1" (at 127.00 64.77 90) (effects (font (size 1.27 1.27)))) (property "Value" "6.3A F 5x20" (at 127.00 77.47 90) (effects (font (size 1.27 1.27)))) (property "Role" "F1+FH1" (at 127.00 80.01 90) (effects (font (size 1.27 1.27)))) (property "Footprint" "picopower-proto:Fuseholder_Schurter_0031.8201_P22.5mm_D1.35mm" (at 127.00 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "Datasheet" "" (at 127.00 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "MPN" "Littelfuse 021706.3MXP in Schurter 0031.8201.G (FH1)" (at 127.00 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (pin "1" (uuid "72a3dc3b-6261-528a-92cf-0a5e9f981b22")) (pin "2" (uuid "8c0161ad-4e1a-55e9-95d2-6955959831ba")) (instances (project "interposer" (path "/7e5ae90b-a01d-595d-b70b-2c632c2bbb5e" (reference "F1") (unit 1)))))
+(wire (pts (xy 123.19 71.12) (xy 120.65 71.12)) (stroke (width 0) (type default)) (uuid "9f5fe098-636e-5402-ae3f-1af1515278ed"))
+(label "PROTECTED_5V1" (at 120.65 71.12 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "4a6c7dec-e546-51ab-994a-09cc28ee96b0"))
+(wire (pts (xy 130.81 71.12) (xy 133.35 71.12)) (stroke (width 0) (type default)) (uuid "b82419b8-be91-5e57-9443-87a575be4f44"))
+(label "FUSED_5V1" (at 133.35 71.12 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "d3efb0c6-777b-5701-a49f-9a2543313d2e"))
 (symbol (lib_id "Device:R_Shunt") (at 203.20 71.12 90) (unit 1) (exclude_from_sim no) (in_bom yes) (on_board yes) (dnp no) (uuid "c7cb536b-19d4-59e6-baa8-3b50a18535c3") (property "Reference" "R1" (at 203.20 77.47 90) (effects (font (size 1.27 1.27)))) (property "Value" "5m 1% 1W" (at 203.20 80.01 90) (effects (font (size 1.27 1.27)))) (property "Role" "RSH1" (at 203.20 82.55 90) (effects (font (size 1.27 1.27)))) (property "Footprint" "picopower-proto:R_Shunt_Bourns_MSR1_P11.40mm_Kelvin" (at 203.20 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "Datasheet" "" (at 203.20 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (property "MPN" "Bourns MSR1-0R005F1" (at 203.20 71.12 0) (effects (font (size 1.27 1.27)) (hide yes))) (pin "1" (uuid "c0c854e2-8fab-5768-931f-ab607cf0e342")) (pin "2" (uuid "80f820be-81f7-5591-a7e5-ff59856d5626")) (pin "3" (uuid "07590773-3f71-5cf3-9b4b-acc7d67df2d1")) (pin "4" (uuid "78a459ca-1980-50ef-aaca-f169449848fc")) (instances (project "interposer" (path "/7e5ae90b-a01d-595d-b70b-2c632c2bbb5e" (reference "R1") (unit 1)))))
 (wire (pts (xy 198.12 71.12) (xy 195.58 71.12)) (stroke (width 0) (type default)) (uuid "2ae55de1-1f94-5fff-9236-2d35b65549cc"))
-(label "PROTECTED_5V1" (at 195.58 71.12 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "c76a8248-17e3-5f3e-b868-032d8f19dd35"))
+(label "FUSED_5V1" (at 195.58 71.12 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "6eb01e8f-37fc-5f6b-bd37-22aa29981498"))
 (wire (pts (xy 200.66 68.58) (xy 200.66 66.04)) (stroke (width 0) (type default)) (uuid "b649eb72-4243-55cb-b972-1404fd0c6b8c"))
 (label "KELVIN_PLUS_SRC" (at 200.66 66.04 90) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "323d3951-8a07-5883-b59e-fd8ee74f5e36"))
 (wire (pts (xy 205.74 68.58) (xy 205.74 66.04)) (stroke (width 0) (type default)) (uuid "257530d0-cc5c-5b72-8299-7e80fa4c4821"))
@@ -2746,8 +2896,8 @@
 (wire (pts (xy 330.20 121.92) (xy 327.66 121.92)) (stroke (width 0) (type default)) (uuid "533226aa-24aa-5446-8e7f-47ab89200ee1"))
 (label "BENCH_GND" (at 327.66 121.92 180) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "07a5d669-3562-5bd2-945e-627aa5383276"))
 (text "INTERPOSER - power path and observation taps (generated by gen_interposer_sch.py; do not edit by hand)" (exclude_from_sim no) (at 20.32 25.40 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "86e5deca-611a-5425-9411-666a55ecceba"))
-(text "DUT current path: J1 -> F1 (cartridge in Schurter holder FH1) -> Pololu 5383 on J3/J4 -> R1 shunt -> J2 pins 2/4 -> Pi -> J2 GND pins -> J1 pin 2" (exclude_from_sim no) (at 20.32 30.48 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "b32b5c87-251d-5292-8ac1-9e68dfd94a1c"))
-(text "Everything upstream of R1 pin 1 is outside the DUT measurement. Pololu 5383 plugs into J3/J4 via TSW-102-07-G-S headers (module not on this board)." (exclude_from_sim no) (at 20.32 35.56 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "798101a7-9706-5dab-9b26-cfd0bd7aa848"))
+(text "DUT current path: J1 -> Q1 (P-MOSFET reverse-polarity switch) -> F1 (cartridge in Schurter holder FH1) -> R1 shunt -> J2 pins 2/4 -> Pi -> J2 GND pins -> J1 pin 2" (exclude_from_sim no) (at 20.32 30.48 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "299e0efd-b0f1-5032-96d0-51f50d645b2c"))
+(text "Everything upstream of R1 pin 1 is outside the DUT measurement. Q1 conducts only with correct bench polarity (gate held at ground by R8); it does not block reverse current from the Pi side." (exclude_from_sim no) (at 20.32 35.56 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "61f5ed3b-5b28-5790-abb6-0a7fd542126d"))
 (text "R1 pins 2/3 are separate Kelvin pickups at the shunt lead pads; route KELVIN_* as a coupled pair, never through the 5A copper." (exclude_from_sim no) (at 20.32 40.64 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "a72dafe0-8fa8-5353-bcb1-99b02f7b4be8"))
 (text "Observation resistors sit at the source, before the exposed cable (docs/sense-interface-options.md). C_SENSE_DIFF (100nF) is on the carrier." (exclude_from_sim no) (at 20.32 86.36 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "775694b2-b0ed-5f27-a6f4-599b30808d74"))
 (text "NT1 / NT2: tie MEAS_GND_REF and SIGNAL_GND to BENCH_GND at one point next to the Pi-header ground pins." (exclude_from_sim no) (at 20.32 91.44 0) (effects (font (size 1.524 1.524)) (justify left bottom)) (uuid "77d23468-612b-5e8c-99e7-2a597f3b5619"))

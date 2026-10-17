@@ -21,8 +21,8 @@ KiCad requires numbered references, so the schematic uses conventional designato
 |---|---|---|---|
 | J1 | J_POWER | Würth 691137710002 | 1 BENCH_5V1_RAW, 2 BENCH_GND |
 | F1 | F1 + FH1 | Littelfuse 021706.3MXP in Schurter 0031.8201.G | BENCH_5V1_RAW → FUSED_5V1 |
-| J3 | J_RPIN | Samtec SSQ-102-01-G-S (Pololu 5383 VIN side) | 1 FUSED_5V1, 2 BENCH_GND |
-| J4 | J_RPOUT | Samtec SSQ-102-01-G-S (Pololu 5383 VOUT side) | 1 PROTECTED_5V1, 2 BENCH_GND |
+| Q1 | Q_RP | Infineon IPP80P03P4L-04, P-MOSFET, TO-220 (pin 1 G, 2 D, 3 S, tab D) | D BENCH_5V1_RAW, S PROTECTED_5V1, G Q1_GATE |
+| R8 | R_RP_GATE | Vishay MRS25000C1002FCT00, 10 kΩ | Q1_GATE → BENCH_GND |
 | R1 | RSH1 | Bourns MSR1-0R005F1 (`Device:R_Shunt`, 4-pin) | 1 PROTECTED_5V1, 4 DUT_5V_POST_SHUNT; Kelvin 2 KELVIN_PLUS_SRC, 3 KELVIN_MINUS_SRC |
 | R2, R3 | R_SENSE_PLUS, R_SENSE_MINUS | Vishay PR01000108209JR500, 82 Ω | Kelvin source → SHUNT_KELVIN_PLUS / MINUS |
 | R4 | R_VBUS | Vishay PR01000108209JR500, 82 Ω | DUT_5V_POST_SHUNT → DUT_VBUS_SENSE |
@@ -33,7 +33,7 @@ KiCad requires numbered references, so the schematic uses conventional designato
 | NT1, NT2 | NT_MEAS, NT_SIG | KiCad net ties | BENCH_GND ↔ MEAS_GND_REF; BENCH_GND ↔ SIGNAL_GND |
 | J2 | J2 | Adafruit 2223 stacking socket | 2/4 DUT_5V_POST_SHUNT; 6/9/14/20/25/30/34/39 BENCH_GND; 8, 10, 16 UART/marker; all other pins pass straight through (no-connect on this board) |
 
-The Pololu 5383 module itself is not a board component; it plugs into J3/J4 on its own TSW-102-07-G-S headers.
+Revision 2026-10-17: the Pololu 5383 module and its sockets were replaced by Q1 + R8 at the owner's request (Farnell availability). Order is now J1 → Q1 → F1 → R1. With correct bench polarity the body diode conducts first, then the gate (held at ground by R8) is 5 V below the source and Q1 turns fully on. With reversed bench leads Q1 stays off. Unlike the Pololu ideal diode, Q1 does not block current flowing back from the Pi side; do not power the Pi from its USB-C input at the same time.
 
 ## Design choices made in capture
 

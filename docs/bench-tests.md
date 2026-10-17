@@ -6,11 +6,11 @@ Status: **plan only — nothing here has been performed.** Energizing hardware r
 
 1. Do all continuity checks in `docs/soldering-interposer.md`.
 2. Set the Korad U202 to 5.1 V and its current limit to about 0.1 A, output off. Connect J1 (+ to +), then switch on.
-3. Measure J2 pin 2 and pin 4 to pin 6: expect close to 5.1 V (no load). Supply current should be the Pololu module's quiescent current only.
+3. Measure J2 pin 2 and pin 4 to pin 6: expect close to 5.1 V (no load). Supply current should be close to zero (no load is connected; Q1's gate draws no steady current).
 4. Measure across J5 pin 1 and pin 2: expect about 0 mV (no load).
 5. Measure J5 pin 3 to pin 4: expect about the J2 pin 2 voltage.
-6. Switch off. Reverse the bench leads at J1, limit 0.1 A, switch on briefly: J2 pin 2 must stay at about 0 V (reverse protection). Switch off and restore polarity.
-7. With a known dummy load on J2 pins 2/4 to ground (not the Pi), raise the load in steps toward the 5 A design target, current limit set just above each step. At each step record: supply voltage, J2 pin 2 voltage, voltage across R1 (J5 pins 1–2), and temperature of F1, R1, J3/J4 after it settles. Compare the drop with the calculated values in `docs/interposer-layout.md`; stop if anything exceeds its rating or gets hot to the touch.
+6. Switch off. Reverse the bench leads at J1, limit 0.1 A, switch on briefly: J2 pin 2 must stay at about 0 V and the supply current near zero (Q1 off). Note: Q1 does not block current flowing back from the Pi side. Switch off and restore polarity.
+7. With a known dummy load on J2 pins 2/4 to ground (not the Pi), raise the load in steps toward the 5 A design target, current limit set just above each step. At each step record: supply voltage, J2 pin 2 voltage, voltage across R1 (J5 pins 1–2), and temperature of F1, R1 and Q1 after it settles. Compare the drop with the calculated values in `docs/interposer-layout.md`; stop if anything exceeds its rating or gets hot to the touch.
 
 ## B. Carrier alone (Pico on its own USB charger, interposer not connected)
 

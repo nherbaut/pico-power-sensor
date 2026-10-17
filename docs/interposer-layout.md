@@ -12,8 +12,8 @@ Stepped outline (0,0)–(66,0)–(66,37)–(67.13,37)–(67.13,46)–(0,46); NPT
 
 | Area | Parts | Why |
 |---|---|---|
-| Top edge, right to left | J1 bench terminal (wire entry at the right edge), F1 fuse holder, Pololu module sockets J3 (VIN) / J4 (VOUT) | The 5 A path runs right to left along the top so it ends near Pi header pins 2/4, which are at the left end of the header. Fuse and terminal are at the board edge for access |
-| Left column | R1 shunt, standing vertically | Shortest path from the Pololu output to Pi pins 2/4; Kelvin pickups at the inner edge of each lead pad, current enters/leaves from the outer side |
+| Right edge and top, right to left | J1 bench terminal (wire entry at the right edge), Q1 P-MOSFET lying flat below J1 (leads at the top, body toward the header), R8 gate resistor below Q1, F1 fuse holder | Order J1 → Q1 → F1 → R1 (owner decision 2026-10-17 replacing the Pololu 5383). The 5 A path then runs right to left along the top to the shunt near Pi pins 2/4. Fuse and terminal stay at the board edge for access |
+| Left column | R1 shunt, standing vertically | Shortest path from the fuse output to Pi pins 2/4; Kelvin pickups at the inner edge of each lead pad, current enters/leaves from the outer side |
 | Centre | R2/R3 (Kelvin 82 Ω), R4 (VBUS 82 Ω), J5 sense connector | Observation resistors sit at the source, before the cable. Kelvin pair routed side by side to J5 |
 | Above the header | R5/R6 (470 Ω), R7 (100 kΩ), J6 UART connector | Short runs from Pi pins 8, 10, 16 |
 | Next to header pins 30 and 34 | NT2 (SIGNAL_GND), NT1 (MEAS_GND_REF) | The two cable grounds join bench ground at one point beside the Pi ground pins |
@@ -33,19 +33,19 @@ A top-layer bench-ground fill (lowest priority) covers all free top copper and a
 
 | Path | Result |
 |---|---|
-| J1+ → F1 | 0.43 mΩ |
-| F1 → J3 VIN | 0.65 mΩ |
-| J4 VOUT → R1 | 1.05 mΩ |
+| J1+ → Q1 drain | 1.96 mΩ |
+| Q1 source → F1 | 1.46 mΩ |
+| F1 → R1 | 1.58 mΩ |
 | R1 → J2 pin 2 / pin 4 | 0.96 / 1.20 mΩ |
-| J1− → Pi ground pins 6, 9, 14, 20, 25, 30, 34, 39 | 1.35, 2.80, 1.35, 1.34, 2.55, 0.84, 0.68, 0.89 mΩ |
+| J1− → Pi ground pins 6, 9, 14, 20, 25, 30, 34, 39 | 1.49, 2.95, 1.35, 1.18, 2.75, 0.97, 0.89, 1.18 mΩ |
 
-All pass. Positive copper ≈ 3.1 mΩ, about 16 mV at 5 A. Pins 9 and 25 (inner row, hemmed in by neighbouring pads) have the least margin. Run note: the guard reads KiCad 10 net syntax, so it was run on a scratch copy whose numeric `(net N)` references were rewritten to `(net "name")` (same geometry), in the venv `~/.venvs/kicad-tools` (shapely 2.1.2, scipy 1.15.3). At its default 0.2 mm grid the 0.25–0.3 mm tracks rasterize as disconnected; 0.05 mm was used.
+All pass (revision with Q1, 2026-10-17; raw output in `hardware/kicad/interposer/copper-resistance.txt`). Positive copper ≈ 6.0 mΩ, about 30 mV at 5 A, plus Q1's own on-resistance (≈ 4–6 mΩ, datasheet-based estimate, not measured). Two branches have little margin: J1+ → Q1 drain (0.04 mΩ, the neck between J1's ground pin and the fuse holder) and Pi ground pin 9 (0.05 mΩ, an inner-row pin hemmed in by neighbouring pads). Ground stitching vias and a 0.25 mm ground-pour clearance were added to reach this. Run note: the guard reads KiCad 10 net syntax, so it was run on a scratch copy whose numeric `(net N)` references were rewritten to `(net "name")` (same geometry), in the venv `~/.venvs/kicad-tools` (shapely 2.1.2, scipy 1.15.3). At its default 0.2 mm grid the 0.25–0.3 mm tracks rasterize as disconnected; 0.05 mm was used.
 
 ## Verification
 
 | Check | Result |
 |---|---|
-| `kicad-cli pcb drc --severity-all --schematic-parity --exit-code-violations` | 0 violations, 0 unconnected, parity: 6 `footprint_filters_mismatch` warnings only (project library names do not match the stock symbols' filter patterns; expected) |
+| `kicad-cli pcb drc --severity-all --schematic-parity --exit-code-violations` | 0 violations, 0 unconnected, parity: 4 `footprint_filters_mismatch` warnings only (project library names do not match the stock symbols' filter patterns; expected) |
 | Severity map | The generator promotes `pth_inside_courtyard`, `npth_inside_courtyard`, `missing_courtyard` to error and the footprint filter/type checks to warning; KiCad's stock project ignores them |
 | Copper collision audit (`kicad_copper_collisions.py`) | 2 contacts, both intended: R1 pad 1↔2 and pad 3↔4, the Kelvin pickups declared as net-tie pad groups in the shunt footprint |
 | Render review | Front copper/silk and back copper rendered and inspected by Claude |
@@ -57,13 +57,13 @@ The interposer plugs onto the Pi with the Adafruit 2223 stacking socket undernea
 
 | Part | Height above the interposer |
 |---|---|
-| Pololu 5383 on SSQ sockets | about 13.5 mm (docs/power-connector-options.md stack model) |
+| Q1 lying flat | about 4.5 mm (TO-220 body thickness) |
 | Schurter fuse holder with cover | about 12.7 mm |
 | Würth bench terminal | about 11.5 mm (drawing) |
 | JST XH header with mated housing | about 9–10 mm (estimate) |
 | MSR1 shunt | up to 7.6 mm (datasheet 5.1 ± 2.5 mm) |
 
-So the board works without a HAT, but an AI HAT cannot sit directly on it. **Owner decision 2026-10-17 ("yes"): raise the HAT.** Plug a second Adafruit 2223 onto the interposer's J2 pins as an extender and mount the HAT on it with longer M2.5 stand-offs. Estimated HAT gap becomes about 17 mm (two socket heights) against about 13.5 mm for the tallest part, a margin of about 3.5 mm. These are drawing estimates; the stack and stand-off lengths must be measured after first assembly. No board change is needed. Both items are in the BOM.
+So the board works without a HAT, but an AI HAT cannot sit directly on it. **Owner decision 2026-10-17 ("yes"): raise the HAT.** Plug a second Adafruit 2223 onto the interposer's J2 pins as an extender and mount the HAT on it with longer M2.5 stand-offs. Estimated HAT gap becomes about 17 mm (two socket heights) against about 12.7 mm for the tallest part now that the Pololu module is gone (fuse holder), a margin of about 4 mm. These are drawing estimates; the stack and stand-off lengths must be measured after first assembly. No board change is needed. Both items are in the BOM.
 
 ## Open items
 

@@ -214,6 +214,21 @@ def main():
     set_pads(fp, 0.9, 1.8)
     save(fp, "C_Radial_KEMET_C315_P2.54mm", "KEMET C315 radial ceramic, 2.54 mm pitch; body assumed 3.8 x 2.6 mm")
 
+    # Infineon IPP80P03P4L-04 (PG-TO220-3) lying flat, tab down. Pads renamed to
+    # the symbol's pin names: 1 = G, 2 = D, 3 = S (Infineon TO-220 pinout; tab = D).
+    # Drill 1.2 mm: maximum lead diagonal about 1.05 mm (0.86 x 0.6 mm). Tab
+    # mounting hole removed (no screw; dissipation below 0.2 W).
+    fp = load(KLIB / "Package_TO_SOT_THT.pretty", "TO-220-3_Horizontal_TabDown")
+    for p in list(fp.Pads()):
+        if p.GetAttribute() == pcbnew.PAD_ATTRIB_NPTH:
+            fp.Remove(p)
+    names = {"1": "G", "2": "D", "3": "S"}
+    for p in fp.Pads():
+        p.SetNumber(names[p.GetNumber()])
+    set_pads(fp, 1.2, 2.0)
+    save(fp, "TO-220-3_Horizontal_TabDown_GDS_D1.2mm",
+         "TO-220-3 lying flat, tab down, pads G/D/S, 1.2 mm drill (needs owner hole exception)")
+
     # Three wire pads for the MikroE analog leads.
     fp = new_fp("WirePads_1x03_P3.81mm_D1.0mm", "")
     for i in range(3):
