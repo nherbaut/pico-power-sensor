@@ -44,7 +44,7 @@ Five red LEDs (LED1–LED5) at the right edge are driven by Pico pins GP28, GP27
 ### 6. Physical arrangement
 
 - The Pico, the monitor module and the microSD module all plug into sockets, so a damaged module can be swapped without desoldering.
-- The monitor module sits above the buffer chip. The microSD module hangs under the board, so the carrier needs standoffs taller than that module.
+- The microSD module and the buffer chip U1 are on the back of the board; nothing sits under the monitor module. The carrier needs standoffs taller than the back-side parts.
 - The two JST cable connectors are on the left edge, facing the interposer.
 
 ### 7. Typical measurement sequence (firmware, not yet written)

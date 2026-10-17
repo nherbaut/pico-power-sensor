@@ -1,20 +1,20 @@
 check_id,board,check,evidence,result,reviewer,date,design_hash
-ERC-I,interposer,"KiCad ERC, all severities",hardware/kicad/interposer/erc.rpt,PASS 0 violations,Claude,2026-10-17,0ec410271e2e4b52
-ERC-C,carrier,"KiCad ERC, all severities",hardware/kicad/carrier/erc.rpt,PASS 0 violations,Claude,2026-10-17,0ec410271e2e4b52
-DRC-I,interposer,"KiCad DRC, all severities, courtyard checks promoted",hardware/kicad/interposer/drc.rpt,PASS 0 violations 0 unconnected,Claude,2026-10-17,0ec410271e2e4b52
-DRC-C,carrier,"KiCad DRC, all severities, courtyard checks promoted",hardware/kicad/carrier/drc.rpt,PASS 0 violations 0 unconnected,Claude,2026-10-17,0ec410271e2e4b52
-PAR-I,interposer,Schematic-to-board parity,hardware/kicad/interposer/drc.rpt,PASS (6 footprint-filter naming warnings),Claude,2026-10-17,0ec410271e2e4b52
-PAR-C,carrier,Schematic-to-board parity,hardware/kicad/carrier/drc.rpt,PASS (8 footprint-filter naming warnings),Claude,2026-10-17,0ec410271e2e4b52
-CU-I,interposer,Copper collision audit,docs/interposer-layout.md,PASS (2 intended net-tie contacts at R1),Claude,2026-10-17,0ec410271e2e4b52
-CU-C,carrier,Copper collision audit,docs/carrier-layout.md,PASS 0 collisions,Claude,2026-10-17,0ec410271e2e4b52
-RES-I,interposer,DC copper resistance guard on 5 A path,docs/interposer-layout.md,"PASS 13/13 branches (positive 3.1 mOhm total; ground worst 2.80 mOhm, limit 3)",Claude,2026-10-17,0ec410271e2e4b52
-FP,both,Footprint review against drawings,docs/footprint-review.md,PARTIAL - documentary; test fit with delivered parts open,Claude,2026-10-17,0ec410271e2e4b52
-PARTS,both,"Parts review (lifecycle, lead fit, headers)",hardware/bom.csv,PARTIAL - see qualification columns,,2026-10-17,0ec410271e2e4b52
-MECH-HAT,interposer,AI HAT stacking clearance,docs/interposer-layout.md,MITIGATION SELECTED - HAT extender + longer standoffs (owner yes 2026-10-17); fit unmeasured,,2026-10-17,0ec410271e2e4b52
-MECH-COOL,interposer,Active Cooler clearance under interposer,,OPEN,,2026-10-17,0ec410271e2e4b52
-MECH-C,carrier,"Module stack, U1 under MikroE, standoffs",docs/carrier-layout.md,OPEN,,2026-10-17,0ec410271e2e4b52
-HOLES,both,Fabricator finished-hole tolerance for scoped exceptions,AGENTS.md,OPEN,,2026-10-17,0ec410271e2e4b52
-SOLDER,both,Soldering guides,docs/soldering-interposer.md; docs/soldering-carrier.md,DRAFTED,Claude,2026-10-17,0ec410271e2e4b52
-BENCH,both,Bench tests A-D,docs/bench-tests.md,NOT RUN,,2026-10-17,0ec410271e2e4b52
-HUMAN,both,Independent human review of schematics and layout,,OPEN,,2026-10-17,0ec410271e2e4b52
+ERC-I,interposer,"KiCad ERC, all severities",hardware/kicad/interposer/erc.rpt,PASS 0 violations,Claude,2026-10-17,e566cae1446cf1ca
+ERC-C,carrier,"KiCad ERC, all severities",hardware/kicad/carrier/erc.rpt,PASS 0 violations,Claude,2026-10-17,e566cae1446cf1ca
+DRC-I,interposer,"KiCad DRC, all severities, courtyard checks promoted",hardware/kicad/interposer/drc.rpt,PASS 0 violations 0 unconnected,Claude,2026-10-17,e566cae1446cf1ca
+DRC-C,carrier,"KiCad DRC, all severities, courtyard checks promoted",hardware/kicad/carrier/drc.rpt,PASS 0 violations 0 unconnected,Claude,2026-10-17,e566cae1446cf1ca
+PAR-I,interposer,Schematic-to-board parity,hardware/kicad/interposer/drc.rpt,PASS (6 footprint-filter naming warnings),Claude,2026-10-17,e566cae1446cf1ca
+PAR-C,carrier,Schematic-to-board parity,hardware/kicad/carrier/drc.rpt,PASS (8 footprint-filter naming warnings),Claude,2026-10-17,e566cae1446cf1ca
+CU-I,interposer,Copper collision audit,docs/interposer-layout.md,PASS (2 intended net-tie contacts at R1),Claude,2026-10-17,e566cae1446cf1ca
+CU-C,carrier,Copper collision audit,docs/carrier-layout.md,PASS 0 collisions,Claude,2026-10-17,e566cae1446cf1ca
+RES-I,interposer,DC copper resistance guard on 5 A path,docs/interposer-layout.md,"PASS 13/13 branches (positive 3.1 mOhm total; ground worst 2.80 mOhm, limit 3)",Claude,2026-10-17,e566cae1446cf1ca
+FP,both,Footprint review against drawings,docs/footprint-review.md,PARTIAL - documentary; test fit with delivered parts open,Claude,2026-10-17,e566cae1446cf1ca
+PARTS,both,"Parts review (lifecycle, lead fit, headers)",hardware/bom.csv,PARTIAL - see qualification columns,,2026-10-17,e566cae1446cf1ca
+MECH-HAT,interposer,AI HAT stacking clearance,docs/interposer-layout.md,MITIGATION SELECTED - HAT extender + longer standoffs (owner yes 2026-10-17); fit unmeasured,,2026-10-17,e566cae1446cf1ca
+MECH-COOL,interposer,Active Cooler clearance under interposer,,OPEN,,2026-10-17,e566cae1446cf1ca
+MECH-C,carrier,"Module stack, U1 under MikroE, standoffs",docs/carrier-layout.md,OPEN - U1/C2 and microSD on back; standoff height and back-side fit to check,,2026-10-17,e566cae1446cf1ca
+HOLES,both,Fabricator finished-hole tolerance for scoped exceptions,AGENTS.md,OPEN,,2026-10-17,e566cae1446cf1ca
+SOLDER,both,Soldering guides,docs/soldering-interposer.md; docs/soldering-carrier.md,DRAFTED,Claude,2026-10-17,e566cae1446cf1ca
+BENCH,both,Bench tests A-D,docs/bench-tests.md,NOT RUN,,2026-10-17,e566cae1446cf1ca
+HUMAN,both,Independent human review of schematics and layout,,OPEN,,2026-10-17,e566cae1446cf1ca
 # design_hash = first 16 hex of sha256 over: both .kicad_sch, both .kicad_pcb, hardware/kicad/gen_*.py, pcblib.py, gridroute.py and the project .kicad_mod files, concatenated in shell glob order. Any change makes these rows stale.

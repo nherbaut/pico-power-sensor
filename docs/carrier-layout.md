@@ -14,7 +14,7 @@ Source of truth: `hardware/kicad/gen_carrier_pcb.py`, which places every part an
 |---|---|---|
 | Pico sockets J1/J2 (front) | Pico 2 WH | J2 is rotated 180° so its pin 1 is Pico pin 21 at the bottom |
 | Front, left of the Pico | MikroE sockets J3/J4 | Module sits about 11 mm above the board |
-| Under the MikroE module, front | U1 (DIP-14 socket), C2 | Socket plus IC is about 8 mm tall; module PCB about 11 mm up. Remove the MikroE to reach U1 |
+| Back, under the lower half of the MikroE position | U1 (DIP-14 socket), C2 | Moved from the front at the owner's request (2026-10-17) so nothing sits under the MikroE module. Pins 1–7 at x = 20.62 mm, pins 8–14 at x = 13 mm, y = 26–41.24 mm. Lateral gap to the microSD module envelope (y ≤ 23.9 mm) about 0.5 mm at courtyard level; check with the delivered module |
 | Back, under the MikroE area | microSD socket J5 | Header row at y = 21.32 mm, pin 1 at x = 31.36 mm; card slot faces the top edge |
 | Top edge | J6 wire pads, C1 | Short wires from J6 to the MikroE IN1+, IN1−, IN2 VBUS screw terminals; C1 across the Kelvin pair right there |
 | Left edge | J7 sense, J8 UART | Cables leave to the left toward the interposer |
@@ -38,4 +38,4 @@ Signals 0.25 mm, INSTR_3V3 and routed ground 0.4 mm, vias 0.6 / 0.3 mm. Instrume
 
 - Stand-off height must exceed the back-mounted microSD stack (socket 8.5 mm plus module) when the carrier sits on the bench.
 - Actual MikroE screw-terminal order before wiring J6; header mating checks from `docs/carrier-socket-options.md`.
-- U1 under the MikroE module: confirm the clearance with the delivered module.
+- Back side now carries the microSD module and U1/C2: standoffs must clear both (socket + IC about 8 mm; microSD stack about 8.5 mm plus module).

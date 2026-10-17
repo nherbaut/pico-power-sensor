@@ -41,8 +41,10 @@ def place(bd):
     bd.place("C1", 24.5, 2.5)                    # sense differential 100n
     bd.place("J7", 3.5, 22.0, rot=90)            # sense cable, pins upward
     bd.place("J8", 3.5, 40.0, rot=90)            # UART cable, pins upward
-    bd.place("U1", 13.0, 26.0)                   # SN74LV125AN socket, under the MikroE module
-    bd.place("C2", 24.5, 26.0, rot=270)          # U1 bypass next to pin 14
+    # SN74LV125AN socket on the BACK (owner request 2026-10-17: no part under the
+    # MikroE module). Rot 180 on the back puts pins 1-7 at x 20.62 and 8-14 at x 13.
+    bd.place("U1", 20.62, 26.0, rot=180, back=True)
+    bd.place("C2", 24.5, 26.0, rot=270, back=True)   # U1 bypass, back side
     for k, ref in enumerate(["R1", "R2", "R3", "R4", "R5"]):
         bd.place(ref, 36.0, UART_R_ROWS[k])      # standing resistors, gap strip
     for k in range(5):
@@ -197,7 +199,7 @@ def main():
                 clearance=0.3, spoke=0.5)
 
     T = bd.text
-    for ref in ("H1", "H2", "H3", "H4", "J1", "J2", "J6", "J7", "J8", "C1"):
+    for ref in ("H1", "H2", "H3", "H4", "J1", "J2", "J6", "J7", "J8", "C1", "C2"):
         bd.ref_at(ref, hide=True)
     for k in range(5):
         bd.ref_at(f"R{6 + k}", hide=True)
@@ -205,7 +207,7 @@ def main():
         T(f"LED{k + 1}", 70.0, LED_ROWS[k] - 2.0, 0.8)
         bd.ref_at(f"R{k + 1}", 41.4, UART_R_ROWS[k])
     # Pour spokes cannot form at these ground pads; they are also tied by routed copper.
-    for ref, pad in (("U1", "7"), ("J1", "8"), ("R2", "2"), ("J4", "1"), ("J5", "2")):
+    for ref, pad in (("U1", "7"), ("J1", "8"), ("J1", "13"), ("R2", "2"), ("J3", "8"), ("J4", "1"), ("J5", "2")):
         bd.solid_pads(ref, {pad})
     T("J7 SENSE", 3.6, 10.6, 0.8)
     T("J8 UART", 3.6, 26.2, 0.8)
@@ -214,6 +216,8 @@ def main():
     T("PICO 2 WH", 52.9, 27.0, 1.0, rot=90)
     T("MIKROE-4810 ABOVE", 21.0, 47.2, 0.8)
     T("SD ON BACK", 21.0, 18.6, 0.8)
+    T("U1 C2 ON BACK", 16.8, 44.6, 0.8)
+    T("C2", 27.0, 27.27, 0.8, layer=pcbnew.B_SilkS)
     T("picopower-proto carrier r1", 52.9, 27.0, 0.8, layer=pcbnew.B_SilkS, rot=90)
     bd.fill_and_save(OUT)
     print("wrote", OUT)
