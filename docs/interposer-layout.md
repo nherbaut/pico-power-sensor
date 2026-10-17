@@ -27,7 +27,19 @@ VBUS for the monitor is picked up at Pi header pin 4 itself, on a thin bottom-la
 - Signals 0.3 mm. Stackup assumed: 2 layers, 1.6 mm FR-4, 1 oz (35 µm) copper both sides. This is an assumption to confirm with the chosen fabricator.
 - Ground: bottom-layer pour; the eight Pi ground pins use solid (not thermal) connections because the 2.54 mm pitch leaves no room for thermal spokes. Expect to need more iron heat on those joints.
 
-**Calculated track resistance, tracks only (pours add parallel copper, not counted):** raw 1.5 mΩ, fused 1.7 mΩ, protected 2.4 mΩ, DUT 5 V 3.6 mΩ; sum 9.2 mΩ, i.e. about 46 mV and 0.23 W at 5 A. Basis: ρ = 1.72×10⁻⁸ Ω·m, 35 µm, 20 °C, length/width of each saved track; this is a calculation, not a measurement, and the pours should lower it. The skill's copper-resistance guard (`copper_guards.py resistance`) could not run: it needs `shapely` and `scipy` in KiCad's Python, which are not installed. That gate is **open**.
+A top-layer bench-ground fill (lowest priority) covers all free top copper and adds return paths to the Pi ground pins.
+
+**DC copper resistance, `copper_guards.py resistance` (calculation from the saved, filled board; not a measurement).** 1 oz, 20 °C, 0.05 mm grid, 0.2 mΩ per plated-hole site. Bounds: 2 mΩ per positive segment (10 mV at 5 A) and 3 mΩ per ground branch, chosen against the provisional 100 mV whole-path budget before running.
+
+| Path | Result |
+|---|---|
+| J1+ → F1 | 0.43 mΩ |
+| F1 → J3 VIN | 0.65 mΩ |
+| J4 VOUT → R1 | 1.05 mΩ |
+| R1 → J2 pin 2 / pin 4 | 0.96 / 1.20 mΩ |
+| J1− → Pi ground pins 6, 9, 14, 20, 25, 30, 34, 39 | 1.35, 2.80, 1.35, 1.34, 2.55, 0.84, 0.68, 0.89 mΩ |
+
+All pass. Positive copper ≈ 3.1 mΩ, about 16 mV at 5 A. Pins 9 and 25 (inner row, hemmed in by neighbouring pads) have the least margin. Run note: the guard reads KiCad 10 net syntax, so it was run on a scratch copy whose numeric `(net N)` references were rewritten to `(net "name")` (same geometry), in the venv `~/.venvs/kicad-tools` (shapely 2.1.2, scipy 1.15.3). At its default 0.2 mm grid the 0.25–0.3 mm tracks rasterize as disconnected; 0.05 mm was used.
 
 ## Verification
 
@@ -37,7 +49,7 @@ VBUS for the monitor is picked up at Pi header pin 4 itself, on a thin bottom-la
 | Severity map | The generator promotes `pth_inside_courtyard`, `npth_inside_courtyard`, `missing_courtyard` to error and the footprint filter/type checks to warning; KiCad's stock project ignores them |
 | Copper collision audit (`kicad_copper_collisions.py`) | 2 contacts, both intended: R1 pad 1↔2 and pad 3↔4, the Kelvin pickups declared as net-tie pad groups in the shunt footprint |
 | Render review | Front copper/silk and back copper rendered and inspected by Claude |
-| DC copper resistance guard | Not run (missing Python packages) |
+| DC copper resistance guard | PASS on all 13 power branches (table above) |
 
 ## Stacking height: blocking finding for the AI HAT case
 

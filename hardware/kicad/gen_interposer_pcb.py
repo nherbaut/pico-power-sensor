@@ -92,11 +92,17 @@ def main():
     # filler keeps clearance from other nets (J3/J4 GND, Kelvin pickups, H1).
     Z = bd.zone
     F = pcbnew.F_Cu
-    Z("/BENCH_5V1_RAW", F, [(50.5, 0.5), (65.5, 0.5), (65.5, 7.2), (50.5, 9.5)], spoke=1.0)
-    Z("/FUSED_5V1", F, [(21.6, 7.4), (21.6, 11.2), (33.5, 11.2), (33.5, 1.0), (26.5, 1.0), (26.5, 7.4)], spoke=1.0)
-    Z("/PROTECTED_5V1", F, [(2.5, 7.4), (16.2, 7.4), (16.2, 11.2), (9.6, 11.2), (9.6, 15.4), (2.5, 15.4)], spoke=1.0)
+    Z("/BENCH_5V1_RAW", F, [(50.5, 0.5), (65.5, 0.5), (65.5, 7.2), (50.5, 9.5)], spoke=1.0, priority=1)
+    Z("/FUSED_5V1", F, [(21.6, 7.4), (21.6, 11.2), (33.5, 11.2), (33.5, 1.0), (26.5, 1.0), (26.5, 7.4)], spoke=1.0, priority=1)
+    Z("/PROTECTED_5V1", F, [(2.5, 7.4), (16.2, 7.4), (16.2, 11.2), (9.6, 11.2), (9.6, 15.4), (2.5, 15.4)], spoke=1.0, priority=1)
     Z("/DUT_5V_POST_SHUNT", F, [(2.5, 25.9), (10.0, 25.9), (10.0, 34.0), (14.2, 38.0), (14.2, 41.0),
-                                 (2.5, 41.0)], spoke=1.0)
+                                 (2.5, 41.0)], spoke=1.0, priority=1)
+
+    # ---------------------------------------------------------- top ground fill
+    # Lowest priority: fills the free top copper and adds parallel return copper
+    # to the Pi ground pins (the per-pin copper-resistance check needed it).
+    bd.zone("/BENCH_GND", F, [(0.3, 0.3), (65.7, 0.3), (65.7, 37.3), (66.83, 37.3),
+                               (66.83, 45.7), (0.3, 45.7)], priority=0)
 
     # ---------------------------------------------------------- ground plane (bottom)
     bd.zone("/BENCH_GND", pcbnew.B_Cu, [(0.3, 0.3), (65.7, 0.3), (65.7, 37.3), (66.83, 37.3),
