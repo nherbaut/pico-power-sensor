@@ -17,4 +17,4 @@ HOLES,both,Fabricator finished-hole tolerance for scoped exceptions,AGENTS.md,OP
 SOLDER,both,Soldering guides,docs/soldering-interposer.md; docs/soldering-carrier.md,DRAFTED,Claude,2026-10-17,0ec410271e2e4b52
 BENCH,both,Bench tests A-D,docs/bench-tests.md,NOT RUN,,2026-10-17,0ec410271e2e4b52
 HUMAN,both,Independent human review of schematics and layout,,OPEN,,2026-10-17,0ec410271e2e4b52
-
+# design_hash = first 16 hex of sha256 over: both .kicad_sch, both .kicad_pcb, hardware/kicad/gen_*.py, pcblib.py, gridroute.py and the project .kicad_mod files, concatenated in shell glob order. Any change makes these rows stale.
