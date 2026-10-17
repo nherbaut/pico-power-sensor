@@ -14,13 +14,13 @@ Date: 2026-10-16. Status: documentary implementation plan within parts selection
 | Monitor SCL | GP5 | 7 | I2C0 SCL → MikroE pin 12 |
 | Monitor alert | GP6 | 9 | SIO input ← MikroE pin 15 |
 | Programmable indicators 1–5 | GP28, GP27, GP26, GP22, GP21 | 34, 32, 31, 29, 27 | Five independent SIO outputs (LED1…LED5); moved from GP7–GP11 at the owner's request on 2026-10-17 so the LEDs sit next to the Pico pins that drive them |
-| SD MISO | GP16 | 21 | SPI0 RX ← Adafruit pin 4 |
-| SD chip select | GP17 | 22 | SIO output → Adafruit pin 6; active low |
-| SD clock | GP18 | 24 | SPI0 SCK → Adafruit pin 3 |
-| SD MOSI | GP19 | 25 | SPI0 TX → Adafruit pin 5 |
-| SD card detect | GP20 | 26 | SIO input ← Adafruit pin 9 |
+| SD MISO | GP12 | 16 | SPI1 RX ← Adafruit pin 4 |
+| SD chip select | GP13 | 17 | SIO output → Adafruit pin 6; active low |
+| SD clock | GP10 | 14 | SPI1 SCK → Adafruit pin 3 |
+| SD MOSI | GP11 | 15 | SPI1 TX → Adafruit pin 5 |
+| SD card detect | GP14 | 19 | SIO input ← Adafruit pin 9 |
 
-This consumes **17 of the 26 exposed GPIOs**. GP7–GP15 remain unused (after the 2026-10-17 LED move): nine spare GPIOs. GP23–GP25 and GP29 are internal Pico wireless/board signals and are not assigned. UART receivers stay on digital pins, avoiding the analog-capable pin issue discussed in the [UART review](uart-interface-qualification.md). Optional PWM would share frequency settings between GP8/GP9 and GP10/GP11; independent on/off control does not have that restriction.
+This consumes **17 of the 26 exposed GPIOs**. GP7–GP9, GP15 and GP16–GP20 remain unused (after the 2026-10-17 LED and microSD moves; the microSD bus moved from SPI0 on GP16–GP20 to SPI1 on GP10–GP14 at the owner's request so it uses the Pico pins nearest the module): nine spare GPIOs. GP23–GP25 and GP29 are internal Pico wireless/board signals and are not assigned. UART receivers stay on digital pins, avoiding the analog-capable pin issue discussed in the [UART review](uart-interface-qualification.md). Optional PWM would share frequency settings between GP8/GP9 and GP10/GP11; independent on/off control does not have that restriction.
 
 The map was cross-checked against the retained [Pico 2 W datasheet](../hardware/evidence/storage/pico-2-w-datasheet.pdf), Figures 2 and 4, and RP2350 GPIO function table 3. Storage pad functions were checked against the retained Adafruit Eagle schematic. This verifies documentary allocation and absence of duplicate GPIO assignments, not saved schematic connectivity or physical orientation. Pi-side GPIO numbers remain open pending the exact AI HAT and Pi UART configuration; Pico GPIO numbers are not Raspberry Pi GPIO numbers.
 

@@ -35,7 +35,7 @@ The Pi needs to tell the instrument when a workload (an LLM prompt, an image cla
 
 ### 4. Recording: the microSD module
 
-The Adafruit 4682 microSD module plugs into the back of the carrier. The Pico writes to it over SPI: clock GP18, data out GP19, data in GP16, chip select GP17, plus card-detect on GP20. The firmware logs time-stamped voltage, current, power, energy and task markers to the card, so a long test does not depend on a connected computer. The Pico's Wi-Fi can also be used to send results.
+The Adafruit 4682 microSD module plugs into the back of the carrier. The Pico writes to it over SPI: SPI1 with clock GP10, data out GP11, data in GP12, chip select GP13, plus card-detect on GP14. The firmware logs time-stamped voltage, current, power, energy and task markers to the card, so a long test does not depend on a connected computer. The Pico's Wi-Fi can also be used to send results.
 
 ### 5. Indicators: five LEDs
 

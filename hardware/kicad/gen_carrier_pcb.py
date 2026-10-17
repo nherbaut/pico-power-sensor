@@ -205,7 +205,7 @@ def main():
         T(f"LED{k + 1}", 70.0, LED_ROWS[k] - 2.0, 0.8)
         bd.ref_at(f"R{k + 1}", 41.4, UART_R_ROWS[k])
     # Pour spokes cannot form at these ground pads; they are also tied by routed copper.
-    for ref, pad in (("U1", "7"), ("J1", "8"), ("R2", "2")):
+    for ref, pad in (("U1", "7"), ("J1", "8"), ("R2", "2"), ("J4", "1"), ("J5", "2")):
         bd.solid_pads(ref, {pad})
     T("J7 SENSE", 3.6, 10.6, 0.8)
     T("J8 UART", 3.6, 26.2, 0.8)
