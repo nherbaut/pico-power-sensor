@@ -10,17 +10,17 @@ Date: 2026-10-16. Status: documentary implementation plan within parts selection
 | UART receive from Pi | GP1 | 2 | UART0 RX ← buffer pin 3 |
 | Task marker input | GP2 | 4 | SIO input / edge interrupt ← buffer pin 6 |
 | Common UART enable | GP3 | 5 | SIO output → buffer pins 1, 4, 10; active low |
-| Monitor SDA | GP4 | 6 | I2C0 SDA ↔ MikroE pin 11 |
-| Monitor SCL | GP5 | 7 | I2C0 SCL → MikroE pin 12 |
-| Monitor alert | GP6 | 9 | SIO input ← MikroE pin 15 |
+| Monitor SDA | GP12 | 16 | I2C0 SDA ↔ MikroE pin 11 |
+| Monitor SCL | GP13 | 17 | I2C0 SCL → MikroE pin 12 |
+| Monitor alert | GP9 | 12 | SIO input ← MikroE pin 15 |
 | Programmable indicators 1–5 | GP28, GP27, GP26, GP22, GP21 | 34, 32, 31, 29, 27 | Five independent SIO outputs (LED1…LED5); moved from GP7–GP11 at the owner's request on 2026-10-17 so the LEDs sit next to the Pico pins that drive them |
-| SD MISO | GP12 | 16 | SPI1 RX ← Adafruit pin 4 |
-| SD chip select | GP13 | 17 | SIO output → Adafruit pin 6; active low |
+| SD MISO | GP8 | 11 | SPI1 RX ← Adafruit pin 4 |
+| SD chip select | GP7 | 10 | SIO output → Adafruit pin 6; active low (software CS) |
 | SD clock | GP10 | 14 | SPI1 SCK → Adafruit pin 3 |
 | SD MOSI | GP11 | 15 | SPI1 TX → Adafruit pin 5 |
-| SD card detect | GP14 | 19 | SIO input ← Adafruit pin 9 |
+| SD card detect | GP6 | 9 | SIO input ← Adafruit pin 9 |
 
-This consumes **17 of the 26 exposed GPIOs**. GP7–GP9, GP15 and GP16–GP20 remain unused (after the 2026-10-17 LED and microSD moves; the microSD bus moved from SPI0 on GP16–GP20 to SPI1 on GP10–GP14 at the owner's request so it uses the Pico pins nearest the module): nine spare GPIOs. GP23–GP25 and GP29 are internal Pico wireless/board signals and are not assigned. UART receivers stay on digital pins, avoiding the analog-capable pin issue discussed in the [UART review](uart-interface-qualification.md). Optional PWM would share frequency settings between GP8/GP9 and GP10/GP11; independent on/off control does not have that restriction.
+This consumes **17 of the 26 exposed GPIOs**. GP4, GP5, GP14, GP15 and GP16–GP20 remain unused (after the 2026-10-17 owner-requested moves: LEDs to the right-hand pins, microSD to SPI1 and I2C0 to GP12/GP13 so each bus uses the Pico pins nearest its module): nine spare GPIOs. GP23–GP25 and GP29 are internal Pico wireless/board signals and are not assigned. UART receivers stay on digital pins, avoiding the analog-capable pin issue discussed in the [UART review](uart-interface-qualification.md). Optional PWM would share frequency settings between GP8/GP9 and GP10/GP11; independent on/off control does not have that restriction.
 
 The map was cross-checked against the retained [Pico 2 W datasheet](../hardware/evidence/storage/pico-2-w-datasheet.pdf), Figures 2 and 4, and RP2350 GPIO function table 3. Storage pad functions were checked against the retained Adafruit Eagle schematic. This verifies documentary allocation and absence of duplicate GPIO assignments, not saved schematic connectivity or physical orientation. Pi-side GPIO numbers remain open pending the exact AI HAT and Pi UART configuration; Pico GPIO numbers are not Raspberry Pi GPIO numbers.
 
@@ -30,7 +30,7 @@ Pico pin 36 supplies instrument 3.3 V under the existing conditional rail budget
 
 Preload GP3 high before enabling its output, then establish idle-high GP0 UART TX before enabling the buffer. Follow the existing RP2350 A2 E9 input-handling rules for GP1/GP2 until driven; actual silicon revision remains unverified. Set SD CS high before configuring SPI, keep unused SD DAT1/DAT2 unconnected externally, and use the module's existing pull-ups. Card detect is low without a card and high with one in the reviewed module circuit; debounce before accepting it and do not infer safe hot removal from detect alone.
 
-Configure GP4/GP5 for I2C0 with the existing module pull-ups; start at the previously proposed 100 kHz qualification setting. GP6 receives the module's pulled-up alert. Firmware must configure and check the INA228 alert function before interpreting edges as conversion-ready. Set the five indicator output latches low before enabling them. No firmware has been built or run, and no baud rate, final SPI frequency or complete startup waveform is qualified.
+Configure GP12/GP13 for I2C0 with the existing module pull-ups; start at the previously proposed 100 kHz qualification setting. GP9 receives the module's pulled-up alert. Firmware must configure and check the INA228 alert function before interpreting edges as conversion-ready. Set the five indicator output latches low before enabling them. No firmware has been built or run, and no baud rate, final SPI frequency or complete startup waveform is qualified.
 
 The existing allocation remains **235 mA**: 200 mA storage, 15 mA monitor, 10 mA indicators and 10 mA other/interface loads. It is an allocation, not a measured maximum. The owner-selected indicators fit the 10 mA allowance under the assumptions in their review; actual card transients and Pico/radio operating margin remain open. Do not add the interface allowance a second time.
 

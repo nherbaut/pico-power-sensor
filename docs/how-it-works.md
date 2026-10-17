@@ -22,7 +22,7 @@ The MikroE Power Monitor Click (MIKROE-4810) carries a Texas Instruments INA228,
 - **Power and energy.** The INA228 multiplies voltage by current internally to give power. It also accumulates power over time into an energy register, so energy (joules or watt-hours) is counted continuously in hardware, independent of how fast the Pico reads it.
 - **Filtering.** On the interposer, an 82 Ω resistor sits in each measurement wire. On the carrier, a 100 nF capacitor (C1) is connected across the two current wires. Together they filter out fast noise and limit current if a cable wire is shorted.
 - **Connection to the module.** The module takes these signals on its own screw terminals, not on its header pins. The carrier therefore has three solder pads (J6), from which three short wires run to the module's terminals.
-- **Talking to the Pico.** The Pico reads the INA228 over I²C: two wires, SDA on GP4 and SCL on GP5. A third line, ALERT on GP6, lets the INA228 signal "a new measurement is ready".
+- **Talking to the Pico.** The Pico reads the INA228 over I²C: two wires, SDA on GP12 and SCL on GP13. A third line, ALERT on GP9, lets the INA228 signal "a new measurement is ready".
 
 ### 3. Talking to the Pi: serial link and task marker
 
@@ -35,7 +35,7 @@ The Pi needs to tell the instrument when a workload (an LLM prompt, an image cla
 
 ### 4. Recording: the microSD module
 
-The Adafruit 4682 microSD module plugs into the back of the carrier. The Pico writes to it over SPI: SPI1 with clock GP10, data out GP11, data in GP12, chip select GP13, plus card-detect on GP14. The firmware logs time-stamped voltage, current, power, energy and task markers to the card, so a long test does not depend on a connected computer. The Pico's Wi-Fi can also be used to send results.
+The Adafruit 4682 microSD module plugs into the back of the carrier. The Pico writes to it over SPI: SPI1 with clock GP10, data out GP11, data in GP8, chip select GP7, plus card-detect on GP6. The firmware logs time-stamped voltage, current, power, energy and task markers to the card, so a long test does not depend on a connected computer. The Pico's Wi-Fi can also be used to send results.
 
 ### 5. Indicators: five LEDs
 

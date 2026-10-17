@@ -55,10 +55,10 @@ def lib(name):
 # Pico 2 WH physical pin -> net (hardware/review/carrier-pico-pin-contract.csv).
 PICO = {
     1: "PICO_UART_TX", 2: "PICO_UART_RX", 3: "INSTR_GND", 4: "PICO_MARK_RX",
-    5: "UART_OE_N", 6: "PM_SDA", 7: "PM_SCL", 8: "INSTR_GND", 9: "PM_ALERT_N",
-    10: "NC_GP7", 11: "NC_GP8", 12: "NC_GP9", 13: "INSTR_GND",
-    14: "SD_SCLK", 15: "SD_MOSI", 16: "SD_MISO", 17: "SD_CS_N",
-    18: "INSTR_GND", 19: "SD_CARD_PRESENT", 20: "NC_GP15", 21: "NC_GP16", 22: "NC_GP17",
+    5: "UART_OE_N", 6: "NC_GP4", 7: "NC_GP5", 8: "INSTR_GND", 9: "SD_CARD_PRESENT",
+    10: "SD_CS_N", 11: "SD_MISO", 12: "PM_ALERT_N", 13: "INSTR_GND",
+    14: "SD_SCLK", 15: "SD_MOSI", 16: "PM_SDA", 17: "PM_SCL",
+    18: "INSTR_GND", 19: "NC_GP14", 20: "NC_GP15", 21: "NC_GP16", 22: "NC_GP17",
     23: "INSTR_GND", 24: "NC_GP18", 25: "NC_GP19", 26: "NC_GP20",
     27: "LED5_DRIVE", 28: "INSTR_GND", 29: "LED4_DRIVE", 30: "NC_RUN", 31: "LED3_DRIVE",
     32: "LED2_DRIVE", 33: "NC_AGND", 34: "LED1_DRIVE", 35: "NC_ADC_VREF",
