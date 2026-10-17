@@ -76,3 +76,13 @@ The Pololu 5383 is not sold by Farnell or Mouser. At the owner's request ("cherc
 - Lost compared with the Pololu ideal diode: no blocking of reverse current from the load side. Do not power the Pi from USB-C while the bench supply is connected.
 - Mounting: TO-220 lying flat, tab (drain) down, no screw; about 4.5 mm high. Footprint drill 1.2 mm (pending owner hole exception).
 - Removed BOM lines: Pololu 5383, two TSW-102-07-G-S, two SSQ-102-01-G-S.
+
+## Update 2026-10-17 (later): Q1 is the Vishay Si4143DY in SO-8
+
+The Infineon IPP80P03P4L-04 above is end of life, and the through-hole alternatives reviewed (IPP120P04P4L03AKSA1, SUP75P03-07-E3, STP52P3LLH6) were obsolete or unstocked; see `q1-resolution-2026-10-17.md`. After the owner confirmed that SO-8 soldering is acceptable, Q1 is now the **Vishay Si4143DY-T1-GE3** (P-channel, −30 V, SO-8; datasheet S14-0910 Rev A, 2014).
+
+- On-resistance, from the Vishay table: 5.1 mΩ typical / 6.2 mΩ maximum at −10 V and −12 A; **7.6 mΩ typical / 9.2 mΩ maximum at −4.5 V and −5 A**. At 5 A and 25 °C this is 38–46 mV and 0.19–0.23 W (calculation, not measurement; higher when hot). The earlier ≤ 6 mΩ preference is not met; the ≤ 12 mΩ compromise is.
+- Pinout, from the datasheet top view: pins 1–3 source, 4 gate, 5–8 drain. Thermal: 84 °C/W junction-to-ambient in steady state on 1 in² FR4.
+- Function and limits are unchanged: correct polarity conducts (body diode first, then the gate, held at ground by R8, is 5 V below the source); reversed leads leave it off; it does not block reverse current from the Pi side.
+- Lifecycle and supply: DigiKey lists it Active but out of stock with about 19 weeks lead time; the owner reported 100,612 pieces ready to dispatch from a distributor not named in the thread. Confirm before ordering.
+- No hole exception is needed any more (SO-8 has no holes). The 1.2 mm question for the TO-220 is withdrawn.

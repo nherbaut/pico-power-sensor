@@ -214,20 +214,15 @@ def main():
     set_pads(fp, 0.9, 1.8)
     save(fp, "C_Radial_KEMET_C315_P2.54mm", "KEMET C315 radial ceramic, 2.54 mm pitch; body assumed 3.8 x 2.6 mm")
 
-    # Infineon IPP80P03P4L-04 (PG-TO220-3) lying flat, tab down. Pads renamed to
-    # the symbol's pin names: 1 = G, 2 = D, 3 = S (Infineon TO-220 pinout; tab = D).
-    # Drill 1.2 mm: maximum lead diagonal about 1.05 mm (0.86 x 0.6 mm). Tab
-    # mounting hole removed (no screw; dissipation below 0.2 W).
-    fp = load(KLIB / "Package_TO_SOT_THT.pretty", "TO-220-3_Horizontal_TabDown")
-    for p in list(fp.Pads()):
-        if p.GetAttribute() == pcbnew.PAD_ATTRIB_NPTH:
-            fp.Remove(p)
-    names = {"1": "G", "2": "D", "3": "S"}
+    # Vishay Si4143DY-T1-GE3, SO-8 (pitch 1.27 mm). Pads named after the symbol pins:
+    # 1-3 = S, 4 = G, 5-8 = D (Vishay Si4143DY datasheet, top view). Stock KiCad
+    # SOIC-8_3.9x4.9mm land (pads 1.95 x 0.6 mm); duplicate pad names share a net.
+    fp = load(KLIB / "Package_SO.pretty", "SOIC-8_3.9x4.9mm_P1.27mm")
+    names = {"1": "S", "2": "S", "3": "S", "4": "G", "5": "D", "6": "D", "7": "D", "8": "D"}
     for p in fp.Pads():
         p.SetNumber(names[p.GetNumber()])
-    set_pads(fp, 1.2, 2.0)
-    save(fp, "TO-220-3_Horizontal_TabDown_GDS_D1.2mm",
-         "TO-220-3 lying flat, tab down, pads G/D/S, 1.2 mm drill (needs owner hole exception)")
+    save(fp, "SOIC-8_3.9x4.9mm_P1.27mm_SSSGDDDD",
+         "SO-8 for Vishay Si4143DY: pads 1-3 S, 4 G, 5-8 D; stock KiCad land")
 
     # Three wire pads for the MikroE analog leads.
     fp = new_fp("WirePads_1x03_P3.81mm_D1.0mm", "")

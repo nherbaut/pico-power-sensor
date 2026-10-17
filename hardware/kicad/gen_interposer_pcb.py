@@ -38,10 +38,11 @@ def main():
     bd.place("J2", 10.0, 42.54)               # Pi stacking header (inherited)
     bd.place("J1", 61.0, 4.5, rot=270)        # bench terminal, wire entry at right edge
     bd.place("F1", 53.5, 6.0, rot=180)        # pad1 right (protected), pad2 left (fused)
-    # Reverse-polarity P-MOSFET, lying flat, leads at the top, body toward the
-    # Pi header: G (62, 15), D (59.46, 15), S (56.92, 15).
-    bd.place("Q1", 62.0, 15.0, rot=180)
-    bd.place("R8", 60.2, 36.5, rot=180)       # gate pull-down, standing, below Q1 body
+    # Reverse-polarity P-MOSFET Si4143DY, SO-8. Default orientation: source pads
+    # (1-3) on the left x = 56.0, drain pads (5-8) on the right x = 61.0, gate (4)
+    # at the bottom left (56.0, 18.0).
+    bd.place("Q1", 58.5, 16.1)
+    bd.place("R8", 55.0, 21.0, rot=0)         # gate pull-down, standing, below the gate pad
     bd.place("R1", 6.5, 15.0, rot=270)        # shunt: pad1 top, pad4 bottom
     bd.place("R2", 12.0, 19.0)                # Kelvin+ 82R
     bd.place("R3", 12.0, 22.81)               # Kelvin- 82R
@@ -56,15 +57,14 @@ def main():
 
     P = bd.pad_xy
     bd.solid_pads("J2", {"6", "9", "14", "20", "25", "30", "34", "39"})
+    bd.solid_pads("Q1", {"S", "D"})
 
     # ---------------------------------------------------------- 5 A path (top)
     # Order: J1 -> Q1 (drain in, source out) -> F1 -> R1 shunt.
-    bd.track("/BENCH_5V1_RAW", [P("J1", "1"), (57.25, 4.5), (57.25, 11.0), (59.46, 13.2), P("Q1", "D")], B_PWR_NECK)
-    bd.track("/PROTECTED_5V1", [P("Q1", "S"), (54.6, 15.0), (54.6, 7.2), P("F1", "1")], B_PWR_NECK)
+    # RAW and PROTECTED are carried by the two pours below (J1.1 -> Q1 drain pads,
+    # Q1 source pads -> F1.1); no thin tracks on the 5 A path here.
     bd.track("/FUSED_5V1", [P("F1", "2"), (27.0, 10.0), (9.5, 10.0), (6.5, 13.0), (6.5, 14.4)], B_PWR)
-    # Gate pull-down on the bottom layer, straight down under the Q1 body; it runs
-    # parallel to the ground return, so the bottom plane is not cut across.
-    bd.track("/Q1_GATE", [P("Q1", "G"), (62.0, 35.2), P("R8", "1")], SIG, layer=pcbnew.B_Cu)
+    bd.track("/Q1_GATE", [P("Q1", "G"), (56.025, 19.4), (55.0, 20.4), P("R8", "1")], SIG)
     bd.track("/DUT_5V_POST_SHUNT", [(6.5, 27.0), (6.5, 36.0), (8.5, 38.0)], B_PWR)
     bd.track("/DUT_5V_POST_SHUNT", [(8.5, 38.0), P("J2", "2"), P("J2", "4")], B_PWR_NECK)
 
@@ -97,14 +97,13 @@ def main():
     # filler keeps clearance from other nets (Kelvin pickups, H1, other nets).
     Z = bd.zone
     F = pcbnew.F_Cu
-    # RAW pour leaves J1 pin 2 (ground) in the top ground fill, so the return
-    # current from the Pi ground pins also has a top-layer path to J1.
-    Z("/BENCH_5V1_RAW", F, [(55.9, 0.5), (65.5, 0.5), (65.5, 7.0), (58.7, 7.0), (58.7, 11.8),
-                             (60.8, 11.8), (60.8, 16.2), (58.3, 16.2), (58.3, 12.0), (55.9, 12.0)],
-      spoke=1.0, priority=1)
-    Z("/PROTECTED_5V1", F, [(52.2, 0.5), (55.6, 0.5), (55.6, 12.0), (58.0, 12.0), (58.0, 16.2), (53.4, 16.2),
-                             (53.4, 12.0), (52.2, 12.0)],
-      spoke=1.0, priority=1)
+    # RAW pour: J1 pin 1 at the top, the strip right of J1 pin 2 (ground, kept in
+    # the top ground fill through the notch) and Q1's four drain pads.
+    Z("/BENCH_5V1_RAW", F, [(59.6, 0.8), (65.6, 0.8), (65.6, 22.5), (59.6, 22.5), (59.6, 11.7),
+                             (62.9, 11.7), (62.9, 7.7), (59.6, 7.7)], spoke=1.0, priority=1)
+    # PROTECTED pour: Q1's three source pads up to F1 pin 1. It stops above the
+    # gate pad (y = 18.0) so the gate track does not have to cross it.
+    Z("/PROTECTED_5V1", F, [(51.9, 3.0), (57.4, 3.0), (57.4, 17.35), (51.9, 17.35)], spoke=1.0, priority=1)
     Z("/FUSED_5V1", F, [(2.5, 1.0), (33.5, 1.0), (33.5, 11.2), (9.6, 11.2), (9.6, 15.4), (2.5, 15.4)],
       spoke=1.0, priority=1)
     Z("/DUT_5V_POST_SHUNT", F, [(2.5, 25.9), (10.0, 25.9), (10.0, 34.0), (14.2, 38.0), (14.2, 41.0),
@@ -119,8 +118,8 @@ def main():
     # ---------------------------------------------------------- ground stitching
     # Vias tie the top ground fill to the bottom plane in open areas (not under
     # the Q1 tab), lowering the return resistance to the inner-row Pi ground pins.
-    for x, y in ((63.6, 10.6), (65.1, 18.0), (65.1, 24.0), (65.1, 30.0), (52.4, 21.0), (52.4, 26.0),
-                 (52.4, 31.0), (44.0, 34.6), (41.0, 36.6), (23.9, 37.6), (25.6, 37.6), (14.6, 34.6)):
+    for x, y in ((60.2, 12.6), (65.1, 24.0), (65.1, 30.0), (52.4, 21.0), (52.4, 26.0),
+                 (52.4, 31.0), (59.8, 23.8), (44.0, 34.6), (41.0, 36.6), (23.9, 37.6), (25.6, 37.6), (14.6, 34.6)):
         bd.via("/BENCH_GND", x, y)
 
     # ---------------------------------------------------------- ground plane (bottom)
@@ -140,8 +139,8 @@ def main():
     T("-", 58.6, 9.5, 1.0)
     T("F1 6.3A F", 40.0, 11.9, 0.8)
     T("J1 BENCH 5.1V", 61.0, 0.95, 0.8)
-    T("Q1", 59.5, 25.0, 1.0)
-    T("R8", 54.8, 36.5, 0.8)
+    T("Q1 Si4143DY", 55.0, 25.6, 0.8)
+    T("R8", 54.0, 23.0, 0.8)
     T("I", 3.0, 20.7, 0.8)
     T("J5 SENSE", 42.6, 18.75, 0.8, rot=90)
     T("J6 UART", 35.0, 22.0, 0.8)

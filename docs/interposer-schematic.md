@@ -21,7 +21,7 @@ KiCad requires numbered references, so the schematic uses conventional designato
 |---|---|---|---|
 | J1 | J_POWER | Würth 691137710002 | 1 BENCH_5V1_RAW, 2 BENCH_GND |
 | F1 | F1 + FH1 | Littelfuse 021706.3MXP in Schurter 0031.8201.G | BENCH_5V1_RAW → FUSED_5V1 |
-| Q1 | Q_RP | Infineon IPP80P03P4L-04, P-MOSFET, TO-220 (pin 1 G, 2 D, 3 S, tab D) | D BENCH_5V1_RAW, S PROTECTED_5V1, G Q1_GATE |
+| Q1 | Q_RP | Vishay Si4143DY-T1-GE3, P-MOSFET, SO-8 (pads 1-3 S, 4 G, 5-8 D) | D BENCH_5V1_RAW, S PROTECTED_5V1, G Q1_GATE |
 | R8 | R_RP_GATE | Vishay MRS25000C1002FCT00, 10 kΩ | Q1_GATE → BENCH_GND |
 | R1 | RSH1 | Bourns MSR1-0R005F1 (`Device:R_Shunt`, 4-pin) | 1 PROTECTED_5V1, 4 DUT_5V_POST_SHUNT; Kelvin 2 KELVIN_PLUS_SRC, 3 KELVIN_MINUS_SRC |
 | R2, R3 | R_SENSE_PLUS, R_SENSE_MINUS | Vishay PR01000108209JR500, 82 Ω | Kelvin source → SHUNT_KELVIN_PLUS / MINUS |
@@ -61,3 +61,5 @@ Revision 2026-10-17: the Pololu 5383 module and its sockets were replaced by Q1 
 ## Review record
 
 On 2026-10-16 the owner stated that he does not have the skills to approve schematics. The technical review above was performed by Claude, not by the owner, and is the only schematic review to date. An independent human review has not been performed; that remains a release-checklist item. The owner's role at this gate is limited to plain-language decisions (pin use, proceeding to the next step).
+
+**Update 2026-10-17 (later):** Q1 is now the Vishay Si4143DY-T1-GE3 in SO-8 because the Infineon IPP80P03P4L-04 TO-220 is end of life and the logic-level TO-220 alternatives checked were also obsolete or unstocked (see `q1-resolution-2026-10-17.md`). Same nets and symbol; footprint `SOIC-8_3.9x4.9mm_P1.27mm_SSSGDDDD` (pads named after the symbol pins: three S, one G, four D).

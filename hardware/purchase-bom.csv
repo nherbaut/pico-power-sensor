@@ -2,7 +2,7 @@ ligne,carte,repères schéma,rôle (BOM),quantité,fabricant,référence fabrica
 1,interposer,J1,J_POWER,1,Würth Elektronik,691137710002,"Bornier à vis 2 pos., pas 5,00 mm, entrée bench",Farnell,3767630,,référence fournie par Nicolas 2026-10-17 ; non vérifiée sur le site distributeur par Claude
 2,interposer,F1 (cartouche),F1,1,Littelfuse,021706.3MXP,"Fusible rapide 6,3 A, 5×20 mm",Farnell,1354579,,fournie par Nicolas ; correspond au lien Farnell déjà relevé dans l'étude de protection
 3,interposer,F1 (porte-fusible),FH1,1,Schurter,0031.8201.G,"Porte-fusible 5×20 ouvert, traversant (OGN)",Farnell,4763851,,référence fournie par Nicolas 2026-10-17 ; non vérifiée sur le site distributeur par Claude
-4,interposer,Q1,Q_RP,1,Infineon,IPP80P03P4L-04,MOSFET canal P TO-220 (remplace le module Pololu 5383),Farnell,2443406 ou 3290154 (à choisir sur fr.farnell.com),,à commander : remplace les anciennes lignes 4-6 (Pololu)
+4,interposer,Q1,Q_RP,1,Vishay,Si4143DY-T1-GE3,"MOSFET canal P 30 V, SO-8 (remplace le module Pololu 5383)",à confirmer (stock indiqué par Nicolas : 100 612 pièces),à renseigner,,"Remplace IPP80P03P4L-04 (arrêté). Fiche Vishay vérifiée : 9,2 mΩ max à −4,5 V. Cherchez exactement SI4143DY-T1-GE3"
 5,interposer,—,—,0,—,—,"Ligne supprimée (module Pololu remplacé par Q1, ligne 4)",,,,
 6,interposer,—,—,0,—,—,"Ligne supprimée (module Pololu remplacé par Q1, ligne 4)",,,,
 7,interposer,R1,RSH1,1,Bourns / Riedon,MSR1-0R005F1,Shunt 5 mΩ 1 % 1 W traversant,Farnell,4582734,,référence fournie par Nicolas 2026-10-17 ; non vérifiée sur le site distributeur par Claude

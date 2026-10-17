@@ -2,12 +2,14 @@
 
 Quantités pour un exemplaire de chaque carte. Les PCB et une carte microSD ne sont pas inclus.
 
+**Ligne 4 (Q1) : Vishay Si4143DY-T1-GE3 (SO-8), choisi le 2026-10-17** après l'arrêt de l'IPP80P03P4L-04 ; distributeur à confirmer. Voir [la revue Q1](../docs/q1-resolution-2026-10-17.md).
+
 | # | Carte | Repères schéma | Qté | Fabricant | Référence | Description | Distributeur | Réf. distributeur |
 |---|---|---|---|---|---|---|---|---|
 | 1 | interposer | J1 | 1 | Würth Elektronik | 691137710002 | Bornier à vis 2 pos., pas 5,00 mm, entrée bench | Farnell | 3767630 |
 | 2 | interposer | F1 (cartouche) | 1 | Littelfuse | 021706.3MXP | Fusible rapide 6,3 A, 5×20 mm | Farnell | 1354579 |
 | 3 | interposer | F1 (porte-fusible) | 1 | Schurter | 0031.8201.G | Porte-fusible 5×20 ouvert, traversant (OGN) | Farnell | 4763851 |
-| 4 | interposer | Q1 | 1 | Infineon | IPP80P03P4L-04 | MOSFET canal P TO-220 (remplace le module Pololu 5383) | Farnell | 2443406 ou 3290154 (à choisir sur fr.farnell.com) |
+| 4 | interposer | Q1 | 1 | Vishay | Si4143DY-T1-GE3 | MOSFET canal P 30 V, SO-8 (remplace le module Pololu 5383) | à confirmer | à renseigner |
 | 5 | interposer | — | 0 | — | — | Ligne supprimée (module Pololu remplacé par Q1, ligne 4) |  |  |
 | 6 | interposer | — | 0 | — | — | Ligne supprimée (module Pololu remplacé par Q1, ligne 4) |  |  |
 | 7 | interposer | R1 | 1 | Bourns / Riedon | MSR1-0R005F1 | Shunt 5 mΩ 1 % 1 W traversant | Farnell | 4582734 |

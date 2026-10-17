@@ -2,6 +2,8 @@
 
 Read [AGENTS.md](AGENTS.md) first (controlling rules), then this file. The older [HANDOFF-DUMB-CLAUDE.md](HANDOFF-DUMB-CLAUDE.md) describes the state *before* schematics existed and is now historical.
 
+**Codex follow-up, 2026-10-17:** read [Q1 procurement review](docs/q1-resolution-2026-10-17.md) before acting on the Q1 recommendations below. Mouser also labels the proposed IPP120P04P4L-03 replacement obsolete and lists AKSA1 as an alias; its lifecycle is not established by this handoff. Pololu 5383 is manufacturer Active and Preferred, with a dated Exp-Tech listing of €4.10 ex-VAT / 21 in stock. The owner subsequently chose to continue without Pololu and requested a discrete MOSFET from Mouser or Farnell. That supersedes the restoration recommendation. The follow-up search has not verified a suitable stocked replacement: SUP90P06-09L-E3 is an electrical compromise but Mouser shows zero stock and Farnell quotes about 44 weeks. Current Q1 procurement is blocked; CAD has not been changed.
+
 The owner (Nicolas) cannot review schematics or layouts technically. Technical reviews so far were done by Claude; ask him only plain-language decisions (parts, cost, physical arrangement, yes/no). He writes French or English: answer in the language of each message.
 
 ## Where the design stands
@@ -51,19 +53,14 @@ kicad-cli pcb drc --severity-all --schematic-parity --exit-code-violations -o dr
 - AI HAT: raised with a second Adafruit 2223 as extender plus M2.5 nylon standoffs (Adafruit 3658 kit); standoff lengths to be set at first assembly.
 - Carrier pin map moved so each bus uses the Pico pins nearest its module: LEDs GP28/27/26/22/21; microSD SPI1 (SCK GP10, MOSI GP11, MISO GP8, CS GP7, CD GP6); I2C0 SDA GP12 / SCL GP13; ALERT GP9; UART GP0–GP3 unchanged. See `docs/carrier-integration.md`, `hardware/review/carrier-pico-pin-contract.csv`.
 - Carrier U1 (SN74LV125AN socket) and C2 moved to the back side; nothing sits under the MikroE module.
-- **Interposer reverse-polarity protection:** Pololu 5383 (not sold by Farnell/Mouser) was replaced by a TO-220 P-MOSFET Q1 + 10 kΩ gate resistor R8, order J1 → Q1 → F1 → R1. The chosen Infineon IPP80P03P4L-04 then turned out to be **end-of-life (both AKSA1/AKSA2)**.
+- **Interposer reverse-polarity protection:** the Pololu 5383 (not sold by Farnell/Mouser) was replaced by a P-MOSFET Q1 + 10 kΩ gate resistor R8, order J1 → Q1 → F1 → R1. The first choice, Infineon IPP80P03P4L-04 (TO-220), is end of life; after review (see `docs/q1-resolution-2026-10-17.md`) **Q1 is now the Vishay Si4143DY-T1-GE3 in SO-8** (9.2 mΩ max at −4.5 V / 5 A, pinout 1-3 S, 4 G, 5-8 D), generated into the interposer schematic, board and Gerbers.
 
 ## Open decisions (blocking)
 
-1. **Q1 part — owner to choose:**
-   - Infineon **IPP120P04P4L03AKSA1** (logic level, ≈3 mΩ @10 V; drop-in, same G-D-S TO-220 footprint) — recommended if Farnell has it active; AKSA2 is obsolete.
-   - Vishay **SUP90P06-09L-E3** (Farnell 1684069, ≈12 mΩ @−4.5 V, ≈60 mV at 5 A) — drop-in compromise, stock uncertain.
-   - Infineon **IPB120P04P4L03ATMA2** (same die, D²PAK SMD) — needs a new footprint and layout change.
-   - Or **revert to the Pololu 5383**, bought from a European reseller (e.g. Exp-Tech); the pre-change interposer is in git (commit before `85670e5`).
-   - Rejected after datasheet review: YAGEO XP4P016I (28 mΩ @−4.5 V), Diotec DIT110P06 (standard-level gate, R<sub>DS(on)</sub> only specified at −10 V, preliminary sheet, wider leads), Adafruit 6359 (up to ≈45 mΩ). Requirement summary for any candidate: P-channel, logic level, R<sub>DS(on)</sub> ≤ 6 mΩ at V<sub>GS</sub> = −4.5 V (≤ 12 mΩ as compromise), ≥ 20 V, ≥ 10 A, through-hole TO-220 preferred.
-2. **Q1 hole size:** the TO-220 footprint uses 1.2 mm drills; AGENTS.md limits holes to 1.0 mm, so the owner must approve this as a scoped exception (not yet answered). If a different Q1 is chosen, recheck its lead dimensions.
+1. **Q1 sourcing:** the owner reported 100,612 Si4143DY pieces ready to dispatch but did not name the distributor. Record distributor and order code in `hardware/purchase-bom.csv` line 4, and confirm the exact code `SI4143DY-T1-GE3` is active (DigiKey: Active, 0 stock, ~19 weeks). If it is unavailable, the fallbacks and the rejected parts are in `docs/q1-resolution-2026-10-17.md` and `docs/protection-options.md`; reverting to the Pololu 5383 (Exp-Tech) is the earlier Codex recommendation.
+2. **Q1 footprint:** the SO-8 land is the stock KiCad SOIC-8 with pads renamed S/G/D; compare it with Vishay's recommended land (not read) before release. No hole exception is needed any more (the TO-220 1.2 mm question is withdrawn).
 
-When Q1 changes: update `gen_interposer_sch.py` value/MPN, BOM row, purchase BOM line 4, `docs/protection-options.md`, AGENTS.md protection row; regenerate; re-run ERC, DRC, copper collision and copper resistance checks; re-export interposer Gerbers; rebind `hardware/release-checklist.csv` hashes.
+When Q1 changes again: update `gen_interposer_sch.py` value/MPN/footprint, `gen_footprints.py`, `gen_interposer_pcb.py` (placement and the RAW/PROTECTED pours), BOM row, purchase BOM line 4, `docs/protection-options.md`, AGENTS.md protection row; regenerate; re-run ERC, DRC, copper collision and copper resistance checks; re-export interposer Gerbers; rebind `hardware/release-checklist.csv` hashes without dropping rows added by other sessions.
 
 ## Purchase BOM notes
 

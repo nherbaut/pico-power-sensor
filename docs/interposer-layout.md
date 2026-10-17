@@ -12,7 +12,7 @@ Stepped outline (0,0)–(66,0)–(66,37)–(67.13,37)–(67.13,46)–(0,46); NPT
 
 | Area | Parts | Why |
 |---|---|---|
-| Right edge and top, right to left | J1 bench terminal (wire entry at the right edge), Q1 P-MOSFET lying flat below J1 (leads at the top, body toward the header), R8 gate resistor below Q1, F1 fuse holder | Order J1 → Q1 → F1 → R1 (owner decision 2026-10-17 replacing the Pololu 5383). The 5 A path then runs right to left along the top to the shunt near Pi pins 2/4. Fuse and terminal stay at the board edge for access |
+| Right edge and top, right to left | J1 bench terminal (wire entry at the right edge), Q1 Si4143DY (SO-8) below J1 with source pads on the left and drain pads on the right, R8 gate resistor below Q1, F1 fuse holder | Order J1 → Q1 → F1 → R1 (owner decision 2026-10-17 replacing the Pololu 5383). The 5 A path is carried by two copper pours: J1 pin 1 to the four drain pads, and the three source pads to F1 pin 1. Fuse and terminal stay at the board edge for access |
 | Left column | R1 shunt, standing vertically | Shortest path from the fuse output to Pi pins 2/4; Kelvin pickups at the inner edge of each lead pad, current enters/leaves from the outer side |
 | Centre | R2/R3 (Kelvin 82 Ω), R4 (VBUS 82 Ω), J5 sense connector | Observation resistors sit at the source, before the cable. Kelvin pair routed side by side to J5 |
 | Above the header | R5/R6 (470 Ω), R7 (100 kΩ), J6 UART connector | Short runs from Pi pins 8, 10, 16 |
@@ -33,13 +33,13 @@ A top-layer bench-ground fill (lowest priority) covers all free top copper and a
 
 | Path | Result |
 |---|---|
-| J1+ → Q1 drain | 1.96 mΩ |
-| Q1 source → F1 | 1.46 mΩ |
+| J1+ → Q1 drain | 1.76 mΩ |
+| Q1 source → F1 | 0.85 mΩ |
 | F1 → R1 | 1.58 mΩ |
 | R1 → J2 pin 2 / pin 4 | 0.96 / 1.20 mΩ |
-| J1− → Pi ground pins 6, 9, 14, 20, 25, 30, 34, 39 | 1.49, 2.95, 1.35, 1.18, 2.75, 0.97, 0.89, 1.18 mΩ |
+| J1− → Pi ground pins 6, 9, 14, 20, 25, 30, 34, 39 | 1.40, 2.85, 1.26, 1.09, 2.62, 0.88, 0.80, 1.02 mΩ |
 
-All pass (revision with Q1, 2026-10-17; raw output in `hardware/kicad/interposer/copper-resistance.txt`). Positive copper ≈ 6.0 mΩ, about 30 mV at 5 A, plus Q1's own on-resistance (≈ 4–6 mΩ, datasheet-based estimate, not measured). Two branches have little margin: J1+ → Q1 drain (0.04 mΩ, the neck between J1's ground pin and the fuse holder) and Pi ground pin 9 (0.05 mΩ, an inner-row pin hemmed in by neighbouring pads). Ground stitching vias and a 0.25 mm ground-pour clearance were added to reach this. Run note: the guard reads KiCad 10 net syntax, so it was run on a scratch copy whose numeric `(net N)` references were rewritten to `(net "name")` (same geometry), in the venv `~/.venvs/kicad-tools` (shapely 2.1.2, scipy 1.15.3). At its default 0.2 mm grid the 0.25–0.3 mm tracks rasterize as disconnected; 0.05 mm was used.
+All pass (revision with the Si4143DY, 2026-10-17; raw output in `hardware/kicad/interposer/copper-resistance.txt`). Positive copper ≈ 5.0 mΩ, about 25 mV at 5 A, plus Q1's own on-resistance: Vishay datasheet maximum 9.2 mΩ at −4.5 V and 5 A (46 mV, 0.23 W at 25 °C; calculation, not measured, and higher when warm). Two branches have little margin: Pi ground pin 9 (0.15 mΩ, an inner-row pin hemmed in by neighbouring pads) and J1+ → Q1 drain (0.24 mΩ, the strip between J1's ground pin and the board edge). Ground stitching vias and a 0.25 mm ground-pour clearance were added to reach this. Run note: the guard reads KiCad 10 net syntax, so it was run on a scratch copy made with `hardware/kicad/tools/netnames_for_guard.py` (same geometry), in the venv `~/.venvs/kicad-tools`, at 0.05 mm grid (the default 0.2 mm grid rasterizes thin tracks as disconnected).
 
 ## Verification
 
@@ -57,7 +57,7 @@ The interposer plugs onto the Pi with the Adafruit 2223 stacking socket undernea
 
 | Part | Height above the interposer |
 |---|---|
-| Q1 lying flat | about 4.5 mm (TO-220 body thickness) |
+| Q1 (SO-8) | about 1.75 mm (package maximum) |
 | Schurter fuse holder with cover | about 12.7 mm |
 | Würth bench terminal | about 11.5 mm (drawing) |
 | JST XH header with mated housing | about 9–10 mm (estimate) |
