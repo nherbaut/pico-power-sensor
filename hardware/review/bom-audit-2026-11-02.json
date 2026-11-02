@@ -1,0 +1,200 @@
+{
+  "date": "2026-11-02",
+  "status": "PARTIAL; procurement and BOM consistency review; not a fabrication release",
+  "inventory": "owner confirmed nothing bought; no inventory source supplied",
+  "hashes": {
+    "AGENTS.md": "29770a8ad22ca3aee3e2b67f74defd8bb2ad67cc8b8fa693a6e96abbd0651039",
+    "hardware/bom.csv": "a422f69bc21fc1d3f271938093c4009c203be9cbd1b9c6dce39bc32ff0a49fe9",
+    "hardware/purchase-bom.csv": "8631888e11651190eb1f104d384d1d54853c8c9138eda55e4bb9237b7ede51ef",
+    "hardware/review/bom-audit-2026-11-02.csv": "42c89becf30647902673fd1968914230d1269ee979f1f86ab0798c73d2090ef3",
+    "hardware/kicad/interposer/interposer.kicad_sch": "b8db9feabcb2f46f232022b99885c391320acfde2df2dd7d0bb12c8f3325c526",
+    "hardware/kicad/interposer/interposer.kicad_pcb": "f5debbdc095e100065fbafd785579958974fcbe908c8fba9a9635ad95aeade17",
+    "hardware/kicad/carrier/carrier.kicad_sch": "4443f6fcd0947568d9898ead58fec5d78e99c6bf1f534e9985ee19ac825e1c00",
+    "hardware/kicad/carrier/carrier.kicad_pcb": "fdd4791d3c1ef5ed6585e2dbb0cf2f53af1d3849770167286f046c72552ce296",
+    "docs/bom-audit-2026-11-02.md": "7ed4ab2e2df9339d904dbd2877ea4c1f49bd5070512eb39c092057e3b6550a16",
+    "docs/measurement-storage-card.md": "588269eae3353100a720dba4a9dd39bba47ce488d72d736a9dface9a541c8f3e",
+    "hardware/purchase-bom.md": "43e296b5c12dbe884a5d32c32590527d609ae42727b2055c0dfce6aeef76f966"
+  },
+  "netlist_export": "KiCad native XML exports to /tmp/proto-{interposer,carrier}-audit.net; no CAD regeneration",
+  "cad_values": {
+    "interposer": [
+      {
+        "ref": "F1",
+        "value": "6.3A F 5x20"
+      },
+      {
+        "ref": "J1",
+        "value": "Bench 5.1V in"
+      },
+      {
+        "ref": "J2",
+        "value": "Pi 40-pin stacking"
+      },
+      {
+        "ref": "J5",
+        "value": "Sense to carrier"
+      },
+      {
+        "ref": "J6",
+        "value": "UART/marker to carrier"
+      },
+      {
+        "ref": "NT1",
+        "value": "NetTie"
+      },
+      {
+        "ref": "NT2",
+        "value": "NetTie"
+      },
+      {
+        "ref": "Q1",
+        "value": "Si4143DY"
+      },
+      {
+        "ref": "R1",
+        "value": "5m 1% 1W"
+      },
+      {
+        "ref": "R2",
+        "value": "82 5% 1W"
+      },
+      {
+        "ref": "R3",
+        "value": "82 5% 1W"
+      },
+      {
+        "ref": "R4",
+        "value": "82 5% 1W"
+      },
+      {
+        "ref": "R5",
+        "value": "470 1%"
+      },
+      {
+        "ref": "R6",
+        "value": "470 1%"
+      },
+      {
+        "ref": "R7",
+        "value": "100k 1%"
+      },
+      {
+        "ref": "R8",
+        "value": "10k 1%"
+      }
+    ],
+    "carrier": [
+      {
+        "ref": "C1",
+        "value": "100n X7R 50V"
+      },
+      {
+        "ref": "C2",
+        "value": "100n X7R 50V"
+      },
+      {
+        "ref": "D1",
+        "value": "TLLR4401 red"
+      },
+      {
+        "ref": "D2",
+        "value": "TLLR4401 red"
+      },
+      {
+        "ref": "D3",
+        "value": "TLLR4401 red"
+      },
+      {
+        "ref": "D4",
+        "value": "TLLR4401 red"
+      },
+      {
+        "ref": "D5",
+        "value": "TLLR4401 red"
+      },
+      {
+        "ref": "J1",
+        "value": "Pico pins 1-20"
+      },
+      {
+        "ref": "J2",
+        "value": "Pico pins 21-40"
+      },
+      {
+        "ref": "J3",
+        "value": "MikroE pins 1-8"
+      },
+      {
+        "ref": "J4",
+        "value": "MikroE pins 9-16"
+      },
+      {
+        "ref": "J5",
+        "value": "Adafruit 4682 microSD"
+      },
+      {
+        "ref": "J6",
+        "value": "Wire pads to MikroE IN1+/IN1-/IN2 VBUS"
+      },
+      {
+        "ref": "J7",
+        "value": "Sense from interposer"
+      },
+      {
+        "ref": "J8",
+        "value": "UART/marker from interposer"
+      },
+      {
+        "ref": "R1",
+        "value": "470 1%"
+      },
+      {
+        "ref": "R2",
+        "value": "100k 1%"
+      },
+      {
+        "ref": "R3",
+        "value": "100k 1%"
+      },
+      {
+        "ref": "R4",
+        "value": "10k 1%"
+      },
+      {
+        "ref": "R5",
+        "value": "10k 1%"
+      },
+      {
+        "ref": "R6",
+        "value": "1k8 1%"
+      },
+      {
+        "ref": "R7",
+        "value": "1k8 1%"
+      },
+      {
+        "ref": "R8",
+        "value": "1k8 1%"
+      },
+      {
+        "ref": "R9",
+        "value": "1k8 1%"
+      },
+      {
+        "ref": "R10",
+        "value": "1k8 1%"
+      },
+      {
+        "ref": "U1",
+        "value": "SN74LV125AN"
+      }
+    ]
+  },
+  "not_performed": [
+    "complete manufacturer lifecycle requalification",
+    "live checkout quotes",
+    "full footprint re-review",
+    "ERC/DRC or fabrication export",
+    "hardware measurements"
+  ]
+}

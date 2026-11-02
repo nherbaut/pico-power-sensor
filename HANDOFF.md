@@ -1,5 +1,7 @@
 # Project handoff — current state (2026-10-17, evening)
 
+**Update 2026-11-02:** the project is now published on the `proto` branch of `nherbaut/pico-power-sensor`; GitHub Pages builds that branch. See [the BOM audit](docs/bom-audit-2026-11-02.md) and [32 GB storage-card selection](docs/measurement-storage-card.md). The older Codex Q1 follow-up below predates the owner-selected Si4143DY and is historical; current purchase line 4 already records Farnell 3470713. No CAD was changed in the November review.
+
 Read [AGENTS.md](AGENTS.md) first (controlling rules), then this file. The older [HANDOFF-DUMB-CLAUDE.md](HANDOFF-DUMB-CLAUDE.md) describes the state *before* schematics existed and is now historical.
 
 **Codex follow-up, 2026-10-17:** read [Q1 procurement review](docs/q1-resolution-2026-10-17.md) before acting on the Q1 recommendations below. Mouser also labels the proposed IPP120P04P4L-03 replacement obsolete and lists AKSA1 as an alias; its lifecycle is not established by this handoff. Pololu 5383 is manufacturer Active and Preferred, with a dated Exp-Tech listing of €4.10 ex-VAT / 21 in stock. The owner subsequently chose to continue without Pololu and requested a discrete MOSFET from Mouser or Farnell. That supersedes the restoration recommendation. The follow-up search has not verified a suitable stocked replacement: SUP90P06-09L-E3 is an electrical compromise but Mouser shows zero stock and Farnell quotes about 44 weeks. Current Q1 procurement is blocked; CAD has not been changed.

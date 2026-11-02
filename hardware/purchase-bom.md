@@ -35,3 +35,10 @@ Quantités pour un exemplaire de chaque carte. Les PCB et une carte microSD ne s
 | 27 | câbles | boîtiers câble UART | 2 | JST | XHP-5 | Boîtier femelle JST-XH 5 pos. | Mouser | 306-XHP-5 |
 | 28 | câbles | fils serti-serti | 8 | JST | ASXHSXH22K152 | Fil pré-serti XH-XH 22 AWG, 152 mm | Mouser | 306-ASXHSXH22K152 |
 | 29 | mécanique | entretoises HAT | 1 | Adafruit | 3658 | Kit entretoises/vis nylon M2,5 (longueurs à ajuster au montage) | Mouser | 485-3658 |
+
+
+## Procurement review, 2026-11-02
+
+See [the BOM audit](../docs/bom-audit-2026-11-02.md) before ordering. The CSV now separates fitted quantities from indicative purchase quantities and observed minimums; several lines require packs of 10 or 11. Current French checkout and the shunt one-piece offer remain unverified.
+
+Added line 30: one **Integral INMSDH32G10-90U1**, 32 GB measurement-storage card, **Farnell 3410199**, observed €19.48 excluding VAT. SPI/current/installed qualification remains open; see [card selection](../docs/measurement-storage-card.md).

@@ -13,7 +13,7 @@ The interposer carries bench-supply protection and a 5 mΩ shunt. A separately U
 - [Assembly and circuit explanation](docs/how-it-works.md)
 - [Project handoff](HANDOFF.md) and [working instructions](AGENTS.md)
 
-The hardware is **not released for fabrication or connection to a Pi**. Calculated values and automated checks are not bench measurements. The BOM sourcing review requested on 2026-11-02 and selection of a 32 GB measurement-storage card are in progress; no parts have been purchased, as confirmed by the owner.
+The hardware is **not released for fabrication or connection to a Pi**. Calculated values and automated checks are not bench measurements. The [2026-11-02 BOM review](docs/bom-audit-2026-11-02.md) records procurement gaps and package minimums. A [32 GB measurement-storage card](docs/measurement-storage-card.md) has been selected for prototype qualification. No parts have been purchased, as confirmed by the owner.
 
 ## Website
 
