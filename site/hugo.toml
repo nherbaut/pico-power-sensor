@@ -1,0 +1,23 @@
+baseURL = 'http://localhost:1313/'
+locale = 'en-GB'
+defaultContentLanguage = 'en'
+title = 'PicoPower'
+contentDir = '../.build/site/content'
+dataDir = '../.build/site/data'
+staticDir = ['static', '../.build/site/static']
+disableKinds = ['taxonomy', 'term', 'RSS']
+enableRobotsTXT = true
+
+[markup.goldmark.renderer]
+unsafe = false
+
+[markup.goldmark.parser]
+wrapStandAloneImageWithinParagraph = false
+
+[markup.tableOfContents]
+startLevel = 2
+endLevel = 3
+
+[params]
+description = 'Hardware tracking and documentation for Raspberry Pi energy experiments'
+githubRepository = 'https://github.com/nherbaut/pico-power-sensor'

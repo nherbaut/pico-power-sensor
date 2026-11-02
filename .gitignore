@@ -4,3 +4,8 @@ fp-info-cache
 *.kicad_prl
 ~*.lck
 __pycache__/
+
+# Generated documentation site
+.build/
+public/
+.hugo_build.lock

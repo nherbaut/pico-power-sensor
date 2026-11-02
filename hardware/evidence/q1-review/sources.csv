@@ -1,0 +1,2 @@
+evidence_id,kind,local_file,revision,retrieved_or_copied_date,source_url,sha256,inspection_scope
+Q1-S01,manufacturer datasheet,vishay-sup75p03-07-rev-e.pdf,RevE;25-Oct-2010;legal2026,2026-10-17,https://www.vishay.com/docs/71109/supsub75.pdf,95566fed40e6531435735f24623beef28763ca2b79c1a168b6bd2739d7ad6684,6page PDF validated; p1 GDS andp2 electrical test conditions visually inspected; no characteristic curve values extracted; candidate not selected; mechanical drawing/lifecycle/stock unverified

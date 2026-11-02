@@ -1,0 +1,24 @@
+{{ $name := .Params.dataset }}
+{{ $data := index hugo.Data.hardware $name }}
+{{ $fields := slice }}
+{{ range $data.fields }}{{ if not (in (slice "product_url" "documentation_url") .) }}{{ $fields = $fields | append . }}{{ end }}{{ end }}
+{{ $labels := dict "component_id" "Component" "function" "Function" "manufacturer" "Manufacturer" "model" "Model" "manufacturer_reference" "Manufacturer reference" "supplier" "Supplier" "supplier_reference" "Supplier reference" "quantity_per_instrument" "Quantity / instrument" "quantity_total" "Total quantity" "quantity_unit" "Unit" "hardware_revision" "Revision" "validation_status" "Validation" "product_url" "Product" "notes" "Notes" }}
+<p>{{ len $data.rows }} entries · <a href="{{ printf "data/hardware/%s.csv" $name | relURL }}" download>Download CSV</a></p>
+{{ if $data.rows }}
+<div class="table-scroll" role="region" aria-label="{{ .Title }}" tabindex="0">
+<table>
+  <thead><tr>{{ range $fields }}<th scope="col">{{ index $labels . | default . }}</th>{{ end }}</tr></thead>
+  <tbody>
+    {{ range $data.rows }}
+    {{ $row := . }}
+    <tr>{{ range $fields }}
+      {{ $value := index $row . }}
+      <td>{{ partial "hardware-cell.html" (dict "field" . "value" $value "row" $row) }}</td>
+    {{ end }}</tr>
+    {{ end }}
+  </tbody>
+</table>
+</div>
+{{ else }}
+<p class="empty">No entries recorded yet. This table is generated from the source CSV.</p>
+{{ end }}

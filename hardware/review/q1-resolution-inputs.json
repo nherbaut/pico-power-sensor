@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-17",
+  "status": "PARTIAL; owner chose discrete MOSFET; suitable stocked replacement not verified at requested distributors",
+  "inputs": {
+    "AGENTS.md": "63dbcffb88ad91dcf2b98014da69cb9eb1ec2b3e31c98fc860278dd4a562185f",
+    "hardware/kicad/gen_footprints.py": "f3db5818f8df04241cfd42d8e6a72684d024ba759b05545e1a1c34756768c67f",
+    "hardware/kicad/gen_interposer_sch.py": "a5ab726c684bb1d410edcf47fe1673149593a724825ae9bb26fcaba77eeea66e",
+    "hardware/evidence/q1-review/sources.csv": "2112bff46a3d384acefdd443c7d34bc6d8a9a8d7909c801025a4aadc258ea2a2",
+    "hardware/evidence/q1-review/web-observations.csv": "0775d3a58be1b1ca149931f4068d28d0144449bc990447ce565b4b388527691f",
+    "hardware/evidence/protection/vishay-sup90p06-09l-rev-b.pdf": "de26cf4d149a1418f43ae30f832233a78b653cf45418232c6d718e2ad992f6b5"
+  },
+  "derived_artifacts": {
+    "docs/q1-resolution-2026-10-17.md": "3d698c3230d206528fcf37f28e23ccbaee56931d8ced7834ca94d593495228f0",
+    "HANDOFF.md": "60b7ee9f2cbad5d5523044c308a60ad8e36eb8f1ef34c5c8bcd46a03aaabf00e",
+    "hardware/purchase-bom.csv": "c04ce381fffc754ede4742e101be01160e5b0c53a3d9f4157609c4de78745955",
+    "hardware/purchase-bom.md": "2eeb2d83946d2cd274d54ed072263c42faffda0cb0686cd60b99d0c55c253f57",
+    "hardware/release-checklist.csv": "da871b36a99884b8b34bb49cbe9e6d0c95855dc6ab7540e14e758adc667ba7d0"
+  },
+  "recommendation": "Pololu restoration superseded by owner direction; SUP90P06-09L-E3 electrical compromise is unavailable from stock in checked listings",
+  "required_owner_decision": "Replacement component or sourcing/design compromise remains unresolved",
+  "vision": "394124;VISION-PROBE-PASS;SUP75p1/p2 visually inspected",
+  "not_performed": [
+    "Primary Infineon discontinuation PDF recovery",
+    "Candidate TO220 mechanical fit and lifecycle closure",
+    "CAD change or regeneration",
+    "New ERC/DRC/parity/copper checks",
+    "Ordering or powering hardware"
+  ],
+  "evidence_limits": [
+    "Mouser lifecycle label conflicts with other distributor Active labels; maker exact-code Active not established",
+    "Exp-Tech stock/price is dated indexed indication",
+    "6mohm target in handoff is not a fixed limit in currentAGENTS; full supply budget unresolved",
+    "Historical input bindings are not silently refreshed after this documentation change"
+  ]
+}

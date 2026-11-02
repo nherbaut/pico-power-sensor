@@ -1,0 +1,2 @@
+evidence_id,kind,local_file,revision,retrieved_or_copied_date,source_url,sha256,inspection_scope
+PSU-S01,manufacturer manual via distributor mirror,korad-u200-english-v1-1.pdf,EnglishV1.1;PDFcreated2023-03-13,2026-10-17,https://priniotakiselectronics.gr/image/KORAD/U202Englishusermanual.pdf,a9eb221cf43e7fa920ba562819297d946eb8f10aa1a1bf03a5016911275efbdf,4-page image-only PDF validated; all pages rendered and visually read; U202 table/CVCC/current control/OCP button reviewed; no OCP trip timing/restart bound present; not a hardware measurement

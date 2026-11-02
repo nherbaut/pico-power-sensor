@@ -1,0 +1,5 @@
+observation_id,source_url,finding,limits
+Q1-W01,https://www.pololu.com/product/5383,Manufacturer Active and Preferred; reverse voltage and reverse current blocking; approx5mohm onpath,Current web retrieval; not thermal/fault qualification
+Q1-W02,https://exp-tech.de/en/products/pololu-5383,EUR4.10exVAT;21stock;Germany shipping,Web retrieved2026-10-17;indexed about2weeks earlier; price/stock not reserved;delivery excluded
+Q1-W03,https://www.mouser.com/en/ProductDetail/Infineon-Technologies/IPP120P04P4L-03?qs=%252BWnEOWq1JvFWUOHcG7BlGg%3D%3D,Obsolete;AKSA1 alias included;discontinuation notice2024-07-29 listed,Indexed distributor observation;primary discontinuation PDF not recovered;other distributors conflict
+Q1-W04,https://www.infineon.com/assets/row/public/documents/10/49/infineon-ipp-b-i120p04p4l-03-datasheet-en.pdf,Web text gives5.2mohm maximum at-4.5V for leaded variant,Direct downloads of this anddgdl link returned empty files;not retained or visually qualified;electrical figure not used to recommend
