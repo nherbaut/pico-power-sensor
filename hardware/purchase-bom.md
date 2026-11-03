@@ -29,13 +29,15 @@ Fitted quantity is the quantity needed for assembly. Indicative order quantity i
 | 23 | carrier | (enfiché sur J1/J2) | 1 | Raspberry Pi | SC1634 (Pico 2 WH) | Pico 2 W avec connecteurs soudés | Farnell | [4667138](https://uk.farnell.com/raspberry-pi/sc1634/rpi-pico-2w-brd-520kb-150mhz-w/dp/4667138) | 1 |
 | 24 | carrier | (enfiché sur J3/J4) | 1 | MikroElektronika | MIKROE-4810 | Power Monitor Click (INA228) | Farnell | [4922643](https://it.farnell.com/en-IT/mikroelektronika/mikroe-4810/add-on-board-power-monitor-click/dp/4922643) | 1 |
 | 25 | carrier | (enfiché sur J5, dessous) | 1 | Adafruit | 4682 | Module microSD SPI/SDIO | Mouser | [485-4682](https://uy.mouser.com/en/ProductDetail/Adafruit/4682?qs=hWgE7mdIu5TtvwzYJhYD8g%3D%3D) | 1 |
-| 26 | câbles | boîtiers câble capteur | 2 | JST | XHP-4 | Boîtier femelle JST-XH 4 pos. | Mouser | [306-XHP-4](https://ar.mouser.com/es/ProductDetail/JST-Commercial/XHP-4?qs=QpmGXVUTftGThrZgovvJKg%3D%3D) |  |
-| 27 | câbles | boîtiers câble UART | 2 | JST | XHP-5 | Boîtier femelle JST-XH 5 pos. | Mouser | [306-XHP-5](https://eu.mouser.com/en/ProductDetail/JST-Commercial/XHP-5?qs=QpmGXVUTftFWFYWMIpK8uw%3D%3D) |  |
+| 26 | câbles | boîtiers câble capteur | 2 | JST | XHP-4 | Boîtier femelle JST-XH 4 pos. | Farnell | [1516266](https://fr.farnell.com/jst-japan-solderless-terminals/xhp-4/connecteur-male-4-voies/dp/1516266) | 100 |
+| 27 | câbles | boîtiers câble UART | 2 | JST | XHP-5 | Boîtier femelle JST-XH 5 pos. | Farnell | [1516268](https://fr.farnell.com/jst-japan-solderless-terminals/xhp-5/connecteur-male-5-voies/dp/1516268) | 100 |
 | 28 | câbles | fils serti-serti | 8 | JST | ASXHSXH22K152 | Fil pré-serti XH-XH 22 AWG, 152 mm | Mouser | [306-ASXHSXH22K152](https://www.mouser.com/ProductDetail/JST-Commercial/ASXHSXH22K152?qs=ZcfC38r4PotCtS%2FBSUvSgA%3D%3D) | 8 |
 | 29 | mécanique | entretoises HAT | 1 | Adafruit | 3658 | Kit entretoises/vis nylon M2,5 (longueurs à ajuster au montage) | Mouser | [485-3658](https://www.mouser.com/en/ProductDetail/Adafruit/3658?qs=r5DSvlrkXmLTkJ8QGGkbxQ%3D%3D) | 1 |
 | 30 | carrier | removable card in Adafruit 4682 | 1 | Integral | INMSDH32G10-90U1 | 32 GB microSDHC Class 10 UHS-I U1 measurement storage card; format FAT32 | Farnell | [3410199](https://fr.farnell.com/integral/inmsdh32g10-90u1/32gb-ultimapro-microsd-c10-90/dp/3410199) | 1 |
 
 ## Open purchasing checks
+
+- JST XHP-4 and XHP-5 housings: Farnell 1516266 and 1516268 replace the Mouser sourcing entries for the same parts; two of each are needed. French indexed snapshots retrieved 2026-11-03 (approximately one month and three weeks old respectively) indicate stock and **minimum/multiple 100** for each. The table records those indicative order quantities; confirm the actual pack quantities and current prices at checkout. These are empty housings; retain the eight factory-terminated leads in line 28.
 
 - JST B5B-XH-A, Farnell 1516281: **EUR16.32 including VAT, reported by the owner on 2026-11-03**. This replaces the stale indexed price previously shown. Two pieces are needed; the quantity covered by this price and current order minimum remain to be confirmed. The earlier minimum of 100 is historical indexed evidence, not a confirmed current purchasing requirement; indicative order quantity is left blank.
 
