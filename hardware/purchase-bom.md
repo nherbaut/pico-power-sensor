@@ -10,7 +10,7 @@ Fitted quantity is the quantity needed for assembly. Indicative order quantity i
 | 2 | interposer | F1 (cartouche) | 1 | Littelfuse | 021706.3MXP | Fusible rapide 6,3 A, 5×20 mm | Farnell | [1354579](https://de.farnell.com/littelfuse/021706-3mxp/feinsicherung-flink-6-3a-250v/dp/1354579) | 1 |
 | 3 | interposer | F1 (porte-fusible) | 1 | Schurter | 0031.8201.G | Porte-fusible 5×20 ouvert, traversant (OGN) | Farnell | [4763851](https://uk.farnell.com/schurter/0031-8201-g/fuses/dp/4763851) | 10 |
 | 4 | interposer | Q1 | 1 | Vishay | Si4143DY-T1-GE3 | MOSFET canal P 30 V, SO-8, protection contre inversion de polarité | Farnell | [3470713 (lot de 5 pièces)](https://fr.farnell.com/vishay/si4143dy-t1-ge3/mosfet-canal-p-30v-25-3a-150-6w/dp/3470713) | 5 |
-| 7 | interposer | R1 | 1 | Bourns / Riedon | MSR1-0R005F1 | Shunt 5 mΩ 1 % 1 W traversant | Farnell | [4582734](https://uk.farnell.com/c/passive-components/resistors-fixed-value/current-sense-through-hole-resistors?product-range=riedon-msr-series&st=electronica) (catalogue) |  |
+| 7 | interposer | R1 | 1 | Bourns | MSR3-0R005F1 | Shunt 5 mΩ 1 % 3 W traversant; adaptation PCB requise | Farnell | [4582745](https://fr.farnell.com/en-FR/bourns/msr3-0r005f1/res-0r005-3w-metal-element-radial/dp/4582745) | 1 |
 | 8 | interposer | R2, R3, R4 | 3 | Vishay | PR01000108209JA100 (ou JR500) | Résistance 82 Ω 5 % 1 W axiale | Farnell | [3547179](https://fi.farnell.com/en-FI/vishay/pr01000108209ja100/res-82r-1w-axial-metal-film/dp/3547179) | 3 |
 | 9 | interposer + carrier | interposer R5, R6 ; carrier R1 | 3 | Vishay | MRS25000C4700FCT00 | Résistance 470 Ω 1 % axiale | Farnell | [9468463](https://es.farnell.com/en-ES/vishay/mrs25000c4700fct00/res-470r-1-600mw-axial-metal-film/dp/9468463) | 10 |
 | 10 | interposer + carrier | interposer R7 ; carrier R2, R3 | 3 | Vishay | MRS25000C1003FCT00 | Résistance 100 kΩ 1 % axiale | Farnell | [9463895](https://cz.farnell.com/vishay/mrs25000c1003fct00/res-100k-1-600mw-axial-metal-film/dp/9463895) | 10 |
@@ -37,7 +37,7 @@ Fitted quantity is the quantity needed for assembly. Indicative order quantity i
 
 ## Open purchasing checks
 
-- Shunt: a one-piece Farnell offer remains unverified; its table link opens the catalogue. Alternative for the same approved MPN: [DigiKey 696-1629-ND, MSR1-0R005F1](https://www.digikey.fr/fr/products/detail/riedon-products-by-bourns/MSR1-0R005F1/1641055). This does not change the selected supplier. Do not order the catalogue bulk tier.
+- Shunt: **Bourns MSR3-0R005F1, Farnell 4582745**, one piece; indexed French listing retrieved 2026-11-03 indicates 1,407 in stock at EUR1.53 excluding VAT, minimum/multiple one. **The current PCB still fits MSR1, not MSR3**: pitch and HAT clearance must be revised before assembly. See [the substitution record](../docs/shunt-update-2026-11-03.md).
 - Adafruit 2223: confirm the square-pin version and current availability.
 - HAT mounting: choose standoff lengths after measuring the assembled stack.
 - Storage: [Integral INMSDH32G10-90U1, Farnell 3410199](../docs/measurement-storage-card.md), one card. SPI, current and installed logging qualification remain open.

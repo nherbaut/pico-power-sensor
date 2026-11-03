@@ -56,9 +56,11 @@ kicad-cli pcb drc --severity-all --schematic-parity --exit-code-violations -o dr
 - **Interposer reverse-polarity protection:** Vishay Si4143DY-T1-GE3 in SO-8, with 10 kΩ gate pull-down R8. Order J1 → Q1 → F1 → R1. The SO-8 exception is recorded in AGENTS.md. Q1 is in the generated schematic, board and fabrication candidate. It does not block reverse current from the Pi side.
 - **Measurement storage:** one Integral INMSDH32G10-90U1, 32 GB, Farnell 3410199; prototype qualification remains partial.
 
+**Shunt BOM update, 2026-11-03:** the owner selected MSR3-0R005F1 / Farnell 4582745. CAD still uses MSR1 at 11.4 mm pitch; MSR3 needs 15.2 mm pitch and a new HAT clearance review. No generator, PCB or fabrication export was changed. See [substitution record](docs/shunt-update-2026-11-03.md).
+
 ## Open decisions (blocking)
 
-1. **Purchasing:** the [2026-11-02 audit](docs/bom-audit-2026-11-02.md) records supplier identifiers, indicated stock and pack minimums. Q1 is Farnell 3470713, minimum five in that observation. Exact manufacturer lifecycle remains incompletely qualified; current checkout must be confirmed. The shunt's one-piece Farnell offer and the Adafruit square-pin revision remain unresolved.
+1. **Purchasing:** the [2026-11-02 audit](docs/bom-audit-2026-11-02.md) records supplier identifiers, indicated stock and pack minimums. Q1 is Farnell 3470713, minimum five in that observation. Exact manufacturer lifecycle remains incompletely qualified; current checkout must be confirmed. The shunt BOM now selects MSR3-0R005F1, Farnell 4582745 (indexed French one-piece offer retrieved 2026-11-03); its PCB integration is blocking. The Adafruit square-pin revision remains unresolved.
 2. **Footprints and fit:** the Q1 SO-8 land was compared on paper with Vishay AN826 on 2026-10-17; see [footprint review](docs/footprint-review.md). Populated fit and the remaining release checks are still open. This is separate from supplier stock.
 3. **Storage:** verify SPI initialization, write-current peaks, rail margin, latency and power-loss behavior for the selected card.
 
