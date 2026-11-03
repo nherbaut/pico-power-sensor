@@ -14,7 +14,7 @@ Fitted quantity is the quantity needed for assembly. Indicative order quantity i
 | 8 | interposer | R2, R3, R4 | 3 | Vishay | PR01000108209JA100 (ou JR500) | Résistance 82 Ω 5 % 1 W axiale | Farnell | [3547179](https://fi.farnell.com/en-FI/vishay/pr01000108209ja100/res-82r-1w-axial-metal-film/dp/3547179) | 3 |
 | 9 | interposer + carrier | interposer R5, R6 ; carrier R1 | 3 | Vishay | MRS25000C4700FCT00 | Résistance 470 Ω 1 % axiale | Farnell | [9468463](https://es.farnell.com/en-ES/vishay/mrs25000c4700fct00/res-470r-1-600mw-axial-metal-film/dp/9468463) | 10 |
 | 10 | interposer + carrier | interposer R7 ; carrier R2, R3 | 3 | Vishay | MRS25000C1003FCT00 | Résistance 100 kΩ 1 % axiale | Farnell | [9463895](https://cz.farnell.com/vishay/mrs25000c1003fct00/res-100k-1-600mw-axial-metal-film/dp/9463895) | 10 |
-| 11 | interposer + carrier | interposer J5 ; carrier J7 | 2 | JST | B4B-XH-A | Embase JST-XH 4 pos. verticale | Mouser | [306-B4BXHALFSN](https://nl.mouser.com/en/ProductDetail/JST-Commercial/B4B-XH-ALFSN?qs=cdbOS8ANM9CfC08d%252BywhFw%3D%3D) |  |
+| 11 | interposer + carrier | interposer J5 ; carrier J7 | 2 | JST | B4B-XH-A | Embase JST-XH 4 pos. verticale | Farnell | [1516278](https://fr.farnell.com/jst-japan-solderless-terminals/b4b-xh-a-lf-sn/embase-male-vertical-4-voies/dp/1516278) | 100 |
 | 12 | interposer + carrier | interposer J6 ; carrier J8 | 2 | JST | B5B-XH-A | Embase JST-XH 5 pos. verticale | Mouser | [306-B5BXHALFSN](https://br.mouser.com/ProductDetail/JST-Commercial/B5B-XH-ALFSN?qs=cdbOS8ANM9ApoXpxtybURg%3D%3D) | 2 |
 | 13 | interposer + HAT | interposer J2 ; rehausse HAT | 2 | Adafruit | 2223 | Connecteur empilable 2×20 (version broches carrées) | Mouser | [485-2223](https://cz.mouser.com/ProductDetail/Adafruit/2223?qs=GURawfaeGuDU%2FR2tcwJycQ%3D%3D) |  |
 | 14 | carrier | J1, J2 | 2 | Harwin | M20-7822042 | Support femelle 20 pos., 2,54 mm (Pico) | Farnell | [3755879](https://ie.farnell.com/harwin/m20-7822042/conn-rcpt-20pos-1row-2-54mm/dp/3755879?MER=sy-me-pd-mi-alte) | 11 |
@@ -36,6 +36,8 @@ Fitted quantity is the quantity needed for assembly. Indicative order quantity i
 | 30 | carrier | removable card in Adafruit 4682 | 1 | Integral | INMSDH32G10-90U1 | 32 GB microSDHC Class 10 UHS-I U1 measurement storage card; format FAT32 | Farnell | [3410199](https://fr.farnell.com/integral/inmsdh32g10-90u1/32gb-ultimapro-microsd-c10-90/dp/3410199) | 1 |
 
 ## Open purchasing checks
+
+- JST B4B-XH-A: Farnell 1516278 is the same B4B-XH-A (LF)(SN), with two needed. The indexed French snapshot retrieved 2026-11-03 reports stock but **minimum/multiple 100**, EUR0.295 per piece / EUR29.50 excluding VAT for 100. Confirm current checkout; this is not an order authorization.
 
 - Shunt: **Bourns MSR3-0R005F1, Farnell 4582745**, one piece; indexed French listing retrieved 2026-11-03 indicates 1,407 in stock at EUR1.53 excluding VAT, minimum/multiple one. **The current PCB still fits MSR1, not MSR3**: pitch and HAT clearance must be revised before assembly. See [the substitution record](../docs/shunt-update-2026-11-03.md).
 - Adafruit 2223: confirm the square-pin version and current availability.
