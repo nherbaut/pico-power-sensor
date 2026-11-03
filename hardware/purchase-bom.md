@@ -15,7 +15,7 @@ Fitted quantity is the quantity needed for assembly. Indicative order quantity i
 | 9 | interposer + carrier | interposer R5, R6 ; carrier R1 | 3 | Vishay | MRS25000C4700FCT00 | Résistance 470 Ω 1 % axiale | Farnell | [9468463](https://es.farnell.com/en-ES/vishay/mrs25000c4700fct00/res-470r-1-600mw-axial-metal-film/dp/9468463) | 10 |
 | 10 | interposer + carrier | interposer R7 ; carrier R2, R3 | 3 | Vishay | MRS25000C1003FCT00 | Résistance 100 kΩ 1 % axiale | Farnell | [9463895](https://cz.farnell.com/vishay/mrs25000c1003fct00/res-100k-1-600mw-axial-metal-film/dp/9463895) | 10 |
 | 11 | interposer + carrier | interposer J5 ; carrier J7 | 2 | JST | B4B-XH-A | Embase JST-XH 4 pos. verticale | Farnell | [1516278](https://fr.farnell.com/jst-japan-solderless-terminals/b4b-xh-a-lf-sn/embase-male-vertical-4-voies/dp/1516278) | 100 |
-| 12 | interposer + carrier | interposer J6 ; carrier J8 | 2 | JST | B5B-XH-A | Embase JST-XH 5 pos. verticale | Farnell | [1516281](https://fr.farnell.com/jst-japan-solderless-terminals/b5b-xh-a-lf-sn/embase-male-vertical-5-voies/dp/1516281) | 100 |
+| 12 | interposer + carrier | interposer J6 ; carrier J8 | 2 | JST | B5B-XH-A | Embase JST-XH 5 pos. verticale | Farnell | [1516281](https://fr.farnell.com/jst-japan-solderless-terminals/b5b-xh-a-lf-sn/embase-male-vertical-5-voies/dp/1516281) | |
 | 13 | interposer + HAT | interposer J2 ; rehausse HAT | 2 | Adafruit | 2223 | Connecteur empilable 2×20 (version broches carrées) | Mouser | [485-2223](https://cz.mouser.com/ProductDetail/Adafruit/2223?qs=GURawfaeGuDU%2FR2tcwJycQ%3D%3D) |  |
 | 14 | carrier | J1, J2 | 2 | Harwin | M20-7822042 | Support femelle 20 pos., 2,54 mm (Pico) | Farnell | [3755879](https://ie.farnell.com/harwin/m20-7822042/conn-rcpt-20pos-1row-2-54mm/dp/3755879?MER=sy-me-pd-mi-alte) | 11 |
 | 15 | carrier | J3, J4 | 2 | Harwin | M20-7820842 | Support femelle 8 pos., 2,54 mm (MikroE) | Farnell | [3225927](https://uk.farnell.com/harwin/m20-7820842/connector-rcpt-8pos-2-54mm-1row/dp/3225927) | 2 |
@@ -37,7 +37,7 @@ Fitted quantity is the quantity needed for assembly. Indicative order quantity i
 
 ## Open purchasing checks
 
-- JST B5B-XH-A: Farnell 1516281 is the same B5B-XH-A (LF)(SN), with two needed. The approximately two-month-old indexed French snapshot retrieved 2026-11-03 reports stock but **minimum/multiple 100**, EUR0.356 per piece / EUR35.60 excluding VAT for 100. Confirm current checkout; this is not an order authorization.
+- JST B5B-XH-A, Farnell 1516281: **EUR16.32 including VAT, reported by the owner on 2026-11-03**. This replaces the stale indexed price previously shown. Two pieces are needed; the quantity covered by this price and current order minimum remain to be confirmed. The earlier minimum of 100 is historical indexed evidence, not a confirmed current purchasing requirement; indicative order quantity is left blank.
 
 - JST B4B-XH-A: Farnell 1516278 is the same B4B-XH-A (LF)(SN), with two needed. The indexed French snapshot retrieved 2026-11-03 reports stock but **minimum/multiple 100**, EUR0.295 per piece / EUR29.50 excluding VAT for 100. Confirm current checkout; this is not an order authorization.
 
