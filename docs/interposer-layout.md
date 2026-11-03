@@ -12,7 +12,7 @@ Stepped outline (0,0)–(66,0)–(66,37)–(67.13,37)–(67.13,46)–(0,46); NPT
 
 | Area | Parts | Why |
 |---|---|---|
-| Right edge and top, right to left | J1 bench terminal (wire entry at the right edge), Q1 Si4143DY (SO-8) below J1 with source pads on the left and drain pads on the right, R8 gate resistor below Q1, F1 fuse holder | Order J1 → Q1 → F1 → R1 (owner decision 2026-10-17 replacing the Pololu 5383). The 5 A path is carried by two copper pours: J1 pin 1 to the four drain pads, and the three source pads to F1 pin 1. Fuse and terminal stay at the board edge for access |
+| Right edge and top, right to left | J1 bench terminal (wire entry at the right edge), Q1 Si4143DY (SO-8) below J1 with source pads on the left and drain pads on the right, R8 gate resistor below Q1, F1 fuse holder | Order J1 → Q1 → F1 → R1. The 5 A path is carried by two copper pours: J1 pin 1 to the four drain pads, and the three source pads to F1 pin 1. Fuse and terminal stay at the board edge for access |
 | Left column | R1 shunt, standing vertically | Shortest path from the fuse output to Pi pins 2/4; Kelvin pickups at the inner edge of each lead pad, current enters/leaves from the outer side |
 | Centre | R2/R3 (Kelvin 82 Ω), R4 (VBUS 82 Ω), J5 sense connector | Observation resistors sit at the source, before the cable. Kelvin pair routed side by side to J5 |
 | Above the header | R5/R6 (470 Ω), R7 (100 kΩ), J6 UART connector | Short runs from Pi pins 8, 10, 16 |
@@ -63,7 +63,7 @@ The interposer plugs onto the Pi with the Adafruit 2223 stacking socket undernea
 | JST XH header with mated housing | about 9–10 mm (estimate) |
 | MSR1 shunt | up to 7.6 mm (datasheet 5.1 ± 2.5 mm) |
 
-So the board works without a HAT, but an AI HAT cannot sit directly on it. **Owner decision 2026-10-17 ("yes"): raise the HAT.** Plug a second Adafruit 2223 onto the interposer's J2 pins as an extender and mount the HAT on it with longer M2.5 stand-offs. Estimated HAT gap becomes about 17 mm (two socket heights) against about 12.7 mm for the tallest part now that the Pololu module is gone (fuse holder), a margin of about 4 mm. These are drawing estimates; the stack and stand-off lengths must be measured after first assembly. No board change is needed. Both items are in the BOM.
+So the board works without a HAT, but an AI HAT cannot sit directly on it. **Owner decision 2026-10-17 ("yes"): raise the HAT.** Plug a second Adafruit 2223 onto the interposer's J2 pins as an extender and mount the HAT on it with longer M2.5 stand-offs. Estimated HAT gap becomes about 17 mm (two socket heights) against about 12.7 mm for the tallest part (fuse holder), a margin of about 4 mm. These are drawing estimates; the stack and stand-off lengths must be measured after first assembly. No board change is needed. Both items are in the BOM.
 
 ## Open items
 

@@ -1,16 +1,14 @@
-# Project handoff — current state (2026-10-17, evening)
+# Project handoff — current state (2026-11-03)
 
-**Update 2026-11-02:** the project is now published on the `proto` branch of `nherbaut/pico-power-sensor`; GitHub Pages builds that branch. See [the BOM audit](docs/bom-audit-2026-11-02.md) and [32 GB storage-card selection](docs/measurement-storage-card.md). The older Codex Q1 follow-up below predates the owner-selected Si4143DY and is historical; current purchase line 4 already records Farnell 3470713. No CAD was changed in the November review.
+The project is published on the `proto` branch of `nherbaut/pico-power-sensor`; GitHub Pages builds that branch. See [the BOM audit](docs/bom-audit-2026-11-02.md) and [32 GB storage-card selection](docs/measurement-storage-card.md). No CAD was changed in the November documentary updates.
 
 Read [AGENTS.md](AGENTS.md) first (controlling rules), then this file. The older [HANDOFF-DUMB-CLAUDE.md](HANDOFF-DUMB-CLAUDE.md) describes the state *before* schematics existed and is now historical.
-
-**Codex follow-up, 2026-10-17:** read [Q1 procurement review](docs/q1-resolution-2026-10-17.md) before acting on the Q1 recommendations below. Mouser also labels the proposed IPP120P04P4L-03 replacement obsolete and lists AKSA1 as an alias; its lifecycle is not established by this handoff. Pololu 5383 is manufacturer Active and Preferred, with a dated Exp-Tech listing of €4.10 ex-VAT / 21 in stock. The owner subsequently chose to continue without Pololu and requested a discrete MOSFET from Mouser or Farnell. That supersedes the restoration recommendation. The follow-up search has not verified a suitable stocked replacement: SUP90P06-09L-E3 is an electrical compromise but Mouser shows zero stock and Farnell quotes about 44 weeks. Current Q1 procurement is blocked; CAD has not been changed.
 
 The owner (Nicolas) cannot review schematics or layouts technically. Technical reviews so far were done by Claude; ask him only plain-language decisions (parts, cost, physical arrangement, yes/no). He writes French or English: answer in the language of each message.
 
 ## Where the design stands
 
-All ten AGENTS.md steps have a first revision, committed locally on `master` (no remote). Nothing has been ordered, uploaded or powered.
+All ten AGENTS.md steps have a first revision. The current prototype is committed and published on `proto`. Nothing has been ordered, submitted for fabrication or powered. The owner confirmed on 2026-11-02 that no parts have been purchased.
 
 | Step | Status | Main files |
 |---|---|---|
@@ -49,24 +47,28 @@ kicad-cli pcb drc --severity-all --schematic-parity --exit-code-violations -o dr
 - Copper resistance check (5 A path): needs shapely/scipy, installed by the owner in `~/.venvs/kicad-tools`. The skill's `copper_guards.py` reads KiCad 10 net syntax, so run it on a copy made by `hardware/kicad/tools/netnames_for_guard.py`, with `--grid 0.05`. Last result: `hardware/kicad/interposer/copper-resistance.txt` (13/13 pass, two with very small margin).
 - Gerbers: `kicad-cli pcb export gerbers ...` and `pcb export drill ...` into `hardware/fab/<board>-r1/`, then zip (see git history for the exact commands).
 
-## Decisions taken today (2026-10-17), all recorded in docs/BOM
+## Current design choices
 
 - Pico socket headers: option A (Pico 2 WH factory headers, MikroE factory headers, Adafruit-supplied strip) into Harwin M20-782 sockets.
 - AI HAT: raised with a second Adafruit 2223 as extender plus M2.5 nylon standoffs (Adafruit 3658 kit); standoff lengths to be set at first assembly.
 - Carrier pin map moved so each bus uses the Pico pins nearest its module: LEDs GP28/27/26/22/21; microSD SPI1 (SCK GP10, MOSI GP11, MISO GP8, CS GP7, CD GP6); I2C0 SDA GP12 / SCL GP13; ALERT GP9; UART GP0–GP3 unchanged. See `docs/carrier-integration.md`, `hardware/review/carrier-pico-pin-contract.csv`.
 - Carrier U1 (SN74LV125AN socket) and C2 moved to the back side; nothing sits under the MikroE module.
-- **Interposer reverse-polarity protection:** the Pololu 5383 (not sold by Farnell/Mouser) was replaced by a P-MOSFET Q1 + 10 kΩ gate resistor R8, order J1 → Q1 → F1 → R1. The first choice, Infineon IPP80P03P4L-04 (TO-220), is end of life; after review (see `docs/q1-resolution-2026-10-17.md`) **Q1 is now the Vishay Si4143DY-T1-GE3 in SO-8** (9.2 mΩ max at −4.5 V / 5 A, pinout 1-3 S, 4 G, 5-8 D), generated into the interposer schematic, board and Gerbers.
+- **Interposer reverse-polarity protection:** Vishay Si4143DY-T1-GE3 in SO-8, with 10 kΩ gate pull-down R8. Order J1 → Q1 → F1 → R1. The SO-8 exception is recorded in AGENTS.md. Q1 is in the generated schematic, board and fabrication candidate. It does not block reverse current from the Pi side.
+- **Measurement storage:** one Integral INMSDH32G10-90U1, 32 GB, Farnell 3410199; prototype qualification remains partial.
 
 ## Open decisions (blocking)
 
-1. **Q1 sourcing:** the owner reported 100,612 Si4143DY pieces ready to dispatch but did not name the distributor. Record distributor and order code in `hardware/purchase-bom.csv` line 4, and confirm the exact code `SI4143DY-T1-GE3` is active (DigiKey: Active, 0 stock, ~19 weeks). If it is unavailable, the fallbacks and the rejected parts are in `docs/q1-resolution-2026-10-17.md` and `docs/protection-options.md`; reverting to the Pololu 5383 (Exp-Tech) is the earlier Codex recommendation.
-2. **Q1 footprint:** the SO-8 land is the stock KiCad SOIC-8 with pads renamed S/G/D; compare it with Vishay's recommended land (not read) before release. No hole exception is needed any more (the TO-220 1.2 mm question is withdrawn).
+1. **Purchasing:** the [2026-11-02 audit](docs/bom-audit-2026-11-02.md) records supplier identifiers, indicated stock and pack minimums. Q1 is Farnell 3470713, minimum five in that observation. Exact manufacturer lifecycle remains incompletely qualified; current checkout must be confirmed. The shunt's one-piece Farnell offer and the Adafruit square-pin revision remain unresolved.
+2. **Footprints and fit:** the Q1 SO-8 land was compared on paper with Vishay AN826 on 2026-10-17; see [footprint review](docs/footprint-review.md). Populated fit and the remaining release checks are still open. This is separate from supplier stock.
+3. **Storage:** verify SPI initialization, write-current peaks, rail margin, latency and power-loss behavior for the selected card.
 
 When Q1 changes again: update `gen_interposer_sch.py` value/MPN/footprint, `gen_footprints.py`, `gen_interposer_pcb.py` (placement and the RAW/PROTECTED pours), BOM row, purchase BOM line 4, `docs/protection-options.md`, AGENTS.md protection row; regenerate; re-run ERC, DRC, copper collision and copper resistance checks; re-export interposer Gerbers; rebind `hardware/release-checklist.csv` hashes without dropping rows added by other sessions.
 
 ## Purchase BOM notes
 
-`hardware/purchase-bom.csv` holds the owner's Farnell/Mouser codes (supplied by him, not verified by Claude on the distributor sites). The owner's last pasted list still contained the obsolete Pololu lines 4–6; the file marks lines 5–6 removed and line 4 = Q1. Line 20 (10 kΩ) needs quantity 3. Line 29 = one Adafruit 3658 kit. Line 13 (Adafruit 2223) must be the current square-pin version.
+The [purchase CSV](hardware/purchase-bom.csv) and [readable list](hardware/purchase-bom.md) contain only current items. Fitted quantities and indicative order quantities are separate. Line IDs remain stable for the sourcing audit; removed items are preserved in git history rather than as zero-quantity shopping rows.
+
+The dated audit and hash receipts describe their original snapshots. The 2026-11-03 documentation cleanup changes bound BOM inputs; those receipts are not fresh qualification passes and were not rebound. Historical component comparisons remain available in the dated review documents.
 
 ## Other open items before fabrication (see release checklist)
 
